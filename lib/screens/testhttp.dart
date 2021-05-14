@@ -9,9 +9,21 @@ import 'package:argon_flutter/widgets/drawer.dart';
 
 // ignore: must_be_immutable
 class Testhttp extends StatelessWidget {
+  Future<List<Course>> futureListCourse = fetchCourse();
+
   @override
   Widget build(BuildContext context) {
     fetchCourse().then((courses) => print(courses));
+
+    FutureBuilder<List<Course>>(
+      future: futureListCourse,
+      builder: (context, courses) {
+        print(courses);
+
+        // By default, show a loading spinner.
+        return CircularProgressIndicator();
+      },
+    );
 
     return Scaffold(
         extendBodyBehindAppBar: true,
