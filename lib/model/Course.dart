@@ -11,8 +11,11 @@ Future<Course> fetchCourse() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     var responseJson = jsonDecode(response.body);
-    print(responseJson);
-    // return Course.fromJson(jsonDecode(response.body));
+    // print(responseJson);
+    for (var element in responseJson) {
+      print(element['course_name']);
+    }
+    return Course.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.

@@ -36,13 +36,13 @@ class CardShopping extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                       )),
-                  FlatButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.initial,
+                  TextButton(
+                    /*textColor: ArgonColors.white,
+                    color: ArgonColors.initial,*/
                     onPressed: () {},
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                       padding: EdgeInsets.only(
                           left: 5.0, right: 5.0, top: 12, bottom: 12),
@@ -97,15 +97,15 @@ class CardShopping extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        FlatButton(
-                          textColor: ArgonColors.white,
-                          color: ArgonColors.initial,
+                        TextButton(
+                          /*textColor: ArgonColors.white,
+                          color: ArgonColors.initial,*/
                           onPressed: () {
                             deleteOnPress();
                           },
-                          shape: RoundedRectangleBorder(
+                          /*shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.0),
-                          ),
+                          ),*/
                           child: Padding(
                               padding: EdgeInsets.only(
                                   left: 5.0, right: 5.0, top: 12, bottom: 12),
@@ -114,13 +114,13 @@ class CardShopping extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                       fontSize: 11.0))),
                         ),
-                        FlatButton(
-                          textColor: ArgonColors.white,
-                          color: ArgonColors.initial,
+                        TextButton(
+                          /*textColor: ArgonColors.white,
+                          color: ArgonColors.initial,*/
                           onPressed: () {},
-                          shape: RoundedRectangleBorder(
+                          /*shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.0),
-                          ),
+                          ),*/
                           child: Padding(
                               padding: EdgeInsets.only(
                                   left: 5.0, right: 5.0, top: 12, bottom: 12),

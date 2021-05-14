@@ -76,13 +76,13 @@ class _RegisterState extends State<Register> {
                                         Container(
                                           // width: 0,
                                           height: 36,
-                                          child: RaisedButton(
-                                              textColor: ArgonColors.primary,
-                                              color: ArgonColors.secondary,
+                                          child: ElevatedButton(
+                                              /*textColor: ArgonColors.primary,
+                                              color: ArgonColors.secondary,*/
                                               onPressed: () {},
-                                              shape: RoundedRectangleBorder(
+                                              /*shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(4)),
+                                                      BorderRadius.circular(4)),*/
                                               child: Padding(
                                                   padding: EdgeInsets.only(
                                                       bottom: 10,
@@ -113,13 +113,13 @@ class _RegisterState extends State<Register> {
                                         Container(
                                           // width: 0,
                                           height: 36,
-                                          child: RaisedButton(
-                                              textColor: ArgonColors.primary,
-                                              color: ArgonColors.secondary,
+                                          child: ElevatedButton(
+                                              /*textColor: ArgonColors.primary,
+                                              color: ArgonColors.secondary,*/
                                               onPressed: () {},
-                                              shape: RoundedRectangleBorder(
+                                              /*shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(4)),
+                                                      BorderRadius.circular(4)),*/
                                               child: Padding(
                                                   padding: EdgeInsets.only(
                                                       bottom: 10,
@@ -260,18 +260,18 @@ class _RegisterState extends State<Register> {
                                       Padding(
                                         padding: const EdgeInsets.only(top: 16),
                                         child: Center(
-                                          child: FlatButton(
-                                            textColor: ArgonColors.white,
-                                            color: ArgonColors.primary,
+                                          child: TextButton(
+                                            /*textColor: ArgonColors.white,
+                                            color: ArgonColors.primary,*/
                                             onPressed: () {
                                               // Respond to button press
                                               Navigator.pushNamed(
                                                   context, '/home');
                                             },
-                                            shape: RoundedRectangleBorder(
+                                            /*shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
-                                            ),
+                                            ),*/
                                             child: Padding(
                                                 padding: EdgeInsets.only(
                                                     left: 16.0,

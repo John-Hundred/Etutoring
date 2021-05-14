@@ -7,6 +7,7 @@ import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 
+// ignore: must_be_immutable
 class Testhttp extends StatelessWidget {
   Future<Course> courses;
 

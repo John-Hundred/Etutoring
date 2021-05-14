@@ -55,16 +55,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 16),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.initial,
+                  child: ElevatedButton(
+                    //textColor: ArgonColors.white,
+                    //color: ArgonColors.initial,
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -79,16 +79,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.text,
-                    color: ArgonColors.secondary,
+                  child: ElevatedButton(
+                    // textColor: ArgonColors.text,
+                    // color: ArgonColors.secondary,
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -103,16 +103,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.primary,
+                  child: ElevatedButton(
+                    // textColor: ArgonColors.white,
+                    // color: ArgonColors.primary,
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -127,16 +127,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.info,
+                  child: ElevatedButton(
+                    /*textColor: ArgonColors.white,
+                    color: ArgonColors.info,*/
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -151,16 +151,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.success,
+                  child: ElevatedButton(
+                    /*textColor: ArgonColors.white,
+                    color: ArgonColors.success,*/
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -175,16 +175,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.warning,
+                  child: ElevatedButton(
+                    /*textColor: ArgonColors.white,
+                    color: ArgonColors.warning,*/
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
@@ -199,16 +199,16 @@ class _ElementsState extends State<Elements> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 34.0, right: 34.0, top: 8),
-                  child: RaisedButton(
-                    textColor: ArgonColors.white,
-                    color: ArgonColors.error,
+                  child: ElevatedButton(
+                    /*textColor: ArgonColors.white,
+                    color: ArgonColors.error,*/
                     onPressed: () {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/home');
                     },
-                    shape: RoundedRectangleBorder(
+                    /*shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
-                    ),
+                    ),*/
                     child: Padding(
                         padding: EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 12, bottom: 12),
