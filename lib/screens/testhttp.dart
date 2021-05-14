@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:argon_flutter/model/course.dart';
 import 'package:flutter/material.dart';
 import 'package:argon_flutter/constants/Theme.dart';
 
@@ -7,8 +8,13 @@ import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 
 class Testhttp extends StatelessWidget {
+  Future<Course> courses;
+
   @override
   Widget build(BuildContext context) {
+    /*courses = fetchCourse();
+    print(courses);*/
+
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: Navbar(
