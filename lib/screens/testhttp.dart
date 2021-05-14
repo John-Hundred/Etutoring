@@ -12,8 +12,8 @@ class Testhttp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*courses = fetchCourse();
-    print(courses);*/
+    courses = fetchCourse();
+    // print(courses);
 
     return Scaffold(
         extendBodyBehindAppBar: true,

@@ -5,12 +5,14 @@ import 'package:http/http.dart' as http;
 const URL = "e-tutoring-web/ws/ws/course_list.php";
 
 Future<Course> fetchCourse() async {
-  final response = await http.get(Uri.http('locahost', URL));
-
+  final response = await http.get(Uri.http('192.168.56.1', URL));
+  print(response);
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    return Course.fromJson(jsonDecode(response.body));
+    var responseJson = jsonDecode(response.body);
+    print(responseJson);
+    // return Course.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
