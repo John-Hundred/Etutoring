@@ -340,12 +340,12 @@ class Testhttp extends StatelessWidget {
                       FractionalTranslation(
                           translation: Offset(0.0, -0.5),
                           child: Align(
-                            child: CircleAvatar(
+                            /*child: CircleAvatar(
                               backgroundImage: AssetImage(
                                   "assets/img/profile-screen-avatar.jpg"),
                               radius: 65.0,
                               // maxRadius: 200.0,
-                            ),
+                            ),*/
                             alignment: FractionalOffset(0.5, 0.0),
                           ))
                     ]),
