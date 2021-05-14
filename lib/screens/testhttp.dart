@@ -18,10 +18,19 @@ class Testhttp extends StatelessWidget {
     FutureBuilder<List<Course>>(
       future: futureListCourse,
       builder: (context, courses) {
-        print(courses);
-
-        // By default, show a loading spinner.
-        return CircularProgressIndicator();
+        // print(courses);
+        if (courses.hasData) {
+          // print(courses.data);
+          return ListView(
+            scrollDirection: Axis.horizontal,
+            children:
+                courses.data.map((course) => Text(course.toString())).toList(),
+          );
+        } else if (courses.hasError) {
+          return Text(courses.error.toString());
+        } else {
+          return CircularProgressIndicator();
+        }
       },
     );
 
