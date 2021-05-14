@@ -9,12 +9,9 @@ import 'package:argon_flutter/widgets/drawer.dart';
 
 // ignore: must_be_immutable
 class Testhttp extends StatelessWidget {
-  Future<Course> courses;
-
   @override
   Widget build(BuildContext context) {
-    courses = fetchCourse();
-    // print(courses);
+    fetchCourse().then((courses) => print(courses));
 
     return Scaffold(
         extendBodyBehindAppBar: true,
