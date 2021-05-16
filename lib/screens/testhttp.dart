@@ -20,7 +20,7 @@ class Testhttp extends StatelessWidget {
       builder: (context, courses) {
         // print(courses);
         if (courses.hasData) {
-          // print(courses.data);
+          print(courses.data);
           return ListView(
             scrollDirection: Axis.horizontal,
             children:
@@ -41,7 +41,7 @@ class Testhttp extends StatelessWidget {
           transparent: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
-        drawer: ArgonDrawer(currentPage: "Profile"),
+        drawer: ArgonDrawer(currentPage: "Testhttp"),
         body: Stack(children: <Widget>[
           Container(
               decoration: BoxDecoration(

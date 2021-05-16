@@ -89,7 +89,7 @@ class ArgonDrawer extends StatelessWidget {
                   title: "Articles",
                   isSelected: currentPage == "Articles" ? true : false),
               DrawerTile(
-                  icon: Icons.settings_input_component,
+                  icon: Icons.texture_sharp,
                   onTap: () {
                     if (currentPage != "Testhttp")
                       Navigator.pushReplacementNamed(context, '/testhttp');
