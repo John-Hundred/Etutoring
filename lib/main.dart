@@ -2,7 +2,6 @@ import 'package:argon_flutter/screens/testhttp.dart';
 import 'package:flutter/material.dart';
 
 // screens
-import 'package:argon_flutter/screens/onboarding.dart';
 import 'package:argon_flutter/screens/home.dart';
 import 'package:argon_flutter/screens/profile.dart';
 import 'package:argon_flutter/screens/register.dart';
@@ -17,10 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Argon PRO Flutter',
         theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: "/onboarding",
+        initialRoute: "/home",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          "/onboarding": (BuildContext context) => new Onboarding(),
           "/home": (BuildContext context) => new Home(),
           "/profile": (BuildContext context) => new Profile(),
           "/articles": (BuildContext context) => new Articles(),
