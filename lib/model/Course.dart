@@ -16,10 +16,10 @@ Future<List<Course>> fetchCourse() async {
     var responseJson = jsonDecode(response.body);
     // print(responseJson);
     for (var element in responseJson) {
-      Course course = new Course(
-          element['course_id'], element['course_name'], element['course_cfu']);
+      Course course = new Course(element['course_id'], element['course_name'],
+          element['course_cfu'], element['enrollment_year']);
       courses.add(course);
-      // print(course);
+      print(course);
     }
     return courses;
     // return Course.fromJson(jsonDecode(response.body));
@@ -34,6 +34,7 @@ class Course {
   String courseId;
   String courseName;
   String courseCfu;
+  String enrollmentYear;
 
   /*Course({
     this.courseId,
@@ -41,19 +42,26 @@ class Course {
     this.courseCfu,
   });*/
 
-  Course(String courseId, String courseName, String courseCfu) {
+  Course(String courseId, String courseName, String courseCfu,
+      String enrollmentYear) {
     this.courseId = courseId;
     this.courseName = courseName;
     this.courseCfu = courseCfu;
+    this.enrollmentYear = enrollmentYear;
   }
 
   toString() {
+    String enrollmentYear = "";
+    // print(this.enrollmentYear);
+    if (this.enrollmentYear != null) enrollmentYear = this.enrollmentYear;
     return 'id: ' +
         this.courseId +
         ', name: ' +
         this.courseName +
         ', cfu: ' +
         this.courseCfu +
+        ', enrollmentYear: ' +
+        enrollmentYear +
         "\n";
   }
 

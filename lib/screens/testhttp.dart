@@ -13,12 +13,24 @@ class Testhttp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print(this.futureListCourse);
+
+    /**
+   * fetchCourse ritorna un Future<List<Course>>
+   * print(fetchCourse); -> non va bene perché torna un oggetto non strutturato per l'async
+   * Soluzione:
+   * fetchCourse().then((courses) => print(courses));
+   * con il .then si specifica che si vuole ricevero dalla funzione fetchCourse il ritorno (return)
+   * il return è una Lista semplice -> si può stampare
+   * [id: 1, name: Analisi Matematica, cfu: 9 , id: 1,
+   *  name: Analisi Matematica, cfu: 9, id: 2, name: Architettura degli Elaboratori, cfu: 9]
+   */
     fetchCourse().then((courses) => print(courses));
 
     FutureBuilder<List<Course>>(
       future: futureListCourse,
       builder: (context, courses) {
-        // print(courses);
+        print(courses);
         if (courses.hasData) {
           print(courses.data);
           return ListView(
