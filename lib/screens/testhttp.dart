@@ -190,10 +190,10 @@ class Testhttp extends StatelessWidget {
                                                   ),
                                             ),
                                             Expanded(
-                                              /*padding: EdgeInsets.symmetric(
-                                                  horizontal: 8.0,
-                                                  vertical: 8.0),*/
-                                              child: getData(),
+                                              child: Padding(
+                                                  child: getData(),
+                                                  padding: const EdgeInsets.all(
+                                                      16.0)),
                                             ),
                                           ],
                                         ),
