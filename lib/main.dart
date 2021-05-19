@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ListItem> items = List<ListItem>.generate(
-      6,
+      10,
       (i) => i % 6 == 0
           ? HeadingItem('Heading $i')
           : MessageItem('Sender $i', 'Message body $i'),
