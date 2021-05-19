@@ -13,6 +13,13 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final List<ListItem> items = List<ListItem>.generate(
+      6,
+      (i) => i % 6 == 0
+          ? HeadingItem('Heading $i')
+          : MessageItem('Sender $i', 'Message body $i'),
+    );
+
     return MaterialApp(
         title: 'Argon PRO Flutter',
         theme: ThemeData(fontFamily: 'OpenSans'),
@@ -24,14 +31,7 @@ class MyApp extends StatelessWidget {
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
           "/account": (BuildContext context) => new Register(),
-          "/testhttp": (BuildContext context) => new Testhttp(
-                items: List<ListItem>.generate(
-                  6,
-                  (i) => i % 6 == 0
-                      ? HeadingItem('Heading $i')
-                      : MessageItem('Sender $i', 'Message body $i'),
-                ),
-              ),
+          "/testhttp": (BuildContext context) => new Testhttp(items: items),
         });
   }
 }
