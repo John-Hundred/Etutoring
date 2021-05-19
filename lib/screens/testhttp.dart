@@ -11,7 +11,24 @@ import 'package:argon_flutter/widgets/drawer.dart';
 class Testhttp extends StatelessWidget {
   Future<List<Course>> futureListCourse = fetchCourse();
 
+  getListWidgetData() {
+    List<Widget> coursesList =
+        []; // this will hold Rows according to available lines
+
+    fetchCourse().then((courses) => {
+          for (var course in courses)
+            {
+              // print(course.toString())
+              coursesList.add(Text(course.toString())),
+              // print(coursesList)
+            }
+        });
+    print(coursesList);
+    return coursesList;
+  }
+
   getData() {
+    // this.getListWidgetData();
     return FutureBuilder<List<Course>>(
       future: this.futureListCourse,
       builder: (context, courses) {
@@ -20,7 +37,7 @@ class Testhttp extends StatelessWidget {
           return Text(courses.data.first.toString(),
               style: TextStyle(
                   color: ArgonColors.black,
-                  fontSize: 20.0,
+                  fontSize: 15.0,
                   fontWeight: FontWeight.bold));
         } else if (courses.hasError) {
           return Text("${courses.error}");
@@ -165,10 +182,18 @@ class Testhttp extends StatelessWidget {
                                               width: 30.0,
                                             ),*/
                                             Container(
-                                              child: getData(),
-                                              padding: EdgeInsets.symmetric(
+                                              padding:
+                                                  const EdgeInsets.all(16.0),
+                                              child: Column(
+                                                  // As you expect multiple lines you need a column not a row
+                                                  // children: getListWidgetData(),
+                                                  ),
+                                            ),
+                                            Expanded(
+                                              /*padding: EdgeInsets.symmetric(
                                                   horizontal: 8.0,
-                                                  vertical: 8.0),
+                                                  vertical: 8.0),*/
+                                              child: getData(),
                                             ),
                                           ],
                                         ),

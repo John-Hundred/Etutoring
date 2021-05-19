@@ -19,7 +19,7 @@ Future<List<Course>> fetchCourse() async {
       Course course = new Course(element['course_id'], element['course_name'],
           element['course_cfu'], element['enrollment_year']);
       courses.add(course);
-      print(course);
+      // print(course);
     }
     return courses;
     // return Course.fromJson(jsonDecode(response.body));
