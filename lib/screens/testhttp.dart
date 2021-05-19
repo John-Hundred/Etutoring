@@ -11,6 +11,26 @@ import 'package:argon_flutter/widgets/drawer.dart';
 class Testhttp extends StatelessWidget {
   Future<List<Course>> futureListCourse = fetchCourse();
 
+  getData() {
+    return FutureBuilder<List<Course>>(
+      future: this.futureListCourse,
+      builder: (context, courses) {
+        // print(courses);
+        if (courses.hasData) {
+          return Text(courses.data.first.toString(),
+              style: TextStyle(
+                  color: ArgonColors.black,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold));
+        } else if (courses.hasError) {
+          return Text("${courses.error}");
+        }
+        // By default, show a loading spinner.
+        return CircularProgressIndicator();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // print(this.futureListCourse);
@@ -25,26 +45,7 @@ class Testhttp extends StatelessWidget {
    * [id: 1, name: Analisi Matematica, cfu: 9 , id: 1,
    *  name: Analisi Matematica, cfu: 9, id: 2, name: Architettura degli Elaboratori, cfu: 9]
    */
-    fetchCourse().then((courses) => print(courses));
-
-    FutureBuilder<List<Course>>(
-      future: futureListCourse,
-      builder: (context, courses) {
-        print(courses);
-        if (courses.hasData) {
-          print(courses.data);
-          return ListView(
-            scrollDirection: Axis.horizontal,
-            children:
-                courses.data.map((course) => Text(course.toString())).toList(),
-          );
-        } else if (courses.hasError) {
-          return Text(courses.error.toString());
-        } else {
-          return CircularProgressIndicator();
-        }
-      },
-    );
+    // fetchCourse().then((courses) => {print(courses)});
 
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -100,8 +101,8 @@ class Testhttp extends StatelessWidget {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          /*children: [
-                                            Container(
+                                          children: [
+                                            /*Container(
                                               decoration: BoxDecoration(
                                                 color: ArgonColors.info,
                                                 borderRadius:
@@ -131,8 +132,8 @@ class Testhttp extends StatelessWidget {
                                             ),
                                             SizedBox(
                                               width: 30.0,
-                                            ),
-                                            Container(
+                                            ),*/
+                                            /* Container(
                                               decoration: BoxDecoration(
                                                 color: ArgonColors.initial,
                                                 borderRadius:
@@ -159,8 +160,17 @@ class Testhttp extends StatelessWidget {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 8.0,
                                                   vertical: 8.0),
-                                            )
-                                          ],*/
+                                            ),*/
+                                            /*SizedBox(
+                                              width: 30.0,
+                                            ),*/
+                                            Container(
+                                              child: getData(),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.0,
+                                                  vertical: 8.0),
+                                            ),
+                                          ],
                                         ),
                                         SizedBox(height: 40.0),
                                         Row(
