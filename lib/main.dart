@@ -24,7 +24,14 @@ class MyApp extends StatelessWidget {
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
           "/account": (BuildContext context) => new Register(),
-          "/testhttp": (BuildContext context) => new Testhttp()
+          "/testhttp": (BuildContext context) => new Testhttp(
+                items: List<ListItem>.generate(
+                  1000,
+                  (i) => i % 6 == 0
+                      ? HeadingItem('Heading $i')
+                      : MessageItem('Sender $i', 'Message body $i'),
+                ),
+              ),
         });
   }
 }
