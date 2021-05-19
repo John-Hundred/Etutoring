@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           "/account": (BuildContext context) => new Register(),
           "/testhttp": (BuildContext context) => new Testhttp(
                 items: List<ListItem>.generate(
-                  5,
+                  6,
                   (i) => i % 6 == 0
                       ? HeadingItem('Heading $i')
                       : MessageItem('Sender $i', 'Message body $i'),
