@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Argon PRO Flutter',
         theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: "/home",
+        initialRoute: "/login",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/login": (BuildContext context) => new LoginUser(),
