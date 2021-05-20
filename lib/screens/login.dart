@@ -114,11 +114,11 @@ class LoginUserState extends State {
                     decoration:
                         InputDecoration(hintText: 'Enter Your Password Here'),
                   )),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: userLogin,
-                color: Colors.green,
+                /*color: Colors.green,
                 textColor: Colors.white,
-                padding: EdgeInsets.fromLTRB(9, 9, 9, 9),
+                padding: EdgeInsets.fromLTRB(9, 9, 9, 9),*/
                 child: Text('Click Here To Login'),
               ),
               Visibility(

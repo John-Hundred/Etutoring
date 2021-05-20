@@ -26,12 +26,12 @@ class ProfileScreen extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
                     child: Text('Email = ' + '\n' + email,
                         style: TextStyle(fontSize: 20))),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     logout(context);
                   },
-                  color: Colors.red,
-                  textColor: Colors.white,
+                  /*color: Colors.red,
+                  textColor: Colors.white,*/
                   child: Text('Click Here To Logout'),
                 ),
               ],

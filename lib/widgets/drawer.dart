@@ -97,7 +97,7 @@ class ArgonDrawer extends StatelessWidget {
                   iconColor: ArgonColors.primary,
                   title: "Articles",
                   isSelected: currentPage == "Articles" ? true : false),
-              DrawerTile(
+              /*DrawerTile(
                   icon: Icons.texture_sharp,
                   onTap: () {
                     if (currentPage != "Testhttp")
@@ -105,7 +105,7 @@ class ArgonDrawer extends StatelessWidget {
                   },
                   iconColor: ArgonColors.error,
                   title: "Test http",
-                  isSelected: currentPage == "Testhttp" ? true : false),
+                  isSelected: currentPage == "Testhttp" ? true : false),*/
             ],
           ),
         ),
