@@ -1,5 +1,3 @@
-import 'package:argon_flutter/widgets/drawer.dart';
-import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
