@@ -87,13 +87,15 @@ class LoginUserState extends State {
           title: Text('E-Tutoring Login'),
         ),*/
         //drawer: ArgonDrawer(currentPage: "Login"),
+
         body: Stack(children: [
       Container(
         decoration: BoxDecoration(
             // background img
             image: DecorationImage(
-                image: AssetImage("assets/img/register-bg.png"),
-                fit: BoxFit.cover)),
+          image: AssetImage("assets/img/register-bg.png"),
+          fit: BoxFit.cover,
+        )),
       ),
       SafeArea(
           child: ListView(children: [
@@ -101,6 +103,7 @@ class LoginUserState extends State {
           padding: const EdgeInsets.only(
               top: 32, left: 24.0, right: 24.0, bottom: 32),
           child: Card(
+
               // elevation: 5,
               //clipBehavior: Clip.antiAlias,
               /*shape: RoundedRectangleBorder(
