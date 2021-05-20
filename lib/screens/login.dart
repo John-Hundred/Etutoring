@@ -92,7 +92,7 @@ class LoginUserState extends State {
         decoration: BoxDecoration(
             // background img
             image: DecorationImage(
-          image: AssetImage("assets/img/register-bg.png"),
+          image: AssetImage("assets/img/tutoring.jpg"),
           fit: BoxFit.cover,
         )),
       ),
@@ -126,7 +126,7 @@ class LoginUserState extends State {
                       Center(
                           child: Padding(
                               padding: const EdgeInsets.all(12.0),
-                              child: Text('Login',
+                              child: Text('Welcome to E-Tutoring',
                                   style: TextStyle(fontSize: 21)))),
                       // Divider(),
                       Padding(
