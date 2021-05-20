@@ -1,7 +1,5 @@
 import 'package:argon_flutter/screens/profileUser.dart';
 import 'package:argon_flutter/widgets/input.dart';
-import 'package:argon_flutter/widgets/navbar.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -84,11 +82,10 @@ class LoginUserState extends State {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: 'E-Tutoring Login',
-          // searchBar: true,
+        appBar: AppBar(
+          title: Text('E-Tutoring Login'),
         ),
-        drawer: ArgonDrawer(currentPage: "Login"),
+        //drawer: ArgonDrawer(currentPage: "Login"),
         body: Stack(children: [
           Container(
             decoration: BoxDecoration(
@@ -110,6 +107,7 @@ class LoginUserState extends State {
                   ),
                   child: Column(children: [
                     SingleChildScrollView(
+
                         /*height: MediaQuery.of(context).size.height * 0.15,
                         decoration: BoxDecoration(
                             color: ArgonColors.white,
