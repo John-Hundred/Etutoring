@@ -20,10 +20,7 @@ class MycourseState extends State<Mycourse> {
 
     this.setState(() {
       data = jsonDecode(response.body);
-      // print(data);
     });
-
-    // sprint(data[1]["title"]);
 
     return "Success!";
   }
