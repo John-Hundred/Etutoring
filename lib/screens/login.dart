@@ -82,67 +82,67 @@ class LoginUserState extends State {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+        /*appBar: AppBar(
           title: Text('E-Tutoring Login'),
-        ),
+        ),*/
         //drawer: ArgonDrawer(currentPage: "Login"),
         body: Stack(children: [
-          Container(
-            decoration: BoxDecoration(
-                // background img
-                image: DecorationImage(
-                    image: AssetImage("assets/img/register-bg.png"),
-                    fit: BoxFit.cover)),
-          ),
-          SafeArea(
-              child: ListView(children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 16, left: 24.0, right: 24.0, bottom: 32),
-              child: Card(
-                  elevation: 5,
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.0),
-                  ),
-                  child: Column(children: [
-                    SingleChildScrollView(
+      Container(
+        decoration: BoxDecoration(
+            // background img
+            image: DecorationImage(
+                image: AssetImage("assets/img/register-bg.png"),
+                fit: BoxFit.cover)),
+      ),
+      SafeArea(
+          child: ListView(children: [
+        Padding(
+          padding: const EdgeInsets.only(
+              top: 32, left: 24.0, right: 24.0, bottom: 32),
+          child: Card(
+              elevation: 5,
+              clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Column(children: [
+                SingleChildScrollView(
 
-                        /*height: MediaQuery.of(context).size.height * 0.15,
+                    /*height: MediaQuery.of(context).size.height * 0.15,
                         decoration: BoxDecoration(
                             color: ArgonColors.white,
                             border: Border(
                                 bottom: BorderSide(
                                     width: 0.5, color: ArgonColors.muted))),*/
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Center(
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text('Login',
-                                          style: TextStyle(fontSize: 21)))),
-                              Divider(),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Input(
-                                    placeholder: "Email",
-                                    controller: emailController,
-                                    prefixIcon: Icon(Icons.email)),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Input(
-                                    placeholder: "Password",
-                                    controller: passwordController,
-                                    // autocorrect: true,
-                                    // obscureText: true,
-                                    prefixIcon: Icon(Icons.lock)),
-                              ),
-                              /*Padding(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Text('Login',
+                                      style: TextStyle(fontSize: 21)))),
+                          Divider(),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                                placeholder: "Email",
+                                controller: emailController,
+                                prefixIcon: Icon(Icons.email)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                                placeholder: "Password",
+                                controller: passwordController,
+                                // autocorrect: true,
+                                // obscureText: true,
+                                prefixIcon: Icon(Icons.lock)),
+                          ),
+                          /*Padding(
                                 padding: const EdgeInsets.only(left: 24.0),
                                 child: RichText(
                                     text: TextSpan(
@@ -157,22 +157,22 @@ class LoginUserState extends State {
                                               color: ArgonColors.success))
                                     ])),
                               ),*/
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, top: 0, bottom: 16),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    /*Checkbox(
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8.0, top: 0, bottom: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                /*Checkbox(
                                         activeColor: ArgonColors.primary,
                                         onChanged: (bool newValue) => setState(
                                             () => _checkboxValue = newValue),
                                         value: _checkboxValue),*/
-                                    /*Text("I agree with the",
+                                /*Text("I agree with the",
                                         style: TextStyle(
                                             color: ArgonColors.muted,
                                             fontWeight: FontWeight.w200)),*/
-                                    /*GestureDetector(
+                                /*GestureDetector(
                                         onTap: () {
                                           Navigator.pushNamed(context, '/pro');
                                         },
@@ -182,47 +182,47 @@ class LoginUserState extends State {
                                               style: TextStyle(
                                                   color: ArgonColors.primary)),
                                         )),*/
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 16),
-                                child: Center(
-                                  child: TextButton(
-                                    /*textColor: ArgonColors.white,
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Center(
+                              child: TextButton(
+                                /*textColor: ArgonColors.white,
                                             color: ArgonColors.primary,*/
-                                    onPressed: userLogin,
-                                    /*shape: RoundedRectangleBorder(
+                                onPressed: userLogin,
+                                /*shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                             ),*/
-                                    child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 16.0,
-                                            right: 16.0,
-                                            top: 12,
-                                            bottom: 12),
-                                        child: Text("Click Here To Login",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 16.0))),
-                                  ),
-                                ),
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 16.0,
+                                        right: 16.0,
+                                        top: 12,
+                                        bottom: 12),
+                                    child: Text("Click Here To Login",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0))),
                               ),
-                              Visibility(
-                                visible: visible,
-                                child: Center(
-                                    child: Container(
-                                        margin: EdgeInsets.only(bottom: 30),
-                                        child: CircularProgressIndicator())),
-                              )
-                            ],
+                            ),
                           ),
-                        ])),
-                  ])),
-            )
-          ]))
-        ]));
+                          Visibility(
+                            visible: visible,
+                            child: Center(
+                                child: Container(
+                                    margin: EdgeInsets.only(bottom: 30),
+                                    child: CircularProgressIndicator())),
+                          )
+                        ],
+                      ),
+                    ])),
+              ])),
+        )
+      ]))
+    ]));
     /*SingleChildScrollView(
           child: Center(
             child: Column(
