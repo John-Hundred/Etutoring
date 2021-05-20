@@ -15,11 +15,12 @@ class MycourseState extends State<Mycourse> {
   List data;
 
   Future<String> getData() async {
-    var response =
-        await http.get(Uri.https("jsonplaceholder.typicode.com", "posts"));
+    var response = await http
+        .get(Uri.http("192.168.56.1", "e-tutoring-web/ws/ws/course_list.php"));
 
     this.setState(() {
       data = jsonDecode(response.body);
+      // print(data);
     });
 
     // sprint(data[1]["title"]);
@@ -45,7 +46,7 @@ class MycourseState extends State<Mycourse> {
               itemCount: data == null ? 0 : data.length,
               itemBuilder: (BuildContext context, int index) {
                 return new Card(
-                  child: new Text(data[index]["title"]),
+                  child: new Text(data[index]["course_name"]),
                 );
               },
             ))));
