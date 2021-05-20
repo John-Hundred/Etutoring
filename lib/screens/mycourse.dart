@@ -36,16 +36,18 @@ class MycourseState extends State<Mycourse> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new Navbar(title: "Course"),
-      drawer: ArgonDrawer(currentPage: "course"),
-      body: new ListView.builder(
-        itemCount: data == null ? 0 : data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return new Card(
-            child: new Text(data[index]["title"]),
-          );
-        },
-      ),
-    );
+        appBar: new Navbar(title: "Course"),
+        drawer: ArgonDrawer(currentPage: "course"),
+        body: new Padding(
+            padding: const EdgeInsets.only(
+                top: 32, left: 24.0, right: 24.0, bottom: 32),
+            child: (ListView.builder(
+              itemCount: data == null ? 0 : data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return new Card(
+                  child: new Text(data[index]["title"]),
+                );
+              },
+            ))));
   }
 }
