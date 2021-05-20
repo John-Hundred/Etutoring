@@ -1,3 +1,5 @@
+import 'package:argon_flutter/widgets/drawer.dart';
+import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,6 +20,10 @@ class ProfileScreen extends StatelessWidget {
             appBar: AppBar(
                 title: Text('Profile Screen'),
                 automaticallyImplyLeading: false),
+            /*appBar: Navbar(
+              title: 'Profile',
+            ),*/
+            // drawer: ArgonDrawer(currentPage: "Profile"),
             body: Center(
                 child: Column(
               children: <Widget>[
