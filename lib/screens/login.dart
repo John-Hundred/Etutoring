@@ -1,3 +1,4 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/screens/profileUser.dart';
 import 'package:argon_flutter/widgets/input.dart';
 import 'package:flutter/material.dart';
@@ -214,12 +215,14 @@ class LoginUserState extends State {
                           padding: const EdgeInsets.only(bottom: 20),
                           child: Center(
                               child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: Colors.blueGrey),
                             // textColor: ArgonColors.text,
                             // color: ArgonColors.secondary,
                             onPressed: userLogin,
                             /*shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),*/
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),*/
                             child: Padding(
                                 padding: EdgeInsets.only(
                                     left: 16.0,
