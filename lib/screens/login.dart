@@ -122,10 +122,11 @@ class LoginUserState extends State {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Text('Login',
-                                      style: TextStyle(fontSize: 21))),
+                              Center(
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Text('Login',
+                                          style: TextStyle(fontSize: 21)))),
                               Divider(),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
