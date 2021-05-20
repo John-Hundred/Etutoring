@@ -46,7 +46,11 @@ class MycourseState extends State<Mycourse> {
               itemCount: data == null ? 0 : data.length,
               itemBuilder: (BuildContext context, int index) {
                 return new Card(
-                  child: new Text(data[index]["course_name"]),
+                  child: new Text(data[index]["course_name"] +
+                      '\ncfu = ' +
+                      data[index]["course_cfu"] +
+                      '\ndepartiment = ' +
+                      data[index]["department"]),
                 );
               },
             ))));
