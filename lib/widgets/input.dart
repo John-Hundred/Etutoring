@@ -10,6 +10,7 @@ class Input extends StatelessWidget {
   final TextEditingController controller;
   final bool autofocus;
   final Color borderColor;
+  final bool obscureText;
 
   Input(
       {this.placeholder,
@@ -19,7 +20,8 @@ class Input extends StatelessWidget {
       this.onChanged,
       this.autofocus = false,
       this.borderColor = ArgonColors.border,
-      this.controller});
+      this.controller,
+      this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class Input extends StatelessWidget {
         onChanged: onChanged,
         controller: controller,
         autofocus: autofocus,
+        obscureText: obscureText,
         style:
             TextStyle(height: 0.85, fontSize: 14.0, color: ArgonColors.initial),
         textAlignVertical: TextAlignVertical(y: 0.6),

@@ -1,4 +1,3 @@
-import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/screens/profileUser.dart';
 import 'package:argon_flutter/widgets/input.dart';
 import 'package:flutter/material.dart';
@@ -143,7 +142,7 @@ class LoginUserState extends State {
                             placeholder: "Password",
                             controller: passwordController,
                             // autocorrect: true,
-                            // obscureText: true,
+                            obscureText: true,
                             prefixIcon: Icon(Icons.lock)),
                       ),
                       /*Padding(

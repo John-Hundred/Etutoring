@@ -1,4 +1,15 @@
+import 'package:argon_flutter/widgets/drawer.dart';
+import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
+
+// screens
+import 'package:argon_flutter/screens/home.dart';
+import 'package:argon_flutter/screens/profile.dart';
+import 'package:argon_flutter/screens/register.dart';
+import 'package:argon_flutter/screens/articles.dart';
+import 'package:argon_flutter/screens/elements.dart';
+
+import 'login.dart';
 
 class ProfileScreen extends StatelessWidget {
   // Creating String Var to Hold sent Email.
@@ -14,14 +25,23 @@ class ProfileScreen extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: <String, WidgetBuilder>{
+          "/login": (BuildContext context) => new LoginUser(),
+          "/home": (BuildContext context) => new Home(),
+          "/profile": (BuildContext context) => new Profile(),
+          "/articles": (BuildContext context) => new Articles(),
+          "/elements": (BuildContext context) => new Elements(),
+          "/account": (BuildContext context) => new Register(),
+        },
         home: Scaffold(
-            appBar: AppBar(
+            /*appBar: AppBar(
                 title: Text('Profile Screen'),
-                automaticallyImplyLeading: false),
-            /*appBar: Navbar(
-              title: 'Profile',
-            ),*/
-            // drawer: ArgonDrawer(currentPage: "Profile"),
+                automaticallyImplyLeading: false),*/
+            appBar: Navbar(
+              title: 'Profilo',
+            ),
+            drawer: ArgonDrawer(currentPage: "Profilo"),
             body: Center(
                 child: Column(
               children: <Widget>[
