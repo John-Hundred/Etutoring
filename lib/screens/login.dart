@@ -83,8 +83,8 @@ class LoginUserState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: Navbar(
-          title: 'Login',
-          searchBar: true,
+          title: 'E-Tutoring Login',
+          // searchBar: true,
         ),
         drawer: ArgonDrawer(currentPage: "Login"),
         body: SingleChildScrollView(
