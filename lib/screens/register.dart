@@ -23,7 +23,11 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(transparent: true, title: ""),
+        appBar: Navbar(
+          transparent: true,
+          title: "",
+          searchBar: true,
+        ),
         extendBodyBehindAppBar: true,
         drawer: ArgonDrawer(currentPage: "Account"),
         body: Stack(

@@ -30,6 +30,7 @@ class _ElementsState extends State<Elements> {
     return Scaffold(
         appBar: Navbar(
           title: "Elements",
+          searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
         drawer: ArgonDrawer(currentPage: "Elements"),

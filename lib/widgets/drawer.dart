@@ -44,6 +44,15 @@ class ArgonDrawer extends StatelessWidget {
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
               DrawerTile(
+                  icon: Icons.login,
+                  onTap: () {
+                    if (currentPage != "Login")
+                      Navigator.pushReplacementNamed(context, '/login');
+                  },
+                  iconColor: ArgonColors.primary,
+                  title: "Login",
+                  isSelected: currentPage == "Login" ? true : false),
+              DrawerTile(
                   icon: Icons.home,
                   onTap: () {
                     if (currentPage != "Home")

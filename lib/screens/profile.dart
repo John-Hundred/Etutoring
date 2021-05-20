@@ -14,6 +14,7 @@ class Profile extends StatelessWidget {
         appBar: Navbar(
           title: "Profile",
           transparent: true,
+          searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
         drawer: ArgonDrawer(currentPage: "Profile"),

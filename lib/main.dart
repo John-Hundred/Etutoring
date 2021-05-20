@@ -1,3 +1,4 @@
+import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/screens/testhttp.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         initialRoute: "/home",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
+          "/login": (BuildContext context) => new LoginUser(),
           "/home": (BuildContext context) => new Home(),
           "/profile": (BuildContext context) => new Profile(),
           "/articles": (BuildContext context) => new Articles(),

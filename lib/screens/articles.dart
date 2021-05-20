@@ -89,6 +89,7 @@ class Articles extends StatelessWidget {
         appBar: Navbar(
           title: "Articles",
           rightOptions: false,
+          searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
         drawer: ArgonDrawer(currentPage: "Articles"),
