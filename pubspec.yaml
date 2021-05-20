@@ -64,6 +64,7 @@ flutter:
    - assets/img/argon-logo-onboarding.png
    - assets/img/background-myunito.jpg
    - assets/img/tutoring.jpg
+   - assets/img/tutoring-2.jpg
 
   fonts:
     - family: OpenSans

@@ -53,6 +53,15 @@ class ArgonDrawer extends StatelessWidget {
                   title: "Login",
                   isSelected: currentPage == "Login" ? true : false),
               DrawerTile(
+                  icon: Icons.cloud_circle_sharp,
+                  onTap: () {
+                    if (currentPage != "course")
+                      Navigator.pushReplacementNamed(context, '/course');
+                  },
+                  iconColor: ArgonColors.primary,
+                  title: "Course",
+                  isSelected: currentPage == "course" ? true : false),
+              DrawerTile(
                   icon: Icons.home,
                   onTap: () {
                     if (currentPage != "Home")

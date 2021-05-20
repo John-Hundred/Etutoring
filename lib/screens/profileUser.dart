@@ -1,3 +1,4 @@
+import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class ProfileScreen extends StatelessWidget {
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
           "/account": (BuildContext context) => new Register(),
+          "/course": (BuildContext context) => new Mycourse(),
         },
         home: Scaffold(
             /*appBar: AppBar(
