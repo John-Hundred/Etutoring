@@ -1,5 +1,5 @@
 # E-Tutoring 
-### Flutter Application
+### Flutter Application (Argon UI template)
 
 ![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-flutter/arg-flutter-thumbnail.jpg)
 
@@ -176,18 +176,5 @@ If you have questions or need help integrating the product please [contact us](h
 - [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes) from Creative Tim
 - [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
 - Check our Bundles [here](https://www.creative-tim.com/bundles?ref="argon-github-readme")
-
-
-### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
 
 
