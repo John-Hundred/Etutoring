@@ -1,5 +1,5 @@
-# E-Tutoring Application
-
+# E-Tutoring 
+# Flutter Application
 
 ![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-flutter/arg-flutter-thumbnail.jpg)
 
