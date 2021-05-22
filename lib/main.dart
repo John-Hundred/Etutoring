@@ -1,5 +1,6 @@
 import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/screens/testhttp.dart';
+import 'package:argon_flutter/screens/user_page.dart';
 import 'package:flutter/material.dart';
 
 // screens
@@ -24,9 +25,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'E-Tutoring',
         theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: "/login",
+        initialRoute: "/login2",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
+          "/login2": (BuildContext context) => new UserPage(),
           "/login": (BuildContext context) => new LoginUser(),
           "/home": (BuildContext context) => new Home(),
           "/profile": (BuildContext context) => new Profile(),
