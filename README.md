@@ -1,8 +1,5 @@
-# [Argon Flutter](https://creativetimofficial.github.io/argon-flutter/docs/#) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=Start%20Your%20Development%20With%20A%20Badass%20Flutter%20app%20inspired%20by%20Argon%20Design%20System.%0Ahttps%3A//demos.creative-tim.com/argon-flutter/)
-
-
- ![version](https://img.shields.io/badge/version-1.0.1-blue.svg)  [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/argon-flutter.svg?style=flat)](https://github.com/creativetimofficial/argon-flutter/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/argon-flutter.svg?maxAge=2592000)](https://github.com/creativetimofficial/argon-flutter/issues?q=is%3Aissue+is%3Aclosed)
-
+# E-Tutoring 
+### Flutter Application (Argon UI template)
 
 ![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-flutter/arg-flutter-thumbnail.jpg)
 
@@ -179,18 +176,5 @@ If you have questions or need help integrating the product please [contact us](h
 - [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes) from Creative Tim
 - [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
 - Check our Bundles [here](https://www.creative-tim.com/bundles?ref="argon-github-readme")
-
-
-### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
 
 
