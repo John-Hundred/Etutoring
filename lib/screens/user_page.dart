@@ -68,12 +68,8 @@ class _UserPageState extends State<UserPage> {
         visible = false;
       });
 
-      // Navigate to Profile Screen & Sending Email to Next Screen.
       Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  ProfileScreen(email: emailController.text)));
+          context, MaterialPageRoute(builder: (context) => ProfileScreen()));
     } else {
       // If Email or Password did not Matched.
       // Hiding the CircularProgressIndicator.

@@ -13,12 +13,23 @@ import 'package:argon_flutter/screens/elements.dart';
 
 import 'login.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   // Creating String Var to Hold sent Email.
-  final String email;
+  String email;
+
+  @override
+  void initState() {
+    super.initState();
+    // init();
+  }
 
   // Receiving Email using Constructor.
-  ProfileScreen({Key key, @required this.email}) : super(key: key);
+  // ProfileScreen({Key key, @required this.email}) : super(key: key);
 
   // User Logout Function.
   logout(BuildContext context) {
@@ -28,11 +39,15 @@ class ProfileScreen extends StatelessWidget {
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
+    this.email = email;
     print(email);
     print(password);
   }
 
   Widget build(BuildContext context) {
+    this.setState(() {
+      init();
+    });
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
@@ -58,8 +73,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                     width: 280,
                     padding: EdgeInsets.all(10.0),
-                    child: Text('Email = ' + '\n' + email,
-                        style: TextStyle(fontSize: 20))),
+                    child: Text('Email = ', style: TextStyle(fontSize: 20))),
                 ElevatedButton(
                   onPressed: () {
                     logout(context);
