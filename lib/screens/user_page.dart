@@ -9,6 +9,9 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
+  // For CircularProgressIndicator.
+  bool visible = false;
+
   // Initially password is obscure
   bool _obscureText = true;
 
@@ -71,8 +74,14 @@ class _UserPageState extends State<UserPage> {
             const SizedBox(height: 12),
             buildPets(),
             const SizedBox(height: 32),*/
-
             buildButton(),
+            Visibility(
+              visible: false,
+              child: Center(
+                  child: Container(
+                      margin: EdgeInsets.only(bottom: 30),
+                      child: CircularProgressIndicator())),
+            )
           ],
         ),
       ),
