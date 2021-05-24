@@ -147,7 +147,9 @@ class _UserPageState extends State<UserPage> {
               child: Center(
                   child: Container(
                       margin: EdgeInsets.only(bottom: 30),
-                      child: CircularProgressIndicator())),
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.white,
+                      ))),
             )
           ],
         ),
