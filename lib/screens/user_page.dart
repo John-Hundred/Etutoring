@@ -78,9 +78,9 @@ class _UserPageState extends State<UserPage> {
           },
           controller: controllerName,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Your Name',
-          ),
+              border: OutlineInputBorder(),
+              hintText: 'Your Name',
+              prefixIcon: Icon(Icons.email)),
         ),
       );
 
@@ -98,6 +98,7 @@ class _UserPageState extends State<UserPage> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             hintText: 'Your Password',
+            prefixIcon: Icon(Icons.lock),
           ),
         ),
       );
