@@ -87,6 +87,7 @@ class _UserPageState extends State<UserPage> {
   Widget buildPassword() => buildTitle(
         title: 'Password',
         child: TextFormField(
+          obscureText: true,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your password';
