@@ -9,6 +9,9 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
+  // Initially password is obscure
+  bool _obscureText = true;
+
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -19,6 +22,13 @@ class _UserPageState extends State<UserPage> {
   void initState() {
     super.initState();
     // init();
+  }
+
+// Toggles the password show status
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
   }
 
   Future init() async {
@@ -60,6 +70,7 @@ class _UserPageState extends State<UserPage> {
             const SizedBox(height: 12),
             buildPets(),
             const SizedBox(height: 32),*/
+
             buildButton(),
           ],
         ),
@@ -87,7 +98,7 @@ class _UserPageState extends State<UserPage> {
   Widget buildPassword() => buildTitle(
         title: 'Password',
         child: TextFormField(
-          obscureText: true,
+          obscureText: _obscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your password';
@@ -99,6 +110,15 @@ class _UserPageState extends State<UserPage> {
             border: OutlineInputBorder(),
             hintText: 'Your Password',
             prefixIcon: Icon(Icons.lock),
+            suffixIcon: GestureDetector(
+              onTap: () {
+                _toggle();
+              },
+              child: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.black,
+              ),
+            ),
           ),
         ),
       );
