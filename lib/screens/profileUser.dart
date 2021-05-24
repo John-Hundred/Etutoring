@@ -1,4 +1,5 @@
 import 'package:argon_flutter/screens/mycourse.dart';
+import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'login.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -22,6 +24,13 @@ class ProfileScreen extends StatelessWidget {
   // User Logout Function.
   logout(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  Future init() async {
+    final email = await UserSecureStorage.getEmail() ?? '';
+    final password = await UserSecureStorage.getPassword() ?? '';
+    print(email);
+    print(password);
   }
 
   Widget build(BuildContext context) {

@@ -5,16 +5,15 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class UserSecureStorage {
   static final _storage = FlutterSecureStorage();
 
-  static const _keyUsername = 'username';
-  static const _keyPets = 'pets';
-  static const _keyBirthday = 'birthday';
+  static const _keyEmail = 'email';
+  /*static const _keyPets = 'pets';
+  static const _keyBirthday = 'birthday';*/
   static const _keyPassword = 'password';
 
-  static Future setUsername(String username) async =>
-      await _storage.write(key: _keyUsername, value: username);
+  static Future setEmail(String email) async =>
+      await _storage.write(key: _keyEmail, value: email);
 
-  static Future<String> getUsername() async =>
-      await _storage.read(key: _keyUsername);
+  static Future<String> getEmail() async => await _storage.read(key: _keyEmail);
 
   static Future setPassword(String password) async =>
       await _storage.write(key: _keyPassword, value: password);
@@ -22,7 +21,7 @@ class UserSecureStorage {
   static Future<String> getPassword() async =>
       await _storage.read(key: _keyPassword);
 
-  static Future setPets(List<String> pets) async {
+  /*static Future setPets(List<String> pets) async {
     final value = json.encode(pets);
 
     await _storage.write(key: _keyPets, value: value);
@@ -44,5 +43,5 @@ class UserSecureStorage {
     final birthday = await _storage.read(key: _keyBirthday);
 
     return birthday == null ? null : DateTime.tryParse(birthday);
-  }
+  }*/
 }

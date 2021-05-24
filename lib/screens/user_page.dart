@@ -102,12 +102,12 @@ class _UserPageState extends State<UserPage> {
   }
 
   Future init() async {
-    final name = await UserSecureStorage.getUsername() ?? '';
+    final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
     /*final birthday = await UserSecureStorage.getBirthday() ?? '';
     final pets = await UserSecureStorage.getPets() ?? [];*/
 
-    this.emailController.text = name;
+    this.emailController.text = email;
     this.passwordController.text = password;
     /*this.birthday = birthday;
     this.pets = pets;*/
@@ -230,7 +230,7 @@ class _UserPageState extends State<UserPage> {
         if (formKey.currentState.validate()) {
           // If the form is valid, display a snackbar. In the real world,
           // you'd often call a server or save the information in a database.
-          await UserSecureStorage.setUsername(emailController.text);
+          await UserSecureStorage.setEmail(emailController.text);
           await UserSecureStorage.setPassword(passwordController.text);
           userLogin();
           /*ScaffoldMessenger.of(context)
