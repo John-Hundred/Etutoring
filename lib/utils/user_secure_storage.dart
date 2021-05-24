@@ -16,4 +16,6 @@ class UserSecureStorage {
 
   static Future<String> getPassword() async =>
       await _storage.read(key: _keyPassword);
+
+  static void delete(String key) async => await _storage.delete(key: key);
 }

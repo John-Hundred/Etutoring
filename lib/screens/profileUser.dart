@@ -1,4 +1,5 @@
 import 'package:argon_flutter/screens/mycourse.dart';
+import 'package:argon_flutter/screens/user_page.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
@@ -22,6 +23,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // Creating String Var to Hold sent Email.
   String email;
 
+  String password;
+
   @override
   void initState() {
     super.initState();
@@ -32,16 +35,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // ProfileScreen({Key key, @required this.email}) : super(key: key);
 
   // User Logout Function.
-  logout(BuildContext context) {
-    Navigator.pop(context);
+  logout(BuildContext context) async {
+    this.email = await UserSecureStorage.getEmail();
+    this.password = await UserSecureStorage.getPassword();
+    // Delete email from secure storage
+    UserSecureStorage.delete('email');
+    // Delete password from secure storage
+    UserSecureStorage.delete('password');
+    /*this.email = await UserSecureStorage.getEmail();
+    this.password = await UserSecureStorage.getPassword();*/
+
+    // go to login page
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => UserPage()));
   }
 
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
     this.email = email;
-    print(email);
-    print(password);
+    this.password = password;
+    /*print(email);
+    print(password);*/
   }
 
   Widget build(BuildContext context) {
@@ -50,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
 
     final Future<String> _calculation = Future<String>.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 0),
       () {
         final email = UserSecureStorage.getEmail() ?? '';
         return email;
@@ -94,7 +109,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 16),
                         child: Text('Result: ${snapshot.data}'),
-                      )
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            logout(context);
+                          },
+                          /*color: Colors.red,
+                  textColor: Colors.white,*/
+                          child: Text('Click Here To Logout')),
                     ];
                   } else if (snapshot.hasError) {
                     children = <Widget>[
