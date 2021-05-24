@@ -43,7 +43,7 @@ class ArgonDrawer extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
-              DrawerTile(
+              /*DrawerTile(
                   icon: Icons.login,
                   onTap: () {
                     if (currentPage != "Login")
@@ -51,7 +51,7 @@ class ArgonDrawer extends StatelessWidget {
                   },
                   iconColor: ArgonColors.primary,
                   title: "Login",
-                  isSelected: currentPage == "Login" ? true : false),
+                  isSelected: currentPage == "Login" ? true : false),*/
               DrawerTile(
                   icon: Icons.cloud_circle_sharp,
                   onTap: () {
