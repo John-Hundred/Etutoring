@@ -8,12 +8,19 @@ class UserSecureStorage {
   static const _keyUsername = 'username';
   static const _keyPets = 'pets';
   static const _keyBirthday = 'birthday';
+  static const _keyPassword = 'password';
 
   static Future setUsername(String username) async =>
       await _storage.write(key: _keyUsername, value: username);
 
   static Future<String> getUsername() async =>
       await _storage.read(key: _keyUsername);
+
+  static Future setPassword(String password) async =>
+      await _storage.write(key: _keyPassword, value: password);
+
+  static Future<String> getPassword() async =>
+      await _storage.read(key: _keyPassword);
 
   static Future setPets(List<String> pets) async {
     final value = json.encode(pets);

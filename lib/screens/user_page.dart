@@ -13,6 +13,7 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> {
   final formKey = GlobalKey<FormState>();
   final controllerName = TextEditingController();
+  final controllerNamePwd = TextEditingController();
   DateTime birthday;
   List<String> pets = [];
 
@@ -25,11 +26,13 @@ class _UserPageState extends State<UserPage> {
 
   Future init() async {
     final name = await UserSecureStorage.getUsername() ?? '';
+    final password = await UserSecureStorage.getPassword();
     final birthday = await UserSecureStorage.getBirthday();
     final pets = await UserSecureStorage.getPets() ?? [];
 
     setState(() {
       this.controllerName.text = name;
+      this.controllerNamePwd.text = password;
       this.birthday = birthday;
       this.pets = pets;
     });
@@ -44,6 +47,8 @@ class _UserPageState extends State<UserPage> {
               TitleWidget(icon: Icons.lock, text: 'Secure\nStorage'),
               const SizedBox(height: 32),
               buildName(),
+              const SizedBox(height: 12),
+              buildPassword(),
               const SizedBox(height: 12),
               buildBirthday(),
               const SizedBox(height: 12),
@@ -62,6 +67,17 @@ class _UserPageState extends State<UserPage> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             hintText: 'Your Name',
+          ),
+        ),
+      );
+
+  Widget buildPassword() => buildTitle(
+        title: 'Password',
+        child: TextFormField(
+          controller: controllerNamePwd,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Your Password',
           ),
         ),
       );
@@ -88,6 +104,7 @@ class _UserPageState extends State<UserPage> {
       text: 'Save',
       onClicked: () async {
         await UserSecureStorage.setUsername(controllerName.text);
+        await UserSecureStorage.setPassword(controllerNamePwd.text);
         await UserSecureStorage.setPets(pets);
 
         if (birthday != null) {
