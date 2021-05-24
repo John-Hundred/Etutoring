@@ -55,6 +55,7 @@ class _UserPageState extends State<UserPage> {
       init();
     });
     return Scaffold(
+      backgroundColor: Colors.greenAccent,
       body: Form(
         key: formKey,
         child: ListView(
@@ -89,6 +90,8 @@ class _UserPageState extends State<UserPage> {
           },
           controller: emailController,
           decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
               border: OutlineInputBorder(),
               hintText: 'Your Email',
               prefixIcon: Icon(Icons.email)),
@@ -107,6 +110,8 @@ class _UserPageState extends State<UserPage> {
           },
           controller: passwordController,
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
             border: OutlineInputBorder(),
             hintText: 'Your Password',
             prefixIcon: Icon(Icons.lock),
