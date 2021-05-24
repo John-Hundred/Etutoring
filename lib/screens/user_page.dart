@@ -10,8 +10,8 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final formKey = GlobalKey<FormState>();
-  final controllerName = TextEditingController();
-  final controllerNamePwd = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   /*DateTime birthday;
   List<String> pets = [];*/
 
@@ -27,8 +27,8 @@ class _UserPageState extends State<UserPage> {
     /*final birthday = await UserSecureStorage.getBirthday() ?? '';
     final pets = await UserSecureStorage.getPets() ?? [];*/
 
-    this.controllerName.text = name;
-    this.controllerNamePwd.text = password;
+    this.emailController.text = name;
+    this.passwordController.text = password;
     /*this.birthday = birthday;
     this.pets = pets;*/
     /*setState(() {
@@ -68,18 +68,18 @@ class _UserPageState extends State<UserPage> {
   }
 
   Widget buildName() => buildTitle(
-        title: 'Name',
+        title: 'E-mail',
         child: TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your name';
+              return 'Please enter your email';
             }
             return null;
           },
-          controller: controllerName,
+          controller: emailController,
           decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Your Name',
+              hintText: 'Your Email',
               prefixIcon: Icon(Icons.email)),
         ),
       );
@@ -94,7 +94,7 @@ class _UserPageState extends State<UserPage> {
             }
             return null;
           },
-          controller: controllerNamePwd,
+          controller: passwordController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             hintText: 'Your Password',
@@ -131,8 +131,8 @@ class _UserPageState extends State<UserPage> {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('Login and Save Data')));
         }
-        await UserSecureStorage.setUsername(controllerName.text);
-        await UserSecureStorage.setPassword(controllerNamePwd.text);
+        await UserSecureStorage.setUsername(emailController.text);
+        await UserSecureStorage.setPassword(passwordController.text);
         /*await UserSecureStorage.setPets(pets);
 
         if (birthday != null) {
