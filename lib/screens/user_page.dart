@@ -60,7 +60,7 @@ class _UserPageState extends State<UserPage> {
         child: ListView(
           padding: EdgeInsets.all(16),
           children: [
-            TitleWidget(icon: Icons.lock, text: 'Welcome to\nE-tutoring'),
+            TitleWidget(icon: Icons.login, text: 'Welcome to\nE-tutoring'),
             const SizedBox(height: 32),
             buildName(),
             const SizedBox(height: 12),
