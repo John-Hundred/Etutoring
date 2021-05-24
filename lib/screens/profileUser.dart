@@ -51,7 +51,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     final Future<String> _calculation = Future<String>.delayed(
       const Duration(seconds: 2),
-      () => 'Data Loaded',
+      () {
+        final email = UserSecureStorage.getEmail() ?? '';
+        return email;
+        // 'Data Loaded'
+      },
     );
 
     return MaterialApp(
