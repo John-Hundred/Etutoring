@@ -40,7 +40,8 @@ class _UserPageState extends State<UserPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SafeArea(
+        body: Form(
+          key: formKey,
           child: ListView(
             padding: EdgeInsets.all(16),
             children: [
@@ -63,6 +64,12 @@ class _UserPageState extends State<UserPage> {
   Widget buildName() => buildTitle(
         title: 'Name',
         child: TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your name';
+            }
+            return null;
+          },
           controller: controllerName,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
@@ -74,6 +81,12 @@ class _UserPageState extends State<UserPage> {
   Widget buildPassword() => buildTitle(
         title: 'Password',
         child: TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your password';
+            }
+            return null;
+          },
           controller: controllerNamePwd,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
@@ -103,6 +116,13 @@ class _UserPageState extends State<UserPage> {
   Widget buildButton() => ButtonWidget(
       text: 'Save',
       onClicked: () async {
+        if (formKey.currentState.validate()) {
+          // If the form is valid, display a snackbar. In the real world,
+          // you'd often call a server or save the information in a database.
+          print('save');
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Processing Data')));
+        }
         await UserSecureStorage.setUsername(controllerName.text);
         await UserSecureStorage.setPassword(controllerNamePwd.text);
         await UserSecureStorage.setPets(pets);
