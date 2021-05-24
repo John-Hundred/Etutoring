@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             appBar: Navbar(
               title: 'Profilo',
             ),
-            drawer: ArgonDrawer(currentPage: "Profilo"),
+            drawer: ArgonDrawer(currentPage: "profile-screen"),
             body: Center(
               child: FutureBuilder<String>(
                 future: _calculation,
