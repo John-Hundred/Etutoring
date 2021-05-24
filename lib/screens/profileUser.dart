@@ -11,7 +11,6 @@ import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'login.dart';
 
 class ProfileScreen extends StatelessWidget {
