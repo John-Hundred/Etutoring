@@ -1,4 +1,5 @@
 import 'package:argon_flutter/screens/login.dart';
+import 'package:argon_flutter/screens/profileUser.dart';
 import 'package:argon_flutter/screens/testhttp.dart';
 import 'package:argon_flutter/screens/user_page.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           "/login2": (BuildContext context) => new UserPage(),
           "/login": (BuildContext context) => new LoginUser(),
           "/home": (BuildContext context) => new Home(),
+          "/profile-screen": (BuildContext context) => new ProfileScreen(),
           "/profile": (BuildContext context) => new Profile(),
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
