@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/screens/user_page.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
@@ -36,6 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // User Logout Function.
   logout(BuildContext context) async {
+    // sleep(Duration(seconds: 1));
     this.email = await UserSecureStorage.getEmail();
     this.password = await UserSecureStorage.getPassword();
     // Delete email from secure storage
