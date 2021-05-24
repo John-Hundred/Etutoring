@@ -127,12 +127,12 @@ class _UserPageState extends State<UserPage> {
         if (formKey.currentState.validate()) {
           // If the form is valid, display a snackbar. In the real world,
           // you'd often call a server or save the information in a database.
-          print('save');
+          await UserSecureStorage.setUsername(emailController.text);
+          await UserSecureStorage.setPassword(passwordController.text);
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('Login and Save Data')));
         }
-        await UserSecureStorage.setUsername(emailController.text);
-        await UserSecureStorage.setPassword(passwordController.text);
+
         /*await UserSecureStorage.setPets(pets);
 
         if (birthday != null) {
