@@ -112,13 +112,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
               itemBuilder: (context, index) {
                 return Card(
                     child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(children: <Widget>[
-                          Text("Title " + index.toString(),
-                              style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.bold)),
-                          Text("Note Text " + index.toString())
-                        ])));
+                        padding: const EdgeInsets.only(
+                            top: 16.0, bottom: 32.0, left: 16.0, right: 16.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Title " + index.toString(),
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold)),
+                              Text("Text " + index.toString())
+                            ])));
               },
               itemCount: 5,
             )
