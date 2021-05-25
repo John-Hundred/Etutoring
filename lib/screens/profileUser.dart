@@ -108,7 +108,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: 'Profilo',
             ),
             drawer: ArgonDrawer(currentPage: "profile-screen"),
-            body: Center(
+            body: ListView.builder(
+              itemBuilder: (context, index) {
+                return Card(
+                    child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(children: <Widget>[
+                          Text("Title " + index.toString(),
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold)),
+                          Text("Note Text " + index.toString())
+                        ])));
+              },
+              itemCount: 5,
+            )
+
+            /*Center(
               child: FutureBuilder<String>(
                 future: _calculation,
                 builder:
@@ -177,6 +192,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   );
                 },
               ),
-            )));
+            )
+            */
+            ));
   }
 }
