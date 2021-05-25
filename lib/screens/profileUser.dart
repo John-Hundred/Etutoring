@@ -22,11 +22,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  List<dynamic> listData = [];
   String email;
 
   String password;
-
-  List<dynamic> userData;
 
   // For CircularProgressIndicator.
   bool visible = false;
@@ -52,19 +51,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         context, MaterialPageRoute(builder: (context) => UserPage()));
   }
 
-  Future<String> getUserData() async {
+  Future<List<dynamic>> getUserData() async {
     var queryParameters = {
       'id': "1",
     };
     var response = await http.get(
         Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
 
-    this.setState(() {
-      userData = jsonDecode(response.body);
-      print(userData);
-    });
-
-    return "Success!";
+    var data = [];
+    if (response.statusCode == 200) {
+      var userData = jsonDecode(response.body);
+      for (var element in userData) {
+        data.add(element);
+      }
+    }
+    return data;
   }
 
   Future init() async {
@@ -81,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       init();
     });
 
-    getUserData();
+    getUserData().then((value) => listData.addAll(value));
 
     final Future<String> _calculation = Future<String>.delayed(
       const Duration(seconds: 0),
@@ -117,14 +118,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("Title " + index.toString(),
+                              Text("Title " + listData[index].toString(),
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),
-                              Text("Text " + index.toString())
+                              Text("Text " + listData[index].toString())
                             ])));
               },
-              itemCount: 5,
+              itemCount: listData.length,
             )
 
             /*Center(
