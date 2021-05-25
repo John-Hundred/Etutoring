@@ -12,7 +12,15 @@ import 'package:argon_flutter/screens/elements.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String email;
+
+  String password;
   final String route = "/login";
 
   @override
