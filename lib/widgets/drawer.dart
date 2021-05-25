@@ -1,25 +1,18 @@
 import 'package:argon_flutter/screens/user_page.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:argon_flutter/constants/Theme.dart';
 
 import 'package:argon_flutter/widgets/drawer-tile.dart';
 
+// ignore: must_be_immutable
 class ArgonDrawer extends StatelessWidget {
   final String currentPage;
 
-  ArgonDrawer({this.currentPage});
+  // bool visible = false;
 
-  _launchURL() async {
-    const url = 'https://creative-tim.com';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  ArgonDrawer({this.currentPage});
 
   @override
   Widget build(BuildContext context) {
@@ -118,30 +111,6 @@ class ArgonDrawer extends StatelessWidget {
                   iconColor: ArgonColors.primary,
                   title: "Articles",
                   isSelected: currentPage == "Articles" ? true : false),
-              DrawerTile(
-                  icon: Icons.logout,
-                  onTap: () {
-                    UserSecureStorage.getEmail();
-                    UserSecureStorage.getPassword();
-                    // Delete email from secure storage
-                    UserSecureStorage.delete('email');
-                    // Delete password from secure storage
-                    UserSecureStorage.delete('password');
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => UserPage()));
-                  },
-                  iconColor: ArgonColors.primary,
-                  title: "Logout",
-                  isSelected: currentPage == "Logout" ? true : false),
-              /*DrawerTile(
-                  icon: Icons.texture_sharp,
-                  onTap: () {
-                    if (currentPage != "Testhttp")
-                      Navigator.pushReplacementNamed(context, '/testhttp');
-                  },
-                  iconColor: ArgonColors.error,
-                  title: "Test http",
-                  isSelected: currentPage == "Testhttp" ? true : false),*/
             ],
           ),
         ),
@@ -154,7 +123,35 @@ class ArgonDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Divider(height: 4, thickness: 0, color: ArgonColors.muted),
-                  Padding(
+                  DrawerTile(
+                      icon: Icons.logout,
+                      onTap: () {
+                        // this.visible = true;
+                        // print(this.visible);
+                        UserSecureStorage.getEmail();
+                        UserSecureStorage.getPassword();
+                        // Delete email from secure storage
+                        UserSecureStorage.delete('email');
+                        // Delete password from secure storage
+                        UserSecureStorage.delete('password');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserPage()));
+                      },
+                      iconColor: ArgonColors.primary,
+                      title: "Logout",
+                      isSelected: currentPage == "Logout" ? true : false),
+                  /*Visibility(
+                visible: visible,
+                child: Center(
+                    child: Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.black,
+                        ))),
+              )*/
+                  /* Padding(
                     padding:
                         const EdgeInsets.only(top: 16.0, left: 16, bottom: 8),
                     child: Text("DOCUMENTATION",
@@ -162,14 +159,7 @@ class ArgonDrawer extends StatelessWidget {
                           color: Color.fromRGBO(0, 0, 0, 0.5),
                           fontSize: 15,
                         )),
-                  ),
-                  DrawerTile(
-                      icon: Icons.airplanemode_active,
-                      onTap: _launchURL,
-                      iconColor: ArgonColors.muted,
-                      title: "Getting Started",
-                      isSelected:
-                          currentPage == "Getting started" ? true : false),
+                  ),*/
                 ],
               )),
         ),
