@@ -1,6 +1,10 @@
 # E-Tutoring 
 ### Flutter Application (Argon UI template)
 
+### Università degli Studi di Torino
+
+### Corso: Programmazione per dispositivi mobili
+
 ### CONFIG
 
 lib\config
