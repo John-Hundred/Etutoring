@@ -13,7 +13,7 @@ import 'package:argon_flutter/screens/elements.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  String route = "/login";
+  final String route = "/login";
 
   @override
   Widget build(BuildContext context) {
