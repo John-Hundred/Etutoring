@@ -46,11 +46,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     UserSecureStorage.delete('email');
     // Delete password from secure storage
     UserSecureStorage.delete('password');
-    /*this.email = await UserSecureStorage.getEmail();
-    this.password = await UserSecureStorage.getPassword();*/
-
-    // go to login page
-    // sleep(Duration(seconds: 5));
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => UserPage()));
   }
