@@ -1,14 +1,14 @@
 # E-Tutoring 
 ### Flutter Application (Argon UI template)
 
-### Università degli Studi di Torino
+### *Università degli Studi di Torino*
 
-### Corso: Programmazione per dispositivi mobili
+### *Corso: Programmazione per dispositivi mobili*
 
 #### Studenti
-Bortolotti Simone
-De Cenzo Davide
-Marignati Luca
+    Bortolotti Simone
+    De Cenzo Davide
+    Marignati Luca
 
 ### CONFIG
 
