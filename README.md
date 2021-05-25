@@ -10,12 +10,8 @@
 +  De Cenzo Davide
 +  Marignati Luca
 
-### CONFIG
-
-lib\config
-
-make config.dart
-define authority and unecodedPath for comunicate with backend php mysql API
+### CONFIG: file lib\config\config.dart
+Define authority and unecodedPath for comunicate with backend php mysql API
 e.g. 
 - // SERVER IP
 - const String authority = '192.168.56.1';
