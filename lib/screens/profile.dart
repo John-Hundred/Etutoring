@@ -17,7 +17,7 @@ class Profile extends StatelessWidget {
           searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
-        drawer: ArgonDrawer(currentPage: "Profile"),
+        drawer: ArgonDrawer("Profile"),
         body: Stack(children: <Widget>[
           Container(
               decoration: BoxDecoration(

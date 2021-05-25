@@ -110,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             appBar: Navbar(
               title: 'Profilo',
             ),
-            drawer: ArgonDrawer(currentPage: "profile-screen"),
+            drawer: ArgonDrawer("profile-screen"),
             body:
                 /*ListView.builder(
               itemBuilder: (context, index) {

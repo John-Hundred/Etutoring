@@ -92,7 +92,7 @@ class Articles extends StatelessWidget {
           // searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
-        drawer: ArgonDrawer(currentPage: "Articles"),
+        drawer: ArgonDrawer("Articles"),
         body: Container(
             padding: EdgeInsets.only(right: 24, left: 24, bottom: 36),
             child: SingleChildScrollView(

@@ -36,7 +36,7 @@ class MycourseState extends State<Mycourse> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new Navbar(title: "Course"),
-        drawer: ArgonDrawer(currentPage: "course"),
+        drawer: ArgonDrawer("course"),
         body: new Padding(
             padding: const EdgeInsets.only(
                 top: 32, left: 24.0, right: 24.0, bottom: 32),

@@ -29,7 +29,7 @@ class _RegisterState extends State<Register> {
           searchBar: true,
         ),
         extendBodyBehindAppBar: true,
-        drawer: ArgonDrawer(currentPage: "Account"),
+        drawer: ArgonDrawer("Account"),
         body: Stack(
           children: [
             Container(

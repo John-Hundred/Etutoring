@@ -33,7 +33,7 @@ class _ElementsState extends State<Elements> {
           searchBar: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
-        drawer: ArgonDrawer(currentPage: "Elements"),
+        drawer: ArgonDrawer("Elements"),
         body: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.only(right: 24, left: 24, bottom: 36),

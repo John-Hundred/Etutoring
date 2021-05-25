@@ -7,12 +7,27 @@ import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/widgets/drawer-tile.dart';
 
 // ignore: must_be_immutable
-class ArgonDrawer extends StatelessWidget {
+class ArgonDrawer extends StatefulWidget {
   final String currentPage;
+  const ArgonDrawer(this.currentPage);
+  @override
+  _ArgonDrawerState createState() => _ArgonDrawerState();
+}
+
+class _ArgonDrawerState extends State<ArgonDrawer> {
+  // final String currentPage;
 
   // bool visible = false;
 
-  ArgonDrawer({this.currentPage});
+  // ArgonDrawer({this.currentPage});
+
+  // For CircularProgressIndicator.
+  bool visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,67 +65,68 @@ class ArgonDrawer extends StatelessWidget {
               DrawerTile(
                   icon: Icons.person,
                   onTap: () {
-                    if (currentPage != "profile-screen")
+                    if (widget.currentPage != "profile-screen")
                       Navigator.pushReplacementNamed(
                           context, '/profile-screen');
                   },
                   iconColor: ArgonColors.primary,
                   title: "Profilo",
-                  isSelected: currentPage == "profile-screen" ? true : false),
+                  isSelected:
+                      widget.currentPage == "profile-screen" ? true : false),
               DrawerTile(
                   icon: Icons.cloud_circle_sharp,
                   onTap: () {
-                    if (currentPage != "course")
+                    if (widget.currentPage != "course")
                       Navigator.pushReplacementNamed(context, '/course');
                   },
                   iconColor: ArgonColors.primary,
                   title: "Course",
-                  isSelected: currentPage == "course" ? true : false),
+                  isSelected: widget.currentPage == "course" ? true : false),
               DrawerTile(
                   icon: Icons.home,
                   onTap: () {
-                    if (currentPage != "Home")
+                    if (widget.currentPage != "Home")
                       Navigator.pushReplacementNamed(context, '/home');
                   },
                   iconColor: ArgonColors.primary,
                   title: "Home",
-                  isSelected: currentPage == "Home" ? true : false),
+                  isSelected: widget.currentPage == "Home" ? true : false),
               DrawerTile(
                   icon: Icons.pie_chart,
                   onTap: () {
-                    if (currentPage != "Profile")
+                    if (widget.currentPage != "Profile")
                       Navigator.pushReplacementNamed(context, '/profile');
                   },
                   iconColor: ArgonColors.warning,
                   title: "Profile",
-                  isSelected: currentPage == "Profile" ? true : false),
+                  isSelected: widget.currentPage == "Profile" ? true : false),
               DrawerTile(
                   icon: Icons.account_circle,
                   onTap: () {
-                    if (currentPage != "Account")
+                    if (widget.currentPage != "Account")
                       Navigator.pushReplacementNamed(context, '/account');
                   },
                   iconColor: ArgonColors.info,
                   title: "Account",
-                  isSelected: currentPage == "Account" ? true : false),
+                  isSelected: widget.currentPage == "Account" ? true : false),
               DrawerTile(
                   icon: Icons.settings_input_component,
                   onTap: () {
-                    if (currentPage != "Elements")
+                    if (widget.currentPage != "Elements")
                       Navigator.pushReplacementNamed(context, '/elements');
                   },
                   iconColor: ArgonColors.error,
                   title: "Elements",
-                  isSelected: currentPage == "Elements" ? true : false),
+                  isSelected: widget.currentPage == "Elements" ? true : false),
               DrawerTile(
                   icon: Icons.apps,
                   onTap: () {
-                    if (currentPage != "Articles")
+                    if (widget.currentPage != "Articles")
                       Navigator.pushReplacementNamed(context, '/articles');
                   },
                   iconColor: ArgonColors.primary,
                   title: "Articles",
-                  isSelected: currentPage == "Articles" ? true : false),
+                  isSelected: widget.currentPage == "Articles" ? true : false),
             ],
           ),
         ),
@@ -125,8 +141,11 @@ class ArgonDrawer extends StatelessWidget {
                   Divider(height: 4, thickness: 0, color: ArgonColors.muted),
                   DrawerTile(
                       icon: Icons.logout,
-                      onTap: () {
-                        // this.visible = true;
+                      onTap: () async {
+                        setState(() {
+                          visible = true;
+                        });
+                        await Future.delayed(const Duration(seconds: 2), () {});
                         // print(this.visible);
                         UserSecureStorage.getEmail();
                         UserSecureStorage.getPassword();
@@ -141,25 +160,17 @@ class ArgonDrawer extends StatelessWidget {
                       },
                       iconColor: ArgonColors.primary,
                       title: "Logout",
-                      isSelected: currentPage == "Logout" ? true : false),
-                  /*Visibility(
-                visible: visible,
-                child: Center(
-                    child: Container(
-                        margin: EdgeInsets.only(bottom: 30),
-                        child: CircularProgressIndicator(
-                          backgroundColor: Colors.black,
-                        ))),
-              )*/
-                  /* Padding(
-                    padding:
-                        const EdgeInsets.only(top: 16.0, left: 16, bottom: 8),
-                    child: Text("DOCUMENTATION",
-                        style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 0, 0.5),
-                          fontSize: 15,
-                        )),
-                  ),*/
+                      isSelected:
+                          widget.currentPage == "Logout" ? true : false),
+                  Visibility(
+                    visible: visible,
+                    child: Center(
+                        child: Container(
+                            margin: EdgeInsets.only(bottom: 30),
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.blueAccent,
+                            ))),
+                  )
                 ],
               )),
         ),

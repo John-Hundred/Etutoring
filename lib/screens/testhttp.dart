@@ -121,7 +121,7 @@ class Testhttps extends StatelessWidget {
           transparent: true,
         ),
         backgroundColor: ArgonColors.bgColorScreen,
-        drawer: ArgonDrawer(currentPage: "Testhttp"),
+        drawer: ArgonDrawer("Testhttp"),
         body: Stack(children: <Widget>[
           Container(
               decoration: BoxDecoration(
@@ -618,7 +618,7 @@ class Testhttp extends StatelessWidget {
           title: 'Test http',
           searchBar: true,
         ),
-        drawer: ArgonDrawer(currentPage: "Testhttp"),
+        drawer: ArgonDrawer("Testhttp"),
         body: ListView.builder(
           // Let the ListView know how many items it needs to build.
           itemCount: items.length,

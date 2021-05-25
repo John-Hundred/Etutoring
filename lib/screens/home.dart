@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
         ),
         backgroundColor: ArgonColors.bgColorScreen,
         // key: _scaffoldKey,
-        drawer: ArgonDrawer(currentPage: "Home"),
+        drawer: ArgonDrawer("Home"),
         body: Container(
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
           child: SingleChildScrollView(
