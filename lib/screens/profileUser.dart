@@ -28,11 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    // init();
   }
-
-  // Receiving Email using Constructor.
-  // ProfileScreen({Key key, @required this.email}) : super(key: key);
 
   // User Logout Function.
   logout(BuildContext context) async {
@@ -85,9 +81,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           "/course": (BuildContext context) => new Mycourse(),
         },
         home: Scaffold(
-            /*appBar: AppBar(
-                title: Text('Profile Screen'),
-                automaticallyImplyLeading: false),*/
             appBar: Navbar(
               title: 'Profilo',
             ),
@@ -157,22 +150,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: children,
-                      /*Column(
-              children: <Widget>[
-                Container(
-                    width: 280,
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('Email = ', style: TextStyle(fontSize: 20))),
-                ElevatedButton(
-                  onPressed: () {
-                    logout(context);
-                  },
-                  /*color: Colors.red,
-                  textColor: Colors.white,*/
-                  child: Text('Click Here To Logout'),
-                ),
-              ],
-            )*/
                     ),
                   );
                 },
