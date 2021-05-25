@@ -13,7 +13,7 @@ class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
         children: [
-          Icon(icon, size: 100),
+          // Icon(icon, size: 100),
           const SizedBox(height: 16),
           Text(
             text,

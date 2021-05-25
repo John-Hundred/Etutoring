@@ -120,22 +120,20 @@ class _UserPageState extends State<UserPage> {
       init();
     });
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.lightBlueAccent,
       body: Form(
         key: formKey,
         child: ListView(
           padding: EdgeInsets.all(16),
           children: [
+            const SizedBox(height: 50),
+            Image.asset('assets/img/logo_size.jpg', height: 100, width: 100),
             TitleWidget(icon: Icons.login, text: 'Welcome to\nE-tutoring'),
             const SizedBox(height: 32),
             buildName(),
             const SizedBox(height: 12),
             buildPassword(),
-            const SizedBox(height: 12),
-            /*buildBirthday(),
-            const SizedBox(height: 12),
-            buildPets(),
-            const SizedBox(height: 32),*/
+            const SizedBox(height: 50),
             buildButton(),
             Visibility(
               visible: visible,
