@@ -1,3 +1,4 @@
+import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
@@ -48,15 +49,13 @@ class _UserPageState extends State<UserPage> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    // SERVER LOGIN API URL
-    var url = 'e-tutoring-web/ws/ws/user_login.php';
-
     // Store all data with Param Name.
     var data = {'email': email, 'password': password};
 
     // Starting Web API Call.
-    var response =
-        await http.post(Uri.http("192.168.56.1", url), body: json.encode(data));
+    var response = await http.post(
+        Uri.http(authority, unencodedPath + 'user_login.php'),
+        body: json.encode(data));
 
     // Getting Server response into variable.
     var message = jsonDecode(response.body);

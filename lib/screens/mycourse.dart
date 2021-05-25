@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,8 @@ class MycourseState extends State<Mycourse> {
   List data;
 
   Future<String> getData() async {
-    var response = await http
-        .get(Uri.http("192.168.56.1", "e-tutoring-web/ws/ws/course_list.php"));
+    var response =
+        await http.get(Uri.http(authority, unencodedPath + "course_list.php"));
 
     this.setState(() {
       data = jsonDecode(response.body);
