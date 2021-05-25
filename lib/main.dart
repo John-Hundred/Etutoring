@@ -36,25 +36,4 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return _body;
   }
-
-  /*
-  @override
-  Widget build(BuildContext context) {
-    this.init();
-    print(this.route);
-    return MaterialApp(
-        title: 'E-Tutoring',
-        theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: this.route,
-        debugShowCheckedModeBanner: false,
-        routes: <String, WidgetBuilder>{
-          "/login": (BuildContext context) => new UserPage(),
-          "/home": (BuildContext context) => new Home(),
-          "/profile-screen": (BuildContext context) => new ProfileScreen(),
-          "/profile": (BuildContext context) => new Profile(),
-          "/articles": (BuildContext context) => new Articles(),
-          "/elements": (BuildContext context) => new Elements(),
-          "/account": (BuildContext context) => new Register()
-        });
-  }*/
 }
