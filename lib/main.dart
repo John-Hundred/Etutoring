@@ -1,14 +1,7 @@
 import 'package:argon_flutter/screens/profileUser.dart';
-import 'package:argon_flutter/screens/testhttp.dart';
 import 'package:argon_flutter/screens/user_page.dart';
+import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
-
-// screens
-import 'package:argon_flutter/screens/home.dart';
-import 'package:argon_flutter/screens/profile.dart';
-import 'package:argon_flutter/screens/register.dart';
-import 'package:argon_flutter/screens/articles.dart';
-import 'package:argon_flutter/screens/elements.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,24 +11,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String email;
+  Widget _body = CircularProgressIndicator();
 
-  String password;
-  final String route = "/login";
+  @override
+  void initState() {
+    super.initState();
+    UserSecureStorage.getEmail().then((value) => (setState(() {
+          print(value);
+          if (value != null)
+            _body = ProfileScreen();
+          else
+            _body = MaterialApp(
+                title: 'E-Tutoring',
+                theme: ThemeData(fontFamily: 'OpenSans'),
+                initialRoute: "/login",
+                debugShowCheckedModeBanner: false,
+                routes: <String, WidgetBuilder>{
+                  "/login": (BuildContext context) => new UserPage(),
+                });
+        })));
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List<ListItem> items = List<ListItem>.generate(
-      10,
-      (i) => i % 6 == 0
-          ? HeadingItem('Heading $i')
-          : MessageItem('Sender $i', 'Message body $i'),
-    );
+    return _body;
+  }
 
+  /*
+  @override
+  Widget build(BuildContext context) {
+    this.init();
+    print(this.route);
     return MaterialApp(
         title: 'E-Tutoring',
         theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: route,
+        initialRoute: this.route,
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/login": (BuildContext context) => new UserPage(),
@@ -44,8 +54,7 @@ class _MyAppState extends State<MyApp> {
           "/profile": (BuildContext context) => new Profile(),
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
-          "/account": (BuildContext context) => new Register(),
-          "/testhttp": (BuildContext context) => new Testhttp(items: items),
+          "/account": (BuildContext context) => new Register()
         });
-  }
+  }*/
 }

@@ -60,8 +60,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final password = await UserSecureStorage.getPassword() ?? '';
     this.email = email;
     this.password = password;
-    /*print(email);
-    print(password);*/
+    // print(email);
+    // print(password);
   }
 
   Widget build(BuildContext context) {
