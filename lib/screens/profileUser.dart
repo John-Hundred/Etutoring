@@ -1,3 +1,4 @@
+import 'package:argon_flutter/model/user.dart';
 import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/screens/user_page.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
@@ -22,7 +23,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  List<dynamic> listData = [];
+  User user;
   String email;
 
   String password;
@@ -51,21 +52,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
         context, MaterialPageRoute(builder: (context) => UserPage()));
   }
 
-  Future<List<dynamic>> getUserData() async {
+  Future<User> getUserData() async {
     var queryParameters = {
       'id': "1",
     };
     var response = await http.get(
         Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
 
-    var data = [];
+    var user;
     if (response.statusCode == 200) {
-      var userData = jsonDecode(response.body);
-      for (var element in userData) {
-        data.add(element);
-      }
+      var userJsonData = json.decode(response.body);
+      user = User.fromJson(userJsonData);
     }
-    return data;
+    print(user);
+    return user;
   }
 
   Future init() async {
@@ -82,7 +82,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       init();
     });
 
-    getUserData().then((value) => listData.addAll(value));
+    getUserData().then((value) {
+      this.user = value;
+    });
 
     final Future<String> _calculation = Future<String>.delayed(
       const Duration(seconds: 0),
@@ -109,7 +111,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               title: 'Profilo',
             ),
             drawer: ArgonDrawer(currentPage: "profile-screen"),
-            body: ListView.builder(
+            body:
+                /*ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
                     child: Padding(
@@ -118,17 +121,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("Title " + listData[index].toString(),
+                              Text(this.user.toString(),
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),
-                              Text("Text " + listData[index].toString())
                             ])));
               },
-              itemCount: listData.length,
-            )
+              itemCount: 1,
+            )*/
 
-            /*Center(
+                Center(
               child: FutureBuilder<String>(
                 future: _calculation,
                 builder:
@@ -197,8 +199,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   );
                 },
               ),
-            )
-            */
-            ));
+            )));
   }
 }
