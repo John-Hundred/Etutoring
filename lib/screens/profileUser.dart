@@ -43,6 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() {
       visible = true;
     });
+    await Future.delayed(const Duration(seconds: 2), () {});
     this.email = await UserSecureStorage.getEmail();
     this.password = await UserSecureStorage.getPassword();
     // Delete email from secure storage
