@@ -12,6 +12,10 @@ import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
+import 'package:argon_flutter/config/config.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -21,6 +25,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String email;
 
   String password;
+
+  List<dynamic> userData;
 
   // For CircularProgressIndicator.
   bool visible = false;
@@ -46,6 +52,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         context, MaterialPageRoute(builder: (context) => UserPage()));
   }
 
+  Future<String> getUserData() async {
+    var queryParameters = {
+      'id': "1",
+    };
+    var response = await http.get(
+        Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
+
+    this.setState(() {
+      userData = jsonDecode(response.body);
+      print(userData);
+    });
+
+    return "Success!";
+  }
+
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
@@ -59,6 +80,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     this.setState(() {
       init();
     });
+
+    getUserData();
 
     final Future<String> _calculation = Future<String>.delayed(
       const Duration(seconds: 0),

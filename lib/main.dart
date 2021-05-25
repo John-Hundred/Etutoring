@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     UserSecureStorage.getEmail().then((value) => (setState(() {
-          print(value);
+          // print(value);
           if (value != null)
             _body = ProfileScreen();
           else
