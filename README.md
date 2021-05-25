@@ -5,6 +5,11 @@
 
 ### Corso: Programmazione per dispositivi mobili
 
+#### Studenti
+Bortolotti Simone
+De Cenzo Davide
+Marignati Luca
+
 ### CONFIG
 
 lib\config
