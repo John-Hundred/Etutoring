@@ -135,6 +135,7 @@ class _UserPageState extends State<UserPage> {
             buildPassword(),
             const SizedBox(height: 50),
             buildButton(),
+            const SizedBox(height: 50),
             Visibility(
               visible: visible,
               child: Center(
