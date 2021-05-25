@@ -1,5 +1,7 @@
 // import 'dart:io';
 
+import 'dart:io';
+
 import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/screens/user_page.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
@@ -20,10 +22,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // Creating String Var to Hold sent Email.
   String email;
 
   String password;
+
+  // For CircularProgressIndicator.
+  bool visible = false;
 
   @override
   void initState() {
@@ -36,7 +40,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // User Logout Function.
   logout(BuildContext context) async {
-    // sleep(Duration(seconds: 1));
+    setState(() {
+      visible = true;
+    });
     this.email = await UserSecureStorage.getEmail();
     this.password = await UserSecureStorage.getPassword();
     // Delete email from secure storage
@@ -47,6 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     this.password = await UserSecureStorage.getPassword();*/
 
     // go to login page
+    // sleep(Duration(seconds: 5));
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => UserPage()));
   }
@@ -117,6 +124,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           /*color: Colors.red,
                   textColor: Colors.white,*/
                           child: Text('Click Here To Logout')),
+                      const SizedBox(height: 20),
+                      Visibility(
+                        visible: visible,
+                        child: Center(
+                            child: Container(
+                                margin: EdgeInsets.only(bottom: 30),
+                                child: CircularProgressIndicator(
+                                  backgroundColor: Colors.white,
+                                ))),
+                      )
                     ];
                   } else if (snapshot.hasError) {
                     children = <Widget>[

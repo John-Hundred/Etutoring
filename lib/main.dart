@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'E-Tutoring',
         theme: ThemeData(fontFamily: 'OpenSans'),
-        initialRoute: "/login2",
+        initialRoute: "/login",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/login": (BuildContext context) => new UserPage(),
