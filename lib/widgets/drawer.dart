@@ -1,3 +1,5 @@
+import 'package:argon_flutter/screens/user_page.dart';
+import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -116,6 +118,21 @@ class ArgonDrawer extends StatelessWidget {
                   iconColor: ArgonColors.primary,
                   title: "Articles",
                   isSelected: currentPage == "Articles" ? true : false),
+              DrawerTile(
+                  icon: Icons.logout,
+                  onTap: () {
+                    UserSecureStorage.getEmail();
+                    UserSecureStorage.getPassword();
+                    // Delete email from secure storage
+                    UserSecureStorage.delete('email');
+                    // Delete password from secure storage
+                    UserSecureStorage.delete('password');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => UserPage()));
+                  },
+                  iconColor: ArgonColors.primary,
+                  title: "Logout",
+                  isSelected: currentPage == "Logout" ? true : false),
               /*DrawerTile(
                   icon: Icons.texture_sharp,
                   onTap: () {
