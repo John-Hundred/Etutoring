@@ -3,7 +3,7 @@
 
 ### *Università degli Studi di Torino*
 
-### *Corso: Programmazione per dispositivi mobili*
+### *Corso di Laurea Magistrale: Programmazione per dispositivi mobili*
 
 #### Studenti
 + Bortolotti Simone
