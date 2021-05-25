@@ -14,8 +14,6 @@ import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
-import 'login.dart';
-
 class ProfileScreen extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -79,7 +77,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          "/login": (BuildContext context) => new LoginUser(),
           "/home": (BuildContext context) => new Home(),
           "/profile-screen": (BuildContext context) => new ProfileScreen(),
           "/profile": (BuildContext context) => new Profile(),

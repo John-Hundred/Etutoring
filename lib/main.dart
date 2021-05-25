@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
         initialRoute: "/login2",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
-          "/login2": (BuildContext context) => new UserPage(),
-          "/login": (BuildContext context) => new LoginUser(),
+          "/login": (BuildContext context) => new UserPage(),
           "/home": (BuildContext context) => new Home(),
           "/profile-screen": (BuildContext context) => new ProfileScreen(),
           "/profile": (BuildContext context) => new Profile(),
