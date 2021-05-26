@@ -14,18 +14,23 @@ class User {
       this.birth_date, this.birth_city);
 
   User.fromJson(dynamic json) {
-    for (var element in json) {
-      id = element['id'];
-      username = element['username'];
-      email = element['email'];
-      badge_number = element['badge_number'];
-      cf = element['cf'];
-      birth_date = element['birth_date'];
-      birth_city = element['birth_city'];
-    }
+    id = json['id'];
+    username = json['username'];
+    email = json['email'];
+    badge_number = json['badge_number'];
+    cf = json['cf'];
+    birth_date = json['birth_date'];
+    birth_city = json['birth_city'];
   }
 
   toString() {
-    return "username = " + this.username;
+    return "id = " +
+        this.id +
+        "\nusername = " +
+        this.username +
+        "\nemail =" +
+        this.email +
+        "\nbadge number = " +
+        this.badge_number;
   }
 }

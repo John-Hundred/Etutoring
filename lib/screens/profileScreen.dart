@@ -83,6 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     getUserData().then((value) {
       this.user = value;
+      print(this.user);
     });
 
     final Future<String> _calculation = Future<String>.delayed(
