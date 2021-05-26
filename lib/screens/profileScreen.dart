@@ -368,18 +368,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                           color: Colors.green,
                                                           size: 60,
                                                         ),*/
-                                                        Text(
+
+                                                        Align(
+                                                          child: Text(
+                                                              "${user.data.username}",
+                                                              style: TextStyle(
+                                                                  color: Color
+                                                                      .fromRGBO(
+                                                                          50,
+                                                                          50,
+                                                                          93,
+                                                                          1),
+                                                                  fontSize:
+                                                                      20.0)),
+                                                        ),
+                                                        /* Text(
                                                             "id =  ${user.data.id}"),
                                                         Text(
-                                                            "username =  ${user.data.username}"),
+                                                            "username =  ${user.data.username}"),*/
                                                         Text(
-                                                            "email =  ${user.data.email}"),
-                                                        Text(
-                                                            "number =  ${user.data.badge_number}"),
-                                                        Text(
+                                                            "${user.data.email}"),
+                                                        /*Text(
+                                                            "${user.data.badge_number}"),*/
+                                                        /*Text(
                                                             "birth date =  ${user.data.birth_date}"),
                                                         Text(
-                                                            "birth city =  ${user.data.birth_city}"),
+                                                            "birth city =  ${user.data.birth_city}"),*/
                                                       ];
                                                     } else if (user.hasError) {
                                                       children = <Widget>[
@@ -426,14 +440,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                       ),
                                                     );
                                                   },
-                                                ),
-                                                Align(
-                                                  child: Text(
-                                                      "Jessica Jones, 27",
-                                                      style: TextStyle(
-                                                          color: Color.fromRGBO(
-                                                              50, 50, 93, 1),
-                                                          fontSize: 28.0)),
                                                 ),
                                                 SizedBox(height: 10.0),
                                                 Align(
