@@ -147,26 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Profilo',
                 ),
                 drawer: ArgonDrawer("profile-screen"),
-                body:
-                    /*ListView.builder(
-              itemBuilder: (context, index) {
-                return Card(
-                    child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 16.0, bottom: 32.0, left: 16.0, right: 16.0),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(this.user.toString(),
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
-                            ])));
-              },
-              itemCount: 1,
-            )*/
-
-                    Center(
+                body: Center(
                   child: FutureBuilder<User>(
                     future: getUserInfoFromWS,
                     builder: (BuildContext context, AsyncSnapshot<User> user) {
@@ -189,21 +170,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text("number =  ${user.data.badge_number}"),
                           Text("birth date =  ${user.data.birth_date}"),
                           Text("birth city =  ${user.data.birth_city}"),
-                          /*ElevatedButton(
-                              onPressed: () {
-                                logout(context);
-                              },
-                              child: Text('Click Here To Logout')),
-                          const SizedBox(height: 20),*/
-                          /*Visibility(
-                            visible: visible,
-                            child: Center(
-                                child: Container(
-                                    margin: EdgeInsets.only(bottom: 30),
-                                    child: CircularProgressIndicator(
-                                      backgroundColor: Colors.white,
-                                    ))),
-                          )*/
                         ];
                       } else if (user.hasError) {
                         children = <Widget>[
