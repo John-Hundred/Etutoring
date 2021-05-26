@@ -50,47 +50,51 @@ class _LoginState extends State<Login> {
       var data = {'email': email, 'password': password};
 
       // Starting Web API Call.
-      var response = await http.post(
-          Uri.http(authority, unencodedPath + 'user_login.php'),
-          body: json.encode(data));
+      var response = await http
+          .post(Uri.http(authority, unencodedPath + 'user_login.php'),
+              body: json.encode(data))
+          .timeout(const Duration(seconds: 8));
+      switch (response.statusCode) {
+        case 200:
+          // Getting Server response into variable.
+          var message = jsonDecode(response.body);
 
-      // Getting Server response into variable.
-      var message = jsonDecode(response.body);
+          // If the Response Message is Matched.
+          if (message == 'Login Matched') {
+            // Hiding the CircularProgressIndicator.
 
-      // If the Response Message is Matched.
-      if (message == 'Login Matched') {
-        // Hiding the CircularProgressIndicator.
+            setState(() {
+              visible = false;
+            });
 
-        setState(() {
-          visible = false;
-        });
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()));
+          } else {
+            // If Email or Password did not Matched.
+            // Hiding the CircularProgressIndicator.
+            setState(() {
+              visible = false;
+            });
 
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
-      } else {
-        // If Email or Password did not Matched.
-        // Hiding the CircularProgressIndicator.
-        setState(() {
-          visible = false;
-        });
-
-        // Showing Alert Dialog with Response JSON Message.
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: new Text(message),
-              actions: <Widget>[
-                TextButton(
-                  child: new Text("OK"),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
+            // Showing Alert Dialog with Response JSON Message.
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: new Text(message),
+                  actions: <Widget>[
+                    TextButton(
+                      child: new Text("OK"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
             );
-          },
-        );
+          }
+          break;
       }
     } on Exception {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
