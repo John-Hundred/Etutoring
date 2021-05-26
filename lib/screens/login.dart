@@ -219,12 +219,6 @@ class _LoginState extends State<Login> {
           await UserSecureStorage.setPassword(passwordController.text);
           userLogin();
         }
-
-        /*await UserSecureStorage.setPets(pets);
-
-        if (birthday != null) {
-          await UserSecureStorage.setBirthday(birthday);
-        }*/
       });
 
   Widget buildTitle({
