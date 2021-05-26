@@ -70,6 +70,9 @@ class _LoginState extends State<Login> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => ProfileScreen()));
           } else {
+            UserSecureStorage.delete('email');
+            UserSecureStorage.delete('password');
+
             // If Email or Password did not Matched.
             // Hiding the CircularProgressIndicator.
             setState(() {
