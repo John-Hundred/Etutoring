@@ -83,7 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     getUserData().then((value) {
       this.user = value;
-      print(this.user);
+      // print(this.user);
     });
 
     final Future<String> _calculation = Future<String>.delayed(
@@ -152,6 +152,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             padding: const EdgeInsets.only(top: 16),
                             child: Text('Result: ${snapshot.data}'),
                           ),
+                          Text(this.user.id),
+                          Text(this.user.username),
+                          Text(this.user.email),
+                          Text(this.user.badge_number)
                           /*ElevatedButton(
                               onPressed: () {
                                 logout(context);
