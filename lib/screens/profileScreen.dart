@@ -362,12 +362,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                     if (user.hasData) {
                                                       print(user.data);
                                                       children = <Widget>[
-                                                        const Icon(
+                                                        /*const Icon(
                                                           Icons
                                                               .check_circle_outline,
                                                           color: Colors.green,
                                                           size: 60,
-                                                        ),
+                                                        ),*/
                                                         Text(
                                                             "id =  ${user.data.id}"),
                                                         Text(
