@@ -366,6 +366,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                         Text(
                                                             "username =  ${user.data.username}"),*/
                                                         Text(
+                                                            "Matricola ${user.data.badge_number}"),
+                                                        Text(
                                                             "${user.data.username}"),
                                                         Text(
                                                             "${user.data.email}"),
