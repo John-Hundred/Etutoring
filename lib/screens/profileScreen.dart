@@ -157,6 +157,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fit: BoxFit.fitWidth))),
                 SafeArea(
                     child: ListView(children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 16.0, right: 16.0, top: 74.0),
+                  ),
                   Center(
                     child: FutureBuilder<User>(
                       future: getUserInfoFromWS,
