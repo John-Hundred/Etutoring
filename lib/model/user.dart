@@ -31,6 +31,8 @@ class User {
         "\nemail =" +
         this.email +
         "\nbadge number = " +
-        this.badge_number;
+        this.badge_number +
+        "\nbirth date = " +
+        this.birth_date;
   }
 }

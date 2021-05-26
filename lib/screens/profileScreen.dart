@@ -155,7 +155,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(this.user.id),
                           Text(this.user.username),
                           Text(this.user.email),
-                          Text(this.user.badge_number)
+                          Text(this.user.badge_number),
+                          Text(this.user.birth_date),
+                          Text(this.user.birth_city)
                           /*ElevatedButton(
                               onPressed: () {
                                 logout(context);
