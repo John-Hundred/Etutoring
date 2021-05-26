@@ -352,6 +352,81 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   ],
                                                 ),
                                                 SizedBox(height: 40.0),
+                                                FutureBuilder<User>(
+                                                  future: getUserInfoFromWS,
+                                                  builder:
+                                                      (BuildContext context,
+                                                          AsyncSnapshot<User>
+                                                              user) {
+                                                    List<Widget> children;
+                                                    if (user.hasData) {
+                                                      print(user.data);
+                                                      children = <Widget>[
+                                                        const Icon(
+                                                          Icons
+                                                              .check_circle_outline,
+                                                          color: Colors.green,
+                                                          size: 60,
+                                                        ),
+                                                        Text(
+                                                            "id =  ${user.data.id}"),
+                                                        Text(
+                                                            "username =  ${user.data.username}"),
+                                                        Text(
+                                                            "email =  ${user.data.email}"),
+                                                        Text(
+                                                            "number =  ${user.data.badge_number}"),
+                                                        Text(
+                                                            "birth date =  ${user.data.birth_date}"),
+                                                        Text(
+                                                            "birth city =  ${user.data.birth_city}"),
+                                                      ];
+                                                    } else if (user.hasError) {
+                                                      children = <Widget>[
+                                                        const Icon(
+                                                          Icons.error_outline,
+                                                          color: Colors.red,
+                                                          size: 60,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 16),
+                                                          child: Text(
+                                                              'Error: ${user.error}'),
+                                                        )
+                                                      ];
+                                                    } else {
+                                                      children = const <Widget>[
+                                                        SizedBox(
+                                                          child:
+                                                              CircularProgressIndicator(),
+                                                          width: 60,
+                                                          height: 60,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  top: 16),
+                                                          child: Text(
+                                                              'Awaiting result...'),
+                                                        )
+                                                      ];
+                                                    }
+                                                    return Center(
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: children,
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                                 Align(
                                                   child: Text(
                                                       "Jessica Jones, 27",
@@ -560,7 +635,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ))
                             ]),
                           ])),
-                  Center(
+                  /*Center(
                     child: FutureBuilder<User>(
                       future: getUserInfoFromWS,
                       builder:
@@ -574,10 +649,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               color: Colors.green,
                               size: 60,
                             ),
-                            /*Padding(
-                            padding: const EdgeInsets.only(top: 16),
-                            child: Text('Result: ${snapshot.data}'),
-                          ),*/
                             Text("id =  ${user.data.id}"),
                             Text("username =  ${user.data.username}"),
                             Text("email =  ${user.data.email}"),
@@ -619,7 +690,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       },
                     ),
-                  )
+                  )*/
                 ]))
               ]),
             )));
