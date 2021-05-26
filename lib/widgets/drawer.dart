@@ -23,6 +23,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
     super.initState();
   }
 
+  Future wait() async {
+    await new Future.delayed(const Duration(seconds: 5), () {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -143,7 +147,20 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       title: "Logout",
                       isSelected:
                           widget.currentPage == "Logout" ? true : false),
-                  Visibility(
+                  FutureBuilder(
+                      future: wait(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Text(snapshot.data);
+                        } else if (snapshot.hasError) {
+                          return Text("${snapshot.error}");
+                        }
+                        // By default, show a loading spinner
+                        return Visibility(
+                            visible: visible,
+                            child: Center(child: CircularProgressIndicator()));
+                      }),
+                  /* Visibility(
                     visible: visible,
                     child: Center(
                         child: Container(
@@ -151,7 +168,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                             child: CircularProgressIndicator(
                               backgroundColor: Colors.blueAccent,
                             ))),
-                  )
+                  )*/
                 ],
               )),
         ),
