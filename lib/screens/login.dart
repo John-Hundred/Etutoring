@@ -8,12 +8,12 @@ import 'package:argon_flutter/screens/profileUser.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class UserPage extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _UserPageState createState() => _UserPageState();
+  _LoginState createState() => _LoginState();
 }
 
-class _UserPageState extends State<UserPage> {
+class _LoginState extends State<Login> {
   // For CircularProgressIndicator.
   bool visible = false;
 

@@ -1,6 +1,6 @@
 import 'package:argon_flutter/model/user.dart';
 import 'package:argon_flutter/screens/mycourse.dart';
-import 'package:argon_flutter/screens/user_page.dart';
+import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:argon_flutter/widgets/navbar.dart';
@@ -48,8 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     UserSecureStorage.delete('email');
     // Delete password from secure storage
     UserSecureStorage.delete('password');
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => UserPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   Future<User> getUserData() async {

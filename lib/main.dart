@@ -1,5 +1,5 @@
 import 'package:argon_flutter/screens/profileUser.dart';
-import 'package:argon_flutter/screens/user_page.dart';
+import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
                 initialRoute: "/login",
                 debugShowCheckedModeBanner: false,
                 routes: <String, WidgetBuilder>{
-                  "/login": (BuildContext context) => new UserPage(),
+                  "/login": (BuildContext context) => new Login(),
                 });
         })));
   }

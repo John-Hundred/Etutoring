@@ -1,4 +1,4 @@
-import 'package:argon_flutter/screens/user_page.dart';
+import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -153,10 +153,8 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         UserSecureStorage.delete('email');
                         // Delete password from secure storage
                         UserSecureStorage.delete('password');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UserPage()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
                       },
                       iconColor: ArgonColors.primary,
                       title: "Logout",
