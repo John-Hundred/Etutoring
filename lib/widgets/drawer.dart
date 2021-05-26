@@ -15,12 +15,6 @@ class ArgonDrawer extends StatefulWidget {
 }
 
 class _ArgonDrawerState extends State<ArgonDrawer> {
-  // final String currentPage;
-
-  // bool visible = false;
-
-  // ArgonDrawer({this.currentPage});
-
   // For CircularProgressIndicator.
   bool visible = false;
 
@@ -134,7 +128,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         setState(() {
                           visible = true;
                         });
-                        await Future.delayed(const Duration(seconds: 2), () {});
+                        await Future.delayed(const Duration(seconds: 1), () {});
                         // print(this.visible);
                         UserSecureStorage.getEmail();
                         UserSecureStorage.getPassword();
