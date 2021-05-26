@@ -91,6 +91,8 @@ class _LoginState extends State<Login> {
                       child: new Text("OK"),
                       onPressed: () {
                         Navigator.of(context).pop();
+                        this.emailController.text = email;
+                        this.passwordController.text = password;
                       },
                     ),
                   ],
