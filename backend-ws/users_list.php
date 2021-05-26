@@ -20,10 +20,18 @@ left join degree on user_attribute.degree_id = degree.degree_id
 left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
 where id = " . $_GET['id'];
 } else {
-	$sql = "SELECT * FROM user left join user_attribute on user.id = user_attribute.user_id 
-left join role on user_attribute.role_id = role.role_id
-left join degree on user_attribute.degree_id = degree.degree_id
-left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id";
+			if(isset($_GET['email'])) {
+				$sql = "SELECT * FROM user left join user_attribute on user.id = user_attribute.user_id 
+		left join role on user_attribute.role_id = role.role_id
+		left join degree on user_attribute.degree_id = degree.degree_id
+		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
+		where email = '" . $_GET['email'] ."'";
+	} else {
+			$sql = "SELECT * FROM user left join user_attribute on user.id = user_attribute.user_id 
+		left join role on user_attribute.role_id = role.role_id
+		left join degree on user_attribute.degree_id = degree.degree_id
+		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id";
+}
 }
 $result = $connect->query($sql);
 
@@ -42,4 +50,6 @@ if ($result->num_rows > 0) {
 $connect->close();
 
 echo json_encode($emparray);
+
+
 ?>

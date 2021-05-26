@@ -51,21 +51,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }*/
 
-  Future<User> getUserData() async {
-    var queryParameters = {
-      'id': "1",
-    };
-    var response = await http.get(
-        Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
+  Future<User> getUserInfoFromWS = Future<User>.delayed(
+    const Duration(seconds: 0),
+    () async {
+      try {
+        var queryParameters = {
+          'email': await UserSecureStorage.getEmail(),
+        };
+        // print(queryParameters);
+        var response = await http.get(Uri.http(
+            authority, unencodedPath + "users_list.php", queryParameters));
 
-    var user;
-    if (response.statusCode == 200) {
-      var userJsonData = json.decode(response.body);
-      user = User.fromJson(userJsonData);
+        var user;
+        if (response.statusCode == 200) {
+          var userJsonData = json.decode(response.body);
+          user = User.fromJson(userJsonData);
+        }
+        // print(user);
+        return user;
+      } on Exception catch ($e) {
+        print('error caught: ' + $e.toString());
+        return null;
+      }
+    },
+  );
+
+  /*Future<User> getUserData() async {
+    try {
+      var queryParameters = {
+        'email': await UserSecureStorage.getEmail(),
+      };
+      // print(queryParameters);
+      var response = await http.get(Uri.http(
+          authority, unencodedPath + "users_list.php", queryParameters));
+
+      var user;
+      if (response.statusCode == 200) {
+        var userJsonData = json.decode(response.body);
+        user = User.fromJson(userJsonData);
+      }
+      print(user);
+      return user;
+    } on Exception catch ($e) {
+      print('error caught: ' + $e.toString());
+      return null;
     }
-    print(user);
-    return user;
-  }
+  }*/
 
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
@@ -81,19 +112,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
       init();
     });
 
-    getUserData().then((value) {
+    /*getUserData().then((value) {
       this.user = value;
       // print(this.user);
-    });
+    });*/
 
-    final Future<String> _calculation = Future<String>.delayed(
+    /*final Future<String> _calculation = Future<String>.delayed(
       const Duration(seconds: 0),
       () {
         final email = UserSecureStorage.getEmail() ?? '';
         return email;
         // 'Data Loaded'
       },
-    );
+    );*/
 
     return new WillPopScope(
         onWillPop: () async {
@@ -136,28 +167,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
             )*/
 
                     Center(
-                  child: FutureBuilder<String>(
-                    future: _calculation,
-                    builder:
-                        (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  child: FutureBuilder<User>(
+                    future: getUserInfoFromWS,
+                    builder: (BuildContext context, AsyncSnapshot<User> user) {
                       List<Widget> children;
-                      if (snapshot.hasData) {
+                      if (user.hasData) {
+                        // print(user);
                         children = <Widget>[
                           const Icon(
                             Icons.check_circle_outline,
                             color: Colors.green,
                             size: 60,
                           ),
-                          Padding(
+                          /*Padding(
                             padding: const EdgeInsets.only(top: 16),
                             child: Text('Result: ${snapshot.data}'),
-                          ),
-                          Text(this.user.id),
-                          Text(this.user.username),
-                          Text(this.user.email),
-                          Text(this.user.badge_number),
-                          Text(this.user.birth_date),
-                          Text(this.user.birth_city)
+                          ),*/
+                          Text("id =  ${user.data.id}"),
+                          Text("username =  ${user.data.username}"),
+                          Text("email =  ${user.data.email}"),
+                          Text("number =  ${user.data.badge_number}"),
+                          Text("birth date =  ${user.data.birth_date}"),
+                          Text("birth city =  ${user.data.birth_city}"),
                           /*ElevatedButton(
                               onPressed: () {
                                 logout(context);
@@ -174,7 +205,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ))),
                           )*/
                         ];
-                      } else if (snapshot.hasError) {
+                      } else if (user.hasError) {
                         children = <Widget>[
                           const Icon(
                             Icons.error_outline,
@@ -183,7 +214,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 16),
-                            child: Text('Error: ${snapshot.error}'),
+                            child: Text('Error: ${user.error}'),
                           )
                         ];
                       } else {

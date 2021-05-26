@@ -14,13 +14,13 @@ class User {
       this.birth_date, this.birth_city);
 
   User.fromJson(dynamic json) {
-    id = json['id'];
-    username = json['username'];
-    email = json['email'];
-    badge_number = json['badge_number'];
-    cf = json['cf'];
-    birth_date = json['birth_date'];
-    birth_city = json['birth_city'];
+    id = json['id'] ?? '';
+    username = json['username'] ?? '';
+    email = json['email'] ?? '';
+    badge_number = json['badge_number'] ?? '';
+    cf = json['cf'] ?? '';
+    birth_date = json['birth_date'] ?? '';
+    birth_city = json['birth_city'] ?? '';
   }
 
   toString() {
