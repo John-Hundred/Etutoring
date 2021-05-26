@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   // User Logout Function.
-  logout(BuildContext context) async {
+  /*logout(BuildContext context) async {
     setState(() {
       visible = true;
     });
@@ -50,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // Delete password from secure storage
     UserSecureStorage.delete('password');
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-  }
+  }*/
 
   Future<User> getUserData() async {
     var queryParameters = {
@@ -152,15 +152,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             padding: const EdgeInsets.only(top: 16),
                             child: Text('Result: ${snapshot.data}'),
                           ),
-                          ElevatedButton(
+                          /*ElevatedButton(
                               onPressed: () {
                                 logout(context);
                               },
-                              /*color: Colors.red,
-                  textColor: Colors.white,*/
                               child: Text('Click Here To Logout')),
-                          const SizedBox(height: 20),
-                          Visibility(
+                          const SizedBox(height: 20),*/
+                          /*Visibility(
                             visible: visible,
                             child: Center(
                                 child: Container(
@@ -168,7 +166,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     child: CircularProgressIndicator(
                                       backgroundColor: Colors.white,
                                     ))),
-                          )
+                          )*/
                         ];
                       } else if (snapshot.hasError) {
                         children = <Widget>[
