@@ -1,4 +1,4 @@
-import 'package:argon_flutter/screens/profileUser.dart';
+import 'package:argon_flutter/screens/profileScreen.dart';
 import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';

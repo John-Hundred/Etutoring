@@ -16,6 +16,7 @@ import 'package:argon_flutter/screens/elements.dart';
 import 'package:argon_flutter/config/config.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:move_to_background/move_to_background.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -94,24 +95,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
       },
     );
 
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes: <String, WidgetBuilder>{
-          "/home": (BuildContext context) => new Home(),
-          "/profile-screen": (BuildContext context) => new ProfileScreen(),
-          "/profile": (BuildContext context) => new Profile(),
-          "/articles": (BuildContext context) => new Articles(),
-          "/elements": (BuildContext context) => new Elements(),
-          "/account": (BuildContext context) => new Register(),
-          "/course": (BuildContext context) => new Mycourse(),
+    return new WillPopScope(
+        onWillPop: () async {
+          MoveToBackground.moveTaskToBack();
+          return false;
         },
-        home: Scaffold(
-            appBar: Navbar(
-              title: 'Profilo',
-            ),
-            drawer: ArgonDrawer("profile-screen"),
-            body:
-                /*ListView.builder(
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            routes: <String, WidgetBuilder>{
+              "/home": (BuildContext context) => new Home(),
+              "/profile-screen": (BuildContext context) => new ProfileScreen(),
+              "/profile": (BuildContext context) => new Profile(),
+              "/articles": (BuildContext context) => new Articles(),
+              "/elements": (BuildContext context) => new Elements(),
+              "/account": (BuildContext context) => new Register(),
+              "/course": (BuildContext context) => new Mycourse(),
+            },
+            home: Scaffold(
+                appBar: Navbar(
+                  title: 'Profilo',
+                ),
+                drawer: ArgonDrawer("profile-screen"),
+                body:
+                    /*ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
                     child: Padding(
@@ -129,75 +135,75 @@ class _ProfileScreenState extends State<ProfileScreen> {
               itemCount: 1,
             )*/
 
-                Center(
-              child: FutureBuilder<String>(
-                future: _calculation,
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  List<Widget> children;
-                  if (snapshot.hasData) {
-                    children = <Widget>[
-                      const Icon(
-                        Icons.check_circle_outline,
-                        color: Colors.green,
-                        size: 60,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16),
-                        child: Text('Result: ${snapshot.data}'),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            logout(context);
-                          },
-                          /*color: Colors.red,
+                    Center(
+                  child: FutureBuilder<String>(
+                    future: _calculation,
+                    builder:
+                        (BuildContext context, AsyncSnapshot<String> snapshot) {
+                      List<Widget> children;
+                      if (snapshot.hasData) {
+                        children = <Widget>[
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.green,
+                            size: 60,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Text('Result: ${snapshot.data}'),
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                logout(context);
+                              },
+                              /*color: Colors.red,
                   textColor: Colors.white,*/
-                          child: Text('Click Here To Logout')),
-                      const SizedBox(height: 20),
-                      Visibility(
-                        visible: visible,
-                        child: Center(
-                            child: Container(
-                                margin: EdgeInsets.only(bottom: 30),
-                                child: CircularProgressIndicator(
-                                  backgroundColor: Colors.white,
-                                ))),
-                      )
-                    ];
-                  } else if (snapshot.hasError) {
-                    children = <Widget>[
-                      const Icon(
-                        Icons.error_outline,
-                        color: Colors.red,
-                        size: 60,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16),
-                        child: Text('Error: ${snapshot.error}'),
-                      )
-                    ];
-                  } else {
-                    children = const <Widget>[
-                      SizedBox(
-                        child: CircularProgressIndicator(),
-                        width: 60,
-                        height: 60,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 16),
-                        child: Text('Awaiting result...'),
-                      )
-                    ];
-                  }
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: children,
-                    ),
-                  );
-                },
-              ),
-            )));
+                              child: Text('Click Here To Logout')),
+                          const SizedBox(height: 20),
+                          Visibility(
+                            visible: visible,
+                            child: Center(
+                                child: Container(
+                                    margin: EdgeInsets.only(bottom: 30),
+                                    child: CircularProgressIndicator(
+                                      backgroundColor: Colors.white,
+                                    ))),
+                          )
+                        ];
+                      } else if (snapshot.hasError) {
+                        children = <Widget>[
+                          const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                            size: 60,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Text('Error: ${snapshot.error}'),
+                          )
+                        ];
+                      } else {
+                        children = const <Widget>[
+                          SizedBox(
+                            child: CircularProgressIndicator(),
+                            width: 60,
+                            height: 60,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 16),
+                            child: Text('Awaiting result...'),
+                          )
+                        ];
+                      }
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: children,
+                        ),
+                      );
+                    },
+                  ),
+                ))));
   }
 }

@@ -4,9 +4,10 @@ import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 
-import 'package:argon_flutter/screens/profileUser.dart';
+import 'package:argon_flutter/screens/profileScreen.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:move_to_background/move_to_background.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -123,36 +124,42 @@ class _LoginState extends State<Login> {
     this.setState(() {
       init();
     });
-    return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
-      body: Form(
-        key: formKey,
-        child: ListView(
-          padding: EdgeInsets.all(16),
-          children: [
-            const SizedBox(height: 50),
-            Image.asset('assets/img/logo_size.jpg', height: 100, width: 100),
-            TitleWidget(icon: Icons.login, text: 'Welcome to\nE-tutoring'),
-            const SizedBox(height: 32),
-            buildName(),
-            const SizedBox(height: 12),
-            buildPassword(),
-            const SizedBox(height: 50),
-            buildButton(),
-            const SizedBox(height: 50),
-            Visibility(
-              visible: visible,
-              child: Center(
-                  child: Container(
-                      margin: EdgeInsets.only(bottom: 30),
-                      child: CircularProgressIndicator(
-                        backgroundColor: Colors.white,
-                      ))),
-            )
-          ],
-        ),
-      ),
-    );
+    return new WillPopScope(
+        onWillPop: () async {
+          MoveToBackground.moveTaskToBack();
+          return false;
+        },
+        child: Scaffold(
+          backgroundColor: Colors.lightBlueAccent,
+          body: Form(
+            key: formKey,
+            child: ListView(
+              padding: EdgeInsets.all(16),
+              children: [
+                const SizedBox(height: 50),
+                Image.asset('assets/img/logo_size.jpg',
+                    height: 100, width: 100),
+                TitleWidget(icon: Icons.login, text: 'Welcome to\nE-tutoring'),
+                const SizedBox(height: 32),
+                buildName(),
+                const SizedBox(height: 12),
+                buildPassword(),
+                const SizedBox(height: 50),
+                buildButton(),
+                const SizedBox(height: 50),
+                Visibility(
+                  visible: visible,
+                  child: Center(
+                      child: Container(
+                          margin: EdgeInsets.only(bottom: 30),
+                          child: CircularProgressIndicator(
+                            backgroundColor: Colors.white,
+                          ))),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget buildName() => buildTitle(
