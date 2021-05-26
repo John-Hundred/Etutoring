@@ -37,67 +37,75 @@ class _LoginState extends State<Login> {
   }
 
   Future userLogin() async {
-    // Showing CircularProgressIndicator.
     setState(() {
+      // Showing CircularProgressIndicator.
       visible = true;
     });
 
-    // Getting value from Controller
-    String email = emailController.text;
-    String password = passwordController.text;
+    try {
+      // Getting value from Controller
+      String email = emailController.text;
+      String password = passwordController.text;
+      // Store all data with Param Name.
+      var data = {'email': email, 'password': password};
 
-    // Store all data with Param Name.
-    var data = {'email': email, 'password': password};
+      // Starting Web API Call.
+      var response = await http.post(
+          Uri.http(authority, unencodedPath + 'user_login.php'),
+          body: json.encode(data));
 
-    // Starting Web API Call.
-    var response = await http.post(
-        Uri.http(authority, unencodedPath + 'user_login.php'),
-        body: json.encode(data));
+      // Getting Server response into variable.
+      var message = jsonDecode(response.body);
 
-    // Getting Server response into variable.
-    var message = jsonDecode(response.body);
+      // If the Response Message is Matched.
+      if (message == 'Login Matched') {
+        // Hiding the CircularProgressIndicator.
 
-    // If the Response Message is Matched.
-    if (message == 'Login Matched') {
-      // Hiding the CircularProgressIndicator.
+        setState(() {
+          visible = false;
+        });
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+      } else {
+        // If Email or Password did not Matched.
+        // Hiding the CircularProgressIndicator.
+        setState(() {
+          visible = false;
+        });
+
+        // Showing Alert Dialog with Response JSON Message.
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: new Text(message),
+              actions: <Widget>[
+                TextButton(
+                  child: new Text("OK"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Login Error. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
       setState(() {
         visible = false;
       });
-
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ProfileScreen()));
-    } else {
-      // If Email or Password did not Matched.
-      // Hiding the CircularProgressIndicator.
-      setState(() {
-        visible = false;
-      });
-
-      // Showing Alert Dialog with Response JSON Message.
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: new Text(message),
-            actions: <Widget>[
-              TextButton(
-                child: new Text("OK"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
     }
   }
 
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
-    /*final birthday = await UserSecureStorage.getBirthday() ?? '';
-    final pets = await UserSecureStorage.getPets() ?? [];*/
 
     this.emailController.text = email;
     this.passwordController.text = password;
@@ -193,13 +201,9 @@ class _LoginState extends State<Login> {
       text: 'Login',
       onClicked: () async {
         if (formKey.currentState.validate()) {
-          // If the form is valid, display a snackbar. In the real world,
-          // you'd often call a server or save the information in a database.
           await UserSecureStorage.setEmail(emailController.text);
           await UserSecureStorage.setPassword(passwordController.text);
           userLogin();
-          /*ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Login and Save Data')));*/
         }
 
         /*await UserSecureStorage.setPets(pets);
