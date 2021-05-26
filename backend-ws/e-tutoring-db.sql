@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 25, 2021 alle 18:15
+-- Creato il: Mag 26, 2021 alle 16:20
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 7.4.16
 
@@ -231,6 +231,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `created_at`, `update
 
 CREATE TABLE `user_attribute` (
   `user_attribute_id` int(11) NOT NULL,
+  `firstname` varchar(50) DEFAULT NULL,
+  `lastname` varchar(50) DEFAULT NULL,
   `badge_number` int(11) NOT NULL,
   `cf` varchar(30) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
@@ -250,8 +252,10 @@ CREATE TABLE `user_attribute` (
 -- Dump dei dati per la tabella `user_attribute`
 --
 
-INSERT INTO `user_attribute` (`user_attribute_id`, `badge_number`, `cf`, `birth_date`, `birth_city`, `residence_city`, `address`, `nationality`, `gender`, `phone_number`, `degree_id`, `degree_path_id`, `role_id`, `user_id`) VALUES
-(1, 779038, 'MRGLCU94D02L219F', '1994-04-02', 'Torino', 'Settimo Torinese', 'Via Botticelli 2', 'Italiana', 'M', '3347811074', 2, 2, 1, 1);
+INSERT INTO `user_attribute` (`user_attribute_id`, `firstname`, `lastname`, `badge_number`, `cf`, `birth_date`, `birth_city`, `residence_city`, `address`, `nationality`, `gender`, `phone_number`, `degree_id`, `degree_path_id`, `role_id`, `user_id`) VALUES
+(1, 'Luca', 'Marignati', 779038, 'MRGLCU94D02L219F', '1994-04-02', 'Torino', 'Settimo Torinese', 'Via Botticelli 2', 'Italiana', 'M', '3347811074', 2, 2, 1, 1),
+(2, 'Simone', 'Bortolotti', 802598, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 2),
+(3, 'Davide', 'De Cenzo', 785552, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 3);
 
 --
 -- Indici per le tabelle scaricate
@@ -361,5 +365,5 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT per la tabella `user_attribute`
 --
 ALTER TABLE `user_attribute`
-  MODIFY `user_attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;

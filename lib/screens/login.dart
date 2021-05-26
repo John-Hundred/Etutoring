@@ -4,7 +4,7 @@ import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 
-import 'package:argon_flutter/screens/profileScreen.dart';
+import 'package:argon_flutter/screens/profile.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:move_to_background/move_to_background.dart';
@@ -68,8 +68,8 @@ class _LoginState extends State<Login> {
               visible = false;
             });
 
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProfileScreen()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Profile()));
           } else {
             UserSecureStorage.delete('email');
             UserSecureStorage.delete('password');

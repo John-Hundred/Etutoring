@@ -65,14 +65,12 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
               DrawerTile(
                   icon: Icons.person,
                   onTap: () {
-                    if (widget.currentPage != "profile-screen")
-                      Navigator.pushReplacementNamed(
-                          context, '/profile-screen');
+                    if (widget.currentPage != "profile")
+                      Navigator.pushReplacementNamed(context, '/profile');
                   },
                   iconColor: ArgonColors.primary,
                   title: "Profilo",
-                  isSelected:
-                      widget.currentPage == "profile-screen" ? true : false),
+                  isSelected: widget.currentPage == "profile" ? true : false),
               DrawerTile(
                   icon: Icons.cloud_circle_sharp,
                   onTap: () {
@@ -91,15 +89,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.primary,
                   title: "Home",
                   isSelected: widget.currentPage == "Home" ? true : false),
-              DrawerTile(
-                  icon: Icons.pie_chart,
-                  onTap: () {
-                    if (widget.currentPage != "Profile")
-                      Navigator.pushReplacementNamed(context, '/profile');
-                  },
-                  iconColor: ArgonColors.warning,
-                  title: "Profile",
-                  isSelected: widget.currentPage == "Profile" ? true : false),
               DrawerTile(
                   icon: Icons.account_circle,
                   onTap: () {
