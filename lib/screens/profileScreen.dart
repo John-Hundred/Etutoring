@@ -143,68 +143,82 @@ class _ProfileScreenState extends State<ProfileScreen> {
               "/course": (BuildContext context) => new Mycourse(),
             },
             home: Scaffold(
-                appBar: Navbar(
-                  title: 'Profilo',
-                ),
-                drawer: ArgonDrawer("profile-screen"),
-                body: Center(
-                  child: FutureBuilder<User>(
-                    future: getUserInfoFromWS,
-                    builder: (BuildContext context, AsyncSnapshot<User> user) {
-                      List<Widget> children;
-                      if (user.hasData) {
-                        // print(user);
-                        children = <Widget>[
-                          const Icon(
-                            Icons.check_circle_outline,
-                            color: Colors.green,
-                            size: 60,
-                          ),
-                          /*Padding(
+              appBar: Navbar(
+                title: 'Profilo',
+              ),
+              drawer: ArgonDrawer("profile-screen"),
+              body: Stack(children: <Widget>[
+                Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            alignment: Alignment.topCenter,
+                            image:
+                                AssetImage("assets/img/profile-screen-bg.png"),
+                            fit: BoxFit.fitWidth))),
+                SafeArea(
+                    child: ListView(children: [
+                  Center(
+                    child: FutureBuilder<User>(
+                      future: getUserInfoFromWS,
+                      builder:
+                          (BuildContext context, AsyncSnapshot<User> user) {
+                        List<Widget> children;
+                        if (user.hasData) {
+                          // print(user);
+                          children = <Widget>[
+                            const Icon(
+                              Icons.check_circle_outline,
+                              color: Colors.green,
+                              size: 60,
+                            ),
+                            /*Padding(
                             padding: const EdgeInsets.only(top: 16),
                             child: Text('Result: ${snapshot.data}'),
                           ),*/
-                          Text("id =  ${user.data.id}"),
-                          Text("username =  ${user.data.username}"),
-                          Text("email =  ${user.data.email}"),
-                          Text("number =  ${user.data.badge_number}"),
-                          Text("birth date =  ${user.data.birth_date}"),
-                          Text("birth city =  ${user.data.birth_city}"),
-                        ];
-                      } else if (user.hasError) {
-                        children = <Widget>[
-                          const Icon(
-                            Icons.error_outline,
-                            color: Colors.red,
-                            size: 60,
+                            Text("id =  ${user.data.id}"),
+                            Text("username =  ${user.data.username}"),
+                            Text("email =  ${user.data.email}"),
+                            Text("number =  ${user.data.badge_number}"),
+                            Text("birth date =  ${user.data.birth_date}"),
+                            Text("birth city =  ${user.data.birth_city}"),
+                          ];
+                        } else if (user.hasError) {
+                          children = <Widget>[
+                            const Icon(
+                              Icons.error_outline,
+                              color: Colors.red,
+                              size: 60,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 16),
+                              child: Text('Error: ${user.error}'),
+                            )
+                          ];
+                        } else {
+                          children = const <Widget>[
+                            SizedBox(
+                              child: CircularProgressIndicator(),
+                              width: 60,
+                              height: 60,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 16),
+                              child: Text('Awaiting result...'),
+                            )
+                          ];
+                        }
+                        return Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: children,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 16),
-                            child: Text('Error: ${user.error}'),
-                          )
-                        ];
-                      } else {
-                        children = const <Widget>[
-                          SizedBox(
-                            child: CircularProgressIndicator(),
-                            width: 60,
-                            height: 60,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 16),
-                            child: Text('Awaiting result...'),
-                          )
-                        ];
-                      }
-                      return Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: children,
-                        ),
-                      );
-                    },
-                  ),
-                ))));
+                        );
+                      },
+                    ),
+                  )
+                ]))
+              ]),
+            )));
   }
 }
