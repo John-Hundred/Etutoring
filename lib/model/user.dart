@@ -1,5 +1,7 @@
 class User {
   String id;
+  String firstname;
+  String lastname;
   String username;
   String email;
   // ignore: non_constant_identifier_names
@@ -10,11 +12,13 @@ class User {
   // ignore: non_constant_identifier_names
   String birth_city;
 
-  User(this.id, this.username, this.email, this.badge_number, this.cf,
-      this.birth_date, this.birth_city);
+  User(this.id, this.firstname, this.lastname, this.username, this.email,
+      this.badge_number, this.cf, this.birth_date, this.birth_city);
 
   User.fromJson(dynamic json) {
     id = json['id'] ?? '';
+    firstname = json['firstname'] ?? '';
+    lastname = json['lastname'] ?? '';
     username = json['username'] ?? '';
     email = json['email'] ?? '';
     badge_number = json['badge_number'] ?? '';
@@ -26,6 +30,10 @@ class User {
   toString() {
     return "id = " +
         this.id +
+        "\nfirstname = " +
+        this.firstname +
+        "\nfirstname = " +
+        this.lastname +
         "\nusername = " +
         this.username +
         "\nemail =" +

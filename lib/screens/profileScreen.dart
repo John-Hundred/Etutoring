@@ -77,28 +77,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     },
   );
 
-  /*Future<User> getUserData() async {
-    try {
-      var queryParameters = {
-        'email': await UserSecureStorage.getEmail(),
-      };
-      // print(queryParameters);
-      var response = await http.get(Uri.http(
-          authority, unencodedPath + "users_list.php", queryParameters));
-
-      var user;
-      if (response.statusCode == 200) {
-        var userJsonData = json.decode(response.body);
-        user = User.fromJson(userJsonData);
-      }
-      print(user);
-      return user;
-    } on Exception catch ($e) {
-      print('error caught: ' + $e.toString());
-      return null;
-    }
-  }*/
-
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
@@ -371,7 +349,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                                                         Align(
                                                           child: Text(
-                                                              "${user.data.username}",
+                                                              "${user.data.firstname} "
+                                                              "${user.data.lastname}",
                                                               style: TextStyle(
                                                                   color: Color
                                                                       .fromRGBO(
@@ -386,6 +365,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                             "id =  ${user.data.id}"),
                                                         Text(
                                                             "username =  ${user.data.username}"),*/
+                                                        Text(
+                                                            "${user.data.username}"),
                                                         Text(
                                                             "${user.data.email}"),
                                                         /*Text(
