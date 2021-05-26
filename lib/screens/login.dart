@@ -23,13 +23,10 @@ class _LoginState extends State<Login> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  /*DateTime birthday;
-  List<String> pets = [];*/
 
   @override
   void initState() {
     super.initState();
-    // init();
   }
 
 // Toggles the password show status
@@ -104,14 +101,6 @@ class _LoginState extends State<Login> {
 
     this.emailController.text = email;
     this.passwordController.text = password;
-    /*this.birthday = birthday;
-    this.pets = pets;*/
-    /*setState(() {
-      this.controllerName.text = name;
-      this.controllerNamePwd.text = password;
-      this.birthday = birthday;
-      this.pets = pets;
-    });*/
   }
 
   @override
@@ -199,24 +188,6 @@ class _LoginState extends State<Login> {
           ),
         ),
       );
-
-  /*Widget buildBirthday() => buildTitle(
-        title: 'Birthday',
-        child: BirthdayWidget(
-          birthday: birthday,
-          onChangedBirthday: (birthday) =>
-              setState(() => this.birthday = birthday),
-        ),
-      );
-
-  Widget buildPets() => buildTitle(
-        title: 'Pets',
-        child: PetsButtonsWidget(
-          pets: pets,
-          onSelectedPet: (pet) => setState(
-              () => pets.contains(pet) ? pets.remove(pet) : pets.add(pet)),
-        ),
-      );*/
 
   Widget buildButton() => ButtonWidget(
       text: 'Login',
