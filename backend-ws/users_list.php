@@ -29,9 +29,12 @@ $result = $connect->query($sql);
 
 $emparray = array();
 if ($result->num_rows > 0) {
+  if($result->num_rows == 1) $emparray = $row = $result->fetch_assoc();
   // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $emparray[] = $row;
+  else {
+	  while($row = $result->fetch_assoc()) {
+		$emparray[] = $row;
+	}
   }
 } else { 
 	// no results
@@ -39,6 +42,4 @@ if ($result->num_rows > 0) {
 $connect->close();
 
 echo json_encode($emparray);
-
-
 ?>
