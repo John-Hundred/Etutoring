@@ -599,7 +599,7 @@ class _ProfileState extends State<Profile> {
                                   child: Align(
                                     child: CircleAvatar(
                                       backgroundImage: AssetImage(
-                                          "assets/img/profile-screen-avatar.jpg"),
+                                          "assets/img/img_avatar.png"),
                                       radius: 65.0,
                                       // maxRadius: 200.0,
                                     ),
