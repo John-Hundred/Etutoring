@@ -33,6 +33,8 @@ class User {
         "\nbadge number = " +
         this.badge_number +
         "\nbirth date = " +
-        this.birth_date;
+        this.birth_date +
+        "\nbirth city = " +
+        this.birth_city;
   }
 }
