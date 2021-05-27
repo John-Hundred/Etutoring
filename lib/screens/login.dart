@@ -201,7 +201,9 @@ class _LoginState extends State<Login> {
             hintText: 'Your Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
-              onTap: () {
+              onTap: () async {
+                await UserSecureStorage.setEmail(emailController.text);
+                await UserSecureStorage.setPassword(passwordController.text);
                 _toggle();
               },
               child: Icon(
