@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 class TitleWidget extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Color color;
 
-  const TitleWidget({
-    Key key,
-    this.icon,
-    this.text,
-  }) : super(key: key);
+  const TitleWidget({Key key, this.icon, this.text, this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => Column(
@@ -17,7 +15,8 @@ class TitleWidget extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             text,
-            style: TextStyle(fontSize: 42, fontWeight: FontWeight.w400),
+            style: TextStyle(
+                fontSize: 42, fontWeight: FontWeight.w400, color: this.color),
             textAlign: TextAlign.center,
           ),
         ],

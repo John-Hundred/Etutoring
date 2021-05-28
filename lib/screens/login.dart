@@ -1,4 +1,5 @@
 import 'package:argon_flutter/config/config.dart';
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
@@ -134,7 +135,7 @@ class _LoginState extends State<Login> {
           return false;
         },
         child: Scaffold(
-          backgroundColor: Colors.lightBlueAccent,
+          backgroundColor: Colors.white,
           body: Form(
             key: formKey,
             child: ListView(
@@ -143,7 +144,10 @@ class _LoginState extends State<Login> {
                 const SizedBox(height: 50),
                 Image.asset('assets/img/logo_size.jpg',
                     height: 100, width: 100),
-                TitleWidget(icon: Icons.login, text: 'Welcome to\nE-tutoring'),
+                TitleWidget(
+                    icon: Icons.login,
+                    text: 'Welcome to\nE-tutoring',
+                    color: ArgonColors.black),
                 const SizedBox(height: 32),
                 buildName(),
                 const SizedBox(height: 12),
@@ -157,7 +161,7 @@ class _LoginState extends State<Login> {
                       child: Container(
                           margin: EdgeInsets.only(bottom: 30),
                           child: CircularProgressIndicator(
-                            backgroundColor: Colors.white,
+                            backgroundColor: ArgonColors.redUnito,
                           ))),
                 )
               ],
