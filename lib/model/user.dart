@@ -21,6 +21,13 @@ class User {
   String degree_athenaeum;
   // ignore: non_constant_identifier_names
   String degree_path_name;
+  // ignore: non_constant_identifier_names
+  String phone_number;
+
+  String nationality;
+
+  // ignore: non_constant_identifier_names
+  String residence_city;
 
   User(
       this.id,
@@ -36,7 +43,10 @@ class User {
       this.degree_name,
       this.degree_location,
       this.degree_athenaeum,
-      this.degree_path_name);
+      this.degree_path_name,
+      this.phone_number,
+      this.nationality,
+      this.residence_city);
 
   User.fromJson(dynamic json) {
     id = json['id'] ?? '';
@@ -53,6 +63,9 @@ class User {
     degree_location = json['degree_location'] ?? '';
     degree_athenaeum = json['degree_athenaeum'] ?? '';
     degree_path_name = json['degree_path_name'] ?? '';
+    phone_number = json['phone_number'] ?? '';
+    nationality = json['nationality'] ?? '';
+    residence_city = json['residence_city'] ?? '';
   }
 
   toString() {

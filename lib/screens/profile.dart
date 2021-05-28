@@ -173,6 +173,78 @@ class _ProfileState extends State<Profile> {
                                                         DataRow(
                                                           cells: <DataCell>[
                                                             DataCell(Text(
+                                                              'Numero di telefono',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .redAccent,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            )),
+                                                            DataCell(Text(
+                                                                "${user.data.phone_number}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                              'Nazionalità',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .redAccent,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            )),
+                                                            DataCell(Text(
+                                                                "${user.data.nationality}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Luogo di Nascita',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.birth_city}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Data di Nascita',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.birth_date}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Città di residenza',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.residence_city}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
                                                                 'Ruolo',
                                                                 style: TextStyle(
                                                                     color: Colors
