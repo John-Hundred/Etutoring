@@ -157,15 +157,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               backgroundColor: ArgonColors.redUnito,
                             )));
                       }),
-                  /* Visibility(
-                    visible: visible,
-                    child: Center(
-                        child: Container(
-                            margin: EdgeInsets.only(bottom: 30),
-                            child: CircularProgressIndicator(
-                              backgroundColor: Colors.blueAccent,
-                            ))),
-                  )*/
                 ],
               )),
         ),
