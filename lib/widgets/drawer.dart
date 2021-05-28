@@ -43,7 +43,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 32),
                   child: new Row(children: <Widget>[
-                    Image.asset("assets/img/logo_size.jpg"),
+                    Image.asset("assets/img/logo_size_2.jpg"),
                     Text("E-Tutoring")
                   ]),
                 ),

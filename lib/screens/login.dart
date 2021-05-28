@@ -142,7 +142,7 @@ class _LoginState extends State<Login> {
               padding: EdgeInsets.all(16),
               children: [
                 const SizedBox(height: 50),
-                Image.asset('assets/img/logo_size.jpg',
+                Image.asset('assets/img/logo_size_2.jpg',
                     height: 100, width: 100),
                 TitleWidget(
                     icon: Icons.login,
