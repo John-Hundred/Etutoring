@@ -147,13 +147,13 @@ class _ProfileState extends State<Profile> {
                                             Radius.circular(5.0))),
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 85.0, bottom: 20.0),
+                                          top: 40.0, bottom: 20.0),
                                       child: Row(
                                         children: [
                                           Expanded(
                                             child: Column(
                                               children: [
-                                                Row(
+                                                /*Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -189,11 +189,11 @@ class _ProfileState extends State<Profile> {
                                                           EdgeInsets.symmetric(
                                                               horizontal: 8.0,
                                                               vertical: 8.0),
-                                                    ),
-                                                    SizedBox(
+                                                    ),*/
+                                                /*SizedBox(
                                                       width: 30.0,
-                                                    ),
-                                                    Container(
+                                                    ),*/
+                                                /* Container(
                                                       decoration: BoxDecoration(
                                                         color:
                                                             ArgonColors.initial,
@@ -228,9 +228,9 @@ class _ProfileState extends State<Profile> {
                                                               vertical: 8.0),
                                                     )
                                                   ],
-                                                ),
-                                                SizedBox(height: 40.0),
-                                                Row(
+                                                ),*/
+                                                // SizedBox(height: 40.0),
+                                                /*Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
@@ -311,8 +311,8 @@ class _ProfileState extends State<Profile> {
                                                       ],
                                                     )
                                                   ],
-                                                ),
-                                                SizedBox(height: 40.0),
+                                                ),*/
+                                                // SizedBox(height: 40.0),
                                                 FutureBuilder<User>(
                                                   future: getUserInfoFromWS,
                                                   builder:
