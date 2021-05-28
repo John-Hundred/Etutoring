@@ -62,6 +62,8 @@ class _LoginState extends State<Login> {
 
           // If the Response Message is Matched.
           if (message == 'Login Matched') {
+            await UserSecureStorage.setEmail(emailController.text);
+            await UserSecureStorage.setPassword(passwordController.text);
             // Hiding the CircularProgressIndicator.
 
             setState(() {
@@ -71,8 +73,8 @@ class _LoginState extends State<Login> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Profile()));
           } else {
-            UserSecureStorage.delete('email');
-            UserSecureStorage.delete('password');
+            // UserSecureStorage.delete('email');
+            //  UserSecureStorage.delete('password');
 
             // If Email or Password did not Matched.
             // Hiding the CircularProgressIndicator.
@@ -124,7 +126,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     this.setState(() {
-      init();
+      // init();
     });
     return new WillPopScope(
         onWillPop: () async {
@@ -202,8 +204,9 @@ class _LoginState extends State<Login> {
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
-                await UserSecureStorage.setEmail(emailController.text);
-                await UserSecureStorage.setPassword(passwordController.text);
+                print(this.emailController.text);
+                /*await UserSecureStorage.setEmail(emailController.text);
+                await UserSecureStorage.setPassword(passwordController.text);*/
                 _toggle();
               },
               child: Icon(
@@ -219,8 +222,6 @@ class _LoginState extends State<Login> {
       text: 'Login',
       onClicked: () async {
         if (formKey.currentState.validate()) {
-          await UserSecureStorage.setEmail(emailController.text);
-          await UserSecureStorage.setPassword(passwordController.text);
           userLogin();
         }
       });
