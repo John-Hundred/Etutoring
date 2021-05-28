@@ -436,11 +436,6 @@ class _ProfileState extends State<Profile> {
                                                         '',
                                                       ),
                                                     ),
-                                                    DataColumn(
-                                                      label: Text(
-                                                        '',
-                                                      ),
-                                                    ),
                                                   ],
                                                   rows: const <DataRow>[
                                                     DataRow(
@@ -452,7 +447,6 @@ class _ProfileState extends State<Profile> {
                                                                   FontWeight
                                                                       .bold),
                                                         )),
-                                                        DataCell(Text('19')),
                                                         DataCell(
                                                             Text('Student')),
                                                       ],
@@ -464,7 +458,6 @@ class _ProfileState extends State<Profile> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold))),
-                                                        DataCell(Text('43')),
                                                         DataCell(
                                                             Text('Professor')),
                                                       ],
@@ -477,7 +470,6 @@ class _ProfileState extends State<Profile> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold))),
-                                                        DataCell(Text('27')),
                                                         DataCell(Text(
                                                             'Associate Professor')),
                                                       ],
