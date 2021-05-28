@@ -401,7 +401,7 @@ class _ProfileState extends State<Profile> {
                                                         ),
                                                       ],
                                                     ),
-                                                    SizedBox(height: 25.0),
+                                                    // SizedBox(height: 25.0),
                                                     /*Align(
                                                           child: Text(
                                                               "${user.data.firstname} "
