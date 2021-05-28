@@ -173,7 +173,7 @@ class _ProfileState extends State<Profile> {
                                                         DataRow(
                                                           cells: <DataCell>[
                                                             DataCell(Text(
-                                                                'Role',
+                                                                'Ruolo',
                                                                 style: TextStyle(
                                                                     color: Colors
                                                                         .redAccent,
