@@ -11,9 +11,20 @@ class User {
   String birth_date;
   // ignore: non_constant_identifier_names
   String birth_city;
+  // ignore: non_constant_identifier_names
+  String role_name;
 
-  User(this.id, this.firstname, this.lastname, this.username, this.email,
-      this.badge_number, this.cf, this.birth_date, this.birth_city);
+  User(
+      this.id,
+      this.firstname,
+      this.lastname,
+      this.username,
+      this.email,
+      this.badge_number,
+      this.cf,
+      this.birth_date,
+      this.birth_city,
+      this.role_name);
 
   User.fromJson(dynamic json) {
     id = json['id'] ?? '';
@@ -25,6 +36,7 @@ class User {
     cf = json['cf'] ?? '';
     birth_date = json['birth_date'] ?? '';
     birth_city = json['birth_city'] ?? '';
+    role_name = json['role_name'] ?? '';
   }
 
   toString() {
@@ -43,6 +55,8 @@ class User {
         "\nbirth date = " +
         this.birth_date +
         "\nbirth city = " +
-        this.birth_city;
+        this.birth_city +
+        "\nrole_name = " +
+        this.role_name;
   }
 }

@@ -374,6 +374,20 @@ class _ProfileState extends State<Profile> {
                                                         DataRow(
                                                           cells: <DataCell>[
                                                             DataCell(Text(
+                                                                'Role',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.role_name}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
                                                                 'Matricola',
                                                                 style: TextStyle(
                                                                     color: Colors
