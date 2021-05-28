@@ -110,24 +110,24 @@ class _ProfileState extends State<Profile> {
               ),
               drawer: ArgonDrawer("profile"),
               body: Stack(children: <Widget>[
-                Container(
+                /*Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             alignment: Alignment.topCenter,
                             image:
                                 AssetImage("assets/img/profile-screen-bg.png"),
-                            fit: BoxFit.fitWidth))),
+                            fit: BoxFit.fitWidth))),*/
                 SafeArea(
                     child: ListView(children: [
                   Padding(
                       padding: const EdgeInsets.only(
-                          left: 16.0, right: 16.0, top: 74.0),
+                          left: 16.0, right: 16.0, top: 10.0),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Stack(children: <Widget>[
                               Container(
-                                decoration: BoxDecoration(
+                                /* decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.1),
@@ -137,23 +137,23 @@ class _ProfileState extends State<Profile> {
                                           0, 3), // changes position of shadow
                                     ),
                                   ],
-                                ),
+                                ),*/
                                 child: Card(
-                                    semanticContainer: true,
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    elevation: .0,
-                                    shape: RoundedRectangleBorder(
+                                    // semanticContainer: true,
+                                    // clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    // elevation: .0,
+                                    /*shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
-                                            Radius.circular(5.0))),
+                                            Radius.circular(5.0))),*/
                                     child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 40.0, bottom: 20.0),
-                                      child: Row(
-                                        children: [
-                                          Expanded(
-                                            child: Column(
-                                              children: [
-                                                /*Row(
+                                  padding: const EdgeInsets.only(
+                                      top: 0.0, bottom: 0.0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          children: [
+                                            /*Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -190,10 +190,10 @@ class _ProfileState extends State<Profile> {
                                                               horizontal: 8.0,
                                                               vertical: 8.0),
                                                     ),*/
-                                                /*SizedBox(
+                                            /*SizedBox(
                                                       width: 30.0,
                                                     ),*/
-                                                /* Container(
+                                            /* Container(
                                                       decoration: BoxDecoration(
                                                         color:
                                                             ArgonColors.initial,
@@ -229,8 +229,8 @@ class _ProfileState extends State<Profile> {
                                                     )
                                                   ],
                                                 ),*/
-                                                // SizedBox(height: 40.0),
-                                                /*Row(
+                                            // SizedBox(height: 40.0),
+                                            /*Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
@@ -312,96 +312,97 @@ class _ProfileState extends State<Profile> {
                                                     )
                                                   ],
                                                 ),*/
-                                                // SizedBox(height: 40.0),
-                                                FutureBuilder<User>(
-                                                  future: getUserInfoFromWS,
-                                                  builder:
-                                                      (BuildContext context,
-                                                          AsyncSnapshot<User>
-                                                              user) {
-                                                    List<Widget> children;
-                                                    if (user.hasData) {
-                                                      print(user.data);
-                                                      children = <Widget>[
-                                                        /*const Icon(
+                                            // SizedBox(height: 40.0),
+                                            FutureBuilder<User>(
+                                              future: getUserInfoFromWS,
+                                              builder: (BuildContext context,
+                                                  AsyncSnapshot<User> user) {
+                                                List<Widget> children;
+                                                if (user.hasData) {
+                                                  print(user.data);
+                                                  children = <Widget>[
+                                                    /*const Icon(
                                                           Icons
                                                               .check_circle_outline,
                                                           color: Colors.green,
                                                           size: 60,
                                                         ),*/
-                                                        DataTable(
-                                                          columns: const <
-                                                              DataColumn>[
-                                                            DataColumn(
-                                                              label: Text(
-                                                                '',
-                                                              ),
-                                                            ),
-                                                            DataColumn(
-                                                              label: Text(
-                                                                '',
-                                                              ),
-                                                            ),
-                                                          ],
-                                                          rows: <DataRow>[
-                                                            DataRow(
-                                                              cells: <DataCell>[
-                                                                DataCell(Text(
-                                                                  'Cognome',
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .redAccent,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                )),
-                                                                DataCell(Text(
-                                                                    "${user.data.lastname}")),
-                                                              ],
-                                                            ),
-                                                            DataRow(
-                                                              cells: <DataCell>[
-                                                                DataCell(Text(
-                                                                    'Nome',
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .redAccent,
-                                                                        fontWeight:
-                                                                            FontWeight.bold))),
-                                                                DataCell(Text(
-                                                                    "${user.data.firstname}")),
-                                                              ],
-                                                            ),
-                                                            DataRow(
-                                                              cells: <DataCell>[
-                                                                DataCell(Text(
-                                                                    'Matricola',
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .redAccent,
-                                                                        fontWeight:
-                                                                            FontWeight.bold))),
-                                                                DataCell(Text(
-                                                                    "${user.data.badge_number}")),
-                                                              ],
-                                                            ),
-                                                            DataRow(
-                                                              cells: <DataCell>[
-                                                                DataCell(Text(
-                                                                    'Email',
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .redAccent,
-                                                                        fontWeight:
-                                                                            FontWeight.bold))),
-                                                                DataCell(Text(
-                                                                    "${user.data.email}")),
-                                                              ],
-                                                            ),
+                                                    DataTable(
+                                                      headingRowHeight: 0,
+                                                      columns: <DataColumn>[
+                                                        DataColumn(
+                                                          label: Text(
+                                                            '',
+                                                          ),
+                                                        ),
+                                                        DataColumn(
+                                                          label: Text(
+                                                            '',
+                                                          ),
+                                                        ),
+                                                      ],
+                                                      rows: <DataRow>[
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                              'Cognome',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .redAccent,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            )),
+                                                            DataCell(Text(
+                                                                "${user.data.lastname}")),
                                                           ],
                                                         ),
-                                                        SizedBox(height: 25.0),
-                                                        /*Align(
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Nome',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.firstname}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Matricola',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.badge_number}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Email',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.email}")),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(height: 25.0),
+                                                    /*Align(
                                                           child: Text(
                                                               "${user.data.firstname} "
                                                               "${user.data.lastname}",
@@ -415,54 +416,52 @@ class _ProfileState extends State<Profile> {
                                                                   fontSize:
                                                                       20.0)),
                                                         ),*/
-                                                      ];
-                                                    } else if (user.hasError) {
-                                                      children = <Widget>[
-                                                        const Icon(
-                                                          Icons.error_outline,
-                                                          color: Colors.red,
-                                                          size: 60,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 16),
-                                                          child: Text(
-                                                              'Error: ${user.error}'),
-                                                        )
-                                                      ];
-                                                    } else {
-                                                      children = const <Widget>[
-                                                        SizedBox(
-                                                          child:
-                                                              CircularProgressIndicator(),
-                                                          width: 60,
-                                                          height: 60,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  top: 16),
-                                                          child: Text(
-                                                              'Awaiting result...'),
-                                                        )
-                                                      ];
-                                                    }
-                                                    return Center(
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: children,
-                                                      ),
-                                                    );
-                                                  },
-                                                ),
-                                                /*SizedBox(height: 10.0),
+                                                  ];
+                                                } else if (user.hasError) {
+                                                  children = <Widget>[
+                                                    const Icon(
+                                                      Icons.error_outline,
+                                                      color: Colors.red,
+                                                      size: 60,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 16),
+                                                      child: Text(
+                                                          'Error: ${user.error}'),
+                                                    )
+                                                  ];
+                                                } else {
+                                                  children = const <Widget>[
+                                                    SizedBox(
+                                                      child:
+                                                          CircularProgressIndicator(),
+                                                      width: 60,
+                                                      height: 60,
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 16),
+                                                      child: Text(
+                                                          'Awaiting result...'),
+                                                    )
+                                                  ];
+                                                }
+                                                return Center(
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: children,
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                            /*SizedBox(height: 10.0),
                                                 Align(
                                                   child: Text(
                                                       "San Francisco, USA",
@@ -473,14 +472,14 @@ class _ProfileState extends State<Profile> {
                                                           fontWeight:
                                                               FontWeight.w200)),
                                                 ),*/
-                                                /*Divider(
+                                            /*Divider(
                                                   height: 10.0,
                                                   thickness: 1.5,
                                                   indent: 32.0,
                                                   endIndent: 32.0,
                                                 ),*/
-                                                // SizedBox(height: 15.0),
-                                                /*Padding(
+                                            // SizedBox(height: 15.0),
+                                            /*Padding(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           left: 32.0,
@@ -503,8 +502,8 @@ class _ProfileState extends State<Profile> {
                                                                     .w200)),
                                                   ),
                                                 ),*/
-                                                // SizedBox(height: 15.0),
-                                                /*Align(
+                                            // SizedBox(height: 15.0),
+                                            /*Align(
                                                     child: Text("Show more",
                                                         style: TextStyle(
                                                             color: ArgonColors
@@ -513,7 +512,7 @@ class _ProfileState extends State<Profile> {
                                                                 FontWeight.w400,
                                                             fontSize: 16.0))),
                                                 SizedBox(height: 25.0),*/
-                                                /*Padding(
+                                            /*Padding(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           right: 25.0,
@@ -545,7 +544,7 @@ class _ProfileState extends State<Profile> {
                                                     ],
                                                   ),
                                                 ),*/
-                                                /*SizedBox(
+                                            /*SizedBox(
                                                   height: 250,
                                                   child: GridView.count(
                                                       primary: false,
@@ -643,14 +642,14 @@ class _ProfileState extends State<Profile> {
                                                         )),
                                                       ]),
                                                 )*/
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    )),
+                                    ],
+                                  ),
+                                )),
                               ),
-                              FractionalTranslation(
+                              /*FractionalTranslation(
                                   translation: Offset(0.0, -0.5),
                                   child: Align(
                                     child: CircleAvatar(
@@ -660,7 +659,7 @@ class _ProfileState extends State<Profile> {
                                       // maxRadius: 200.0,
                                     ),
                                     alignment: FractionalOffset(0.5, 0.0),
-                                  ))
+                                  ))*/
                             ]),
                           ])),
                   /*Center(
