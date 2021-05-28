@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                 TitleWidget(
                     icon: Icons.login,
                     text: 'Welcome to\nE-tutoring',
-                    color: ArgonColors.black),
+                    color: ArgonColors.redUnito),
                 const SizedBox(height: 32),
                 buildName(),
                 const SizedBox(height: 12),
@@ -224,7 +224,7 @@ class _LoginState extends State<Login> {
 
   Widget buildButton() => ButtonWidget(
       text: 'Login',
-      color: ArgonColors.blueUnito,
+      color: ArgonColors.redUnito,
       onClicked: () async {
         if (formKey.currentState.validate()) {
           userLogin();
