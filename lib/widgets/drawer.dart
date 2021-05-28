@@ -152,7 +152,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         // By default, show a loading spinner
                         return Visibility(
                             visible: visible,
-                            child: Center(child: CircularProgressIndicator()));
+                            child: Center(
+                                child: CircularProgressIndicator(
+                              backgroundColor: ArgonColors.redUnito,
+                            )));
                       }),
                   /* Visibility(
                     visible: visible,

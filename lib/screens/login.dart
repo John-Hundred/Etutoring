@@ -156,6 +156,7 @@ class _LoginState extends State<Login> {
                 buildLoginButton(),
                 const SizedBox(height: 50),
                 builRegisteredButton(),
+                const SizedBox(height: 20),
                 Visibility(
                   visible: visible,
                   child: Center(
