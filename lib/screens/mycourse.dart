@@ -35,7 +35,9 @@ class MycourseState extends State<Mycourse> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new Navbar(title: "Course"),
+        appBar: AppBar(
+            title: const Text('Course'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         drawer: ArgonDrawer("course"),
         body: new Padding(
             padding: const EdgeInsets.only(

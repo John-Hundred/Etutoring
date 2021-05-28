@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:argon_flutter/constants/Theme.dart';
 
 //widgets
-import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:argon_flutter/widgets/input.dart';
 
 import 'package:argon_flutter/widgets/drawer.dart';
@@ -23,11 +22,9 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          transparent: true,
-          title: "",
-          searchBar: true,
-        ),
+        appBar: AppBar(
+            title: const Text('Account'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         extendBodyBehindAppBar: true,
         drawer: ArgonDrawer("Account"),
         body: Stack(

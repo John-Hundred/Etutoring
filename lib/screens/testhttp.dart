@@ -614,10 +614,9 @@ class Testhttp extends StatelessWidget {
     return MaterialApp(
       title: title,
       home: Scaffold(
-        appBar: Navbar(
-          title: 'Test http',
-          searchBar: true,
-        ),
+        appBar: AppBar(
+            title: const Text('TestHttp'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         drawer: ArgonDrawer("Testhttp"),
         body: ListView.builder(
           // Let the ListView know how many items it needs to build.

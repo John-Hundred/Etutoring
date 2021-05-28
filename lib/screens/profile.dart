@@ -2,7 +2,6 @@ import 'package:argon_flutter/model/user.dart';
 import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
-import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 // screens
@@ -105,8 +104,10 @@ class _ProfileState extends State<Profile> {
             },
             home: Scaffold(
               backgroundColor: Color.fromRGBO(205, 205, 205, 1),
-              appBar: Navbar(
-                  title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
+              appBar: AppBar(
+                  title: const Text('Profilo'),
+                  backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+              // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
               drawer: ArgonDrawer("profile"),
               body: Stack(children: <Widget>[
                 /*Container(

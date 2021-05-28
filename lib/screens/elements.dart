@@ -28,10 +28,13 @@ class _ElementsState extends State<Elements> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
+        /*appBar: Navbar(
           title: "Elements",
           searchBar: true,
-        ),
+        ),*/
+        appBar: AppBar(
+            title: const Text('Elements'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         backgroundColor: ArgonColors.bgColorScreen,
         drawer: ArgonDrawer("Elements"),
         body: SingleChildScrollView(

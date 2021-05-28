@@ -4,7 +4,6 @@ import 'package:argon_flutter/constants/Theme.dart';
 
 //widgets
 import 'package:argon_flutter/widgets/drawer.dart';
-import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:argon_flutter/widgets/card-horizontal.dart';
 import 'package:argon_flutter/widgets/card-small.dart';
 import 'package:argon_flutter/widgets/card-square.dart';
@@ -86,11 +85,9 @@ class Articles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: "Articles",
-          rightOptions: false,
-          // searchBar: true,
-        ),
+        appBar: AppBar(
+            title: const Text('Articles'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         backgroundColor: ArgonColors.bgColorScreen,
         drawer: ArgonDrawer("Articles"),
         body: Container(

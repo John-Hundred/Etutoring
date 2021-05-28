@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:argon_flutter/constants/Theme.dart';
 
 //widgets
-import 'package:argon_flutter/widgets/navbar.dart';
 import 'package:argon_flutter/widgets/card-horizontal.dart';
 import 'package:argon_flutter/widgets/card-small.dart';
 import 'package:argon_flutter/widgets/card-square.dart';
@@ -42,12 +41,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: "Home",
-          searchBar: true,
-          categoryOne: "Beauty",
-          categoryTwo: "Fashion",
-        ),
+        appBar: AppBar(
+            title: const Text('Home'),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         backgroundColor: ArgonColors.bgColorScreen,
         // key: _scaffoldKey,
         drawer: ArgonDrawer("Home"),
