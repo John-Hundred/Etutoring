@@ -64,7 +64,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: "Profilo",
                   isSelected: widget.currentPage == "profile" ? true : false),
               DrawerTile(
-                  icon: Icons.cloud_circle_sharp,
+                  icon: Icons.menu_book_rounded,
                   onTap: () {
                     if (widget.currentPage != "course")
                       Navigator.pushReplacementNamed(context, '/course');
