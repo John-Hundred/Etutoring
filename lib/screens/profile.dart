@@ -96,13 +96,6 @@ class _ProfileState extends State<Profile> {
               // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
               drawer: ArgonDrawer("profile"),
               body: Stack(children: <Widget>[
-                /*Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            alignment: Alignment.topCenter,
-                            image:
-                                AssetImage("assets/img/profile-screen-bg.png"),
-                            fit: BoxFit.fitWidth))),*/
                 SafeArea(
                     child: ListView(children: [
                   Padding(
