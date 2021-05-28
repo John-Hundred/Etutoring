@@ -153,8 +153,9 @@ class _LoginState extends State<Login> {
                 const SizedBox(height: 12),
                 buildPassword(),
                 const SizedBox(height: 50),
-                buildButton(),
+                buildLoginButton(),
                 const SizedBox(height: 50),
+                builRegisteredButton(),
                 Visibility(
                   visible: visible,
                   child: Center(
@@ -222,7 +223,7 @@ class _LoginState extends State<Login> {
         ),
       );
 
-  Widget buildButton() => ButtonWidget(
+  Widget buildLoginButton() => ButtonWidget(
       text: 'Login',
       color: ArgonColors.redUnito,
       onClicked: () async {
@@ -230,6 +231,9 @@ class _LoginState extends State<Login> {
           userLogin();
         }
       });
+
+  Widget builRegisteredButton() => ButtonWidget(
+      text: 'Sign In', color: ArgonColors.blueUnito, onClicked: () async {});
 
   Widget buildTitle({
     String title,
