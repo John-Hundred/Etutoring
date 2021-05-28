@@ -443,6 +443,8 @@ class _ProfileState extends State<Profile> {
                                                         DataCell(Text(
                                                           'Cognome',
                                                           style: TextStyle(
+                                                              color: Colors
+                                                                  .redAccent,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold),
@@ -455,6 +457,8 @@ class _ProfileState extends State<Profile> {
                                                       cells: <DataCell>[
                                                         DataCell(Text('Nome',
                                                             style: TextStyle(
+                                                                color: Colors
+                                                                    .redAccent,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold))),
@@ -467,6 +471,8 @@ class _ProfileState extends State<Profile> {
                                                         DataCell(Text(
                                                             'Matricola',
                                                             style: TextStyle(
+                                                                color: Colors
+                                                                    .redAccent,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold))),
