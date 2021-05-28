@@ -454,7 +454,13 @@ class _ProfileState extends State<Profile> {
                                                   rows: const <DataRow>[
                                                     DataRow(
                                                       cells: <DataCell>[
-                                                        DataCell(Text('Sarah')),
+                                                        DataCell(Text(
+                                                          'Cognome',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        )),
                                                         DataCell(Text('19')),
                                                         DataCell(
                                                             Text('Student')),
@@ -462,8 +468,11 @@ class _ProfileState extends State<Profile> {
                                                     ),
                                                     DataRow(
                                                       cells: <DataCell>[
-                                                        DataCell(
-                                                            Text('Janine')),
+                                                        DataCell(Text('Nome',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))),
                                                         DataCell(Text('43')),
                                                         DataCell(
                                                             Text('Professor')),
@@ -471,8 +480,12 @@ class _ProfileState extends State<Profile> {
                                                     ),
                                                     DataRow(
                                                       cells: <DataCell>[
-                                                        DataCell(
-                                                            Text('William')),
+                                                        DataCell(Text(
+                                                            'Matricola',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))),
                                                         DataCell(Text('27')),
                                                         DataCell(Text(
                                                             'Associate Professor')),
