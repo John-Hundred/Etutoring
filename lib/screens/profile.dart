@@ -329,8 +329,79 @@ class _ProfileState extends State<Profile> {
                                                           color: Colors.green,
                                                           size: 60,
                                                         ),*/
-
-                                                        Align(
+                                                        DataTable(
+                                                          columns: const <
+                                                              DataColumn>[
+                                                            DataColumn(
+                                                              label: Text(
+                                                                '',
+                                                              ),
+                                                            ),
+                                                            DataColumn(
+                                                              label: Text(
+                                                                '',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                          rows: <DataRow>[
+                                                            DataRow(
+                                                              cells: <DataCell>[
+                                                                DataCell(Text(
+                                                                  'Cognome',
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .redAccent,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold),
+                                                                )),
+                                                                DataCell(Text(
+                                                                    "${user.data.lastname}")),
+                                                              ],
+                                                            ),
+                                                            DataRow(
+                                                              cells: <DataCell>[
+                                                                DataCell(Text(
+                                                                    'Nome',
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .redAccent,
+                                                                        fontWeight:
+                                                                            FontWeight.bold))),
+                                                                DataCell(Text(
+                                                                    "${user.data.firstname}")),
+                                                              ],
+                                                            ),
+                                                            DataRow(
+                                                              cells: <DataCell>[
+                                                                DataCell(Text(
+                                                                    'Matricola',
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .redAccent,
+                                                                        fontWeight:
+                                                                            FontWeight.bold))),
+                                                                DataCell(Text(
+                                                                    "${user.data.badge_number}")),
+                                                              ],
+                                                            ),
+                                                            DataRow(
+                                                              cells: <DataCell>[
+                                                                DataCell(Text(
+                                                                    'Email',
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .redAccent,
+                                                                        fontWeight:
+                                                                            FontWeight.bold))),
+                                                                DataCell(Text(
+                                                                    "${user.data.email}")),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 25.0),
+                                                        /*Align(
                                                           child: Text(
                                                               "${user.data.firstname} "
                                                               "${user.data.lastname}",
@@ -343,23 +414,7 @@ class _ProfileState extends State<Profile> {
                                                                           1),
                                                                   fontSize:
                                                                       20.0)),
-                                                        ),
-                                                        /* Text(
-                                                            "id =  ${user.data.id}"),
-                                                        Text(
-                                                            "username =  ${user.data.username}"),*/
-                                                        Text(
-                                                            "Matricola ${user.data.badge_number}"),
-                                                        Text(
-                                                            "${user.data.username}"),
-                                                        Text(
-                                                            "${user.data.email}"),
-                                                        /*Text(
-                                                            "${user.data.badge_number}"),*/
-                                                        /*Text(
-                                                            "birth date =  ${user.data.birth_date}"),
-                                                        Text(
-                                                            "birth city =  ${user.data.birth_city}"),*/
+                                                        ),*/
                                                       ];
                                                     } else if (user.hasError) {
                                                       children = <Widget>[
@@ -423,64 +478,6 @@ class _ProfileState extends State<Profile> {
                                                   thickness: 1.5,
                                                   indent: 32.0,
                                                   endIndent: 32.0,
-                                                ),
-                                                DataTable(
-                                                  columns: const <DataColumn>[
-                                                    DataColumn(
-                                                      label: Text(
-                                                        '',
-                                                      ),
-                                                    ),
-                                                    DataColumn(
-                                                      label: Text(
-                                                        '',
-                                                      ),
-                                                    ),
-                                                  ],
-                                                  rows: const <DataRow>[
-                                                    DataRow(
-                                                      cells: <DataCell>[
-                                                        DataCell(Text(
-                                                          'Cognome',
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .redAccent,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        )),
-                                                        DataCell(
-                                                            Text('Student')),
-                                                      ],
-                                                    ),
-                                                    DataRow(
-                                                      cells: <DataCell>[
-                                                        DataCell(Text('Nome',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .redAccent,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold))),
-                                                        DataCell(
-                                                            Text('Professor')),
-                                                      ],
-                                                    ),
-                                                    DataRow(
-                                                      cells: <DataCell>[
-                                                        DataCell(Text(
-                                                            'Matricola',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .redAccent,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold))),
-                                                        DataCell(Text(
-                                                            'Associate Professor')),
-                                                      ],
-                                                    ),
-                                                  ],
                                                 ),
                                                 SizedBox(height: 15.0),
                                                 Padding(
