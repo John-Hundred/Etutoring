@@ -137,7 +137,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Login()));
                       },
-                      iconColor: ArgonColors.primary,
+                      iconColor: ArgonColors.black,
                       title: "Logout",
                       isSelected:
                           widget.currentPage == "Logout" ? true : false),
