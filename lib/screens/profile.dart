@@ -105,9 +105,9 @@ class _ProfileState extends State<Profile> {
               "/course": (BuildContext context) => new Mycourse(),
             },
             home: Scaffold(
+              backgroundColor: Color.fromRGBO(205, 205, 205, 1),
               appBar: Navbar(
-                title: 'Profilo',
-              ),
+                  title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
               drawer: ArgonDrawer("profile"),
               body: Stack(children: <Widget>[
                 /*Container(
