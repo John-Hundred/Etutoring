@@ -36,4 +36,6 @@ class ArgonColors {
   static const Color text = Color.fromRGBO(50, 50, 93, 1.0);
 
   static const Color redUnito = Color.fromRGBO(213, 21, 36, 1);
+
+  static const Color blueUnito = Color.fromRGBO(18, 85, 112, 1);
 }

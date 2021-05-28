@@ -224,6 +224,7 @@ class _LoginState extends State<Login> {
 
   Widget buildButton() => ButtonWidget(
       text: 'Login',
+      color: ArgonColors.blueUnito,
       onClicked: () async {
         if (formKey.currentState.validate()) {
           userLogin();
