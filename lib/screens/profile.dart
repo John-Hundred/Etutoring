@@ -419,7 +419,7 @@ class _ProfileState extends State<Profile> {
                                                               FontWeight.w200)),
                                                 ),
                                                 Divider(
-                                                  height: 40.0,
+                                                  height: 10.0,
                                                   thickness: 1.5,
                                                   indent: 32.0,
                                                   endIndent: 32.0,
@@ -428,26 +428,17 @@ class _ProfileState extends State<Profile> {
                                                   columns: const <DataColumn>[
                                                     DataColumn(
                                                       label: Text(
-                                                        'Name',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic),
+                                                        '',
                                                       ),
                                                     ),
                                                     DataColumn(
                                                       label: Text(
-                                                        'Age',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic),
+                                                        '',
                                                       ),
                                                     ),
                                                     DataColumn(
                                                       label: Text(
-                                                        'Role',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic),
+                                                        '',
                                                       ),
                                                     ),
                                                   ],
