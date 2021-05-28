@@ -212,6 +212,49 @@ class _ProfileState extends State<Profile> {
                                                                 "${user.data.email}")),
                                                           ],
                                                         ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Corso di Laurea',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.degree_name} (" +
+                                                                    "${user.data.degree_athenaeum})")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Sede',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.degree_location}")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
+                                                                'Percorso',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.degree_path_name}")),
+                                                          ],
+                                                        ),
                                                       ],
                                                     )),
                                                   ];

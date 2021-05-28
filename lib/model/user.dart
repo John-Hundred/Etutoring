@@ -13,6 +13,14 @@ class User {
   String birth_city;
   // ignore: non_constant_identifier_names
   String role_name;
+  // ignore: non_constant_identifier_names
+  String degree_name;
+  // ignore: non_constant_identifier_names
+  String degree_location;
+  // ignore: non_constant_identifier_names
+  String degree_athenaeum;
+  // ignore: non_constant_identifier_names
+  String degree_path_name;
 
   User(
       this.id,
@@ -24,7 +32,11 @@ class User {
       this.cf,
       this.birth_date,
       this.birth_city,
-      this.role_name);
+      this.role_name,
+      this.degree_name,
+      this.degree_location,
+      this.degree_athenaeum,
+      this.degree_path_name);
 
   User.fromJson(dynamic json) {
     id = json['id'] ?? '';
@@ -37,6 +49,10 @@ class User {
     birth_date = json['birth_date'] ?? '';
     birth_city = json['birth_city'] ?? '';
     role_name = json['role_name'] ?? '';
+    degree_name = json['degree_name'] ?? '';
+    degree_location = json['degree_location'] ?? '';
+    degree_athenaeum = json['degree_athenaeum'] ?? '';
+    degree_path_name = json['degree_path_name'] ?? '';
   }
 
   toString() {
