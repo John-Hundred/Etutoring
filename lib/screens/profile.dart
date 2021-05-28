@@ -123,7 +123,10 @@ class _ProfileState extends State<Profile> {
                                                 if (user.hasData) {
                                                   print(user.data);
                                                   children = <Widget>[
-                                                    DataTable(
+                                                    Container(
+                                                        /*color: Color.fromRGBO(
+                                                            205, 205, 205, 1),*/
+                                                        child: DataTable(
                                                       headingRowHeight: 0,
                                                       columns: <DataColumn>[
                                                         DataColumn(
@@ -210,7 +213,7 @@ class _ProfileState extends State<Profile> {
                                                           ],
                                                         ),
                                                       ],
-                                                    ),
+                                                    )),
                                                   ];
                                                 } else if (user.hasError) {
                                                   children = <Widget>[
