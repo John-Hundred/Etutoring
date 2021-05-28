@@ -54,22 +54,13 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
           child: ListView(
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
-              /*DrawerTile(
-                  icon: Icons.login,
-                  onTap: () {
-                    if (currentPage != "Login")
-                      Navigator.pushReplacementNamed(context, '/login');
-                  },
-                  iconColor: ArgonColors.primary,
-                  title: "Login",
-                  isSelected: currentPage == "Login" ? true : false),*/
               DrawerTile(
                   icon: Icons.person,
                   onTap: () {
                     if (widget.currentPage != "profile")
                       Navigator.pushReplacementNamed(context, '/profile');
                   },
-                  iconColor: ArgonColors.primary,
+                  iconColor: ArgonColors.black,
                   title: "Profilo",
                   isSelected: widget.currentPage == "profile" ? true : false),
               DrawerTile(
@@ -78,7 +69,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     if (widget.currentPage != "course")
                       Navigator.pushReplacementNamed(context, '/course');
                   },
-                  iconColor: ArgonColors.primary,
+                  iconColor: ArgonColors.black,
                   title: "Course",
                   isSelected: widget.currentPage == "course" ? true : false),
               DrawerTile(
@@ -87,7 +78,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     if (widget.currentPage != "Home")
                       Navigator.pushReplacementNamed(context, '/home');
                   },
-                  iconColor: ArgonColors.primary,
+                  iconColor: ArgonColors.black,
                   title: "Home",
                   isSelected: widget.currentPage == "Home" ? true : false),
               DrawerTile(
@@ -96,7 +87,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     if (widget.currentPage != "Account")
                       Navigator.pushReplacementNamed(context, '/account');
                   },
-                  iconColor: ArgonColors.info,
+                  iconColor: ArgonColors.black,
                   title: "Account",
                   isSelected: widget.currentPage == "Account" ? true : false),
               DrawerTile(
@@ -105,7 +96,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     if (widget.currentPage != "Elements")
                       Navigator.pushReplacementNamed(context, '/elements');
                   },
-                  iconColor: ArgonColors.error,
+                  iconColor: ArgonColors.black,
                   title: "Elements",
                   isSelected: widget.currentPage == "Elements" ? true : false),
               DrawerTile(
@@ -114,7 +105,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     if (widget.currentPage != "Articles")
                       Navigator.pushReplacementNamed(context, '/articles');
                   },
-                  iconColor: ArgonColors.primary,
+                  iconColor: ArgonColors.black,
                   title: "Articles",
                   isSelected: widget.currentPage == "Articles" ? true : false),
             ],

@@ -23,7 +23,7 @@ class DrawerTile extends StatelessWidget {
       child: Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
-              color: isSelected ? ArgonColors.primary : ArgonColors.white,
+              color: isSelected ? ArgonColors.redUnito : ArgonColors.white,
               borderRadius: BorderRadius.all(Radius.circular(8))),
           child: Row(
             children: [
