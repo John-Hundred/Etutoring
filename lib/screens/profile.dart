@@ -462,7 +462,7 @@ class _ProfileState extends State<Profile> {
                                                     );
                                                   },
                                                 ),
-                                                SizedBox(height: 10.0),
+                                                /*SizedBox(height: 10.0),
                                                 Align(
                                                   child: Text(
                                                       "San Francisco, USA",
@@ -472,15 +472,15 @@ class _ProfileState extends State<Profile> {
                                                           fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.w200)),
-                                                ),
-                                                Divider(
+                                                ),*/
+                                                /*Divider(
                                                   height: 10.0,
                                                   thickness: 1.5,
                                                   indent: 32.0,
                                                   endIndent: 32.0,
-                                                ),
-                                                SizedBox(height: 15.0),
-                                                Padding(
+                                                ),*/
+                                                // SizedBox(height: 15.0),
+                                                /*Padding(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           left: 32.0,
@@ -502,9 +502,9 @@ class _ProfileState extends State<Profile> {
                                                                 FontWeight
                                                                     .w200)),
                                                   ),
-                                                ),
-                                                SizedBox(height: 15.0),
-                                                Align(
+                                                ),*/
+                                                // SizedBox(height: 15.0),
+                                                /*Align(
                                                     child: Text("Show more",
                                                         style: TextStyle(
                                                             color: ArgonColors
@@ -512,8 +512,8 @@ class _ProfileState extends State<Profile> {
                                                             fontWeight:
                                                                 FontWeight.w400,
                                                             fontSize: 16.0))),
-                                                SizedBox(height: 25.0),
-                                                Padding(
+                                                SizedBox(height: 25.0),*/
+                                                /*Padding(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           right: 25.0,
@@ -544,8 +544,8 @@ class _ProfileState extends State<Profile> {
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                                SizedBox(
+                                                ),*/
+                                                /*SizedBox(
                                                   height: 250,
                                                   child: GridView.count(
                                                       primary: false,
@@ -642,7 +642,7 @@ class _ProfileState extends State<Profile> {
                                                                   BoxFit.cover),
                                                         )),
                                                       ]),
-                                                )
+                                                )*/
                                               ],
                                             ),
                                           ),
