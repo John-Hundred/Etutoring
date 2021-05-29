@@ -58,15 +58,42 @@ class CourseState extends State<Course> {
                     SizedBox(
                       height: 20,
                     ),*/
-                    Container(
+                    /*Container(
                         child: Card(
                       // color: Color.fromRGBO(205, 205, 205, 1),
                       child: Padding(
                           padding: const EdgeInsets.only(top: 0.0, bottom: 0.0),
                           child: Row(children: [
-                            Expanded(child: Column(children: []))
+                            Expanded(
+                                child: Column(children: [
+                              FutureBuilder(
+                                future: getUserCourseListFromWS,
+                                builder: (context, projectSnap) {
+                                  if (projectSnap.connectionState ==
+                                          ConnectionState.none &&
+                                      projectSnap.hasData == null) {
+                                    /*print(
+                                        'project snapshot data is: ${projectSnap.data}');*/
+                                    return Container();
+                                  }
+                                  return ListView.builder(
+                                    itemCount: projectSnap.data.length,
+                                    itemBuilder: (context, index) {
+                                      print(index);
+                                      /* ProjectModel project =
+                                          projectSnap.data[index];*/
+                                      return Column(
+                                        children: <Widget>[
+                                          // Widget to display the list of project
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                              )
+                            ]))
                           ])),
-                    )),
+                    )),*/
                   ]))
         ]))
       ]),
