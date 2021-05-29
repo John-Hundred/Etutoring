@@ -46,7 +46,7 @@ class CourseState extends State<Course> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    /*SizedBox(
                       height: 20,
                     ),
                     Text(
@@ -57,7 +57,7 @@ class CourseState extends State<Course> {
                     ),
                     SizedBox(
                       height: 20,
-                    ),
+                    ),*/
                     Container(
                         child: Card(
                       // color: Color.fromRGBO(205, 205, 205, 1),
