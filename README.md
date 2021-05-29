@@ -19,3 +19,6 @@ e.g.
 - const String unencodedPath = 'e-tutoring-web/ws/ws/';
 
 ### Remember gitignore lib/config/config.dart because it contains configuration parameters that vary from pc to pc.
+
+#TEST
+Run by terminal: flutter test test/counter_test.dart
