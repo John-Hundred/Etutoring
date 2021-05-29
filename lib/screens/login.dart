@@ -38,6 +38,7 @@ class _LoginState extends State<Login> {
     });
   }
 
+  // CONTROLLER
   Future userLogin() async {
     setState(() {
       // Showing CircularProgressIndicator.
@@ -48,10 +49,11 @@ class _LoginState extends State<Login> {
       // Getting value from Controller
       String email = emailController.text;
       String password = passwordController.text;
-      // Store all data with Param Name.
+      // Store all data with Param Name: json format
       var data = {'email': email, 'password': password};
 
       // Starting Web API Call.
+      // http method: POST
       var response = await http
           .post(Uri.http(authority, unencodedPath + 'user_login.php'),
               body: json.encode(data))
@@ -124,6 +126,7 @@ class _LoginState extends State<Login> {
     this.passwordController.text = password;
   }
 
+  // VIEW
   @override
   Widget build(BuildContext context) {
     this.setState(() {
