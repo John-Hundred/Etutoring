@@ -127,9 +127,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                           visible = true;
                         });
                         await Future.delayed(const Duration(seconds: 1), () {});
-                        // print(this.visible);
-                        UserSecureStorage.getEmail();
-                        UserSecureStorage.getPassword();
+
                         // Delete email from secure storage
                         UserSecureStorage.delete('email');
                         // Delete password from secure storage
