@@ -1,6 +1,6 @@
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/model/user.dart';
-import 'package:argon_flutter/screens/mycourse.dart';
+import 'package:argon_flutter/screens/course.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +87,7 @@ class _ProfileState extends State<Profile> {
               "/articles": (BuildContext context) => new Articles(),
               "/elements": (BuildContext context) => new Elements(),
               "/account": (BuildContext context) => new Register(),
-              "/course": (BuildContext context) => new Mycourse(),
+              "/course": (BuildContext context) => new Course(),
             },
             home: Scaffold(
               backgroundColor: Color.fromRGBO(205, 205, 205, 1),

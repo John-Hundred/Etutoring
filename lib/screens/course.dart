@@ -6,12 +6,12 @@ import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Mycourse extends StatefulWidget {
+class Course extends StatefulWidget {
   @override
   MycourseState createState() => new MycourseState();
 }
 
-class MycourseState extends State<Mycourse> {
+class MycourseState extends State<Course> {
   List data;
 
   Future<String> getData() async {
