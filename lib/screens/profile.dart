@@ -1,3 +1,4 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/model/user.dart';
 import 'package:argon_flutter/screens/mycourse.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
@@ -193,8 +194,39 @@ class _ProfileState extends State<Profile> {
                                                                             color:
                                                                                 Colors.redAccent,
                                                                             fontWeight: FontWeight.bold))),
+                                                                    DataCell(
+                                                                      Text(
+                                                                          "${user.data.email}"),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                DataRow(
+                                                                  cells: <
+                                                                      DataCell>[
                                                                     DataCell(Text(
-                                                                        "${user.data.email}")),
+                                                                        'Password',
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Colors.redAccent,
+                                                                            fontWeight: FontWeight.bold))),
+                                                                    DataCell(Row(
+                                                                        children: <
+                                                                            Widget>[
+                                                                          Text(
+                                                                              "********"),
+                                                                          TextButton(
+                                                                            style:
+                                                                                ButtonStyle(
+                                                                              foregroundColor: MaterialStateProperty.all<Color>(ArgonColors.redUnito),
+                                                                            ),
+                                                                            onPressed:
+                                                                                () {},
+                                                                            child:
+                                                                                Text(
+                                                                              'Change',
+                                                                            ),
+                                                                          )
+                                                                        ])),
                                                                   ],
                                                                 ),
                                                                 /*DataRow(
@@ -271,7 +303,7 @@ class _ProfileState extends State<Profile> {
                                                               ],
                                                             )),
                                                         SizedBox(
-                                                          height: 10,
+                                                          height: 20,
                                                         ),
                                                         Container(
                                                             color:
