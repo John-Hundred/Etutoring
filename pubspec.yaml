@@ -43,6 +43,8 @@ dependencies:
 
   # mockito for test
   mockito: ^5.0.9
+
+  email_validator: ^2.0.1
   
 dev_dependencies:
   

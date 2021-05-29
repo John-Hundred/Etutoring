@@ -2,6 +2,7 @@ import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 
@@ -182,6 +183,9 @@ class _LoginState extends State<Login> {
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your email';
+            }
+            if (!EmailValidator.validate(value)) {
+              return 'Please enter a valid email';
             }
             return null;
           },
