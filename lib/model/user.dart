@@ -57,24 +57,24 @@ class User {
 
   User.fromJson(dynamic json) {
     id = json['id'] ?? '';
-    firstname = json['firstname'] ?? '';
-    lastname = json['lastname'] ?? '';
-    username = json['username'] ?? '';
-    email = json['email'] ?? '';
-    badge_number = json['badge_number'] ?? '';
+    firstname = json['firstname'] ?? '-';
+    lastname = json['lastname'] ?? '-';
+    username = json['username'] ?? '-';
+    email = json['email'] ?? '-';
+    badge_number = json['badge_number'] ?? '-';
     cf = json['cf'] ?? '';
-    birth_date = json['birth_date'] ?? '';
-    birth_city = json['birth_city'] ?? '';
-    role_name = json['role_name'] ?? '';
+    birth_date = json['birth_date'] ?? '-';
+    birth_city = json['birth_city'] ?? '-';
+    role_name = json['role_name'] ?? '-';
     degree_name = json['degree_name'] ?? '';
-    degree_location = json['degree_location'] ?? '';
-    degree_athenaeum = json['degree_athenaeum'] ?? '';
-    degree_path_name = json['degree_path_name'] ?? '';
-    phone_number = json['phone_number'] ?? '';
-    nationality = json['nationality'] ?? '';
-    residence_city = json['residence_city'] ?? '';
-    degree_type_name = json['degree_type_name'] ?? '';
-    degree_type_note = json['degree_type_note'] ?? '';
+    degree_location = json['degree_location'] ?? '-';
+    degree_athenaeum = json['degree_athenaeum'] ?? '-';
+    degree_path_name = json['degree_path_name'] ?? '-';
+    phone_number = json['phone_number'] ?? '-';
+    nationality = json['nationality'] ?? '-';
+    residence_city = json['residence_city'] ?? '-';
+    degree_type_name = json['degree_type_name'] ?? '-';
+    degree_type_note = json['degree_type_note'] ?? '-';
   }
 
   toString() {
