@@ -47,8 +47,8 @@ class _LoginState extends State<Login> {
 
     try {
       // Getting value from Controller
-      String email = emailController.text;
-      String password = passwordController.text;
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
       // Store all data with Param Name: json format
       var data = {'email': email, 'password': password};
 
