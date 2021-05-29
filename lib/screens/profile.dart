@@ -302,6 +302,21 @@ class _ProfileState extends State<Profile> {
                                                         DataRow(
                                                           cells: <DataCell>[
                                                             DataCell(Text(
+                                                                'Tipologia',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .redAccent,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold))),
+                                                            DataCell(Text(
+                                                                "${user.data.degree_type_note} (" +
+                                                                    "${user.data.degree_type_name})")),
+                                                          ],
+                                                        ),
+                                                        DataRow(
+                                                          cells: <DataCell>[
+                                                            DataCell(Text(
                                                                 'Sede',
                                                                 style: TextStyle(
                                                                     color: Colors

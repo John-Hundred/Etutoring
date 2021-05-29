@@ -18,6 +18,7 @@ if(isset($_GET['id'])) {
 left join role on user_attribute.role_id = role.role_id
 left join degree on user_attribute.degree_id = degree.degree_id
 left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
+left join degree_type on degree.degree_type_id = degree_type.degree_type_id
 where id = " . $_GET['id'];
 } else {
 			if(isset($_GET['email'])) {
@@ -25,12 +26,14 @@ where id = " . $_GET['id'];
 		left join role on user_attribute.role_id = role.role_id
 		left join degree on user_attribute.degree_id = degree.degree_id
 		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
+		left join degree_type on degree.degree_type_id = degree_type.degree_type_id
 		where email = '" . $_GET['email'] ."'";
 	} else {
 			$sql = "SELECT * FROM user left join user_attribute on user.id = user_attribute.user_id 
 		left join role on user_attribute.role_id = role.role_id
 		left join degree on user_attribute.degree_id = degree.degree_id
-		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id";
+		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
+		left join degree_type on degree.degree_type_id = degree_type.degree_type_id";
 }
 }
 $result = $connect->query($sql);

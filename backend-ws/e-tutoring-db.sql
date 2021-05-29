@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2021 alle 16:20
+-- Creato il: Mag 29, 2021 alle 11:27
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 7.4.16
 
@@ -253,7 +253,7 @@ CREATE TABLE `user_attribute` (
 --
 
 INSERT INTO `user_attribute` (`user_attribute_id`, `firstname`, `lastname`, `badge_number`, `cf`, `birth_date`, `birth_city`, `residence_city`, `address`, `nationality`, `gender`, `phone_number`, `degree_id`, `degree_path_id`, `role_id`, `user_id`) VALUES
-(1, 'Luca', 'Marignati', 779038, 'MRGLCU94D02L219F', '1994-04-02', 'Torino', 'Settimo Torinese', 'Via Botticelli 2', 'Italiana', 'M', '3347811074', 2, 2, 1, 1),
+(1, 'Luca', 'Marignati', 779038, 'MRGLCU94D02L219F', '1994-04-02', 'Torino', 'Settimo Torinese', 'Via Botticelli 2', 'Italiana', 'M', '3347811074', 2, 1, 1, 1),
 (2, 'Simone', 'Bortolotti', 802598, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 2),
 (3, 'Davide', 'De Cenzo', 785552, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 3);
 
