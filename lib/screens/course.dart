@@ -46,6 +46,27 @@ class CourseState extends State<Course> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Lista dei Corsi',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        child: Card(
+                      // color: Color.fromRGBO(205, 205, 205, 1),
+                      child: Padding(
+                          padding: const EdgeInsets.only(top: 0.0, bottom: 0.0),
+                          child: Row(children: [
+                            Expanded(child: Column(children: []))
+                          ])),
+                    )),
                   ]))
         ]))
       ]),
