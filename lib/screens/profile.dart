@@ -1,4 +1,5 @@
 import 'package:argon_flutter/constants/Theme.dart';
+import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/userModel.dart';
 import 'package:argon_flutter/screens/course.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
@@ -11,9 +12,6 @@ import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
-import 'package:argon_flutter/config/config.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:move_to_background/move_to_background.dart';
 
 class Profile extends StatefulWidget {
@@ -34,31 +32,6 @@ class _ProfileState extends State<Profile> {
   void initState() {
     super.initState();
   }
-
-  Future<UserModel> getUserInfoFromWS = Future<UserModel>.delayed(
-    const Duration(seconds: 0),
-    () async {
-      try {
-        var queryParameters = {
-          'email': await UserSecureStorage.getEmail(),
-        };
-        // print(queryParameters);
-        var response = await http.get(Uri.http(
-            authority, unencodedPath + "users_list.php", queryParameters));
-
-        var user;
-        if (response.statusCode == 200) {
-          var userJsonData = json.decode(response.body);
-          user = UserModel.fromJson(userJsonData);
-        }
-        // print(user);
-        return user;
-      } on Exception catch ($e) {
-        print('error caught: ' + $e.toString());
-        return null;
-      }
-    },
-  );
 
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
