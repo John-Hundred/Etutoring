@@ -60,6 +60,7 @@ class MycourseState extends State<Course> {
               /*ListView.builder(
                 itemCount: data == null ? 0 : data.length,
                 itemBuilder: (BuildContext context, int index) {
+                  print(data);
                   return new Card(
                     child: new Text(data[index]["course_name"] +
                         '\ncfu = ' +
