@@ -1,3 +1,5 @@
+import 'package:argon_flutter/controller/controllerWS.dart';
+import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -12,52 +14,52 @@ class CourseState extends State<Course> {
   @override
   void initState() {
     super.initState();
-    this.getUserCourseListFromWS();
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-            title: const Text('Course'),
-            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
-        drawer: ArgonDrawer("course"),
-        body: new Padding(
-          padding: const EdgeInsets.only(
-              top: 0, left: 24.0, right: 24.0, bottom: 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Search ...',
-                    suffixIcon: IconButton(
-                      onPressed: () => '',
-                      icon: Icon(Icons.search),
+      appBar: AppBar(
+          title: const Text('Course'),
+          backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+      drawer: ArgonDrawer("course"),
+      body: Stack(children: <Widget>[
+        SafeArea(
+            child: ListView(children: [
+          Padding(
+              padding:
+                  const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      child: Card(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Search ...',
+                            suffixIcon: IconButton(
+                              onPressed: () => '',
+                              icon: Icon(Icons.search),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              /*ListView.builder(
-                    itemCount: data == null ? 0 : data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      print(data);
-                      return new Card(
-                        child: new Text(data[index]["course_name"] +
-                            '\ncfu = ' +
-                            data[index]["course_cfu"] +
-                            '\ndepartiment = ' +
-                            data[index]["department"]),
-                      );
-                    },
-                  )*/
-            ],
-          ),
-        ));
-  }
+                  ]))
+        ]))
+      ]),
 
-  void getUserCourseListFromWS() {}
+      /* FutureBuilder<List<CourseModel>>(
+                    future: getUserCourseListFromWS,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<CourseModel>> courseList) {
+                      // List<Widget> children;
+                      if (courseList.hasData) {
+                        print(courseList.data);
+                        // children = <Widget>[];
+                      }
+                    }),*/
+    );
+  }
 }
