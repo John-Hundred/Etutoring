@@ -1,5 +1,5 @@
 import 'package:argon_flutter/constants/Theme.dart';
-import 'package:argon_flutter/model/user.dart';
+import 'package:argon_flutter/model/userModel.dart';
 import 'package:argon_flutter/screens/course.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
@@ -22,7 +22,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  User user;
+  UserModel user;
   String email;
 
   String password;
@@ -35,7 +35,7 @@ class _ProfileState extends State<Profile> {
     super.initState();
   }
 
-  Future<User> getUserInfoFromWS = Future<User>.delayed(
+  Future<UserModel> getUserInfoFromWS = Future<UserModel>.delayed(
     const Duration(seconds: 0),
     () async {
       try {
@@ -49,7 +49,7 @@ class _ProfileState extends State<Profile> {
         var user;
         if (response.statusCode == 200) {
           var userJsonData = json.decode(response.body);
-          user = User.fromJson(userJsonData);
+          user = UserModel.fromJson(userJsonData);
         }
         // print(user);
         return user;
@@ -117,12 +117,12 @@ class _ProfileState extends State<Profile> {
                                           Expanded(
                                             child: Column(
                                               children: [
-                                                FutureBuilder<User>(
+                                                FutureBuilder<UserModel>(
                                                   future: getUserInfoFromWS,
-                                                  builder:
-                                                      (BuildContext context,
-                                                          AsyncSnapshot<User>
-                                                              user) {
+                                                  builder: (BuildContext
+                                                          context,
+                                                      AsyncSnapshot<UserModel>
+                                                          user) {
                                                     List<Widget> children;
                                                     if (user.hasData) {
                                                       print(user.data);

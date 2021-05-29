@@ -1,4 +1,4 @@
-class User {
+class UserModel {
   String id;
   String firstname;
   String lastname;
@@ -34,7 +34,7 @@ class User {
   // ignore: non_constant_identifier_names
   String degree_type_note;
 
-  User(
+  UserModel(
       this.id,
       this.firstname,
       this.lastname,
@@ -55,7 +55,7 @@ class User {
       this.degree_type_name,
       this.degree_type_note);
 
-  User.fromJson(dynamic json) {
+  UserModel.fromJson(dynamic json) {
     id = json['id'] ?? '';
     firstname = json['firstname'] ?? '-';
     lastname = json['lastname'] ?? '-';

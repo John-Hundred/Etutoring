@@ -1,34 +1,42 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:argon_flutter/config/config.dart';
+import 'package:argon_flutter/model/courseModel.dart';
+import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Course extends StatefulWidget {
   @override
-  MycourseState createState() => new MycourseState();
+  CourseState createState() => new CourseState();
 }
 
-class MycourseState extends State<Course> {
-  List data;
+class CourseState extends State<Course> {
+  List<Course> data;
 
-  Future<String> getData() async {
-    var response =
-        await http.get(Uri.http(authority, unencodedPath + "course_list.php"));
+  Future<List<CourseModel>> getUserCourseListFromWS() async {
+    try {
+      var queryParameters = {
+        'email': await UserSecureStorage.getEmail(),
+      };
 
-    this.setState(() {
-      data = jsonDecode(response.body);
-    });
-
-    return "Success!";
+      var response = await http.get(Uri.http(
+          authority, unencodedPath + "course_user_list.php", queryParameters));
+      if (response.statusCode == 200) {
+        print(response.body);
+        return null;
+      }
+    } on Exception catch ($e) {
+      print('error caught: ' + $e.toString());
+      return null;
+    }
   }
 
   @override
   void initState() {
     super.initState();
-    this.getData();
+    this.getUserCourseListFromWS();
   }
 
   @override

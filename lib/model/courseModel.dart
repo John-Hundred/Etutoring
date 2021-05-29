@@ -1,75 +1,41 @@
-import 'dart:convert';
+class CourseModel {
+  // ignore: non_constant_identifier_names
+  String course_id;
+  // ignore: non_constant_identifier_names
+  String course_name;
+  // ignore: non_constant_identifier_names
+  String course_cfu;
+  // ignore: non_constant_identifier_names
+  String enrollment_year;
+  // ignore: non_constant_identifier_names
+  String study_year;
+  // ignore: non_constant_identifier_names
+  String teaching_type;
+  String dac;
+  String department;
+  String curriculum;
+  String ssd;
+  // ignore: non_constant_identifier_names
+  String delivery_mode;
+  String language;
+  // ignore: non_constant_identifier_names
+  String didactic_period;
+  // ignore: non_constant_identifier_names
+  String component_type;
 
-import 'package:http/http.dart' as http;
-
-const IP = "192.168.56.1";
-const URL = "e-tutoring-web/ws/ws/course_list.php";
-
-Future<List<Course>> fetchCourse() async {
-  final response = await http.get(Uri.http(IP, URL));
-  // print(response);
-
-  List<Course> courses = [];
-  if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    var responseJson = jsonDecode(response.body);
-    // print(responseJson);
-    for (var element in responseJson) {
-      Course course = new Course(element['course_id'], element['course_name'],
-          element['course_cfu'], element['enrollment_year']);
-      courses.add(course);
-      // print(course);
-    }
-    return courses;
-    // return Course.fromJson(jsonDecode(response.body));
-  } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Failed to load course');
-  }
-}
-
-class Course {
-  String courseId;
-  String courseName;
-  String courseCfu;
-  String enrollmentYear;
-
-  /*Course({
-    this.courseId,
-    this.courseName,
-    this.courseCfu,
-  });*/
-
-  Course(String courseId, String courseName, String courseCfu,
-      String enrollmentYear) {
-    this.courseId = courseId;
-    this.courseName = courseName;
-    this.courseCfu = courseCfu;
-    this.enrollmentYear = enrollmentYear;
-  }
-
-  toString() {
-    String enrollmentYear = "";
-    // print(this.enrollmentYear);
-    if (this.enrollmentYear != null) enrollmentYear = this.enrollmentYear;
-    return 'id: ' +
-        this.courseId +
-        ', name: ' +
-        this.courseName +
-        ', cfu: ' +
-        this.courseCfu +
-        ', enrollmentYear: ' +
-        enrollmentYear +
-        "\n";
-  }
-
-  /*factory Course.fromJson(Map<String, dynamic> json) {
-    return Course(
-      courseId: json['course_id'],
-      courseName: json['couse_name'],
-      courseCfu: json['course_cfu'],
-    );
-  }*/
+  CourseModel(
+      this.course_id,
+      this.course_name,
+      this.course_cfu,
+      this.enrollment_year,
+      this.study_year,
+      this.teaching_type,
+      this.dac,
+      this.department,
+      this.curriculum,
+      this.ssd,
+      this.delivery_mode,
+      this.language,
+      this.didactic_period,
+      this.component_type);
 }
