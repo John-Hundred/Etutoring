@@ -38,4 +38,28 @@ class CourseModel {
       this.language,
       this.didactic_period,
       this.component_type);
+
+  CourseModel.fromJson(dynamic json) {
+    course_id = json['course_id'] ?? '';
+    course_name = json['course_name'] ?? '-';
+    course_cfu = json['course_cfu'] ?? '-';
+    enrollment_year = json['enrollment_year'] ?? '-';
+    study_year = json['study_year'] ?? '-';
+    teaching_type = json['teaching_type'] ?? '-';
+    dac = json['dac'] ?? '';
+    department = json['department'] ?? '-';
+    curriculum = json['curriculum'] ?? '-';
+    ssd = json['ssd'] ?? '-';
+    delivery_mode = json['delivery_mode'] ?? '';
+    language = json['language'] ?? '-';
+    didactic_period = json['didactic_period'] ?? '-';
+    component_type = json['component_type'] ?? '-';
+  }
+
+  toString() {
+    return "course_id = " +
+        this.course_id +
+        "\ncourse_name = " +
+        this.course_name;
+  }
 }

@@ -16,6 +16,8 @@ class CourseState extends State<Course> {
   List<Course> data;
 
   Future<List<CourseModel>> getUserCourseListFromWS() async {
+    List<CourseModel> courseList;
+
     try {
       var queryParameters = {
         'email': await UserSecureStorage.getEmail(),
