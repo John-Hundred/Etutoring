@@ -74,7 +74,6 @@ class CourseState extends State<Course> {
                         } else {
                           List<CourseModel> courseList = snapshot.data;
                           // print(courseList);
-                          // List<String> litems = ["1", "2", "Third", "4"];
                           return Text(courseList.toString());
                           /*return ListView.builder(
                               itemCount: litems.length,

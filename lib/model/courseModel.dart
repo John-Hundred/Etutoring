@@ -59,7 +59,7 @@ class CourseModel {
   toString() {
     return "course_id = " +
         this.course_id +
-        "\ncourse_name = " +
+        ", course_name = " +
         this.course_name;
   }
 }
