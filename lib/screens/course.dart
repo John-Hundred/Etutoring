@@ -88,7 +88,7 @@ class CourseState extends State<Course> {
                                     size: 30.0,
                                   ),
                                 )*/
-                                /*course.private_lesson_id == '-'
+                                course.private_lesson_id == '-'
                                     ? DataCell(
                                         Icon(
                                           Icons.cancel,
@@ -102,7 +102,7 @@ class CourseState extends State<Course> {
                                           color: Colors.green,
                                           size: 30.0,
                                         ),
-                                      ),*/
+                                      ),
                               ]));
                             }
                             return DataTable(
@@ -112,8 +112,7 @@ class CourseState extends State<Course> {
                                 columns: <DataColumn>[
                                   DataColumn(label: Text('Course')),
                                   DataColumn(label: Text('CFU')),
-                                  // DataColumn(label: Text('Tutoring')),
-                                  // DataColumn(label: Text('Tutoring')),
+                                  DataColumn(label: Text('Tutoring')),
                                 ],
                                 rows: _rowList);
                           }
