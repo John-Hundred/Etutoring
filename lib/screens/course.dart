@@ -78,6 +78,20 @@ class CourseState extends State<Course> {
                             _rowList.add(DataRow(cells: <DataCell>[
                               DataCell(Text(course.course_name.toUpperCase())),
                               DataCell(Text(course.course_cfu.toUpperCase())),
+                              DataCell(
+                                Icon(
+                                  Icons.cancel,
+                                  color: Colors.red,
+                                  size: 30.0,
+                                ),
+                              ),
+                              /*DataCell(
+                                Icon(
+                                  Icons.check,
+                                  color: Colors.green,
+                                  size: 30.0,
+                                ),
+                              ),*/
                             ]));
                           }
 
@@ -88,23 +102,11 @@ class CourseState extends State<Course> {
                               columns: <DataColumn>[
                                 DataColumn(label: Text('Course')),
                                 DataColumn(label: Text('CFU')),
+                                DataColumn(label: Text('Tutoring')),
+                                // DataColumn(label: Text('Tutoring')),
                               ],
                               rows: _rowList);
-
-                          // return Text(courseList.toString());
-                          /*return ListView.builder(
-                              itemCount: litems.length,
-                              itemBuilder: (BuildContext ctxt, int index) {
-                                return new Text(litems[index]);
-                              });*/
                         }
-
-                        /*switch (snapshot.connectionState) {
-                          case ConnectionState.done:
-                            return _buildListView(contacts);
-                          default:
-                            return _buildLoadingScreen();
-                        }*/
                       },
                     ))
                   ]))
