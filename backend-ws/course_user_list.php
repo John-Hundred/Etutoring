@@ -16,14 +16,15 @@ if (mysqli_connect_errno($connect)){
 $email = $_GET['email'] ?? null;
 
 if($email){
-	$sql = "SELECT course.* FROM user 
+	$sql = "SELECT course.*, private_lesson.* FROM user 
 	left join user_attribute on user.id = user_attribute.user_id
 	left join degree on user_attribute.degree_id = degree.degree_id
 	left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
 	left join course_path_degree on user_attribute.degree_path_id = course_path_degree.degree_path_id 
 		AND user_attribute.degree_id = course_path_degree.degree_id
 	left join course on course_path_degree.course_id = course.course_id
-	where email = '" . $_GET['email'] ."'";
+	left join private_lesson on private_lesson.course_id = course.course_id AND user.id = private_lesson.user_id
+	where email = '" . $_GET['email'] ."' order by course.course_name ASC";
 	$result = $connect->query($sql);
 	$emparray = array();
 	if ($result->num_rows > 0) {

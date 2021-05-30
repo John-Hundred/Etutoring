@@ -72,22 +72,13 @@ class CourseState extends State<Course> {
                         } else {
                           List<CourseModel> courseList = snapshot.data;
                           if (courseList != null) {
-                            // print(courseList);
                             List<DataRow> _rowList = [];
                             var course;
                             for (course in courseList) {
-                              // print(course.private_lesson_id);
                               _rowList.add(DataRow(cells: <DataCell>[
                                 DataCell(
                                     Text(course.course_name.toUpperCase())),
                                 DataCell(Text(course.course_cfu.toUpperCase())),
-                                /*DataCell(
-                                  Icon(
-                                    Icons.cancel,
-                                    color: Colors.red,
-                                    size: 30.0,
-                                  ),
-                                )*/
                                 course.private_lesson_id == '-'
                                     ? DataCell(
                                         Icon(
