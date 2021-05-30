@@ -4,8 +4,6 @@ import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Course extends StatefulWidget {
-  ScrollController _controller;
-
   @override
   CourseState createState() => new CourseState();
 }
@@ -74,7 +72,26 @@ class CourseState extends State<Course> {
                         } else {
                           List<CourseModel> courseList = snapshot.data;
                           // print(courseList);
-                          return Text(courseList.toString());
+                          List<DataRow> _rowList = [];
+                          var course;
+                          for (course in courseList) {
+                            _rowList.add(DataRow(cells: <DataCell>[
+                              DataCell(Text(course.course_name.toUpperCase())),
+                              DataCell(Text(course.course_cfu.toUpperCase())),
+                            ]));
+                          }
+
+                          return DataTable(
+                              dataRowColor: MaterialStateColor.resolveWith(
+                                  (states) => Colors.white),
+                              // headingRowHeight: 0,
+                              columns: <DataColumn>[
+                                DataColumn(label: Text('Course')),
+                                DataColumn(label: Text('CFU')),
+                              ],
+                              rows: _rowList);
+
+                          // return Text(courseList.toString());
                           /*return ListView.builder(
                               itemCount: litems.length,
                               itemBuilder: (BuildContext ctxt, int index) {
