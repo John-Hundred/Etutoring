@@ -70,7 +70,8 @@ class _LoginState extends State<Login> {
             await UserSecureStorage.setEmail(emailController.text);
             await UserSecureStorage.setPassword(passwordController.text);
             // Hiding the CircularProgressIndicator.
-
+            //print(emailController.text);
+            //print(passwordController.text);
             setState(() {
               visible = false;
             });

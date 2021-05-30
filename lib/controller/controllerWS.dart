@@ -12,7 +12,7 @@ Future<UserModel> getUserInfoFromWS =
     var queryParameters = {
       'email': await UserSecureStorage.getEmail(),
     };
-    // print(queryParameters);
+    print(queryParameters);
     var response = await http.get(
         Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
 

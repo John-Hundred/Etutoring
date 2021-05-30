@@ -43,9 +43,10 @@ class _ProfileState extends State<Profile> {
   }
 
   Widget build(BuildContext context) {
-    this.setState(() {
+    this.init();
+    /*this.setState(() {
       init();
-    });
+    });*/
 
     return new WillPopScope(
         onWillPop: () async {
@@ -98,7 +99,7 @@ class _ProfileState extends State<Profile> {
                                                           user) {
                                                     List<Widget> children;
                                                     if (user.hasData) {
-                                                      print(user.data);
+                                                      // print(user.data);
                                                       children = <Widget>[
                                                         Container(
                                                             color:
