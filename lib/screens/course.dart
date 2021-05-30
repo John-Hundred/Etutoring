@@ -4,6 +4,8 @@ import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Course extends StatefulWidget {
+  ScrollController _controller;
+
   @override
   CourseState createState() => new CourseState();
 }
@@ -71,21 +73,14 @@ class CourseState extends State<Course> {
                           return Container();
                         } else {
                           List<CourseModel> courseList = snapshot.data;
-                          print(courseList);
+                          // print(courseList);
+                          // List<String> litems = ["1", "2", "Third", "4"];
                           return Text(courseList.toString());
                           /*return ListView.builder(
-                            itemCount: courseList.length,
-                            itemBuilder: (context, index) {
-                              print(index);
-                              /*ProjectModel project =
-                                          projectSnap.data[index];*/
-                              return Column(
-                                children: <Widget>[
-                                  // Widget to display the list of project
-                                ],
-                              );
-                            },
-                          );*/
+                              itemCount: litems.length,
+                              itemBuilder: (BuildContext ctxt, int index) {
+                                return new Text(litems[index]);
+                              });*/
                         }
 
                         /*switch (snapshot.connectionState) {
