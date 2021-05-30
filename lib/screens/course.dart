@@ -46,6 +46,44 @@ class CourseState extends State<Course> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        child: FutureBuilder<List<CourseModel>>(
+                      future: getUserCourseListFromWS,
+                      builder: (ctx, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.none &&
+                            snapshot.hasData == null) {
+                          /*print('project snapshot data is: ${projectSnap.data}');*/
+                          return Container();
+                        } else {
+                          List<CourseModel> courseList = snapshot.data;
+                          print(courseList);
+                          return Text(courseList.toString());
+                          /*return ListView.builder(
+                            itemCount: courseList.length,
+                            itemBuilder: (context, index) {
+                              print(index);
+                              /*ProjectModel project =
+                                          projectSnap.data[index];*/
+                              return Column(
+                                children: <Widget>[
+                                  // Widget to display the list of project
+                                ],
+                              );
+                            },
+                          );*/
+                        }
+
+                        /*switch (snapshot.connectionState) {
+                          case ConnectionState.done:
+                            return _buildListView(contacts);
+                          default:
+                            return _buildLoadingScreen();
+                        }*/
+                      },
+                    ))
                     /*SizedBox(
                       height: 20,
                     ),
