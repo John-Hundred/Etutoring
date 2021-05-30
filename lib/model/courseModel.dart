@@ -22,6 +22,8 @@ class CourseModel {
   String didactic_period;
   // ignore: non_constant_identifier_names
   String component_type;
+  // ignore: non_constant_identifier_names
+  String private_lesson_id;
 
   CourseModel(
       this.course_id,
@@ -37,7 +39,8 @@ class CourseModel {
       this.delivery_mode,
       this.language,
       this.didactic_period,
-      this.component_type);
+      this.component_type,
+      this.private_lesson_id);
 
   CourseModel.fromJson(dynamic json) {
     course_id = json['course_id'] ?? '';
@@ -54,6 +57,7 @@ class CourseModel {
     language = json['language'] ?? '-';
     didactic_period = json['didactic_period'] ?? '-';
     component_type = json['component_type'] ?? '-';
+    private_lesson_id = json['private_lesson_id'] ?? '-';
   }
 
   toString() {

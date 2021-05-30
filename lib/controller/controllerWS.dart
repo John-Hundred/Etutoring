@@ -51,6 +51,6 @@ Future<List<CourseModel>> getUserCourseListFromWS =
     return courseList;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
-    return courseList;
+    return [];
   }
 });
