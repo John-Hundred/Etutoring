@@ -135,17 +135,6 @@ class CourseState extends State<Course> {
                   ]))
         ]))
       ]),
-
-      /* FutureBuilder<List<CourseModel>>(
-                    future: getUserCourseListFromWS,
-                    builder: (BuildContext context,
-                        AsyncSnapshot<List<CourseModel>> courseList) {
-                      // List<Widget> children;
-                      if (courseList.hasData) {
-                        print(courseList.data);
-                        // children = <Widget>[];
-                      }
-                    }),*/
     );
   }
 }
