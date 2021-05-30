@@ -9,8 +9,6 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
-  List<Course> data;
-
   @override
   void initState() {
     super.initState();
