@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 29, 2021 alle 11:27
+-- Creato il: Mag 30, 2021 alle 14:45
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 7.4.16
 
@@ -30,12 +30,12 @@ CREATE TABLE `course` (
   `teaching_type` varchar(30) DEFAULT NULL COMMENT 'Type of teaching',
   `dac` varchar(10) DEFAULT NULL COMMENT 'Code of didactic activity',
   `department` varchar(30) DEFAULT NULL,
-  `curriculum` varchar(30) DEFAULT NULL,
+  `curriculum` varchar(99) DEFAULT NULL,
   `ssd` varchar(30) DEFAULT NULL COMMENT 'Scientific Disciplinary Sector (SSD)',
   `delivery_mode` varchar(30) DEFAULT NULL,
   `language` varchar(30) DEFAULT NULL COMMENT 'Language of instruction',
   `didactic_period` varchar(30) DEFAULT NULL COMMENT 'Didactic period',
-  `component_type` varchar(30) DEFAULT NULL
+  `component_type` varchar(99) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,10 +43,11 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `course_name`, `course_cfu`, `enrollment_year`, `study_year`, `teaching_type`, `dac`, `department`, `curriculum`, `ssd`, `delivery_mode`, `language`, `didactic_period`, `component_type`) VALUES
-(1, 'Analisi Matematica', 9, '2018/2019', 1, 'Base', 'MFN0570', 'INFORMATICA', 'PERCORSO GENERICO', 'ANALISI MATEMATICA (MAT/05)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodiscipl'),
-(2, 'Architettura degli Elaboratori', 9, NULL, NULL, NULL, NULL, 'INFORMATICA', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Agenti Intelligenti', 6, NULL, NULL, NULL, NULL, 'INFORMATICA', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'Elementi di Astrofisica', 6, NULL, NULL, NULL, NULL, 'FISICA', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'Analisi Matematica', 9, '2021/2022', 1, 'Base', 'MFN0570', 'Informatica', 'percorso generico', 'ANALISI MATEMATICA (MAT/05)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(2, 'Architettura degli Elaboratori', 9, '2021/2022', NULL, 'Base', NULL, 'Informatica', NULL, NULL, 'Convenzionale', 'Italiano', NULL, NULL),
+(3, 'Agenti Intelligenti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1348', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(5, 'Elementi di Astrofisica', 6, '2021/2022', NULL, 'Base', NULL, 'Fisica', NULL, NULL, 'Convenzionale', 'Italiano', NULL, NULL),
+(6, 'apprendimento automatico', 9, '2021/2022', 1, 'Caratterizzante', 'INF0095', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', '\r\nINFORMATICA (INF/01)', 'Convenzionale', 'Inglese', 'Secondo Semestre', 'Attività formativa monodisciplinare');
 
 -- --------------------------------------------------------
 
@@ -72,7 +73,8 @@ INSERT INTO `course_path_degree` (`course_id`, `degree_path_id`, `degree_id`) VA
 (2, 7, 1),
 (2, 8, 1),
 (3, 1, 2),
-(5, 9, 5);
+(5, 9, 5),
+(6, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -254,8 +256,8 @@ CREATE TABLE `user_attribute` (
 
 INSERT INTO `user_attribute` (`user_attribute_id`, `firstname`, `lastname`, `badge_number`, `cf`, `birth_date`, `birth_city`, `residence_city`, `address`, `nationality`, `gender`, `phone_number`, `degree_id`, `degree_path_id`, `role_id`, `user_id`) VALUES
 (1, 'Luca', 'Marignati', 779038, 'MRGLCU94D02L219F', '1994-04-02', 'Torino', 'Settimo Torinese', 'Via Botticelli 2', 'Italiana', 'M', '3347811074', 2, 1, 1, 1),
-(2, 'Simone', 'Bortolotti', 802598, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 2),
-(3, 'Davide', 'De Cenzo', 785552, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1, 3);
+(2, 'Simone', 'Bortolotti', 802598, NULL, NULL, NULL, NULL, NULL, 'Italiana', NULL, NULL, 2, 1, 1, 2),
+(3, 'Davide', 'De Cenzo', 785552, NULL, NULL, NULL, NULL, NULL, 'Italiana', NULL, NULL, 2, 1, 1, 3);
 
 --
 -- Indici per le tabelle scaricate
@@ -323,7 +325,7 @@ ALTER TABLE `user_attribute`
 -- AUTO_INCREMENT per la tabella `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `degree`
