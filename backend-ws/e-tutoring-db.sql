@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 30, 2021 alle 14:45
+-- Creato il: Mag 30, 2021 alle 14:55
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 7.4.16
 
@@ -47,7 +47,10 @@ INSERT INTO `course` (`course_id`, `course_name`, `course_cfu`, `enrollment_year
 (2, 'Architettura degli Elaboratori', 9, '2021/2022', NULL, 'Base', NULL, 'Informatica', NULL, NULL, 'Convenzionale', 'Italiano', NULL, NULL),
 (3, 'Agenti Intelligenti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1348', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
 (5, 'Elementi di Astrofisica', 6, '2021/2022', NULL, 'Base', NULL, 'Fisica', NULL, NULL, 'Convenzionale', 'Italiano', NULL, NULL),
-(6, 'apprendimento automatico', 9, '2021/2022', 1, 'Caratterizzante', 'INF0095', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', '\r\nINFORMATICA (INF/01)', 'Convenzionale', 'Inglese', 'Secondo Semestre', 'Attività formativa monodisciplinare');
+(6, 'apprendimento automatico', 9, '2021/2022', 1, 'Caratterizzante', 'INF0095', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', '\r\nINFORMATICA (INF/01)', 'Convenzionale', 'Inglese', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(7, 'Base di dati multimediali', 9, '2021/2022', 1, 'Caratterizzante', 'MFN0947', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"Artificiale', ' INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', ' Secondo Semestre', 'Attività formativa monodisciplinare'),
+(8, 'reti neurali e deep learning', 9, '2021/2022', 1, 'Caratterizzante', 'INF0188', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', ' INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(9, 'Programmazione per dispositivi mobili', 6, '2021/2022', 1, 'Caratterizzante', 'INF0008', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare');
 
 -- --------------------------------------------------------
 
@@ -74,7 +77,10 @@ INSERT INTO `course_path_degree` (`course_id`, `degree_path_id`, `degree_id`) VA
 (2, 8, 1),
 (3, 1, 2),
 (5, 9, 5),
-(6, 1, 2);
+(6, 1, 2),
+(7, 1, 2),
+(8, 1, 2),
+(9, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -325,7 +331,7 @@ ALTER TABLE `user_attribute`
 -- AUTO_INCREMENT per la tabella `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `degree`
