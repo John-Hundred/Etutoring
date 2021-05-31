@@ -23,10 +23,10 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Account'),
+            title: const Text('Register'),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         extendBodyBehindAppBar: true,
-        drawer: ArgonDrawer("Account"),
+        // drawer: ArgonDrawer("Account"),
         body: Stack(
           children: [
             Container(
