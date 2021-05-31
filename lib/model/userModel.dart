@@ -1,5 +1,5 @@
 class UserModel {
-  String id;
+  int id;
   String firstname;
   String lastname;
   String username;
@@ -56,7 +56,7 @@ class UserModel {
       this.degree_type_note);
 
   UserModel.fromJson(dynamic json) {
-    id = json['id'] ?? '';
+    id = json['id'] ?? null;
     firstname = json['firstname'] ?? '-';
     lastname = json['lastname'] ?? '-';
     username = json['username'] ?? '-';
@@ -79,7 +79,7 @@ class UserModel {
 
   toString() {
     return "id = " +
-        this.id +
+        this.id.toString() +
         "\nfirstname = " +
         this.firstname +
         "\nfirstname = " +
