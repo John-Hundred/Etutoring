@@ -4,12 +4,8 @@ import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:argon_flutter/constants/Theme.dart';
-
-//widgets
-import 'package:argon_flutter/widgets/input.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -294,8 +290,6 @@ class _SigninState extends State<Signin> {
             suffixIcon: GestureDetector(
               onTap: () async {
                 print(this.emailController.text);
-                /*await UserSecureStorage.setEmail(emailController.text);
-                await UserSecureStorage.setPassword(passwordController.text);*/
                 _toggle();
               },
               child: Icon(
@@ -308,6 +302,7 @@ class _SigninState extends State<Signin> {
       );
 
   Widget buildSignInButton() => ButtonWidget(
+      pressed: _checkboxValue,
       text: 'Sign In',
       color: ArgonColors.redUnito,
       onClicked: () {

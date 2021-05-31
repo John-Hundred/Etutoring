@@ -4,8 +4,10 @@ class ButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onClicked;
   final Color color;
+  // final dynamic onPressed;
+  final bool pressed;
 
-  const ButtonWidget({this.text, this.onClicked, this.color});
+  const ButtonWidget({this.text, this.onClicked, this.color, this.pressed});
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
@@ -22,6 +24,6 @@ class ButtonWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        onPressed: onClicked,
+        onPressed:this.pressed ? onClicked : null,
       );
 }

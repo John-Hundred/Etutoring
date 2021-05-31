@@ -235,6 +235,7 @@ class _LoginState extends State<Login> {
       );
 
   Widget buildLoginButton() => ButtonWidget(
+      pressed: true,
       text: 'Login',
       color: ArgonColors.redUnito,
       onClicked: () async {
@@ -244,6 +245,7 @@ class _LoginState extends State<Login> {
       });
 
   Widget builRegisteredButton() => ButtonWidget(
+      pressed: true,
       text: 'Sign In',
       color: ArgonColors.blueUnito,
       onClicked: () {
