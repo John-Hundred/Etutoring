@@ -140,6 +140,9 @@ class _SigninState extends State<Signin> {
             ),*/
             SafeArea(
               child: ListView(children: [
+                const SizedBox(height: 20),
+                Image.asset('assets/img/logo_size_2.jpg',
+                    height: 100, width: 100),
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 16, left: 24.0, right: 24.0, bottom: 32),
