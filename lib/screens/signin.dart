@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:argon_flutter/config/config.dart';
+import 'package:argon_flutter/screens/privacy-policy.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
@@ -184,7 +185,13 @@ class _SigninState extends State<Signin> {
                                 style: TextStyle(
                                     color: ArgonColors.black, fontSize: 15)),
                             GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PrivacyPolicy()));
+                                },
                                 child: Container(
                                   margin: EdgeInsets.only(left: 5),
                                   child: Text("Privacy Policy",
