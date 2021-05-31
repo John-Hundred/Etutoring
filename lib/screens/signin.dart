@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:argon_flutter/config/config.dart';
+import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -259,63 +260,42 @@ class _SigninState extends State<Signin> {
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 16),
-                                        child: Center(
-                                          child: TextButton(
-                                            onPressed: () {
-                                              // Respond to button press
-
-                                              showDialog<String>(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) =>
-                                                          AlertDialog(
-                                                            title: const Text(
-                                                                'Sign In'),
-                                                            content: const Text(
-                                                                'User sign in with succes/failure'),
-                                                            actions: <Widget>[
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        context,
-                                                                        'Cancel'),
-                                                                child: const Text(
-                                                                    'Cancel'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () {
-                                                                  Navigator.pop(
-                                                                      context,
-                                                                      'OK');
-                                                                  Navigator.pushNamed(
-                                                                      context,
-                                                                      '/login');
-                                                                },
-                                                                child:
-                                                                    const Text(
-                                                                        'OK'),
-                                                              ),
-                                                            ],
-                                                          ));
-                                            },
-                                            child: Padding(
-                                                padding: EdgeInsets.only(
-                                                    left: 16.0,
-                                                    right: 16.0,
-                                                    top: 12.0,
-                                                    bottom: 12.0),
-                                                child: Text("Sign in",
-                                                    style: TextStyle(
-                                                        color: ArgonColors
-                                                            .redUnito,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 16.0))),
-                                          ),
-                                        ),
-                                      )
+                                      ButtonWidget(
+                                          text: 'Sign In',
+                                          color: ArgonColors.redUnito,
+                                          onClicked: () {
+                                            showDialog<String>(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    AlertDialog(
+                                                      title:
+                                                          const Text('Sign In'),
+                                                      content: const Text(
+                                                          'User sign in with succes/failure'),
+                                                      actions: <Widget>[
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  context,
+                                                                  'Cancel'),
+                                                          child: const Text(
+                                                              'Cancel'),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context, 'OK');
+                                                            Navigator.pushNamed(
+                                                                context,
+                                                                '/login');
+                                                          },
+                                                          child:
+                                                              const Text('OK'),
+                                                        ),
+                                                      ],
+                                                    ));
+                                          }),
                                     ],
                                   ),
                                 ),
