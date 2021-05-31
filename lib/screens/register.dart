@@ -26,7 +26,6 @@ class _RegisterState extends State<Register> {
             title: const Text('Register'),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         extendBodyBehindAppBar: true,
-        // drawer: ArgonDrawer("Account"),
         body: Stack(
           children: [
             Container(
