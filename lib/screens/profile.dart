@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 
 // screens
 import 'package:argon_flutter/screens/home.dart';
-import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/screens/articles.dart';
 import 'package:argon_flutter/screens/elements.dart';
 
@@ -56,7 +55,6 @@ class _ProfileState extends State<Profile> {
               "/profile": (BuildContext context) => new Profile(),
               "/articles": (BuildContext context) => new Articles(),
               "/elements": (BuildContext context) => new Elements(),
-              "/account": (BuildContext context) => new Register(),
               "/course": (BuildContext context) => new Course(),
             },
             home: Scaffold(
