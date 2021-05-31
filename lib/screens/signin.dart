@@ -151,112 +151,6 @@ class _SigninState extends State<Signin> {
                       ),
                       child: Column(
                         children: [
-                          /*Container(
-                              height: MediaQuery.of(context).size.height * 0.15,
-                              decoration: BoxDecoration(
-                                  color: ArgonColors.white,
-                                  border: Border(
-                                      bottom: BorderSide(
-                                          width: 0.5,
-                                          color: ArgonColors.muted))),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  /*Center(
-                                      child: Padding(
-                                    padding: const EdgeInsets.only(top: 8.0),
-                                    child: Text("Sign up with",
-                                        style: TextStyle(
-                                            color: ArgonColors.text,
-                                            fontSize: 16.0)),
-                                  )),*/
-                                  /*Padding(
-                                    padding: const EdgeInsets.only(bottom: 8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          // width: 0,
-                                          height: 36,
-                                          child: ElevatedButton(
-                                              /*textColor: ArgonColors.primary,
-                                              color: ArgonColors.secondary,*/
-                                              onPressed: () {},
-                                              /*shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4)),*/
-                                              child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      bottom: 10,
-                                                      top: 10,
-                                                      left: 14,
-                                                      right: 14),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Icon(
-                                                          FontAwesomeIcons
-                                                              .github,
-                                                          size: 13),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text("GITHUB",
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontSize: 13))
-                                                    ],
-                                                  ))),
-                                        ),
-                                        Container(
-                                          // width: 0,
-                                          height: 36,
-                                          child: ElevatedButton(
-                                              /*textColor: ArgonColors.primary,
-                                              color: ArgonColors.secondary,*/
-                                              onPressed: () {},
-                                              /*shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4)),*/
-                                              child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      bottom: 10,
-                                                      top: 10,
-                                                      left: 8,
-                                                      right: 8),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Icon(
-                                                          FontAwesomeIcons
-                                                              .facebook,
-                                                          size: 13),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text("FACEBOOK",
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontSize: 13))
-                                                    ],
-                                                  ))),
-                                        ),
-                                      ],
-                                    ),
-                                  ),*/
-                                  // Divider()
-                                ],
-                              )),*/
                           Container(
                               height: MediaQuery.of(context).size.height * 0.63,
                               // color: Color.fromRGBO(244, 245, 247, 1),
@@ -269,32 +163,6 @@ class _SigninState extends State<Signin> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 24.0, bottom: 24.0),
-                                        child: Center(
-                                          child: Text(
-                                              "Or sign up with the classic way",
-                                              style: TextStyle(
-                                                  color: ArgonColors.text,
-                                                  fontWeight: FontWeight.w200,
-                                                  fontSize: 16)),
-                                          /*child: ListView(
-                                              padding: EdgeInsets.all(16),
-                                              children: [
-                                                const SizedBox(height: 50),
-                                                Image.asset(
-                                                    'assets/img/logo_size_2.jpg',
-                                                    height: 100,
-                                                    width: 100),
-                                                TitleWidget(
-                                                    icon: Icons.login,
-                                                    text:
-                                                        'Welcome to\nE-tutoring',
-                                                    color: ArgonColors.redUnito)
-                                              ]),*/
-                                        ),
-                                      ),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -386,8 +254,6 @@ class _SigninState extends State<Signin> {
                                         padding: const EdgeInsets.only(top: 16),
                                         child: Center(
                                           child: TextButton(
-                                            /*textColor: ArgonColors.white,
-                                            color: ArgonColors.primary,*/
                                             onPressed: () {
                                               // Respond to button press
 
@@ -425,10 +291,6 @@ class _SigninState extends State<Signin> {
                                                             ],
                                                           ));
                                             },
-                                            /*shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                            ),*/
                                             child: Padding(
                                                 padding: EdgeInsets.only(
                                                     left: 16.0,
