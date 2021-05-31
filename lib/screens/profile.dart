@@ -454,8 +454,10 @@ class _ProfileState extends State<Profile> {
                                                     } else {
                                                       children = const <Widget>[
                                                         SizedBox(
-                                                          child:
-                                                              CircularProgressIndicator(),
+                                                          child: CircularProgressIndicator(
+                                                              backgroundColor:
+                                                                  ArgonColors
+                                                                      .redUnito),
                                                           width: 60,
                                                           height: 60,
                                                         ),
@@ -464,7 +466,10 @@ class _ProfileState extends State<Profile> {
                                                               EdgeInsets.only(
                                                                   top: 15),
                                                           child: Text(
-                                                              'Awaiting result...'),
+                                                              'Awaiting result...',
+                                                              style: TextStyle(
+                                                                  color: ArgonColors
+                                                                      .redUnito)),
                                                         )
                                                       ];
                                                     }
