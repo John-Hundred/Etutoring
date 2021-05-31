@@ -80,14 +80,14 @@ class CourseState extends State<Course> {
                                 course.private_lesson_id == '-'
                                     ? DataCell(
                                         Icon(
-                                          Icons.cancel,
+                                          Icons.notifications_none,
                                           color: Colors.red,
                                           size: 30.0,
                                         ),
                                       )
                                     : DataCell(
                                         Icon(
-                                          Icons.check,
+                                          Icons.notifications_active,
                                           color: Colors.green,
                                           size: 30.0,
                                         ),
