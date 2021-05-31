@@ -164,8 +164,12 @@ class _SigninState extends State<Signin> {
                       buildEmail(),
                       const SizedBox(height: 12),
                       buildPassword(),
+                      const SizedBox(height: 12),
+                      buildFistname(),
+                      const SizedBox(height: 12),
+                      buildLastname(),
                       const SizedBox(height: 30),
-                      buildSigniInButton(),
+                      buildSignInButton(),
                       const SizedBox(height: 20),
                       Visibility(
                         visible: visible,
@@ -331,6 +335,38 @@ class _SigninState extends State<Signin> {
         ),
       );
 
+  Widget buildFistname() => buildTitle(
+        title: 'Firstname',
+        child: TextFormField(
+          validator: (value) {
+            return null;
+          },
+          controller: firstnameController,
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+              hintText: 'Your Firstname',
+              prefixIcon: Icon(Icons.person)),
+        ),
+      );
+
+  Widget buildLastname() => buildTitle(
+        title: 'Lastname',
+        child: TextFormField(
+          validator: (value) {
+            return null;
+          },
+          controller: lastnameController,
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+              hintText: 'Your Lastname',
+              prefixIcon: Icon(Icons.person)),
+        ),
+      );
+
   Widget buildPassword() => buildTitle(
         title: 'Password',
         child: TextFormField(
@@ -364,7 +400,7 @@ class _SigninState extends State<Signin> {
         ),
       );
 
-  Widget buildSigniInButton() => ButtonWidget(
+  Widget buildSignInButton() => ButtonWidget(
       text: 'Sign In',
       color: ArgonColors.redUnito,
       onClicked: () {
