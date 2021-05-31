@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
                     child: ListView(children: [
                   Padding(
                       padding: const EdgeInsets.only(
-                          left: 16.0, right: 16.0, top: 10.0),
+                          left: 15.0, right: 15.0, top: 10.0),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -135,11 +135,16 @@ class _ProfileState extends State<Profile> {
                                                                       style: TextStyle(
                                                                           color: Colors
                                                                               .redAccent,
-                                                                          fontWeight:
-                                                                              FontWeight.bold),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              15),
                                                                     )),
                                                                     DataCell(Text(
-                                                                        "${user.data.lastname}")),
+                                                                        "${user.data.lastname}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -150,9 +155,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
-                                                                        "${user.data.firstname}")),
+                                                                        "${user.data.firstname}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -163,10 +172,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(
                                                                       Text(
-                                                                          "${user.data.email}"),
+                                                                          "${user.data.email}",
+                                                                          style:
+                                                                              TextStyle(fontSize: 15)),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -178,12 +190,14 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Row(
                                                                         children: <
                                                                             Widget>[
                                                                           Text(
-                                                                              "********"),
+                                                                              "********",
+                                                                              style: TextStyle(fontSize: 15)),
                                                                           TextButton(
                                                                             style:
                                                                                 ButtonStyle(
@@ -192,9 +206,7 @@ class _ProfileState extends State<Profile> {
                                                                             onPressed:
                                                                                 () {},
                                                                             child:
-                                                                                Text(
-                                                                              'Change',
-                                                                            ),
+                                                                                Text('Change', style: TextStyle(fontSize: 15)),
                                                                           )
                                                                         ])),
                                                                   ],
@@ -224,11 +236,16 @@ class _ProfileState extends State<Profile> {
                                                                       style: TextStyle(
                                                                           color: Colors
                                                                               .redAccent,
-                                                                          fontWeight:
-                                                                              FontWeight.bold),
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          fontSize:
+                                                                              15),
                                                                     )),
                                                                     DataCell(Text(
-                                                                        "${user.data.nationality}")),
+                                                                        "${user.data.nationality}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -241,7 +258,10 @@ class _ProfileState extends State<Profile> {
                                                                                 Colors.redAccent,
                                                                             fontWeight: FontWeight.bold))),
                                                                     DataCell(Text(
-                                                                        "${user.data.birth_date}")),
+                                                                        "${user.data.birth_date}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -254,7 +274,10 @@ class _ProfileState extends State<Profile> {
                                                                                 Colors.redAccent,
                                                                             fontWeight: FontWeight.bold))),
                                                                     DataCell(Text(
-                                                                        "${user.data.birth_city}")),
+                                                                        "${user.data.birth_city}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -267,7 +290,10 @@ class _ProfileState extends State<Profile> {
                                                                                 Colors.redAccent,
                                                                             fontWeight: FontWeight.bold))),
                                                                     DataCell(Text(
-                                                                        "${user.data.residence_city}")),
+                                                                        "${user.data.residence_city}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                               ],
@@ -312,9 +338,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
-                                                                        "${user.data.role_name}")),
+                                                                        "${user.data.role_name}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -325,9 +355,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
-                                                                        "${user.data.badge_number}")),
+                                                                        "${user.data.badge_number}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -338,10 +372,14 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 18))),
                                                                     DataCell(Text(
                                                                         "${user.data.degree_name} (" +
-                                                                            "${user.data.degree_athenaeum})")),
+                                                                            "${user.data.degree_athenaeum})",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -352,10 +390,14 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
                                                                         "${user.data.degree_type_note} (" +
-                                                                            "${user.data.degree_type_name})")),
+                                                                            "${user.data.degree_type_name})",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -366,9 +408,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
-                                                                        "${user.data.degree_location}")),
+                                                                        "${user.data.degree_location}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                                 DataRow(
@@ -379,9 +425,13 @@ class _ProfileState extends State<Profile> {
                                                                         style: TextStyle(
                                                                             color:
                                                                                 Colors.redAccent,
-                                                                            fontWeight: FontWeight.bold))),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
-                                                                        "${user.data.degree_path_name}")),
+                                                                        "${user.data.degree_path_name}",
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                15))),
                                                                   ],
                                                                 ),
                                                               ],
@@ -398,7 +448,7 @@ class _ProfileState extends State<Profile> {
                                                           padding:
                                                               const EdgeInsets
                                                                       .only(
-                                                                  top: 16),
+                                                                  top: 15),
                                                           child: Text(
                                                               'Error: ${user.error}'),
                                                         )
@@ -414,7 +464,7 @@ class _ProfileState extends State<Profile> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsets.only(
-                                                                  top: 16),
+                                                                  top: 15),
                                                           child: Text(
                                                               'Awaiting result...'),
                                                         )
