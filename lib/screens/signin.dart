@@ -397,9 +397,9 @@ class _SigninState extends State<Signin> {
                                                       (BuildContext context) =>
                                                           AlertDialog(
                                                             title: const Text(
-                                                                'AlertDialog Tilte'),
+                                                                'Sign In'),
                                                             content: const Text(
-                                                                'AlertDialog description'),
+                                                                'User sign in with succes/failure'),
                                                             actions: <Widget>[
                                                               TextButton(
                                                                 onPressed: () =>
