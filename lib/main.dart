@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
                 debugShowCheckedModeBanner: false,
                 routes: <String, WidgetBuilder>{
                   "/login": (BuildContext context) => new Login(),
-                  "/register": (BuildContext context) => new Signin(),
+                  // "/register": (BuildContext context) => new Signin(),
                 });
         })));
   }
