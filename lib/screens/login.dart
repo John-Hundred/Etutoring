@@ -223,8 +223,6 @@ class _LoginState extends State<Login> {
             suffixIcon: GestureDetector(
               onTap: () async {
                 print(this.emailController.text);
-                /*await UserSecureStorage.setEmail(emailController.text);
-                await UserSecureStorage.setPassword(passwordController.text);*/
                 _toggle();
               },
               child: Icon(
