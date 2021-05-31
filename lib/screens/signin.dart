@@ -133,12 +133,12 @@ class _SigninState extends State<Signin> {
         extendBodyBehindAppBar: true,
         body: Stack(
           children: [
-            /*Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
+            Container(
+                decoration: BoxDecoration(
+                    /*image: DecorationImage(
                       image: AssetImage("assets/img/register-bg.png"),
-                      fit: BoxFit.cover)),
-            ),*/
+                      fit: BoxFit.cover)),*/
+                    color: Color.fromRGBO(205, 205, 205, 1))),
             SafeArea(
               child: ListView(children: [
                 const SizedBox(height: 20),
