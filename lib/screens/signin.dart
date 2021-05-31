@@ -302,6 +302,7 @@ class _SigninState extends State<Signin> {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Input(
+                                              controller: emailController,
                                               placeholder: "Email",
                                               prefixIcon: Icon(Icons.email),
                                             ),
@@ -309,6 +310,7 @@ class _SigninState extends State<Signin> {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Input(
+                                                controller: passwordController,
                                                 placeholder: "Password",
                                                 prefixIcon: Icon(Icons.lock)),
                                           ),
@@ -334,12 +336,14 @@ class _SigninState extends State<Signin> {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Input(
+                                                controller: firstnameController,
                                                 placeholder: "Firstname",
                                                 prefixIcon: Icon(Icons.person)),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Input(
+                                                controller: lastnameController,
                                                 placeholder: "Lastname",
                                                 prefixIcon: Icon(Icons.person)),
                                           ),
@@ -366,10 +370,7 @@ class _SigninState extends State<Signin> {
                                                     fontWeight:
                                                         FontWeight.w200)),
                                             GestureDetector(
-                                                onTap: () {
-                                                  Navigator.pushNamed(
-                                                      context, '/pro');
-                                                },
+                                                onTap: () {},
                                                 child: Container(
                                                   margin:
                                                       EdgeInsets.only(left: 5),
@@ -389,8 +390,40 @@ class _SigninState extends State<Signin> {
                                             color: ArgonColors.primary,*/
                                             onPressed: () {
                                               // Respond to button press
-                                              Navigator.pushNamed(
-                                                  context, '/home');
+
+                                              showDialog<String>(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          AlertDialog(
+                                                            title: const Text(
+                                                                'AlertDialog Tilte'),
+                                                            content: const Text(
+                                                                'AlertDialog description'),
+                                                            actions: <Widget>[
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        context,
+                                                                        'Cancel'),
+                                                                child: const Text(
+                                                                    'Cancel'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.pop(
+                                                                      context,
+                                                                      'OK');
+                                                                  Navigator.pushNamed(
+                                                                      context,
+                                                                      '/login');
+                                                                },
+                                                                child:
+                                                                    const Text(
+                                                                        'OK'),
+                                                              ),
+                                                            ],
+                                                          ));
                                             },
                                             /*shape: RoundedRectangleBorder(
                                               borderRadius:
