@@ -4,8 +4,9 @@ class TitleWidget extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color color;
+  final double fontSize;
 
-  const TitleWidget({Key key, this.icon, this.text, this.color})
+  const TitleWidget({Key key, this.icon, this.text, this.color, this.fontSize})
       : super(key: key);
 
   @override
@@ -16,7 +17,9 @@ class TitleWidget extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontSize: 42, fontWeight: FontWeight.w400, color: this.color),
+                fontSize: this.fontSize,
+                fontWeight: FontWeight.w400,
+                color: this.color),
             textAlign: TextAlign.center,
           ),
         ],
