@@ -7,15 +7,97 @@ import 'package:argon_flutter/constants/Theme.dart';
 //widgets
 import 'package:argon_flutter/widgets/input.dart';
 
-class Register extends StatefulWidget {
+class Signin extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _SigninState createState() => _SigninState();
 }
 
-class _RegisterState extends State<Register> {
+class _SigninState extends State<Signin> {
   bool _checkboxValue = false;
 
   final double height = window.physicalSize.height;
+
+// CONTROLLER
+  /* Future userLogin() async {
+    setState(() {
+      // Showing CircularProgressIndicator.
+      visible = true;
+    });
+
+    try {
+      // Getting value from Controller
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+      // Store all data with Param Name: json format
+      var data = {'email': email, 'password': password};
+
+      // Starting Web API Call.
+      // http method: POST
+      var response = await http
+          .post(Uri.http(authority, unencodedPath + 'user_login.php'),
+              body: json.encode(data))
+          .timeout(const Duration(seconds: 8));
+      print(response.body);
+      switch (response.statusCode) {
+        case 200:
+          // Getting Server response into variable.
+          var message = jsonDecode(response.body);
+
+          // If the Response Message is Matched.
+          if (message == 'Login Matched') {
+            await UserSecureStorage.setEmail(emailController.text);
+            await UserSecureStorage.setPassword(passwordController.text);
+            // Hiding the CircularProgressIndicator.
+            //print(emailController.text);
+            //print(passwordController.text);
+            setState(() {
+              visible = false;
+            });
+
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Profile()));
+          } else {
+            // UserSecureStorage.delete('email');
+            //  UserSecureStorage.delete('password');
+
+            // If Email or Password did not Matched.
+            // Hiding the CircularProgressIndicator.
+            setState(() {
+              visible = false;
+            });
+
+            // Showing Alert Dialog with Response JSON Message.
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: new Text(message),
+                  actions: <Widget>[
+                    TextButton(
+                      child: new Text("OK"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        this.emailController.text = email;
+                        this.passwordController.text = password;
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          }
+          break;
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Login Error. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+      setState(() {
+        visible = false;
+      });
+    }
+  }*/
 
   @override
   Widget build(BuildContext context) {
