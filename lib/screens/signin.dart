@@ -159,40 +159,47 @@ class _SigninState extends State<Signin> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),
                       ),
-                      child: Column(
-                        children: [
-                          Container(
-                              height: MediaQuery.of(context).size.height * 0.63,
-                              // color: Color.fromRGBO(244, 245, 247, 1),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Center(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Column(
+                      child: Form(
+                          key: formKey,
+                          child: Column(
+                            children: [
+                              Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.63,
+                                  // color: Color.fromRGBO(244, 245, 247, 1),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Center(
+                                      child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
                                         children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                              controller: emailController,
-                                              placeholder: "Email",
-                                              prefixIcon: Icon(Icons.email),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: passwordController,
-                                                placeholder: "Password",
-                                                prefixIcon: Icon(Icons.lock)),
-                                          ),
-                                          /*Padding(
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Input(
+                                                  controller: emailController,
+                                                  placeholder: "Email",
+                                                  prefixIcon: Icon(Icons.email),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Input(
+                                                    controller:
+                                                        passwordController,
+                                                    placeholder: "Password",
+                                                    prefixIcon:
+                                                        Icon(Icons.lock)),
+                                              ),
+                                              /*Padding(
                                             padding: const EdgeInsets.only(
                                                 left: 24.0),
                                             child: RichText(
@@ -211,97 +218,110 @@ class _SigninState extends State<Signin> {
                                                               .success))
                                                 ])),
                                           ),*/
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: firstnameController,
-                                                placeholder: "Firstname",
-                                                prefixIcon: Icon(Icons.person)),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Input(
+                                                    controller:
+                                                        firstnameController,
+                                                    placeholder: "Firstname",
+                                                    prefixIcon:
+                                                        Icon(Icons.person)),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Input(
+                                                    controller:
+                                                        lastnameController,
+                                                    placeholder: "Lastname",
+                                                    prefixIcon:
+                                                        Icon(Icons.person)),
+                                              ),
+                                            ],
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: lastnameController,
-                                                placeholder: "Lastname",
-                                                prefixIcon: Icon(Icons.person)),
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0, top: 0, bottom: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Checkbox(
+                                                    activeColor:
+                                                        ArgonColors.primary,
+                                                    onChanged:
+                                                        (bool newValue) =>
+                                                            setState(() =>
+                                                                _checkboxValue =
+                                                                    newValue),
+                                                    value: _checkboxValue),
+                                                Text("I agree with the",
+                                                    style: TextStyle(
+                                                        color:
+                                                            ArgonColors.muted,
+                                                        fontWeight:
+                                                            FontWeight.w200)),
+                                                GestureDetector(
+                                                    onTap: () {},
+                                                    child: Container(
+                                                      margin: EdgeInsets.only(
+                                                          left: 5),
+                                                      child: Text(
+                                                          "Privacy Policy",
+                                                          style: TextStyle(
+                                                              color: ArgonColors
+                                                                  .primary)),
+                                                    )),
+                                              ],
+                                            ),
                                           ),
+                                          ButtonWidget(
+                                              text: 'Sign In',
+                                              color: ArgonColors.redUnito,
+                                              onClicked: () {
+                                                showDialog<String>(
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext
+                                                                context) =>
+                                                            AlertDialog(
+                                                              title: const Text(
+                                                                  'Sign In'),
+                                                              content: const Text(
+                                                                  'User sign in with succes/failure'),
+                                                              actions: <Widget>[
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          context,
+                                                                          'Cancel'),
+                                                                  child: const Text(
+                                                                      'Cancel'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed:
+                                                                      () {
+                                                                    Navigator.pop(
+                                                                        context,
+                                                                        'OK');
+                                                                    Navigator.pushNamed(
+                                                                        context,
+                                                                        '/login');
+                                                                  },
+                                                                  child:
+                                                                      const Text(
+                                                                          'OK'),
+                                                                ),
+                                                              ],
+                                                            ));
+                                              }),
                                         ],
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 8.0, top: 0, bottom: 16),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Checkbox(
-                                                activeColor:
-                                                    ArgonColors.primary,
-                                                onChanged: (bool newValue) =>
-                                                    setState(() =>
-                                                        _checkboxValue =
-                                                            newValue),
-                                                value: _checkboxValue),
-                                            Text("I agree with the",
-                                                style: TextStyle(
-                                                    color: ArgonColors.muted,
-                                                    fontWeight:
-                                                        FontWeight.w200)),
-                                            GestureDetector(
-                                                onTap: () {},
-                                                child: Container(
-                                                  margin:
-                                                      EdgeInsets.only(left: 5),
-                                                  child: Text("Privacy Policy",
-                                                      style: TextStyle(
-                                                          color: ArgonColors
-                                                              .primary)),
-                                                )),
-                                          ],
-                                        ),
-                                      ),
-                                      ButtonWidget(
-                                          text: 'Sign In',
-                                          color: ArgonColors.redUnito,
-                                          onClicked: () {
-                                            showDialog<String>(
-                                                context: context,
-                                                builder: (BuildContext
-                                                        context) =>
-                                                    AlertDialog(
-                                                      title:
-                                                          const Text('Sign In'),
-                                                      content: const Text(
-                                                          'User sign in with succes/failure'),
-                                                      actions: <Widget>[
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  context,
-                                                                  'Cancel'),
-                                                          child: const Text(
-                                                              'Cancel'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context, 'OK');
-                                                            Navigator.pushNamed(
-                                                                context,
-                                                                '/login');
-                                                          },
-                                                          child:
-                                                              const Text('OK'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                          }),
-                                    ],
-                                  ),
-                                ),
-                              ))
-                        ],
-                      )),
+                                    ),
+                                  ))
+                            ],
+                          ))),
                 ),
               ]),
             )
