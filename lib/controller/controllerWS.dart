@@ -6,30 +6,30 @@ import 'package:argon_flutter/model/userModel.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
-Future<UserModel> getUserInfoFromWS =
-    Future<UserModel>.delayed(const Duration(seconds: 0), () async {
+Future<UserModel> getUserInfoFromWS() async {
   try {
     var queryParameters = {
       'email': await UserSecureStorage.getEmail(),
     };
-    print(queryParameters);
+    // print(queryParameters);
     var response = await http.get(
         Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
 
     var user;
     if (response.statusCode == 200) {
+      // print(response.body);
       var userJsonData = json.decode(response.body);
       user = UserModel.fromJson(userJsonData);
+      // print(user);
     }
     return user;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;
   }
-});
+}
 
-Future<List<CourseModel>> getUserCourseListFromWS =
-    Future<List<CourseModel>>.delayed(const Duration(seconds: 0), () async {
+Future<List<CourseModel>> getUserCourseListFromWS() async {
   List<CourseModel> courseList = [];
 
   try {
@@ -53,4 +53,4 @@ Future<List<CourseModel>> getUserCourseListFromWS =
     print('error caught: ' + $e.toString());
     return [];
   }
-});
+}

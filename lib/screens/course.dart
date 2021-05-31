@@ -61,7 +61,7 @@ class CourseState extends State<Course> {
                     ),
                     Container(
                         child: FutureBuilder<List<CourseModel>>(
-                      future: getUserCourseListFromWS,
+                      future: getUserCourseListFromWS(),
                       builder: (ctx, snapshot) {
                         // print(snapshot);
                         if (snapshot.connectionState == ConnectionState.none &&

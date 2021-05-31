@@ -20,9 +20,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  UserModel user;
   String email;
-
   String password;
 
   // For CircularProgressIndicator.
@@ -38,8 +36,6 @@ class _ProfileState extends State<Profile> {
     final password = await UserSecureStorage.getPassword() ?? '';
     this.email = email;
     this.password = password;
-    // print(email);
-    // print(password);
   }
 
   Widget build(BuildContext context) {
@@ -92,7 +88,7 @@ class _ProfileState extends State<Profile> {
                                             child: Column(
                                               children: [
                                                 FutureBuilder<UserModel>(
-                                                  future: getUserInfoFromWS,
+                                                  future: getUserInfoFromWS(),
                                                   builder: (BuildContext
                                                           context,
                                                       AsyncSnapshot<UserModel>
