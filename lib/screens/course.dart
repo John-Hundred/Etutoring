@@ -80,7 +80,7 @@ class CourseState extends State<Course> {
                                 course.private_lesson_id == '-'
                                     ? DataCell(
                                         Icon(
-                                          Icons.calendar_today,
+                                          Icons.no_cell_sharp,
                                           color: Colors.red,
                                           size: 30.0,
                                         ),
