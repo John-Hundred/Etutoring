@@ -306,7 +306,7 @@ class _SigninState extends State<Signin> {
                                                     right: 16.0,
                                                     top: 12,
                                                     bottom: 12),
-                                                child: Text("REGISTER",
+                                                child: Text("Sign in",
                                                     style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w600,
