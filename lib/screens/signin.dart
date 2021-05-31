@@ -302,15 +302,9 @@ class _SigninState extends State<Signin> {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Input(
-                                              placeholder: "Name",
-                                              prefixIcon: Icon(Icons.school),
+                                              placeholder: "Email",
+                                              prefixIcon: Icon(Icons.email),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                placeholder: "Email",
-                                                prefixIcon: Icon(Icons.email)),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
@@ -318,7 +312,7 @@ class _SigninState extends State<Signin> {
                                                 placeholder: "Password",
                                                 prefixIcon: Icon(Icons.lock)),
                                           ),
-                                          Padding(
+                                          /*Padding(
                                             padding: const EdgeInsets.only(
                                                 left: 24.0),
                                             child: RichText(
@@ -336,6 +330,18 @@ class _SigninState extends State<Signin> {
                                                           color: ArgonColors
                                                               .success))
                                                 ])),
+                                          ),*/
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Input(
+                                                placeholder: "Firstname",
+                                                prefixIcon: Icon(Icons.person)),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Input(
+                                                placeholder: "Lastname",
+                                                prefixIcon: Icon(Icons.person)),
                                           ),
                                         ],
                                       ),
