@@ -7,8 +7,6 @@ import 'package:argon_flutter/constants/Theme.dart';
 //widgets
 import 'package:argon_flutter/widgets/input.dart';
 
-import 'package:argon_flutter/widgets/drawer.dart';
-
 class Register extends StatefulWidget {
   @override
   _RegisterState createState() => _RegisterState();
