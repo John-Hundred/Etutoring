@@ -405,6 +405,8 @@ class _SigninState extends State<Signin> {
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {
+          userSignin();
+
           showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
