@@ -158,7 +158,7 @@ class _LoginState extends State<Login> {
                   fontSize: 36,
                 ),
                 const SizedBox(height: 32),
-                buildName(),
+                buildEmail(),
                 const SizedBox(height: 12),
                 buildPassword(),
                 const SizedBox(height: 50),
@@ -181,7 +181,7 @@ class _LoginState extends State<Login> {
         ));
   }
 
-  Widget buildName() => buildTitle(
+  Widget buildEmail() => buildTitle(
         title: 'E-mail',
         child: TextFormField(
           validator: (value) {

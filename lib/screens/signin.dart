@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -28,6 +29,13 @@ class _SigninState extends State<Signin> {
 
   // Initially password is obscure
   bool _obscureText = true;
+
+  // Toggles the password show status
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -137,30 +145,38 @@ class _SigninState extends State<Signin> {
                 decoration:
                     BoxDecoration(color: Color.fromRGBO(205, 205, 205, 1))),
             SafeArea(
-              child: ListView(children: [
-                const SizedBox(height: 20),
-                Image.asset('assets/img/logo_size_2.jpg',
-                    height: 100, width: 100),
-                TitleWidget(
-                  icon: Icons.login,
-                  text: 'Sign in',
-                  color: ArgonColors.redUnito,
-                  fontSize: 26,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 16, left: 24.0, right: 24.0, bottom: 32),
-                  child: Card(
-                      elevation: 5,
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+              child: Scaffold(
+                body: Form(
+                  key: formKey,
+                  child: ListView(
+                    padding: EdgeInsets.all(16),
+                    children: [
+                      const SizedBox(height: 10),
+                      Image.asset('assets/img/logo_size_2.jpg',
+                          height: 100, width: 100),
+                      TitleWidget(
+                        icon: Icons.login,
+                        text: 'Sign In',
+                        color: ArgonColors.redUnito,
+                        fontSize: 36,
                       ),
-                      child: Form(
-                          key: formKey,
-                          child: Column(
-                            children: [
-                              Container(
+                      const SizedBox(height: 32),
+                      buildEmail(),
+                      const SizedBox(height: 12),
+                      buildPassword(),
+                      const SizedBox(height: 30),
+                      buildSigniInButton(),
+                      const SizedBox(height: 20),
+                      Visibility(
+                        visible: visible,
+                        child: Center(
+                            child: Container(
+                                margin: EdgeInsets.only(bottom: 30),
+                                child: CircularProgressIndicator(
+                                  backgroundColor: ArgonColors.redUnito,
+                                ))),
+                      )
+                      /*Container(
                                   /*height:
                                       MediaQuery.of(context).size.height * 0.63,*/
                                   child: Padding(
@@ -175,23 +191,23 @@ class _SigninState extends State<Signin> {
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                              controller: emailController,
-                                              placeholder: "Email",
-                                              prefixIcon: Icon(Icons.email),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: passwordController,
-                                                placeholder: "Password",
-                                                prefixIcon: Icon(Icons.lock)),
-                                          ),
-                                          /*Padding(
+                                        children: [*/
+                      /*Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                              controller: emailController,
+                              placeholder: "Your Email",
+                              prefixIcon: Icon(Icons.email),
+                            ),
+                          ),*/
+                      /* Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                                controller: passwordController,
+                                placeholder: "Your Password",
+                                prefixIcon: Icon(Icons.lock)),
+                          ),*/
+                      /*Padding(
                                             padding: const EdgeInsets.only(
                                                 left: 24.0),
                                             child: RichText(
@@ -210,101 +226,187 @@ class _SigninState extends State<Signin> {
                                                               .success))
                                                 ])),
                                           ),*/
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: firstnameController,
-                                                placeholder: "Firstname",
-                                                prefixIcon: Icon(Icons.person)),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Input(
-                                                controller: lastnameController,
-                                                placeholder: "Lastname",
-                                                prefixIcon: Icon(Icons.person)),
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 8.0, top: 0, bottom: 16),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Checkbox(
-                                                activeColor:
-                                                    ArgonColors.primary,
-                                                onChanged: (bool newValue) =>
-                                                    setState(() =>
-                                                        _checkboxValue =
-                                                            newValue),
-                                                value: _checkboxValue),
-                                            Text("I agree with the",
-                                                style: TextStyle(
-                                                    color: ArgonColors.muted,
-                                                    fontWeight:
-                                                        FontWeight.w200)),
-                                            GestureDetector(
-                                                onTap: () {},
-                                                child: Container(
-                                                  margin:
-                                                      EdgeInsets.only(left: 5),
-                                                  child: Text("Privacy Policy",
-                                                      style: TextStyle(
-                                                          color: ArgonColors
-                                                              .primary)),
-                                                )),
+                      /*Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                                controller: firstnameController,
+                                placeholder: "Yout Firstname",
+                                prefixIcon: Icon(Icons.person)),
+                          ),*/
+                      /* Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Input(
+                                controller: lastnameController,
+                                placeholder: "Your Lastname",
+                                prefixIcon: Icon(Icons.person)),
+                          ),*/
+                      // ],
+                      // ),
+                      /* Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8.0, top: 0, bottom: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Checkbox(
+                                    activeColor: ArgonColors.primary,
+                                    onChanged: (bool newValue) => setState(
+                                        () => _checkboxValue = newValue),
+                                    value: _checkboxValue),
+                                Text("I agree with the",
+                                    style: TextStyle(
+                                        color: ArgonColors.muted,
+                                        fontWeight: FontWeight.w200)),
+                                GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      margin: EdgeInsets.only(left: 5),
+                                      child: Text("Privacy Policy",
+                                          style: TextStyle(
+                                              color: ArgonColors.primary)),
+                                    )),
+                              ],
+                            ),
+                          ),*/
+                      /* ButtonWidget(
+                              text: 'Sign In',
+                              color: ArgonColors.redUnito,
+                              onClicked: () {
+                                showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                          title: const Text('Sign In'),
+                                          content: const Text(
+                                              'User sign in with succes/failure'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  context, 'Cancel'),
+                                              child: const Text('Cancel'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(context, 'OK');
+                                                Navigator.pushNamed(
+                                                    context, '/login');
+                                              },
+                                              child: const Text('OK'),
+                                            ),
                                           ],
-                                        ),
-                                      ),
-                                      ButtonWidget(
-                                          text: 'Sign In',
-                                          color: ArgonColors.redUnito,
-                                          onClicked: () {
-                                            showDialog<String>(
-                                                context: context,
-                                                builder: (BuildContext
-                                                        context) =>
-                                                    AlertDialog(
-                                                      title:
-                                                          const Text('Sign In'),
-                                                      content: const Text(
-                                                          'User sign in with succes/failure'),
-                                                      actions: <Widget>[
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  context,
-                                                                  'Cancel'),
-                                                          child: const Text(
-                                                              'Cancel'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context, 'OK');
-                                                            Navigator.pushNamed(
-                                                                context,
-                                                                '/login');
-                                                          },
-                                                          child:
-                                                              const Text('OK'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                          }),
-                                    ],
-                                  ),
-                                ),
-                              ))
-                            ],
-                          ))),
+                                        ));
+                              }),*/
+                    ],
+                  ),
                 ),
-              ]),
+                /*))
+                            ],*/
+              ) /*))*/,
+              /*),
+              ]),*/
             )
           ],
         ));
   }
+
+  Widget buildEmail() => buildTitle(
+        title: 'E-mail',
+        child: TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your email';
+            }
+            if (!EmailValidator.validate(value)) {
+              return 'Please enter a valid email';
+            }
+            return null;
+          },
+          controller: emailController,
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+              hintText: 'Your Email',
+              prefixIcon: Icon(Icons.email)),
+        ),
+      );
+
+  Widget buildPassword() => buildTitle(
+        title: 'Password',
+        child: TextFormField(
+          obscureText: _obscureText,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your password';
+            }
+            return null;
+          },
+          controller: passwordController,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(),
+            hintText: 'Your Password',
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: GestureDetector(
+              onTap: () async {
+                print(this.emailController.text);
+                /*await UserSecureStorage.setEmail(emailController.text);
+                await UserSecureStorage.setPassword(passwordController.text);*/
+                _toggle();
+              },
+              child: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget buildSigniInButton() => ButtonWidget(
+      text: 'Sign In',
+      color: ArgonColors.redUnito,
+      onClicked: () {
+        if (formKey.currentState.validate()) {
+          showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Sign In'),
+                    content: const Text('User sign in with succes/failure'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context, 'OK');
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ));
+        }
+      });
+
+  Widget buildTitle({
+    String title,
+    Widget child,
+  }) =>
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 8),
+          child,
+        ],
+      );
 }
