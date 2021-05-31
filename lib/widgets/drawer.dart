@@ -82,15 +82,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: "Home",
                   isSelected: widget.currentPage == "Home" ? true : false),
               DrawerTile(
-                  icon: Icons.account_circle,
-                  onTap: () {
-                    if (widget.currentPage != "Account")
-                      Navigator.pushReplacementNamed(context, '/account');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: "Account",
-                  isSelected: widget.currentPage == "Account" ? true : false),
-              DrawerTile(
                   icon: Icons.settings_input_component,
                   onTap: () {
                     if (widget.currentPage != "Elements")

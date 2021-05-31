@@ -1,5 +1,6 @@
 import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/screens/profile.dart';
+import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class _MyAppState extends State<MyApp> {
                 debugShowCheckedModeBanner: false,
                 routes: <String, WidgetBuilder>{
                   "/login": (BuildContext context) => new Login(),
+                  "/register": (BuildContext context) => new Register(),
                 });
         })));
   }

@@ -1,5 +1,6 @@
 import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/constants/Theme.dart';
+import 'package:argon_flutter/screens/register.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
@@ -243,7 +244,12 @@ class _LoginState extends State<Login> {
       });
 
   Widget builRegisteredButton() => ButtonWidget(
-      text: 'Sign In', color: ArgonColors.blueUnito, onClicked: () async {});
+      text: 'Sign In',
+      color: ArgonColors.blueUnito,
+      onClicked: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Register()));
+      });
 
   Widget buildTitle({
     String title,
