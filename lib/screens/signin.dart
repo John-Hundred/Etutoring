@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:argon_flutter/config/config.dart';
+import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,6 +8,9 @@ import 'package:argon_flutter/constants/Theme.dart';
 
 //widgets
 import 'package:argon_flutter/widgets/input.dart';
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class Signin extends StatefulWidget {
   @override
@@ -17,8 +22,20 @@ class _SigninState extends State<Signin> {
 
   final double height = window.physicalSize.height;
 
-// CONTROLLER
-  /* Future userLogin() async {
+  // For CircularProgressIndicator.
+  bool visible = false;
+
+  // Initially password is obscure
+  bool _obscureText = true;
+
+  final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final firstnameController = TextEditingController();
+  final lastnameController = TextEditingController();
+
+  // CONTROLLER
+  Future userSignin() async {
     setState(() {
       // Showing CircularProgressIndicator.
       visible = true;
@@ -28,17 +45,24 @@ class _SigninState extends State<Signin> {
       // Getting value from Controller
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
+      String firstname = firstnameController.text.trim();
+      String lastname = lastnameController.text.trim();
       // Store all data with Param Name: json format
-      var data = {'email': email, 'password': password};
+      var data = {
+        'email': email,
+        'password': password,
+        'firstname': firstname,
+        'lastname': lastname
+      };
 
       // Starting Web API Call.
       // http method: POST
       var response = await http
-          .post(Uri.http(authority, unencodedPath + 'user_login.php'),
+          .post(Uri.http(authority, unencodedPath + 'user_signin.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
       print(response.body);
-      switch (response.statusCode) {
+      /*switch (response.statusCode) {
         case 200:
           // Getting Server response into variable.
           var message = jsonDecode(response.body);
@@ -87,7 +111,7 @@ class _SigninState extends State<Signin> {
             );
           }
           break;
-      }
+      }*/
     } on Exception {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Login Error. Verify Your Connection.'),
@@ -97,7 +121,7 @@ class _SigninState extends State<Signin> {
         visible = false;
       });
     }
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,12 +132,12 @@ class _SigninState extends State<Signin> {
         extendBodyBehindAppBar: true,
         body: Stack(
           children: [
-            Container(
+            /*Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/img/register-bg.png"),
                       fit: BoxFit.cover)),
-            ),
+            ),*/
             SafeArea(
               child: ListView(children: [
                 Padding(
@@ -127,7 +151,7 @@ class _SigninState extends State<Signin> {
                       ),
                       child: Column(
                         children: [
-                          Container(
+                          /*Container(
                               height: MediaQuery.of(context).size.height * 0.15,
                               decoration: BoxDecoration(
                                   color: ArgonColors.white,
@@ -139,15 +163,15 @@ class _SigninState extends State<Signin> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Center(
+                                  /*Center(
                                       child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text("Sign up with",
                                         style: TextStyle(
                                             color: ArgonColors.text,
                                             fontSize: 16.0)),
-                                  )),
-                                  Padding(
+                                  )),*/
+                                  /*Padding(
                                     padding: const EdgeInsets.only(bottom: 8.0),
                                     child: Row(
                                       mainAxisAlignment:
@@ -229,13 +253,13 @@ class _SigninState extends State<Signin> {
                                         ),
                                       ],
                                     ),
-                                  ),
+                                  ),*/
                                   // Divider()
                                 ],
-                              )),
+                              )),*/
                           Container(
                               height: MediaQuery.of(context).size.height * 0.63,
-                              color: Color.fromRGBO(244, 245, 247, 1),
+                              // color: Color.fromRGBO(244, 245, 247, 1),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Center(
@@ -255,6 +279,20 @@ class _SigninState extends State<Signin> {
                                                   color: ArgonColors.text,
                                                   fontWeight: FontWeight.w200,
                                                   fontSize: 16)),
+                                          /*child: ListView(
+                                              padding: EdgeInsets.all(16),
+                                              children: [
+                                                const SizedBox(height: 50),
+                                                Image.asset(
+                                                    'assets/img/logo_size_2.jpg',
+                                                    height: 100,
+                                                    width: 100),
+                                                TitleWidget(
+                                                    icon: Icons.login,
+                                                    text:
+                                                        'Welcome to\nE-tutoring',
+                                                    color: ArgonColors.redUnito)
+                                              ]),*/
                                         ),
                                       ),
                                       Column(
