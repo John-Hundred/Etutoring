@@ -3,10 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-define("DB_HOST", "localhost");
-define("DB_USER", "e_tutoring");
-define("DB_PASSWORD", "e_tutoring_DSM");
-define("DB_NAME", "e_tutoring");
+define("DB_HOST", "31.11.39.54");
+define("DB_USER", "Sql1558195");
+define("DB_PASSWORD", "ab12pozt12Q!!");
+define("DB_NAME", "Sql1558195_1");
 	
 $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno($connect)){
