@@ -64,7 +64,7 @@ class _SignupState extends State<Signup> {
       // Starting Web API Call.
       // http method: POST
       var response = await http
-          .post(Uri.https(authority, unencodedPath + 'user_signin.php'),
+          .post(Uri.https(authority, unencodedPath + 'user_signup.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
       // print(response.body);
