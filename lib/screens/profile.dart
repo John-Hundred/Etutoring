@@ -79,7 +79,7 @@ class _ProfileState extends State<Profile> {
                                     color: Color.fromRGBO(205, 205, 205, 1),
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 0.0, bottom: 0.0),
+                                          top: 0.0, bottom: 20.0),
                                       child: Row(
                                         children: [
                                           Expanded(
@@ -103,6 +103,7 @@ class _ProfileState extends State<Profile> {
                                                                     205,
                                                                     1),
                                                             child: DataTable(
+                                                              dataRowHeight: 50,
                                                               dataRowColor: MaterialStateColor
                                                                   .resolveWith(
                                                                       (states) =>
@@ -174,9 +175,8 @@ class _ProfileState extends State<Profile> {
                                                                             fontSize: 15))),
                                                                     DataCell(
                                                                       Text(
-                                                                          "${user.data.email}",
-                                                                          style:
-                                                                              TextStyle(fontSize: 15)),
+                                                                        "${user.data.email}",
+                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -307,6 +307,7 @@ class _ProfileState extends State<Profile> {
                                                                     205,
                                                                     1),
                                                             child: DataTable(
+                                                              dataRowHeight: 60,
                                                               dataRowColor: MaterialStateColor
                                                                   .resolveWith(
                                                                       (states) =>
@@ -371,7 +372,7 @@ class _ProfileState extends State<Profile> {
                                                                             color:
                                                                                 Colors.redAccent,
                                                                             fontWeight: FontWeight.bold,
-                                                                            fontSize: 18))),
+                                                                            fontSize: 15))),
                                                                     DataCell(Text(
                                                                         "${user.data.degree_name} (" +
                                                                             "${user.data.degree_athenaeum})",
