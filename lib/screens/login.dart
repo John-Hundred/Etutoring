@@ -56,6 +56,7 @@ class _LoginState extends State<Login> {
 
       // Starting Web API Call.
       // http method: POST
+      // Uri.parse('https://jsonplaceholder.typicode.com/albums/1');
       var response = await http
           .post(Uri.http(authority, unencodedPath + 'user_login.php'),
               body: json.encode(data))

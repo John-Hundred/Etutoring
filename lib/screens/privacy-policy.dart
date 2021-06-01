@@ -17,6 +17,10 @@ class PrivacyPolicy extends StatelessWidget {
             title: const Text('Privacy Policy'),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         extendBodyBehindAppBar: true,
-        body: Stack());
+        body: Stack(
+          children: [
+            Text('Last updated: May 31, 2021 '),
+          ],
+        ));
   }
 }

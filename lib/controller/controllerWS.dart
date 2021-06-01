@@ -12,8 +12,8 @@ Future<UserModel> getUserInfoFromWS() async {
       'email': await UserSecureStorage.getEmail(),
     };
     // print(queryParameters);
-    var response = await http.get(
-        Uri.http(authority, unencodedPath + "users_list.php", queryParameters));
+    var response = await http.get(Uri.https(
+        authority, unencodedPath + "users_list.php", queryParameters));
 
     var user;
     if (response.statusCode == 200) {
@@ -37,7 +37,7 @@ Future<List<CourseModel>> getUserCourseListFromWS() async {
       'email': await UserSecureStorage.getEmail(),
     };
 
-    var response = await http.get(Uri.http(
+    var response = await http.get(Uri.https(
         authority, unencodedPath + "course_user_list.php", queryParameters));
     if (response.statusCode == 200) {
       var courseJsonData = json.decode(response.body);
