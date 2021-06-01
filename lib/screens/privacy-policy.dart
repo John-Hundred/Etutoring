@@ -77,6 +77,32 @@ class PrivacyPolicy extends StatelessWidget {
                                             height: 4,
                                             thickness: 0,
                                             color: ArgonColors.muted),
+                                        Text("Periodo di conservazione",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20)),
+                                        ListTile(
+                                            title: new Text(
+                                              "Quando il trattamento è basato sul consenso dell’Utente, il Titolare può conservare i Dati Personali più a lungo sino a quando detto consenso non venga revocato. Inoltre, il Titolare potrebbe essere obbligato a conservare i Dati Personali per un periodo più lungo in ottemperanza ad un obbligo di legge o per ordine di un’autorità.",
+                                            ),
+                                            leading: Container(
+                                                height: 8.0,
+                                                width: 8.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black,
+                                                  shape: BoxShape.circle,
+                                                ))),
+                                        ListTile(
+                                            title: new Text(
+                                              "Al termine del periodo di conservazione i Dati Personali saranno cancellati. Pertanto, allo spirare di tale termine il diritto di accesso, cancellazione, rettificazione ed il diritto alla portabilità dei Dati non potranno più essere esercitati.",
+                                            ),
+                                            leading: Container(
+                                                height: 8.0,
+                                                width: 8.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black,
+                                                  shape: BoxShape.circle,
+                                                ))),
                                       ]))
                                     ]))))
                       ])
