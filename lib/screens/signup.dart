@@ -11,12 +11,12 @@ import 'package:argon_flutter/constants/Theme.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class Signin extends StatefulWidget {
+class Signup extends StatefulWidget {
   @override
-  _SigninState createState() => _SigninState();
+  _SignupState createState() => _SignupState();
 }
 
-class _SigninState extends State<Signin> {
+class _SignupState extends State<Signup> {
   bool _checkboxValue = false;
 
   final double height = window.physicalSize.height;
@@ -74,8 +74,8 @@ class _SigninState extends State<Signin> {
           showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Sign In'),
-                    content: const Text('User sign in with succes'),
+                    title: const Text('Sign Up'),
+                    content: const Text('User sign up with success'),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () => Navigator.pop(context, 'Cancel'),
@@ -94,7 +94,7 @@ class _SigninState extends State<Signin> {
           showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Sign In'),
+                    title: const Text('Sign Up'),
                     content: const Text('Error. Try Again'),
                     actions: <Widget>[
                       TextButton(
@@ -110,7 +110,7 @@ class _SigninState extends State<Signin> {
         showDialog<String>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
-                  title: const Text('Sign In'),
+                  title: const Text('Sign Up'),
                   content: const Text('Error. Try Again'),
                   actions: <Widget>[
                     TextButton(
@@ -137,7 +137,7 @@ class _SigninState extends State<Signin> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Sign In'),
+            title: const Text('Sign Up'),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
         extendBodyBehindAppBar: true,
         body: Stack(
@@ -157,7 +157,7 @@ class _SigninState extends State<Signin> {
                           height: 100, width: 100),
                       TitleWidget(
                         icon: Icons.login,
-                        text: 'Sign In',
+                        text: 'Sign Up',
                         color: ArgonColors.redUnito,
                         fontSize: 36,
                       ),
@@ -310,7 +310,7 @@ class _SigninState extends State<Signin> {
 
   Widget buildSignInButton() => ButtonWidget(
       pressed: _checkboxValue,
-      text: 'Sign In',
+      text: 'Sign Up',
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {
