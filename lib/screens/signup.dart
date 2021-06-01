@@ -67,7 +67,7 @@ class _SignupState extends State<Signup> {
           .post(Uri.https(authority, unencodedPath + 'user_signup.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
-      print(response.body);
+      // print(response.body);
       if (response.statusCode == 200) {
         var message = jsonDecode(response.body);
         if (message == 'New record created successfully') {
@@ -300,7 +300,7 @@ class _SignupState extends State<Signup> {
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
-                print(this.emailController.text);
+                // (this.emailController.text);
                 _toggle();
               },
               child: Icon(
