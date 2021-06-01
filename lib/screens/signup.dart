@@ -10,6 +10,7 @@ import 'package:argon_flutter/constants/Theme.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:select_form_field/select_form_field.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -39,6 +40,65 @@ class _SignupState extends State<Signup> {
   final passwordController = TextEditingController();
   final firstnameController = TextEditingController();
   final lastnameController = TextEditingController();
+
+  final List<Map<String, dynamic>> _items = [
+    {
+      'value': 'Fisica Triennale',
+      'label': 'Fisica Triennale',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+    {
+      'value': 'Fisica Magistrale',
+      'label': 'Fisica Magistrale',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+    {
+      'value': 'Informatica Triennale',
+      'label': 'Informatica Triennale',
+      //'icon': Icon(Icons.stop),
+    },
+    {
+      'value': 'Informatica Magistrale',
+      'label': 'Informatica Magistrale',
+      //'icon': Icon(Icons.fiber_manual_record),
+      // 'textStyle': TextStyle(color: Colors.red),
+    },
+    {
+      'value': 'Matematica Triennale',
+      'label': 'Matematica Triennale',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+    {
+      'value': 'Matematica Magistrale',
+      'label': 'Matematica Magistrale',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+  ];
+
+  final List<Map<String, dynamic>> _roleItems = [
+    {
+      'value': 'Studente',
+      'label': 'Studente',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+    {
+      'value': 'Tutor',
+      'label': 'Tutor',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },
+    /*{
+      'value': 'Tutor Studente',
+      'label': 'Tutor Studente',
+      //'enable': false,
+      //'icon': Icon(Icons.grade),
+    },*/
+  ];
 
   // CONTROLLER
   Future userSignin() async {
@@ -169,6 +229,23 @@ class _SignupState extends State<Signup> {
                       buildEmail(),
                       const SizedBox(height: 12),
                       buildPassword(),
+                      const SizedBox(height: 12),
+                      SelectFormField(
+                        // initialValue: 'circle',
+                        // icon: Icon(Icons.format_shapes),
+                        labelText: 'Seleziona il tuo Corso di Laurea',
+                        items: _items,
+                        onChanged: (val) => print(val),
+                        onSaved: (val) => print(val),
+                      ),
+                      SelectFormField(
+                        // initialValue: 'circle',
+                        // icon: Icon(Icons.format_shapes),
+                        labelText: 'Seleziona il ruolo',
+                        items: _roleItems,
+                        onChanged: (val) => print(val),
+                        onSaved: (val) => print(val),
+                      ),
                       const SizedBox(height: 12),
                       buildFistname(),
                       const SizedBox(height: 12),
