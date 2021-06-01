@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
       // http method: POST
       // Uri.parse('https://jsonplaceholder.typicode.com/albums/1');
       var response = await http
-          .post(Uri.http(authority, unencodedPath + 'user_login.php'),
+          .post(Uri.https(authority, unencodedPath + 'user_login.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
       print(response.body);

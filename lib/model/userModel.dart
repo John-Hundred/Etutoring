@@ -1,5 +1,5 @@
 class UserModel {
-  String id;
+  dynamic id;
   String firstname;
   String lastname;
   String username;
@@ -79,7 +79,7 @@ class UserModel {
 
   toString() {
     return "id = " +
-        this.id.toString() +
+        this.id +
         "\nfirstname = " +
         this.firstname +
         "\nfirstname = " +
