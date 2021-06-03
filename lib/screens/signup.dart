@@ -36,11 +36,19 @@ class _SignupState extends State<Signup> {
 
   // Initially password is obscure
   bool _obscureText = true;
+  bool _obscureTextConfirm = true;
 
   // Toggles the password show status
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
+    });
+  }
+
+  // Toggles the password show status
+  void _toggleConfirm() {
+    setState(() {
+      _obscureTextConfirm = !_obscureTextConfirm;
     });
   }
 
@@ -258,7 +266,7 @@ class _SignupState extends State<Signup> {
   Widget buildConfirmPassword() => buildTitle(
         title: 'Confirm Password',
         child: TextFormField(
-          obscureText: _obscureText,
+          obscureText: _obscureTextConfirm,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please confirm your password';
@@ -276,7 +284,7 @@ class _SignupState extends State<Signup> {
             suffixIcon: GestureDetector(
               onTap: () async {
                 // (this.emailController.text);
-                _toggle();
+                _toggleConfirm();
               },
               child: Icon(
                 _obscureText ? Icons.visibility : Icons.visibility_off,
