@@ -9,8 +9,8 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
-  //final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
-  //var items = List<String>();
+  final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
+  var items = [];
 
   String searchString = "";
   final searchController = TextEditingController();
@@ -19,8 +19,31 @@ class CourseState extends State<Course> {
 
   @override
   void initState() {
-    //items.addAll(duplicateItems);
+    items.addAll(duplicateItems);
     super.initState();
+  }
+
+  void filterSearchResults(String query) {
+    List<String> dummySearchList = [];
+    dummySearchList.addAll(duplicateItems);
+    if (query.isNotEmpty) {
+      List<String> dummyListData = [];
+      dummySearchList.forEach((item) {
+        if (item.contains(query)) {
+          dummyListData.add(item);
+        }
+      });
+      setState(() {
+        items.clear();
+        items.addAll(dummyListData);
+      });
+      return;
+    } else {
+      setState(() {
+        items.clear();
+        items.addAll(duplicateItems);
+      });
+    }
   }
 
   @override
