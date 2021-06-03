@@ -187,6 +187,14 @@ class _SignupState extends State<Signup> {
                           return snapshot.hasData
                               ? Center(
                                   child: Container(
+                                  decoration: ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          width: 1.0, style: BorderStyle.solid),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5.0)),
+                                    ),
+                                  ),
                                   height: 48,
                                   // color: Colors.grey,
                                   child: DropdownButton<String>(
@@ -227,6 +235,7 @@ class _SignupState extends State<Signup> {
                                 );
                         },
                       ),
+                      const SizedBox(height: 12),
                       FutureBuilder(
                         future: getCurriculumListFromWS(),
                         builder:
@@ -234,6 +243,14 @@ class _SignupState extends State<Signup> {
                           return snapshot.hasData
                               ? Center(
                                   child: Container(
+                                  decoration: ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          width: 1.0, style: BorderStyle.solid),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5.0)),
+                                    ),
+                                  ),
                                   height: 48,
                                   // color: Colors.grey,
                                   child: DropdownButton<String>(
@@ -271,6 +288,7 @@ class _SignupState extends State<Signup> {
                                 );
                         },
                       ),
+                      const SizedBox(height: 12),
                       FutureBuilder(
                         future: getRoleListFromWS(),
                         builder:
@@ -279,6 +297,14 @@ class _SignupState extends State<Signup> {
                               ? Center(
                                   child: Container(
                                   height: 48,
+                                  decoration: ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          width: 1.0, style: BorderStyle.solid),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5.0)),
+                                    ),
+                                  ),
                                   // color: Colors.grey,
                                   child: DropdownButton<String>(
                                     isDense: false,
