@@ -180,165 +180,11 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 12),
                       buildPassword(),
                       const SizedBox(height: 12),
-                      FutureBuilder(
-                        future: getDegreeListFromWS(),
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          return snapshot.hasData
-                              ? Center(
-                                  child: Container(
-                                  decoration: ShapeDecoration(
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          width: 1.0, style: BorderStyle.solid),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(5.0)),
-                                    ),
-                                  ),
-                                  height: 48,
-                                  // color: Colors.grey,
-                                  child: DropdownButton<String>(
-                                    isDense: false,
-                                    isExpanded: true,
-                                    hint: Text(dropDownValueDegree ??
-                                        'Seleziona il Corso di Laurea'),
-                                    items: snapshot.data
-                                        .map<DropdownMenuItem<String>>(
-                                            (degree) {
-                                      return DropdownMenuItem<String>(
-                                        value: degree.degree_name +
-                                            " - " +
-                                            degree.degree_type_note,
-                                        child: Text(degree.degree_name +
-                                            " - " +
-                                            degree.degree_type_note),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        dropDownValueDegree = value;
-                                        // print(value);
-                                      });
-                                    },
-                                  ),
-                                ))
-                              : Container(
-                                  child: Center(
-                                    child: SizedBox(
-                                      child: CircularProgressIndicator(
-                                          backgroundColor:
-                                              ArgonColors.redUnito),
-                                      width: 60,
-                                      height: 60,
-                                    ),
-                                  ),
-                                );
-                        },
-                      ),
+                      buildDegree(),
                       const SizedBox(height: 12),
-                      FutureBuilder(
-                        future: getCurriculumListFromWS(),
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          return snapshot.hasData
-                              ? Center(
-                                  child: Container(
-                                  decoration: ShapeDecoration(
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          width: 1.0, style: BorderStyle.solid),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(5.0)),
-                                    ),
-                                  ),
-                                  height: 48,
-                                  // color: Colors.grey,
-                                  child: DropdownButton<String>(
-                                    isDense: false,
-                                    isExpanded: true,
-                                    hint: Text(dropDownValueCurriculum ??
-                                        'Seleziona il Curriculum'),
-                                    items: snapshot.data
-                                        .map<DropdownMenuItem<String>>(
-                                            (curriculum) {
-                                      return DropdownMenuItem<String>(
-                                        value: curriculum.degree_path_name,
-                                        child:
-                                            Text(curriculum.degree_path_name),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        dropDownValueCurriculum = value;
-                                        // print(value);
-                                      });
-                                    },
-                                  ),
-                                ))
-                              : Container(
-                                  child: Center(
-                                    child: SizedBox(
-                                      child: CircularProgressIndicator(
-                                          backgroundColor:
-                                              ArgonColors.redUnito),
-                                      width: 60,
-                                      height: 60,
-                                    ),
-                                  ),
-                                );
-                        },
-                      ),
+                      buildCurriculum(),
                       const SizedBox(height: 12),
-                      FutureBuilder(
-                        future: getRoleListFromWS(),
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          return snapshot.hasData
-                              ? Center(
-                                  child: Container(
-                                  height: 48,
-                                  decoration: ShapeDecoration(
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          width: 1.0, style: BorderStyle.solid),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(5.0)),
-                                    ),
-                                  ),
-                                  // color: Colors.grey,
-                                  child: DropdownButton<String>(
-                                    isDense: false,
-                                    isExpanded: true,
-                                    hint: Text(dropDownValueRole ??
-                                        'Seleziona il Ruolo'),
-                                    items: snapshot.data
-                                        .map<DropdownMenuItem<String>>((role) {
-                                      return DropdownMenuItem<String>(
-                                        value: role.role_name,
-                                        child: Text(role.role_name),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        dropDownValueRole = value;
-                                        // print(value);
-                                      });
-                                    },
-                                  ),
-                                ))
-                              : Container(
-                                  child: Center(
-                                    child: SizedBox(
-                                      child: CircularProgressIndicator(
-                                          backgroundColor:
-                                              ArgonColors.redUnito),
-                                      width: 60,
-                                      height: 60,
-                                    ),
-                                  ),
-                                );
-                        },
-                      ),
+                      buildRole(),
                       /*const SizedBox(height: 12),
                       buildFistname(),
                       const SizedBox(height: 12),
@@ -509,5 +355,148 @@ class _SignupState extends State<Signup> {
           const SizedBox(height: 8),
           child,
         ],
+      );
+
+  Widget buildDegree() => FutureBuilder(
+        future: getDegreeListFromWS(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return snapshot.hasData
+              ? Center(
+                  child: Container(
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1.0, style: BorderStyle.solid),
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    ),
+                  ),
+                  height: 48,
+                  // color: Colors.grey,
+                  child: DropdownButton<String>(
+                    isDense: false,
+                    isExpanded: true,
+                    hint: Text(
+                        dropDownValueDegree ?? 'Seleziona il Corso di Laurea'),
+                    items:
+                        snapshot.data.map<DropdownMenuItem<String>>((degree) {
+                      return DropdownMenuItem<String>(
+                        value: degree.degree_name +
+                            " - " +
+                            degree.degree_type_note,
+                        child: Text(degree.degree_name +
+                            " - " +
+                            degree.degree_type_note),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        dropDownValueDegree = value;
+                        // print(value);
+                      });
+                    },
+                  ),
+                ))
+              : Container(
+                  child: Center(
+                    child: SizedBox(
+                      child: CircularProgressIndicator(
+                          backgroundColor: ArgonColors.redUnito),
+                      width: 60,
+                      height: 60,
+                    ),
+                  ),
+                );
+        },
+      );
+
+  Widget buildCurriculum() => FutureBuilder(
+        future: getCurriculumListFromWS(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return snapshot.hasData
+              ? Center(
+                  child: Container(
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1.0, style: BorderStyle.solid),
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    ),
+                  ),
+                  height: 48,
+                  // color: Colors.grey,
+                  child: DropdownButton<String>(
+                    isDense: false,
+                    isExpanded: true,
+                    hint: Text(
+                        dropDownValueCurriculum ?? 'Seleziona il Curriculum'),
+                    items: snapshot.data
+                        .map<DropdownMenuItem<String>>((curriculum) {
+                      return DropdownMenuItem<String>(
+                        value: curriculum.degree_path_name,
+                        child: Text(curriculum.degree_path_name),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        dropDownValueCurriculum = value;
+                        // print(value);
+                      });
+                    },
+                  ),
+                ))
+              : Container(
+                  child: Center(
+                    child: SizedBox(
+                      child: CircularProgressIndicator(
+                          backgroundColor: ArgonColors.redUnito),
+                      width: 60,
+                      height: 60,
+                    ),
+                  ),
+                );
+        },
+      );
+
+  Widget buildRole() => FutureBuilder(
+        future: getRoleListFromWS(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return snapshot.hasData
+              ? Center(
+                  child: Container(
+                  height: 48,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1.0, style: BorderStyle.solid),
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    ),
+                  ),
+                  // color: Colors.grey,
+                  child: DropdownButton<String>(
+                    isDense: false,
+                    isExpanded: true,
+                    hint: Text(dropDownValueRole ?? 'Seleziona il Ruolo'),
+                    items: snapshot.data.map<DropdownMenuItem<String>>((role) {
+                      return DropdownMenuItem<String>(
+                        value: role.role_name,
+                        child: Text(role.role_name),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        dropDownValueRole = value;
+                        // print(value);
+                      });
+                    },
+                  ),
+                ))
+              : Container(
+                  child: Center(
+                    child: SizedBox(
+                      child: CircularProgressIndicator(
+                          backgroundColor: ArgonColors.redUnito),
+                      width: 60,
+                      height: 60,
+                    ),
+                  ),
+                );
+        },
       );
 }
