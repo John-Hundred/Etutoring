@@ -47,8 +47,7 @@ class _SignupState extends State<Signup> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final firstnameController = TextEditingController();
-  final lastnameController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   // CONTROLLER
   Future userSignin() async {
@@ -61,15 +60,8 @@ class _SignupState extends State<Signup> {
       // Getting value from Controller
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
-      String firstname = firstnameController.text.trim();
-      String lastname = lastnameController.text.trim();
       // Store all data with Param Name: json format
-      var data = {
-        'email': email,
-        'password': password,
-        'firstname': firstname,
-        'lastname': lastname
-      };
+      var data = {'email': email, 'password': password};
 
       // Starting Web API Call.
       // http method: POST
@@ -180,6 +172,8 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 12),
                       buildPassword(),
                       const SizedBox(height: 12),
+                      buildConfirmPassword(),
+                      const SizedBox(height: 12),
                       buildDegree(),
                       const SizedBox(height: 12),
                       buildCurriculum(),
@@ -209,7 +203,7 @@ class _SignupState extends State<Signup> {
   }
 
   Widget buildEmail() => buildTitle(
-        title: 'E-mail',
+        title: 'Email',
         child: TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -225,40 +219,8 @@ class _SignupState extends State<Signup> {
               filled: true,
               fillColor: Colors.white,
               border: OutlineInputBorder(),
-              hintText: 'Your Email',
+              hintText: 'Email',
               prefixIcon: Icon(Icons.email)),
-        ),
-      );
-
-  Widget buildFistname() => buildTitle(
-        title: 'Firstname',
-        child: TextFormField(
-          validator: (value) {
-            return null;
-          },
-          controller: firstnameController,
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(),
-              hintText: 'Your Firstname',
-              prefixIcon: Icon(Icons.person)),
-        ),
-      );
-
-  Widget buildLastname() => buildTitle(
-        title: 'Lastname',
-        child: TextFormField(
-          validator: (value) {
-            return null;
-          },
-          controller: lastnameController,
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(),
-              hintText: 'Your Lastname',
-              prefixIcon: Icon(Icons.person)),
         ),
       );
 
@@ -277,7 +239,39 @@ class _SignupState extends State<Signup> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Your Password',
+            hintText: 'Password',
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: GestureDetector(
+              onTap: () async {
+                // (this.emailController.text);
+                _toggle();
+              },
+              child: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget buildConfirmPassword() => buildTitle(
+        title: 'Confirm Password',
+        child: TextFormField(
+          obscureText: _obscureText,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please confirm your password';
+            }
+            if (value != emailController.text) return 'Password not match';
+            return null;
+          },
+          controller: confirmPasswordController,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(),
+            hintText: 'Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
