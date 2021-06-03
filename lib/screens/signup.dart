@@ -350,6 +350,8 @@ class _SignupState extends State<Signup> {
                       height: 48,
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
+                        /*validator: (value) =>
+                            value == null ? 'Degree required' : null,*/
                         isExpanded: true,
                         hint: Text(dropDownValueDegree ?? 'Corso di Laurea'),
                         items: snapshot.data
@@ -413,6 +415,8 @@ class _SignupState extends State<Signup> {
                       height: 48,
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
+                        /*validator: (value) =>
+                            value == null ? 'Curriculum required' : null,*/
                         isExpanded: true,
                         hint: Text(dropDownValueCurriculum ?? 'Curriculum'),
                         items: snapshot.data
@@ -472,6 +476,8 @@ class _SignupState extends State<Signup> {
                       ),
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
+                        /*validator: (value) =>
+                            value == null ? 'Role required' : null,*/
                         isExpanded: true,
                         hint: Text(dropDownValueRole ?? 'Ruolo'),
                         items:
