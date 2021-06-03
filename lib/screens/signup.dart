@@ -164,18 +164,18 @@ class _SignupState extends State<Signup> {
                 body: Form(
                   key: formKey,
                   child: ListView(
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.all(8),
                     children: [
-                      const SizedBox(height: 10),
-                      Image.asset('assets/img/logo_size_2.jpg',
-                          height: 100, width: 100),
-                      TitleWidget(
+                      //const SizedBox(height: 10),
+                      /*Image.asset('assets/img/logo_size_2.jpg',
+                          height: 100, width: 100),*/
+                      /*TitleWidget(
                         icon: Icons.login,
                         text: 'Sign Up',
                         color: ArgonColors.redUnito,
-                        fontSize: 36,
-                      ),
-                      const SizedBox(height: 32),
+                        fontSize: 20,
+                      ),*/
+                      const SizedBox(height: 20),
                       buildEmail(),
                       const SizedBox(height: 12),
                       buildPassword(),
