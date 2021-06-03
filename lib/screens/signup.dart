@@ -189,6 +189,7 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 20),
                       buildAgreePrivacyPolicy(),
                       const SizedBox(height: 30),
+
                       buildSignInButton(),
                       const SizedBox(height: 20),
                       Visibility(
@@ -339,18 +340,19 @@ class _SignupState extends State<Signup> {
               return snapshot.hasData
                   ? Center(
                       child: Container(
-                      decoration: ShapeDecoration(
+                      /*decoration: ShapeDecoration(
                         shape: RoundedRectangleBorder(
                           side:
                               BorderSide(width: 1.0, style: BorderStyle.solid),
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         ),
-                      ),
+                      ),*/
                       height: 48,
                       // color: Colors.grey,
-                      child: DropdownButton<String>(
-                        /*validator: (value) =>
-                            value == null ? 'Degree required' : null,*/
+                      child: DropdownButtonFormField<String>(
+                        value: "Fisica - Laurea Triennale",
+                        validator: (value) =>
+                            value == null ? 'Degree required' : null,
                         elevation: 4,
                         isExpanded: true,
                         hint: Text(dropDownValueDegree ?? 'Corso di Laurea'),
@@ -405,18 +407,23 @@ class _SignupState extends State<Signup> {
               return snapshot.hasData
                   ? Center(
                       child: Container(
-                      decoration: ShapeDecoration(
+                      /*decoration: ShapeDecoration(
                         shape: RoundedRectangleBorder(
                           side:
                               BorderSide(width: 1.0, style: BorderStyle.solid),
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         ),
-                      ),
+                      ),*/
                       height: 48,
                       // color: Colors.grey,
-                      child: DropdownButton<String>(
-                        /*validator: (value) =>
-                            value == null ? 'Curriculum required' : null,*/
+                      child: DropdownButtonFormField<String>(
+                        value: "Reti e Sistemi informatici",
+                        validator: (value) {
+                          if (value == null) {
+                            return 'Curriculum required';
+                          }
+                          return null;
+                        },
                         elevation: 4,
                         isExpanded: true,
                         hint: Text(dropDownValueCurriculum ?? 'Curriculum'),
@@ -468,18 +475,19 @@ class _SignupState extends State<Signup> {
                   ? Center(
                       child: Container(
                       height: 48,
-                      decoration: ShapeDecoration(
+                      /*decoration: ShapeDecoration(
                         shape: RoundedRectangleBorder(
                           side:
                               BorderSide(width: 1.0, style: BorderStyle.solid),
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         ),
-                      ),
+                      ),*/
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
+                        value: 'Student',
                         elevation: 4,
-                        /*validator: (value) =>
-                            value == null ? 'Role required' : null,*/
+                        validator: (value) =>
+                            value == null ? 'Role required' : null,
                         isExpanded: true,
                         hint: Text(dropDownValueRole ?? 'Ruolo'),
                         items:
