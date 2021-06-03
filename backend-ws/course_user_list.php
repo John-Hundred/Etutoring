@@ -37,7 +37,7 @@ if($email){
 	}
 	$connect->close();
 
-	echo json_encode($emparray);
+	echo json_encode($emparray, JSON_INVALID_UTF8_IGNORE);
 }else {
 	$connect->close();
 	echo json_encode([]);

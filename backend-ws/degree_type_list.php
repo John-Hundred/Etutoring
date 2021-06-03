@@ -27,5 +27,5 @@ if ($result->num_rows > 0) {
 }
 $connect->close();
 
-echo json_encode($emparray);
+echo json_encode($emparray, JSON_INVALID_UTF8_IGNORE);
 ?>

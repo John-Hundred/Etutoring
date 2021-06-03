@@ -11,7 +11,7 @@ define("DB_NAME", "Sql1558195_1");
 try {
 	$arrayResults = array();
 	$degree_name = $_GET['degree_name'];
-	$degree_type_name = $_GET['degree_type_name'];
+	$degree_type_note = $_GET['degree_type_note'];
 	$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	if (mysqli_connect_errno($connect)){
 		die("Unable to connect to MySQL Database: " . mysqli_connect_error());
@@ -20,8 +20,8 @@ try {
 	$sql = "SELECT degree_path.degree_path_name FROM degree_path 
 	LEFT JOIN degree ON degree.degree_id = degree_path.degree_id
 	LEFT JOIN degree_type ON degree.degree_type_id = degree_type.degree_type_id
-	WHERE degree.degree_name = '" . $_GET['degree_name'] ."'
-	AND degree_type.degree_type_name = '" . $_GET['degree_type_name'] ."'
+	WHERE degree.degree_name = '" . $degree_name ."'
+	AND degree_type.degree_type_note = '" . $degree_type_note ."'
 	ORDER BY degree_path.degree_path_name;";
 	// print($sql);
 	

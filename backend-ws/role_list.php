@@ -13,8 +13,7 @@ if (mysqli_connect_errno($connect)){
 	die("Unable to connect to MySQL Database: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM degree join degree_type on degree.degree_type_id=degree_type.degree_type_id 
-		ORDER BY degree_name";
+$sql = "SELECT * FROM role ORDER BY role_name";
 $result = $connect->query($sql);
 $emparray = array();
 if ($result->num_rows > 0) {

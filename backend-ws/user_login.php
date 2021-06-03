@@ -1,6 +1,4 @@
 <?php
-sleep(2);
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -10,6 +8,8 @@ define("DB_USER", "Sql1558195");
 define("DB_PASSWORD", "ab12pozt12Q!!");
 define("DB_NAME", "Sql1558195_1");
 	
+sleep(2);
+
 $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno($connect)){
 	die("Unable to connect to MySQL Database: " . mysqli_connect_error());
@@ -30,7 +30,7 @@ $hashed_password = md5($password);
 
 //Applying User Login query with email and password.
 $loginQuery = "select * from user where email = '$email' and password = '$hashed_password' ";
- 
+
 // Executing SQL Query.
 $check = mysqli_fetch_array(mysqli_query($connect,$loginQuery));
 
