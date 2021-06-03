@@ -178,44 +178,6 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 12),
                       buildPassword(),
                       const SizedBox(height: 12),
-                      /*FutureBuilder<List<DegreeModel>>(
-                        future: futureDegree,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            print(snapshot.data);
-                            return DropdownButton(
-                              value: _selected,
-                              icon: Icon(Icons.arrow_drop_down),
-                              iconSize: 30,
-                              elevation: 16,
-                              style: TextStyle(color: Colors.black),
-                              onChanged: (newValue) {
-                                setState(() {
-                                  _selected = newValue;
-                                });
-                              },
-                              items: snapshot.data
-                                  .map<DropdownMenuItem<String>>(
-                                      (DegreeModel value) {
-                                return DropdownMenuItem<String>(
-                                  value: value.degree_id,
-                                  child: Text(value.degree_name +
-                                      " (" +
-                                      value.degree_type_name +
-                                      ")"),
-                                );
-                              }).toList(),
-                            );
-                          } else if (snapshot.hasError) {
-                            return Text("${snapshot.error}");
-                          }
-                          return Container(
-                              child: CircularProgressIndicator(
-                            backgroundColor: ArgonColors.redUnito,
-                          ));
-                        },
-                      ),*/
-
                       FutureBuilder(
                         future: getDegreeListFromWS(),
                         builder:
