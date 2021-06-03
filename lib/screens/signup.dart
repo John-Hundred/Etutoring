@@ -183,7 +183,8 @@ class _SignupState extends State<Signup> {
                         builder:
                             (BuildContext context, AsyncSnapshot snapshot) {
                           return snapshot.hasData
-                              ? Container(
+                              ? Center(
+                                  child: Container(
                                   child: DropdownButton<String>(
                                     hint: Text(dropDownValue ??
                                         'Seleziona il tuo Corso di Laurea'),
@@ -206,19 +207,25 @@ class _SignupState extends State<Signup> {
                                       });
                                     },
                                   ),
-                                )
+                                ))
                               : Container(
                                   child: Center(
-                                    child: Text('Loading...'),
+                                    child: SizedBox(
+                                      child: CircularProgressIndicator(
+                                          backgroundColor:
+                                              ArgonColors.redUnito),
+                                      width: 60,
+                                      height: 60,
+                                    ),
                                   ),
                                 );
                         },
                       ),
-                      const SizedBox(height: 12),
+                      /*const SizedBox(height: 12),
                       buildFistname(),
                       const SizedBox(height: 12),
                       buildLastname(),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 12),*/
                       Padding(
                         padding:
                             const EdgeInsets.only(left: 8.0, top: 0, bottom: 0),
