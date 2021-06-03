@@ -1,5 +1,3 @@
-import 'package:argon_flutter/controller/controllerWS.dart';
-import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +12,6 @@ class CourseState extends State<Course> {
 
   String searchString = "";
   final searchController = TextEditingController();
-
-  Future<List<CourseModel>> futureCourseList;
 
   @override
   void initState() {
