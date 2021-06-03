@@ -78,13 +78,14 @@ Future<List<DegreeModel>> getDegreeListFromWS() async {
   }
 }
 
-Future<List<CurriculumModel>> getCurriculumListFromWS() async {
+Future<List<CurriculumModel>> getCurriculumListFromWS(
+    String degreeName, String degreeTypeName) async {
   List<CurriculumModel> curriculumList = [];
 
-  //https://www.e-tutoring-app.it/ws/curriculum_path_by_degree.php?degree_name=informatica&degree_type_name=lm
+  //https://www.e-tutoring-app.it/ws/curriculum_path_by_degree.php?degree_name=informatica&degree_type_note=LaureaTriennale
   var queryParameters = {
-    'degree_name': 'informatica',
-    'degree_type_name': 'lm'
+    'degree_name': degreeName,
+    'degree_type_note': degreeTypeName
   };
   try {
     var response = await http.get(Uri.https(authority,

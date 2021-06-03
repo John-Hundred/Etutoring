@@ -21,6 +21,9 @@ class _SignupState extends State<Signup> {
   String dropDownValueCurriculum;
   String dropDownValueRole;
 
+  String degreeNameSelected = "Informatica";
+  String degreeTypeNoteSelected = "Laurea Magistrale";
+
   @override
   void initState() {
     super.initState();
@@ -372,7 +375,12 @@ class _SignupState extends State<Signup> {
                         onChanged: (value) {
                           setState(() {
                             dropDownValueDegree = value;
-                            // print(value);
+                            var breakpoint = value.indexOf(RegExp(r'-'));
+                            this.degreeNameSelected =
+                                value.substring(0, breakpoint).trim();
+                            this.degreeTypeNoteSelected = value
+                                .substring(breakpoint + 1, value.length)
+                                .trim();
                           });
                         },
                       ),
@@ -404,7 +412,8 @@ class _SignupState extends State<Signup> {
           ),
           const SizedBox(height: 8),
           FutureBuilder(
-            future: getCurriculumListFromWS(),
+            future: getCurriculumListFromWS(
+                this.degreeNameSelected, this.degreeTypeNoteSelected),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               return snapshot.hasData
                   ? Center(
