@@ -53,7 +53,8 @@ class CourseState extends State<Course> {
           title: const Text('Course'),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
       drawer: ArgonDrawer("course"),
-      body: Stack(children: <Widget>[
+      body:
+          /*Stack(children: <Widget>[
         SafeArea(
             child: ListView(children: [
           Padding(
@@ -157,7 +158,39 @@ class CourseState extends State<Course> {
                     )),
                   ]))
         ]))
-      ]),
+      ]),*/
+          Container(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: (value) {
+                  filterSearchResults(value);
+                },
+                controller: searchController,
+                decoration: InputDecoration(
+                    labelText: "Search",
+                    hintText: "Search",
+                    prefixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('${items[index]}'),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
