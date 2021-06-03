@@ -21,8 +21,8 @@ class _SignupState extends State<Signup> {
   String dropDownValueCurriculum;
   String dropDownValueRole;
 
-  String degreeNameSelected = "Informatica";
-  String degreeTypeNoteSelected = "Laurea Magistrale";
+  String degreeNameSelected = "Fisica";
+  String degreeTypeNoteSelected = "Laurea Triennale";
 
   @override
   void initState() {
@@ -428,7 +428,9 @@ class _SignupState extends State<Signup> {
                       height: 48,
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
-                        value: snapshot.data[0].degree_path_name,
+                        value: snapshot.data.isEmpty
+                            ? '-'
+                            : snapshot.data[0].degree_path_name,
                         validator: (value) {
                           if (value == null) {
                             return 'Curriculum required';
