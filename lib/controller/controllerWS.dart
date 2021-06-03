@@ -32,13 +32,22 @@ Future<UserModel> getUserInfoFromWS() async {
   }
 }
 
-Future<List<CourseModel>> getUserCourseListFromWS() async {
+Future<List<CourseModel>> getUserCourseListFromWS(
+    {String searchString = ''}) async {
   List<CourseModel> courseList = [];
 
   try {
     var queryParameters = {
       'email': await UserSecureStorage.getEmail(),
     };
+
+    if (searchString != '') {
+      queryParameters = {
+        'email': await UserSecureStorage.getEmail(),
+        'query': searchString,
+      };
+    }
+    // print(queryParameters);
 
     var response = await http.get(Uri.https(
         authority, unencodedPath + "course_user_list.php", queryParameters));

@@ -9,8 +9,17 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
+  //final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
+  //var items = List<String>();
+
+  String searchString = "";
+  final searchController = TextEditingController();
+
+  Future<List<CourseModel>> futureCourseList;
+
   @override
   void initState() {
+    //items.addAll(duplicateItems);
     super.initState();
   }
 
@@ -33,13 +42,27 @@ class CourseState extends State<Course> {
                     Container(
                       child: Card(
                         child: TextField(
+                          controller: searchController,
+                          onChanged: (value) {
+                            setState(() {
+                              searchString = value;
+                              // print(searchString);
+                              this.futureCourseList = getUserCourseListFromWS(
+                                  searchString: searchString);
+                              // print(this.futureCourseList);
+                            });
+                          },
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            labelText: "Search",
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(25.0))),
                             hintText: 'Search ...',
-                            suffixIcon: IconButton(
+                            prefixIcon: Icon(Icons.search),
+                            /*suffixIcon: IconButton(
                               onPressed: () => '',
                               icon: Icon(Icons.search),
-                            ),
+                            ),*/
                           ),
                         ),
                       ),
@@ -61,7 +84,7 @@ class CourseState extends State<Course> {
                     ),
                     Container(
                         child: FutureBuilder<List<CourseModel>>(
-                      future: getUserCourseListFromWS(),
+                      future: this.futureCourseList,
                       builder: (ctx, snapshot) {
                         // print(snapshot);
                         if (snapshot.connectionState == ConnectionState.none &&
@@ -108,7 +131,7 @@ class CourseState extends State<Course> {
                           return Container();
                         }
                       },
-                    ))
+                    )),
                   ]))
         ]))
       ]),
