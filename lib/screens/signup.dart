@@ -274,7 +274,7 @@ class _SignupState extends State<Signup> {
             if (value == null || value.isEmpty) {
               return 'Please confirm your password';
             }
-            if (value != emailController.text) return 'Password not match';
+            if (value != passwordController.text) return 'Password not match';
             return null;
           },
           controller: confirmPasswordController,
