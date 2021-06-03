@@ -50,191 +50,191 @@ INSERT INTO `course` (`course_id`, `course_name`, `course_cfu`, `enrollment_year
 (6, 'apprendimento automatico', 9, '2021/2022', 1, 'Caratterizzante', 'INF0095', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', '\r\nINFORMATICA (INF/01)', 'Convenzionale', 'Inglese', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
 (7, 'Base di dati multimediali', 9, '2021/2022', 1, 'Caratterizzante', 'MFN0947', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"Artificiale', ' INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', ' Secondo Semestre', 'Attività formativa monodisciplinare'),
 (8, 'reti neurali e deep learning', 9, '2021/2022', 1, 'Caratterizzante', 'INF0188', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', ' INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(9, 'Programmazione per dispositivi mobili', 6, '2021/2022', 1, 'Caratterizzante', 'INF0008', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare');
-(3, 'Calcolo Matriciale e Ricerca Operativa', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0588', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(4, 'Lingua Inglese 1', 3, '2021/2022', NULL, 'Caratterizzante', 'MFN0590', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(5, 'Programmazione I', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0582', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(6, 'Programmazione II', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0585', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(7, 'Matematica Discreta e Logica', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0578', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa integrata'),
-(8, 'Algoritmi e Strutture Dati', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0597', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(9, 'Basi di Dati', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0602', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(10, 'Economia e Gestione della Impresa e Diritto', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0604', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa integrata'),
-(11, 'Elementi di Probabilità e Statistica', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0600', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(12, 'Fisica', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0598', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(13, 'Sistemi Operativi', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0601', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(14, 'Linguaggi Formali e Traduttori', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0603', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(9, 'Programmazione per dispositivi mobili', 6, '2021/2022', 1, 'Caratterizzante', 'INF0008', 'Informatica', 'INTELLIGENZA ARTIFICIALE E SISTEMI INFORMATICI \"PIETRO TORASSO\"', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(10, 'Calcolo Matriciale e Ricerca Operativa', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0588', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(11, 'Lingua Inglese 1', 3, '2021/2022', NULL, 'Caratterizzante', 'MFN0590', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(12, 'Programmazione I', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0582', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(13, 'Programmazione II', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0585', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(14, 'Matematica Discreta e Logica', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0578', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa integrata'),
+(15, 'Algoritmi e Strutture Dati', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0597', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(16, 'Basi di Dati', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0602', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(17, 'Economia e Gestione della Impresa e Diritto', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0604', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa integrata'),
+(18, 'Elementi di Probabilità e Statistica', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0600', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(19, 'Fisica', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0598', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(20, 'Sistemi Operativi', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0601', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(21, 'Linguaggi Formali e Traduttori', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0603', 'Informatica', 'PERCORSO GENERICO', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
 
 -- Informazione e Conoscenza
 
-(15, 'Interazione Uomo Macchina e Tecnologie Web', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0608', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(16, 'Programmazione III', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0605', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(17, 'Reti I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1362', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(18, 'Sistemi Intelligenti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0607', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(19, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(22, 'Interazione Uomo Macchina e Tecnologie Web', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0608', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(23, 'Programmazione III', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0605', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(24, 'Reti I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1362', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(25, 'Sistemi Intelligenti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0607', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(26, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'INFORMAZIONE E CONOSCENZA', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
 
 --Linguaggi e Sistemi
 
-(20, 'Linguaggi e Paradigmi di Programmazione', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0610', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
-(21, 'Metodi Formali della Informatica', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0633', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
-(22, 'Programmazione III', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0605', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(23, 'Reti I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1362', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(24, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(27, 'Linguaggi e Paradigmi di Programmazione', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0610', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
+(28, 'Metodi Formali della Informatica', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0633', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
+(29, 'Programmazione III', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0605', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(30, 'Reti I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN1362', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(31, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'LINGUAGGI E SISTEMI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
 
 --Reti e Sistemi Informatici
 
-(25, 'Reti di Elaboratori', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0635', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
-(26, 'Sicurezza I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0636', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(27, 'Tecnologie Web', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0634', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(28, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(32, 'Reti di Elaboratori', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0635', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Annualità Singola', 'Attività formativa monodisciplinare'),
+(33, 'Sicurezza I', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0636', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(34, 'Tecnologie Web', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0634', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(35, 'Sviluppo delle Applicazioni Software', 12, '2021/2022', NULL, 'Caratterizzante', 'MFN0606', 'Informatica', 'RETI E SISTEMI INFORMATICI', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
 
-(29, 'Algoritmi e complessita',6,'2021/2022', 1,'Caratterizzante','INF0097',
+(36, 'Algoritmi e complessita',6,'2021/2022', 1,'Caratterizzante','INF0097',
 'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(30,'Algoritmi e Strutture Dati',9,'2021/2022',1,'Caratterizzante','MFN0597',
+(37,'Algoritmi e Strutture Dati',9,'2021/2022',1,'Caratterizzante','MFN0597',
 'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(31,'Analisi e Trattamento dei Segnali Digitali',6,'2021/2022',1,'Caratterizzante','INF0096',
+(38,'Analisi e Trattamento dei Segnali Digitali',6,'2021/2022',1,'Caratterizzante','INF0096',
  'Informatica','REALTA VIRTUALE E MULTIMEDIALITA','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare' ),
 
-(32,'Analisi e Visualizzazione di Reti Complesse',9,'2021/2022',1,'Caratterizzante','INF0007',
+(39,'Analisi e Visualizzazione di Reti Complesse',9,'2021/2022',1,'Caratterizzante','INF0007',
 'Informatica','RETI E SISTEMI INFORMATICI','INFORMATICA (INF/01)','Convenzionale', 'Inglese',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(33,'Architettura degli elaboratori 2 ',6,'2021/2022',1,'Caratterizzante','MFN0969',
+(40,'Architettura degli elaboratori 2 ',6,'2021/2022',1,'Caratterizzante','MFN0969',
 'Informatica','RETI E SISTEMI INFORMATICI','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare' ),
 
-(34,'Basi di dati',9,'2021/2022',1,'Caratterizzante','MFN0602',
+(41,'Basi di dati',9,'2021/2022',1,'Caratterizzante','MFN0602',
 'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(35,'Bioinformatica',6,'2021/2022',1,'Caratterizzante','MFN0951',
+(42,'Bioinformatica',6,'2021/2022',1,'Caratterizzante','MFN0951',
 'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare' ),
 
-(36,'Complementi di Analisi e Probabilità',6,'2021/2022',1,'Affine e integrativa',' MFN0971',
+(43,'Complementi di Analisi e Probabilità',6,'2021/2022',1,'Affine e integrativa',' MFN0971',
 'Informatica','Convenzionale',' MAT/05 - ANALISI MATEMATICA','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa multidisciplinare' ),
 
-(37,'Complementi di Reti e Sicurezza',12,'2021/2022',1,'Caratterizzante','INF0039',
+(44,'Complementi di Reti e Sicurezza',12,'2021/2022',1,'Caratterizzante','INF0039',
 'Informatica','RETI E SISTEMI INFORMATICI','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa multidisciplinare' ),
 
-(38,'Economia e Gestione dell Impresa e Diritto',9,'2021/2022',1,'Affine e integrativa','MFN0604',
+(45,'Economia e Gestione dell Impresa e Diritto',9,'2021/2022',1,'Affine e integrativa','MFN0604',
 'Informatica','Convenzionale',' IUS/02 - DIRITTO PRIVATO COMPARATO','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa multidisciplinare' ),
 
-(39,'Economia e Gestione delle Imprese Net Based',6,'2021/2022',1,'Affine e integrativa','MFN0946',
+(46,'Economia e Gestione delle Imprese Net Based',6,'2021/2022',1,'Affine e integrativa','MFN0946',
 'Informatica','Convenzionale','SECS-P/08 - ECONOMIA E GESTIONE DELLE IMPRESE','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(40,'Elaborazione di Immagini e Visione Artificiale',9,'2021/2022',1,'Caratterizzante','MFN0972
+(47,'Elaborazione di Immagini e Visione Artificiale',9,'2021/2022',1,'Caratterizzante','MFN0972
 ','Informatica','REALTA VIRTUALE E MULTIMEDIALITA','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare' ),
 
-(41,'Elaborazione di Immagini e Visione Artificiale parte A',6,'2021/2022',1,'Caratterizzante','INF0103
+(48,'Elaborazione di Immagini e Visione Artificiale parte A',6,'2021/2022',1,'Caratterizzante','INF0103
 ','Informatica','REALTA VIRTUALE E MULTIMEDIALITA','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(42, 'Elaborazione Digitale Audio e Musica',6,'2021/2022',1,'Caratterizzante','MFN0974
+(49, 'Elaborazione Digitale Audio e Musica',6,'2021/2022',1,'Caratterizzante','MFN0974
 ','Informatica','REALTA VIRTUALE E MULTIMEDIALITA','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(43, 'Elementi di Probabilità e Statistica',6,'2021/2022',2,'Affine e integrativa','MFN0600
+(50, 'Elementi di Probabilità e Statistica',6,'2021/2022',2,'Affine e integrativa','MFN0600
 ','Informatica','Convenzionale','MAT/06 - PROBABILITA\ E STATISTICA MATEMATICA','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(44,'Elementi di Teoria dell Informazione',6,'2021/2022',1,'Caratterizzante','INF0095
+(51,'Elementi di Teoria dell Informazione',6,'2021/2022',1,'Caratterizzante','INF0095
 ','Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Inglese',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(45,'Etica, Società  e Privacy',6,'2021/2022',1,'Caratterizzante','INF0187
+(52,'Etica, Società  e Privacy',6,'2021/2022',1,'Caratterizzante','INF0187
 ','Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(46,'Fisica',6,'2021/2022',1,'Affine e integrativa','MFN0598',
+(53,'Fisica',6,'2021/2022',1,'Affine e integrativa','MFN0598',
 ,'Informatica','Convenzionale','FIS/01 - FISICA SPERIMENTALE','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(47,'Fisica per Applicazioni di Realtà Virtuale',6,'2021/2022',1,'Affine e integrativa','MFN0970',
+(54,'Fisica per Applicazioni di Realtà Virtuale',6,'2021/2022',1,'Affine e integrativa','MFN0970',
 ,'Informatica','Convenzionale','FIS/01 - FISICA SPERIMENTALE','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(48,'Gestione delle Reti',6,'2021/2022',1,'Caratterizzante','INF0006',
+(55,'Gestione delle Reti',6,'2021/2022',1,'Caratterizzante','INF0006',
 ,'Informatica','RETI E SISTEMI INFORMATICI','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(49,'Intelligenza Artificiale e Laboratorio',9,'2021/2022',1,'Caratterizzante','MFN0942',
+(56,'Intelligenza Artificiale e Laboratorio',9,'2021/2022',1,'Caratterizzante','MFN0942',
 ,'Informatica','INTELLIGENZA ARTIFICIALE E LABORATORIO','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(50,'Lingua Inglese II',3,'2021/2022',1,'stage e “altre attività” formative','MFN0963',
+(57,'Lingua Inglese II',3,'2021/2022',1,'stage e “altre attività” formative','MFN0963',
 ,'Informatica','Convenzionale',' L-LIN/12 - LINGUA E TRADUZIONE - LINGUA INGLESE','Convenzionale', 'Inglese',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(51,'Linguaggi Formali e Traduttori',9,'2021/2022',2,'Caratterizzante','MFN0603',
+(58,'Linguaggi Formali e Traduttori',9,'2021/2022',2,'Caratterizzante','MFN0603',
 ,'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(52,'Logica per l Informatica',6,'2021/2022',1,'libera','INF0102',
+(59,'Logica per l Informatica',6,'2021/2022',1,'libera','INF0102',
 ,'Informatica','Convenzionale',' MAT/01 - LOGICA MATEMATICA','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(53,'Metodi Numerici',6,'2021/2022',1,'Affine e integrativa','MFN0962',
+(60,'Metodi Numerici',6,'2021/2022',1,'Affine e integrativa','MFN0962',
 ,'Informatica','Convenzionale',' MAT/08 - ANALISI NUMERICA','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(54,'Metodologie e Tecnologie Didattiche per l Informatica',6,'2021/2022',1,'libera',' INF0193',
+(61,'Metodologie e Tecnologie Didattiche per l Informatica',6,'2021/2022',1,'libera',' INF0193',
 ,'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(55,'Modellazione Concettuale per il web Semantico',6,'2021/2022',1,'Caratterizzante',' INF0071',
+(62,'Modellazione Concettuale per il web Semantico',6,'2021/2022',1,'Caratterizzante',' INF0071',
 ,'Informatica','INTELLIGENZA ARTIFICIALE E LABORATORIO','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(56,'Modellazione di Dati e Processi Aziendali',6,'2021/2022',1,'Caratterizzante','INF0104',
+(63,'Modellazione di Dati e Processi Aziendali',6,'2021/2022',1,'Caratterizzante','INF0104',
 ,'Informatica','INTELLIGENZA ARTIFICIALE E LABORATORIO','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(57,'Modellazione Grafica',9,'2021/2022',1,'Caratterizzante','MFN0973',
+(64,'Modellazione Grafica',9,'2021/2022',1,'Caratterizzante','MFN0973',
 ,'Informatica','REALTA VIRTUALE E MULTIMEDIALITA','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(58,'Modelli Concorrenti e Algoritmi distribuiti',6,'2021/2022',1,'Caratterizzante','MFN0960',
+(65,'Modelli Concorrenti e Algoritmi distribuiti',6,'2021/2022',1,'Caratterizzante','MFN0960',
 ,'Informatica','RETI E SISTEMI INFORMATICI','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Primo Semestre','Attività formativa monodisciplinare'),
 
-(59,'Modelli e Architetture Avanzati di Basi di Dati',9,'2021/2022',1,'Caratterizzante','INF0092',
+(66,'Modelli e Architetture Avanzati di Basi di Dati',9,'2021/2022',1,'Caratterizzante','INF0092',
 ,'Informatica','INTELLIGENZA ARTIFICIALE E LABORATORIO','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(60,'Modelli e Architetture Avanzati di Basi di Dati - Parte A',6,'2021/2022',1,'Caratterizzante','INF0105',
+(67,'Modelli e Architetture Avanzati di Basi di Dati - Parte A',6,'2021/2022',1,'Caratterizzante','INF0105',
 ,'Informatica','INTELLIGENZA ARTIFICIALE E LABORATORIO','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(61,'Modelli e Metodi per il Supporto alle Decisioni',6,'2021/2022',1,'Caratterizzante','MFN0953',
+(68,'Modelli e Metodi per il Supporto alle Decisioni',6,'2021/2022',1,'Caratterizzante','MFN0953',
 ,'Informatica','Convenzionale','INFORMATICA (INF/01)','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(62,'Ottimizzazione Combinatoria',6,'2021/2022',1,'affine e integratica','MFN1349',
+(69,'Ottimizzazione Combinatoria',6,'2021/2022',1,'affine e integratica','MFN1349',
 ,'Informatica','Convenzionale',' MAT/09 - RICERCA OPERATIVA','Convenzionale', 'Italiano',
 'Secondo Semestre','Attività formativa monodisciplinare'),
 
-(63, 'Reti Complesse', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0954', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(64, 'Reti II', 6, '2021/2022', NULL, 'Caratterizzante', 'INF0009', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(65, 'Reti Neurali e Deep Learning', 9, '2021/2022', NULL, 'Caratterizzante', 'INF0188', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(66, 'Sicurezza II', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0952', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(67, 'Sistemi di Calcolo Paralleli e Distribuiti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0795', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(68, 'Sistemi di Realtà Virtuale', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0978', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(69, 'Sistemi Operativi', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0601', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(70, 'Storia dellInformatica', 6, '2021/2022', NULL, 'Caratterizzante', 'INF0233', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(71, 'Tecniche e architetture avanzate per lo sviluppo del software', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0100', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(72, 'Tecnologie del Linguaggio Naturale', 9, '2021/2022', NULL, 'Caratterizzante', 'INF0094', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
-(73, 'Valutazione delle prestazioni: Simulazione e Modelli', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0899', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
-(74, 'Verifica dei programmi Concorrenti', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0959', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare');
+(70, 'Reti Complesse', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0954', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(71, 'Reti II', 6, '2021/2022', NULL, 'Caratterizzante', 'INF0009', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(72, 'Reti Neurali e Deep Learning', 9, '2021/2022', NULL, 'Caratterizzante', 'INF0188', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(73, 'Sicurezza II', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0952', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(74, 'Sistemi di Calcolo Paralleli e Distribuiti', 6, '2021/2022', NULL, 'Caratterizzante', 'MFN0795', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(75, 'Sistemi di Realtà Virtuale', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0978', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(76, 'Sistemi Operativi', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0601', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(77, 'Storia dellInformatica', 6, '2021/2022', NULL, 'Caratterizzante', 'INF0233', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(78, 'Tecniche e architetture avanzate per lo sviluppo del software', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0100', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(79, 'Tecnologie del Linguaggio Naturale', 9, '2021/2022', NULL, 'Caratterizzante', 'INF0094', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare'),
+(80, 'Valutazione delle prestazioni: Simulazione e Modelli', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0899', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Primo Semestre', 'Attività formativa monodisciplinare'),
+(81, 'Verifica dei programmi Concorrenti', 9, '2021/2022', NULL, 'Caratterizzante', 'MFN0959', 'Informatica', 'CONVENZIONALE', 'INFORMATICA (INF/01)', 'Convenzionale', 'Italiano', 'Secondo Semestre', 'Attività formativa monodisciplinare');
 
 
 
