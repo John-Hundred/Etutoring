@@ -282,11 +282,10 @@ class _SignupState extends State<Signup> {
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
-                // (this.emailController.text);
                 _toggleConfirm();
               },
               child: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
+                _obscureTextConfirm ? Icons.visibility : Icons.visibility_off,
                 color: Colors.black,
               ),
             ),
