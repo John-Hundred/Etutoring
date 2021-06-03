@@ -7,7 +7,7 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
-  final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
+  final duplicateItems = List<String>.generate(10000, (i) => "Course $i");
   var items = [];
 
   String searchString = "";
