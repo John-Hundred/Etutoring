@@ -3,7 +3,6 @@ import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/screens/privacy-policy.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
-import 'package:argon_flutter/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
