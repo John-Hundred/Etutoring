@@ -350,7 +350,9 @@ class _SignupState extends State<Signup> {
                       height: 48,
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
-                        value: "Fisica - Laurea Triennale",
+                        value: snapshot.data[0].degree_name +
+                            " - " +
+                            snapshot.data[0].degree_type_note,
                         validator: (value) =>
                             value == null ? 'Degree required' : null,
                         elevation: 4,
@@ -417,7 +419,7 @@ class _SignupState extends State<Signup> {
                       height: 48,
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
-                        value: "Reti e Sistemi informatici",
+                        value: snapshot.data[0].degree_path_name,
                         validator: (value) {
                           if (value == null) {
                             return 'Curriculum required';
@@ -484,7 +486,7 @@ class _SignupState extends State<Signup> {
                       ),*/
                       // color: Colors.grey,
                       child: DropdownButtonFormField<String>(
-                        value: 'Student',
+                        value: snapshot.data[0].role_name,
                         elevation: 4,
                         validator: (value) =>
                             value == null ? 'Role required' : null,
