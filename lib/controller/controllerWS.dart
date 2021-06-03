@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/model/courseModel.dart';
+import 'package:argon_flutter/model/degreeModel.dart';
 import 'package:argon_flutter/model/userModel.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -49,6 +50,26 @@ Future<List<CourseModel>> getUserCourseListFromWS() async {
       }
     }
     return courseList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return [];
+  }
+}
+
+Future<List<DegreeModel>> getDegreeListFromWS() async {
+  List<DegreeModel> degreeList = [];
+
+  try {
+    var response =
+        await http.get(Uri.https(authority, unencodedPath + "degree_list.php"));
+    if (response.statusCode == 200) {
+      var degreeJsonData = json.decode(response.body);
+      for (var degreeItem in degreeJsonData) {
+        var degree = DegreeModel.fromJson(degreeItem);
+        degreeList.add(degree);
+      }
+    }
+    return degreeList;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return [];
