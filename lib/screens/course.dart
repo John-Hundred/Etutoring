@@ -83,16 +83,18 @@ class CourseState extends State<Course> {
                 itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                      title: Text('${courseListForDisplay[index].course_name}'
-                          .toUpperCase()),
-                      subtitle: Text('CFU: ' +
-                          '${courseListForDisplay[index].course_cfu}'
-                              .toUpperCase()),
-                      leading: Icon(Icons.library_books),
-                      trailing:
-                          courseListForDisplay[index].private_lesson_id != '-'
-                              ? Icon(Icons.star)
-                              : Icon(Icons.padding));
+                    title: Text('${courseListForDisplay[index].course_name}'
+                        .toUpperCase()),
+                    subtitle: Text('CFU: ' +
+                        '${courseListForDisplay[index].course_cfu}'
+                            .toUpperCase()),
+                    leading: Icon(Icons.library_books),
+                    trailing:
+                        courseListForDisplay[index].private_lesson_id != '-'
+                            ? Icon(Icons.star)
+                            : Icon(Icons.padding),
+                    onTap: () => print(courseListForDisplay[index]),
+                  );
                 },
               ),
             ),
