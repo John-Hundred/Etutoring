@@ -66,6 +66,17 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
               DrawerTile(
                   icon: Icons.menu_book_rounded,
                   onTap: () {
+                    if (widget.currentPage != "Tutoring Course")
+                      Navigator.pushReplacementNamed(
+                          context, '/tutoring-course');
+                  },
+                  iconColor: ArgonColors.black,
+                  title: "My Tutoring Course",
+                  isSelected:
+                      widget.currentPage == "Tutoring Course" ? true : false),
+              DrawerTile(
+                  icon: Icons.menu_book_rounded,
+                  onTap: () {
                     if (widget.currentPage != "course")
                       Navigator.pushReplacementNamed(context, '/course');
                   },

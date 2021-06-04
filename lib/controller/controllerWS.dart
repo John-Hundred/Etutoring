@@ -67,6 +67,41 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
   }
 }
 
+Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
+    {String searchString = ''}) async {
+  List<CourseModel> courseList = [];
+
+  try {
+    var queryParameters = {
+      'email': await UserSecureStorage.getEmail(),
+    };
+
+    if (searchString != '') {
+      queryParameters = {
+        'email': await UserSecureStorage.getEmail(),
+        'query': searchString,
+      };
+    }
+    // print(queryParameters);
+
+    var response = await http.get(Uri.https(authority,
+        unencodedPath + "course_search_private_lesson.php", queryParameters));
+    if (response.statusCode == 200) {
+      var courseJsonData = json.decode(response.body);
+      // print(courseJsonData);
+      for (var courseItem in courseJsonData) {
+        var course = CourseModel.fromJson(courseItem);
+        // print(course);
+        courseList.add(course);
+      }
+    }
+    return courseList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return [];
+  }
+}
+
 Future<List<DegreeModel>> getDegreeListFromWS() async {
   List<DegreeModel> degreeList = [];
 
