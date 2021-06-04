@@ -10,28 +10,42 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
-  final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
-  var items = [];
+  // final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
+  // var items = [];
 
-  Future<List<CourseModel>> courseFurereList;
+  // ignore: deprecated_member_use
+  List<CourseModel> courseList = List<CourseModel>();
+  // ignore: deprecated_member_use
+  List<CourseModel> courseListForDisplay = List<CourseModel>();
 
   String searchString = "";
   final searchController = TextEditingController();
 
   @override
   void initState() {
-    items.addAll(duplicateItems);
-    this.courseFurereList = getUserCourseSearchFromWS();
+    getUserCourseSearchFromWS().then((value) => {
+          setState(() {
+            courseList.addAll(value);
+            courseListForDisplay = courseList;
+          })
+        });
     super.initState();
   }
 
-  void filterSearchResults(String query) async {
-    if (query.isNotEmpty && query.length >= 3) {
+  void filterSearchResults(String query) {
+    setState(() {
+      courseListForDisplay = courseListForDisplay.where((element) {
+        var courseName = element.course_name.toLowerCase();
+        return courseName.contains(query);
+      }).toList();
+    });
+
+    /*if (query.isNotEmpty && query.length >= 3) {
       print(query);
       List<CourseModel> courseList =
           await getUserCourseSearchFromWS(searchString: query);
       print(courseList);
-    }
+    }*/
 
     /*List<String> dummySearchList = [];
     dummySearchList.addAll(duplicateItems);
@@ -80,18 +94,18 @@ class CourseState extends State<Course> {
                         borderRadius: BorderRadius.all(Radius.circular(25.0)))),
               ),
             ),
-            /*Expanded(
+            Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: items.length,
+                itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${items[index]}'),
+                    title: Text('${courseListForDisplay[index]}'),
                   );
                 },
               ),
-            ),*/
-            projectWidget(),
+            ),
+            // projectWidget(),
           ],
         ),
       ),
@@ -167,7 +181,7 @@ class CourseState extends State<Course> {
           );
         }
       },
-      future: this.courseFurereList,
+      future: getUserCourseSearchFromWS(),
     );
   }
 }
