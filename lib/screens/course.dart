@@ -25,7 +25,7 @@ class CourseState extends State<Course> {
   void initState() {
     getUserCourseSearchFromWS().then((value) => {
           setState(() {
-            print(value);
+            // print(value);
             courseList.addAll(value);
             courseListForDisplay = courseList;
           })
@@ -35,10 +35,18 @@ class CourseState extends State<Course> {
 
   void filterSearchResults(String query) {
     setState(() {
-      courseListForDisplay = courseListForDisplay.where((element) {
-        var courseName = element.course_name.toLowerCase();
-        return courseName.contains(query);
-      }).toList();
+      if (query.isNotEmpty && query.length > 2) {
+        courseListForDisplay = courseListForDisplay.where((element) {
+          var courseName = element.course_name.toLowerCase();
+          return courseName.contains(query);
+        }).toList();
+      } else {
+        getUserCourseSearchFromWS().then((value) {
+          // print(value);
+          courseListForDisplay.clear();
+          courseListForDisplay.addAll(value);
+        });
+      }
     });
 
     /*if (query.isNotEmpty && query.length >= 3) {
