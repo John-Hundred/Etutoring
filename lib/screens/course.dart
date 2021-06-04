@@ -1,5 +1,6 @@
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/courseModel.dart';
+import 'package:argon_flutter/screens/courseDetail.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,6 @@ class Course extends StatefulWidget {
 }
 
 class CourseState extends State<Course> {
-  // final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
-  // var items = [];
-
   // ignore: deprecated_member_use
   List<CourseModel> courseList = List<CourseModel>();
   // ignore: deprecated_member_use
@@ -96,7 +94,15 @@ class CourseState extends State<Course> {
                                 color: Colors.green,
                               )
                             : Icon(Icons.not_interested, color: Colors.red),
-                    onTap: () => print(courseListForDisplay[index]),
+                    onTap: () {
+                      // print(courseListForDisplay[index]);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CourseDetail(courseListForDisplay[index])),
+                      );
+                    },
                   );
                 },
               ),
