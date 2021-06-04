@@ -13,12 +13,15 @@ class CourseState extends State<Course> {
   final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
   var items = [];
 
+  Future<List<CourseModel>> courseFurereList;
+
   String searchString = "";
   final searchController = TextEditingController();
 
   @override
   void initState() {
     items.addAll(duplicateItems);
+    this.courseFurereList = getUserCourseSearchFromWS();
     super.initState();
   }
 
@@ -59,113 +62,7 @@ class CourseState extends State<Course> {
           title: const Text('Course'),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
       drawer: ArgonDrawer("course"),
-      body:
-          /*Stack(children: <Widget>[
-        SafeArea(
-            child: ListView(children: [
-          Padding(
-              padding:
-                  const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      child: Card(
-                        child: TextField(
-                          controller: searchController,
-                          onChanged: (value) {
-                            setState(() {
-                              searchString = value;
-                              // print(searchString);
-                              this.futureCourseList = getUserCourseListFromWS(
-                                  searchString: searchString);
-                              // print(this.futureCourseList);
-                            });
-                          },
-                          decoration: InputDecoration(
-                            labelText: "Search",
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(25.0))),
-                            hintText: 'Search ...',
-                            prefixIcon: Icon(Icons.search),
-                            /*suffixIcon: IconButton(
-                              onPressed: () => '',
-                              icon: Icon(Icons.search),
-                            ),*/
-                          ),
-                        ),
-                      ),
-                    ),
-                    /*SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      'Lista dei Corsi',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),*/
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                        child: FutureBuilder<List<CourseModel>>(
-                      future: this.futureCourseList,
-                      builder: (ctx, snapshot) {
-                        // print(snapshot);
-                        if (snapshot.connectionState == ConnectionState.none &&
-                            snapshot.hasData == null) {
-                          return Container();
-                        } else {
-                          List<CourseModel> courseList = snapshot.data;
-                          if (courseList != null) {
-                            List<DataRow> _rowList = [];
-                            var course;
-                            for (course in courseList) {
-                              _rowList.add(DataRow(cells: <DataCell>[
-                                DataCell(
-                                    Text(course.course_name.toUpperCase())),
-                                DataCell(Text(course.course_cfu.toUpperCase())),
-                                course.private_lesson_id == '-'
-                                    ? DataCell(
-                                        Icon(
-                                          Icons.no_cell_sharp,
-                                          color: Colors.red,
-                                          size: 30.0,
-                                        ),
-                                      )
-                                    : DataCell(
-                                        Icon(
-                                          Icons.calendar_today,
-                                          color: Colors.green,
-                                          size: 30.0,
-                                        ),
-                                      ),
-                              ]));
-                            }
-                            return DataTable(
-                                dataRowColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.white),
-                                // headingRowHeight: 0,
-                                columns: <DataColumn>[
-                                  DataColumn(label: Text('Course')),
-                                  DataColumn(label: Text('CFU')),
-                                  DataColumn(label: Text('Tutoring')),
-                                ],
-                                rows: _rowList);
-                          }
-                          return Container();
-                        }
-                      },
-                    )),
-                  ]))
-        ]))
-      ]),*/
-          Container(
+      body: Container(
         child: Column(
           children: <Widget>[
             Padding(
@@ -270,7 +167,7 @@ class CourseState extends State<Course> {
           );
         }
       },
-      future: getUserCourseSearchFromWS(),
+      future: this.courseFurereList,
     );
   }
 }
