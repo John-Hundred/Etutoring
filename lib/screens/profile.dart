@@ -2,7 +2,7 @@ import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/userModel.dart';
 import 'package:argon_flutter/screens/course.dart';
-import 'package:argon_flutter/screens/tutoring_course.dart';
+import 'package:argon_flutter/screens/tutoring-course.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
