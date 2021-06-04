@@ -40,7 +40,7 @@ class TutoringCourseState extends State<TutoringCourse> {
           return courseName.contains(query);
         }).toList();
       } else {
-        getUserCourseSearchFromWS().then((value) {
+        getUserCourseSearchPrivateLessonFromWS().then((value) {
           // print(value);
           courseListForDisplay.clear();
           courseListForDisplay.addAll(value);
