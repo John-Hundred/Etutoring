@@ -22,8 +22,14 @@ class CourseState extends State<Course> {
     super.initState();
   }
 
-  void filterSearchResults(String query) {
-    List<String> dummySearchList = [];
+  void filterSearchResults(String query) async {
+    if (query.isNotEmpty && query.length >= 3) {
+      print(query);
+    }
+    List<CourseModel> courseList =
+        await getUserCourseSearchFromWS(searchString: query);
+    print(courseList);
+    /*List<String> dummySearchList = [];
     dummySearchList.addAll(duplicateItems);
     if (query.isNotEmpty) {
       List<String> dummyListData = [];
@@ -42,7 +48,7 @@ class CourseState extends State<Course> {
         items.clear();
         items.addAll(duplicateItems);
       });
-    }
+    }*/
   }
 
   @override
@@ -263,7 +269,7 @@ class CourseState extends State<Course> {
           );
         }
       },
-      future: getUserCourseListFromWS(),
+      future: getUserCourseSearchFromWS(),
     );
   }
 }

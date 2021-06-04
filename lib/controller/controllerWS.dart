@@ -32,7 +32,7 @@ Future<UserModel> getUserInfoFromWS() async {
   }
 }
 
-Future<List<CourseModel>> getUserCourseListFromWS(
+Future<List<CourseModel>> getUserCourseSearchFromWS(
     {String searchString = ''}) async {
   List<CourseModel> courseList = [];
 
@@ -50,7 +50,7 @@ Future<List<CourseModel>> getUserCourseListFromWS(
     // print(queryParameters);
 
     var response = await http.get(Uri.https(
-        authority, unencodedPath + "course_user_list.php", queryParameters));
+        authority, unencodedPath + "course_search.php", queryParameters));
     if (response.statusCode == 200) {
       var courseJsonData = json.decode(response.body);
       // print(courseJsonData);
