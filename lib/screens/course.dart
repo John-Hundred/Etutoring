@@ -91,8 +91,11 @@ class CourseState extends State<Course> {
                     leading: Icon(Icons.library_books),
                     trailing:
                         courseListForDisplay[index].private_lesson_id != '-'
-                            ? Icon(Icons.star)
-                            : Icon(Icons.padding),
+                            ? Icon(
+                                Icons.calendar_today,
+                                color: Colors.green,
+                              )
+                            : Icon(Icons.not_interested, color: Colors.red),
                     onTap: () => print(courseListForDisplay[index]),
                   );
                 },
