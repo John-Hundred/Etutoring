@@ -3,6 +3,8 @@ import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
+import 'courseDetail.dart';
+
 class TutoringCourse extends StatefulWidget {
   @override
   TutoringCourseState createState() => new TutoringCourseState();
@@ -83,21 +85,28 @@ class TutoringCourseState extends State<TutoringCourse> {
                 itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${courseListForDisplay[index].course_name}'
-                        .toUpperCase()),
-                    subtitle: Text('CFU: ' +
-                        '${courseListForDisplay[index].course_cfu}'
-                            .toUpperCase()),
-                    leading: Icon(Icons.library_books),
-                    trailing:
-                        courseListForDisplay[index].private_lesson_id != '-'
-                            ? Icon(
-                                Icons.calendar_today,
-                                color: Colors.green,
-                              )
-                            : Icon(Icons.not_interested, color: Colors.red),
-                    onTap: () => print(courseListForDisplay[index]),
-                  );
+                      title: Text('${courseListForDisplay[index].course_name}'
+                          .toUpperCase()),
+                      subtitle: Text('CFU: ' +
+                          '${courseListForDisplay[index].course_cfu}'
+                              .toUpperCase()),
+                      leading: Icon(Icons.library_books),
+                      trailing:
+                          courseListForDisplay[index].private_lesson_id != '-'
+                              ? Icon(
+                                  Icons.calendar_today,
+                                  color: Colors.green,
+                                )
+                              : Icon(Icons.not_interested, color: Colors.red),
+                      onTap: () {
+                        // print(courseListForDisplay[index]),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  CourseDetail(courseListForDisplay[index])),
+                        );
+                      });
                 },
               ),
             ),
