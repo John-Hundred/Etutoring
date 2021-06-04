@@ -83,7 +83,7 @@ class CourseState extends State<Course> {
                       title: Text('${courseListForDisplay[index].course_name}'
                           .toUpperCase()),
                       subtitle: Text('CFU: ' +
-                          '${courseListForDisplay[index].private_lesson_id}'
+                          '${courseListForDisplay[index].course_cfu}'
                               .toUpperCase()),
                       leading: Icon(Icons.library_books),
                       trailing:
