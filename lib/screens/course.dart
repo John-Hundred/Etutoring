@@ -75,7 +75,10 @@ class CourseState extends State<Course> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) {
+                  return Divider();
+                },
                 shrinkWrap: true,
                 itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
