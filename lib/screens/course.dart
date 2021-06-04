@@ -1,4 +1,3 @@
-import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
@@ -86,7 +85,8 @@ class CourseState extends State<Course> {
                       subtitle: Text('CFU: ' +
                           '${courseListForDisplay[index].course_cfu}'
                               .toUpperCase()),
-                      leading: Icon(Icons.library_books));
+                      leading: Icon(Icons.library_books),
+                      trailing: Icon(Icons.star));
                 },
               ),
             ),
