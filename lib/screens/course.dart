@@ -48,34 +48,6 @@ class CourseState extends State<Course> {
         });
       }
     });
-
-    /*if (query.isNotEmpty && query.length >= 3) {
-      print(query);
-      List<CourseModel> courseList =
-          await getUserCourseSearchFromWS(searchString: query);
-      print(courseList);
-    }*/
-
-    /*List<String> dummySearchList = [];
-    dummySearchList.addAll(duplicateItems);
-    if (query.isNotEmpty) {
-      List<String> dummyListData = [];
-      dummySearchList.forEach((item) {
-        if (item.contains(query)) {
-          dummyListData.add(item);
-        }
-      });
-      setState(() {
-        items.clear();
-        items.addAll(dummyListData);
-      });
-      return;
-    } else {
-      setState(() {
-        items.clear();
-        items.addAll(duplicateItems);
-      });
-    }*/
   }
 
   @override
@@ -109,9 +81,12 @@ class CourseState extends State<Course> {
                 itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${courseListForDisplay[index].course_name}'
-                        .toUpperCase()),
-                  );
+                      title: Text('${courseListForDisplay[index].course_name}'
+                          .toUpperCase()),
+                      subtitle: Text('CFU: ' +
+                          '${courseListForDisplay[index].course_cfu}'
+                              .toUpperCase()),
+                      leading: Icon(Icons.library_books));
                 },
               ),
             ),
@@ -122,7 +97,7 @@ class CourseState extends State<Course> {
     );
   }
 
-  Widget projectWidget() {
+  /*Widget projectWidget() {
     return FutureBuilder(
       builder: (context, courseSnap) {
         if (courseSnap.hasData) {
@@ -193,5 +168,5 @@ class CourseState extends State<Course> {
       },
       future: getUserCourseSearchFromWS(),
     );
-  }
+  }*/
 }
