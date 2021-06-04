@@ -25,10 +25,11 @@ class CourseState extends State<Course> {
   void filterSearchResults(String query) async {
     if (query.isNotEmpty && query.length >= 3) {
       print(query);
+      List<CourseModel> courseList =
+          await getUserCourseSearchFromWS(searchString: query);
+      print(courseList);
     }
-    List<CourseModel> courseList =
-        await getUserCourseSearchFromWS(searchString: query);
-    print(courseList);
+
     /*List<String> dummySearchList = [];
     dummySearchList.addAll(duplicateItems);
     if (query.isNotEmpty) {
