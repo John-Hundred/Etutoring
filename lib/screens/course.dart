@@ -25,6 +25,7 @@ class CourseState extends State<Course> {
   void initState() {
     getUserCourseSearchFromWS().then((value) => {
           setState(() {
+            print(value);
             courseList.addAll(value);
             courseListForDisplay = courseList;
           })
@@ -100,7 +101,8 @@ class CourseState extends State<Course> {
                 itemCount: courseListForDisplay.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('${courseListForDisplay[index]}'),
+                    title: Text('${courseListForDisplay[index].course_name}'
+                        .toUpperCase()),
                   );
                 },
               ),
