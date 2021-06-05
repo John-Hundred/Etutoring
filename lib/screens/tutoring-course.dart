@@ -37,10 +37,16 @@ class TutoringCourseState extends State<TutoringCourse> {
   void filterSearchResults(String query) {
     setState(() {
       if (query.isNotEmpty && query.length > 3) {
-        courseListForDisplay = courseListForDisplay.where((element) {
+        /*courseListForDisplay = courseListForDisplay.where((element) {
           var courseName = element.course_name.toLowerCase();
           return courseName.contains(query);
-        }).toList();
+        }).toList();*/
+        getUserCourseSearchPrivateLessonFromWS(searchString: query)
+            .then((value) {
+          // print(value);
+          courseListForDisplay.clear();
+          courseListForDisplay.addAll(value);
+        });
       } else {
         getUserCourseSearchPrivateLessonFromWS().then((value) {
           // print(value);
@@ -99,13 +105,13 @@ class TutoringCourseState extends State<TutoringCourse> {
                                 )
                               : Icon(Icons.not_interested, color: Colors.red),
                       onTap: () {
-                        // print(courseListForDisplay[index]),
-                        Navigator.push(
+                        print(courseListForDisplay[index]);
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
                                   CourseDetail(courseListForDisplay[index])),
-                        );
+                        );*/
                       });
                 },
               ),
