@@ -20,6 +20,7 @@ class CourseState extends State<Course> {
 
   @override
   void initState() {
+    print(courseListForDisplay.length);
     getUserCourseSearchFromWS().then((value) => {
           setState(() {
             // print(value);
@@ -32,21 +33,25 @@ class CourseState extends State<Course> {
 
   void filterSearchResults(String query) {
     setState(() {
+      // print(query.length);
       if (query.isNotEmpty && query.length > 3) {
-        /*courseListForDisplay = courseListForDisplay.where((element) {
+        courseListForDisplay = courseListForDisplay.where((element) {
           var courseName = element.course_name.toLowerCase();
           return courseName.contains(query);
-        }).toList();*/
-        getUserCourseSearchFromWS(searchString: query).then((value) {
-          // print(value);
-          courseListForDisplay.clear();
-          courseListForDisplay.addAll(value);
-        });
+        }).toList();
+        /*getUserCourseSearchFromWS(searchString: query).then((value) {
+          //print(value);
+          this.courseListForDisplay.clear();
+          this.courseListForDisplay.addAll(value);
+          // this.courseListForDisplay.toList();
+          //print(courseListForDisplay.length);
+        });*/
       } else {
         getUserCourseSearchFromWS().then((value) {
           // print(value);
-          courseListForDisplay.clear();
-          courseListForDisplay.addAll(value);
+          this.courseListForDisplay.clear();
+          this.courseListForDisplay.addAll(value);
+          //print(courseListForDisplay.length);
         });
       }
     });
@@ -82,9 +87,10 @@ class CourseState extends State<Course> {
                 separatorBuilder: (context, index) {
                   return Divider();
                 },
-                shrinkWrap: true,
-                itemCount: courseListForDisplay.length,
+                // shrinkWrap: true,
+                itemCount: this.courseListForDisplay.length,
                 itemBuilder: (context, index) {
+                  print(index);
                   return ListTile(
                     title: Text('${courseListForDisplay[index].course_name}'
                         .toUpperCase()),
