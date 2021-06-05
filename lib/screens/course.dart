@@ -33,10 +33,15 @@ class CourseState extends State<Course> {
   void filterSearchResults(String query) {
     setState(() {
       if (query.isNotEmpty && query.length > 3) {
-        courseListForDisplay = courseListForDisplay.where((element) {
+        /*courseListForDisplay = courseListForDisplay.where((element) {
           var courseName = element.course_name.toLowerCase();
           return courseName.contains(query);
-        }).toList();
+        }).toList();*/
+        getUserCourseSearchFromWS(searchString: query).then((value) {
+          // print(value);
+          courseListForDisplay.clear();
+          courseListForDisplay.addAll(value);
+        });
       } else {
         getUserCourseSearchFromWS().then((value) {
           // print(value);
@@ -95,13 +100,13 @@ class CourseState extends State<Course> {
                               )
                             : Icon(Icons.not_interested, color: Colors.red),
                     onTap: () {
-                      // print(courseListForDisplay[index]);
-                      Navigator.push(
+                      print(courseListForDisplay[index]);
+                      /*Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
                                 CourseDetail(courseListForDisplay[index])),
-                      );
+                      );*/
                     },
                   );
                 },
