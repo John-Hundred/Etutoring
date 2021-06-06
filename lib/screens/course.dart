@@ -1,4 +1,3 @@
-import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/screens/courseDetail.dart';
@@ -150,79 +149,6 @@ class CourseState extends State<Course> {
           children: _IsSearching ? _buildSearchList() : _buildList(),
         ),
       ),
-    );
-  }
-
-  Widget projectWidget() {
-    return FutureBuilder(
-      builder: (context, courseSnap) {
-        if (courseSnap.hasData) {
-          return Expanded(
-              child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: courseSnap.data.length ?? 0,
-            itemBuilder: (context, index) {
-              CourseModel course = courseSnap.data[index];
-              return ListTile(
-                title: Text(course.course_name.toUpperCase()),
-              );
-            },
-          ));
-        }
-
-        if (courseSnap.hasData == null) {
-          // print('project snapshot data is: ${courseSnap.data}');
-          return SizedBox(
-            child: CircularProgressIndicator(
-                backgroundColor: ArgonColors.redUnito),
-            width: 60,
-            height: 60,
-          );
-        } else if (courseSnap.hasError) {
-          List<Widget> children;
-          children = <Widget>[
-            const Icon(
-              Icons.error_outline,
-              color: Colors.red,
-              size: 60,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Text('Error: ${courseSnap.error}'),
-            )
-          ];
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: children,
-            ),
-          );
-        } else {
-          List<Widget> children;
-          children = const <Widget>[
-            SizedBox(
-              child: CircularProgressIndicator(
-                  backgroundColor: ArgonColors.redUnito),
-              width: 60,
-              height: 60,
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 15),
-              child: Text('Awaiting result...',
-                  style: TextStyle(color: ArgonColors.redUnito)),
-            )
-          ];
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: children,
-            ),
-          );
-        }
-      },
-      future: getUserCourseSearchFromWS(),
     );
   }
 }
