@@ -60,7 +60,7 @@ class _SignupState extends State<Signup> {
   final confirmPasswordController = TextEditingController();
 
   // CONTROLLER
-  Future userSignin() async {
+  Future userSignup() async {
     setState(() {
       // Showing CircularProgressIndicator.
       visible = true;
@@ -193,7 +193,7 @@ class _SignupState extends State<Signup> {
                       buildAgreePrivacyPolicy(),
                       const SizedBox(height: 30),
 
-                      buildSignInButton(),
+                      buildSignupButton(),
                       const SizedBox(height: 20),
                       Visibility(
                         visible: visible,
@@ -298,13 +298,13 @@ class _SignupState extends State<Signup> {
         ),
       );
 
-  Widget buildSignInButton() => ButtonWidget(
+  Widget buildSignupButton() => ButtonWidget(
       pressed: _checkboxValue,
       text: 'Sign Up',
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {
-          userSignin();
+          userSignup();
         }
       });
 
