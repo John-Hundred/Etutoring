@@ -83,6 +83,7 @@ class CourseState extends State<Course> {
           _searchList.add(course);
         }
       }
+      // print(_searchList);
       return _searchList
           .map((course) => new ChildItem(
               course.course_name, course.course_cfu, course.private_lesson_id))
