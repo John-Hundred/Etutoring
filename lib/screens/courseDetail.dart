@@ -121,7 +121,10 @@ class CourseDetailState extends State<CourseDetail> {
                                                             "${course.data.course_name}"
                                                                 .capitalize(),
                                                             style: TextStyle(
-                                                                fontSize: 15))),
+                                                                fontSize: 15,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))),
                                                       ],
                                                     ),
                                                     DataRow(
