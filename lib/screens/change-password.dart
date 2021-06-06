@@ -155,9 +155,9 @@ class _ChangepasswordState extends State<Changepassword> {
       text: 'Change Password',
       color: ArgonColors.redUnito,
       onClicked: () {
-        /*if (formKey.currentState.validate()) {
-          userSignin();
-        }*/
+        if (formKey.currentState.validate()) {
+          // userSignup();
+        }
       });
 
   Widget buildTitle({
