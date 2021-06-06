@@ -7,11 +7,6 @@ import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-// screens
-import 'package:argon_flutter/screens/home.dart';
-import 'package:argon_flutter/screens/articles.dart';
-import 'package:argon_flutter/screens/elements.dart';
-
 import 'package:move_to_background/move_to_background.dart';
 
 class Profile extends StatefulWidget {
@@ -52,10 +47,7 @@ class _ProfileState extends State<Profile> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             routes: <String, WidgetBuilder>{
-              "/home": (BuildContext context) => new Home(),
               "/profile": (BuildContext context) => new Profile(),
-              "/articles": (BuildContext context) => new Articles(),
-              "/elements": (BuildContext context) => new Elements(),
               "/course": (BuildContext context) => new Course(),
               "/tutoring-course": (BuildContext context) =>
                   new TutoringCourse(),

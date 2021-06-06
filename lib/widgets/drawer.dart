@@ -83,33 +83,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: "Course",
                   isSelected: widget.currentPage == "course" ? true : false),
-              DrawerTile(
-                  icon: Icons.home,
-                  onTap: () {
-                    if (widget.currentPage != "Home")
-                      Navigator.pushReplacementNamed(context, '/home');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: "Home",
-                  isSelected: widget.currentPage == "Home" ? true : false),
-              DrawerTile(
-                  icon: Icons.settings_input_component,
-                  onTap: () {
-                    if (widget.currentPage != "Elements")
-                      Navigator.pushReplacementNamed(context, '/elements');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: "Elements",
-                  isSelected: widget.currentPage == "Elements" ? true : false),
-              DrawerTile(
-                  icon: Icons.apps,
-                  onTap: () {
-                    if (widget.currentPage != "Articles")
-                      Navigator.pushReplacementNamed(context, '/articles');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: "Articles",
-                  isSelected: widget.currentPage == "Articles" ? true : false),
             ],
           ),
         ),
