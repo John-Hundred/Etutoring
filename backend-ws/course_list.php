@@ -16,16 +16,14 @@ try{
 	}
 	if(isset($_GET['course_id'])) {
 		$sql = "SELECT DISTINCT * FROM course where course_id = " . $_GET['course_id'];
-	}else {
+	} else {
 		$sql = "SELECT DISTINCT * FROM course";
 	}
 	$result = $connect->query($sql);
 	$emparray = array();
 	if ($result->num_rows > 0) {
 	  // output data of each row
-	  while($row = $result->fetch_assoc()) {
-		$emparray[] = $row;
-	  }
+	  $emparray = $row = $result->fetch_assoc();
 	} else {
 	  echo "0 results";
 	}

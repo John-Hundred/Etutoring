@@ -244,6 +244,7 @@ class ChildItem extends StatelessWidget {
             )
           : Icon(Icons.not_interested, color: Colors.red),
       onTap: () {
+        // print(this.course.toString());
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => CourseDetail(this.course)),
