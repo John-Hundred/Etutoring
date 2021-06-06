@@ -14,9 +14,11 @@ try{
 	if (mysqli_connect_errno($connect)){
 		die("Unable to connect to MySQL Database: " . mysqli_connect_error());
 	}
-
-	$sql = "SELECT DISTINCT * FROM course";
-
+	if(isset($_GET['course_id'])) {
+		$sql = "SELECT DISTINCT * FROM course where course_id = " . $_GET['course_id'];
+	}else {
+		$sql = "SELECT DISTINCT * FROM course";
+	}
 	$result = $connect->query($sql);
 	$emparray = array();
 	if ($result->num_rows > 0) {
