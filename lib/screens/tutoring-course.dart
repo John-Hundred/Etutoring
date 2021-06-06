@@ -4,6 +4,8 @@ import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
+import 'courseDetail.dart';
+
 class TutoringCourse extends StatefulWidget {
   @override
   TutoringCourseState createState() => new TutoringCourseState();
@@ -19,7 +21,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   bool _IsSearching;
   String _searchText = "";
   Widget appBarTitle = new Text(
-    "Tutoring Course",
+    "Course",
     style: new TextStyle(color: Colors.white),
   );
   Icon actionIcon = new Icon(
@@ -58,20 +60,14 @@ class TutoringCourseState extends State<TutoringCourse> {
 
   List<ChildItem> _buildList() {
     if (courseList != null) {
-      return courseList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else
       return [];
   }
 
   List<ChildItem> _buildSearchList() {
     if (_searchText.isEmpty) {
-      return courseList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else {
       List<CourseModel> _searchList = [];
       for (int i = 0; i < courseList.length; i++) {
@@ -83,10 +79,8 @@ class TutoringCourseState extends State<TutoringCourse> {
           _searchList.add(course);
         }
       }
-      return _searchList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      // print(_searchList);
+      return _searchList.map((course) => new ChildItem(course)).toList();
     }
   }
 
@@ -150,7 +144,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: buildBar(context),
-      drawer: ArgonDrawer("Tutoring Course"),
+      drawer: ArgonDrawer("course"),
       body: Container(
         child: ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
@@ -235,22 +229,27 @@ class TutoringCourseState extends State<TutoringCourse> {
 }
 
 class ChildItem extends StatelessWidget {
-  final String courseName;
-  final String courseCfu;
-  final String privateLessonId;
-  ChildItem(this.courseName, this.courseCfu, this.privateLessonId);
+  final dynamic course;
+  ChildItem(this.course);
   @override
   Widget build(BuildContext context) {
     // return new ListTile(title: new Text(this.name));
     return new ListTile(
-        title: Text(this.courseName.toUpperCase()),
-        subtitle: Text('CFU: ' + this.courseCfu.toUpperCase()),
-        leading: Icon(Icons.library_books),
-        trailing: this.privateLessonId != '-'
-            ? Icon(
-                Icons.calendar_today,
-                color: Colors.green,
-              )
-            : Icon(Icons.not_interested, color: Colors.red));
+      title: Text(this.course.course_name.toUpperCase()),
+      subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase()),
+      leading: Icon(Icons.library_books),
+      trailing: this.course.private_lesson_id != '-'
+          ? Icon(
+              Icons.calendar_today,
+              color: Colors.green,
+            )
+          : Icon(Icons.not_interested, color: Colors.red),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CourseDetail(this.course)),
+        );
+      },
+    );
   }
 }

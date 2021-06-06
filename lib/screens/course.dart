@@ -1,6 +1,7 @@
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/courseModel.dart';
+import 'package:argon_flutter/screens/courseDetail.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -58,20 +59,14 @@ class CourseState extends State<Course> {
 
   List<ChildItem> _buildList() {
     if (courseList != null) {
-      return courseList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else
       return [];
   }
 
   List<ChildItem> _buildSearchList() {
     if (_searchText.isEmpty) {
-      return courseList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else {
       List<CourseModel> _searchList = [];
       for (int i = 0; i < courseList.length; i++) {
@@ -84,10 +79,7 @@ class CourseState extends State<Course> {
         }
       }
       // print(_searchList);
-      return _searchList
-          .map((course) => new ChildItem(
-              course.course_name, course.course_cfu, course.private_lesson_id))
-          .toList();
+      return _searchList.map((course) => new ChildItem(course)).toList();
     }
   }
 
@@ -236,22 +228,27 @@ class CourseState extends State<Course> {
 }
 
 class ChildItem extends StatelessWidget {
-  final String courseName;
-  final String courseCfu;
-  final String privateLessonId;
-  ChildItem(this.courseName, this.courseCfu, this.privateLessonId);
+  final dynamic course;
+  ChildItem(this.course);
   @override
   Widget build(BuildContext context) {
     // return new ListTile(title: new Text(this.name));
     return new ListTile(
-        title: Text(this.courseName.toUpperCase()),
-        subtitle: Text('CFU: ' + this.courseCfu.toUpperCase()),
-        leading: Icon(Icons.library_books),
-        trailing: this.privateLessonId != '-'
-            ? Icon(
-                Icons.calendar_today,
-                color: Colors.green,
-              )
-            : Icon(Icons.not_interested, color: Colors.red));
+      title: Text(this.course.course_name.toUpperCase()),
+      subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase()),
+      leading: Icon(Icons.library_books),
+      trailing: this.course.private_lesson_id != '-'
+          ? Icon(
+              Icons.calendar_today,
+              color: Colors.green,
+            )
+          : Icon(Icons.not_interested, color: Colors.red),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CourseDetail(this.course)),
+        );
+      },
+    );
   }
 }
