@@ -83,6 +83,15 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: "Course",
                   isSelected: widget.currentPage == "course" ? true : false),
+              DrawerTile(
+                  icon: Icons.help_center_outlined,
+                  onTap: () {
+                    /*if (widget.currentPage != "course")
+                      Navigator.pushReplacementNamed(context, '/course');*/
+                  },
+                  iconColor: ArgonColors.black,
+                  title: "Tutor",
+                  isSelected: widget.currentPage == "Tutor" ? true : false),
             ],
           ),
         ),
