@@ -1,3 +1,4 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
@@ -9,114 +10,247 @@ class TutoringCourse extends StatefulWidget {
 }
 
 class TutoringCourseState extends State<TutoringCourse> {
-  // final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
-  // var items = [];
-
-  // ignore: deprecated_member_use
-  List<CourseModel> courseList = List<CourseModel>();
-  // ignore: deprecated_member_use
-  List<CourseModel> courseListForDisplay = List<CourseModel>();
+  List<CourseModel> courseList;
 
   String searchString = "";
+
   final searchController = TextEditingController();
+  // ignore: non_constant_identifier_names
+  bool _IsSearching;
+  String _searchText = "";
+  Widget appBarTitle = new Text(
+    "Tutoring Course",
+    style: new TextStyle(color: Colors.white),
+  );
+  Icon actionIcon = new Icon(
+    Icons.search,
+    color: Colors.white,
+  );
+  final key = new GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
-    getUserCourseSearchPrivateLessonFromWS().then((value) => {
-          setState(() {
-            // print(value);
-            courseList.addAll(value);
-            courseListForDisplay = courseList;
-          })
+  TutoringCourseState() {
+    searchController.addListener(() {
+      if (searchController.text.isEmpty) {
+        setState(() {
+          _IsSearching = false;
+          _searchText = "";
         });
-    super.initState();
-  }
-
-  void filterSearchResults(String query) {
-    setState(() {
-      if (query.isNotEmpty && query.length > 3) {
-        courseListForDisplay = courseListForDisplay.where((element) {
-          var courseName = element.course_name.toLowerCase();
-          return courseName.contains(query);
-        }).toList();
-        /*getUserCourseSearchPrivateLessonFromWS(searchString: query)
-            .then((value) {
-          // print(value);
-          courseListForDisplay.clear();
-          courseListForDisplay.addAll(value);
-        });*/
       } else {
-        getUserCourseSearchPrivateLessonFromWS().then((value) {
-          // print(value);
-          courseListForDisplay.clear();
-          courseListForDisplay.addAll(value);
+        setState(() {
+          _IsSearching = true;
+          _searchText = searchController.text;
         });
       }
     });
   }
 
   @override
+  void initState() {
+    super.initState();
+    _IsSearching = false;
+    getUserCourseSearchPrivateLessonFromWS().then((value) => {
+          setState(() {
+            courseList = value;
+            // print(courseList);
+          })
+        });
+  }
+
+  List<ChildItem> _buildList() {
+    if (courseList != null) {
+      return courseList
+          .map((course) => new ChildItem(
+              course.course_name, course.course_cfu, course.private_lesson_id))
+          .toList();
+    } else
+      return [];
+  }
+
+  List<ChildItem> _buildSearchList() {
+    if (_searchText.isEmpty) {
+      return courseList
+          .map((course) => new ChildItem(
+              course.course_name, course.course_cfu, course.private_lesson_id))
+          .toList();
+    } else {
+      List<CourseModel> _searchList = [];
+      for (int i = 0; i < courseList.length; i++) {
+        CourseModel course = courseList.elementAt(i);
+        if (course
+            .toString()
+            .toLowerCase()
+            .contains(_searchText.toLowerCase())) {
+          _searchList.add(course);
+        }
+      }
+      return _searchList
+          .map((course) => new ChildItem(
+              course.course_name, course.course_cfu, course.private_lesson_id))
+          .toList();
+    }
+  }
+
+  void _handleSearchStart() {
+    setState(() {
+      _IsSearching = true;
+    });
+  }
+
+  void _handleSearchEnd() {
+    setState(() {
+      this.actionIcon = new Icon(
+        Icons.search,
+        color: Colors.white,
+      );
+      this.appBarTitle = new Text(
+        "Search Sample",
+        style: new TextStyle(color: Colors.white),
+      );
+      _IsSearching = false;
+      searchController.clear();
+    });
+  }
+
+  Widget buildBar(BuildContext context) {
+    return new AppBar(
+        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+        centerTitle: true,
+        title: appBarTitle,
+        actions: <Widget>[
+          new IconButton(
+            icon: actionIcon,
+            onPressed: () {
+              setState(() {
+                if (this.actionIcon.icon == Icons.search) {
+                  this.actionIcon = new Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  );
+                  this.appBarTitle = new TextField(
+                    controller: searchController,
+                    style: new TextStyle(
+                      color: Colors.white,
+                    ),
+                    decoration: new InputDecoration(
+                        prefixIcon: new Icon(Icons.search, color: Colors.white),
+                        hintText: "Search...",
+                        hintStyle: new TextStyle(color: Colors.white)),
+                  );
+                  _handleSearchStart();
+                } else {
+                  _handleSearchEnd();
+                }
+              });
+            },
+          ),
+        ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(
-          title: const Text('My Tutoring Course'),
-          backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+      appBar: buildBar(context),
       drawer: ArgonDrawer("Tutoring Course"),
       body: Container(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                onChanged: (value) {
-                  filterSearchResults(value);
-                },
-                controller: searchController,
-                decoration: InputDecoration(
-                    labelText: "Search",
-                    hintText: "Search",
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)))),
-              ),
-            ),
-            Expanded(
-              child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return Divider();
-                },
-                shrinkWrap: true,
-                itemCount: courseListForDisplay.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                      title: Text('${courseListForDisplay[index].course_name}'
-                          .toUpperCase()),
-                      subtitle: Text('CFU: ' +
-                          '${courseListForDisplay[index].course_cfu}'
-                              .toUpperCase()),
-                      leading: Icon(Icons.library_books),
-                      trailing:
-                          courseListForDisplay[index].private_lesson_id != '-'
-                              ? Icon(
-                                  Icons.calendar_today,
-                                  color: Colors.green,
-                                )
-                              : Icon(Icons.not_interested, color: Colors.red),
-                      onTap: () {
-                        print(courseListForDisplay[index]);
-                        /*Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  CourseDetail(courseListForDisplay[index])),
-                        );*/
-                      });
-                },
-              ),
-            ),
-          ],
+        child: ListView(
+          padding: new EdgeInsets.symmetric(vertical: 8.0),
+          children: _IsSearching ? _buildSearchList() : _buildList(),
         ),
       ),
     );
+  }
+
+  Widget projectWidget() {
+    return FutureBuilder(
+      builder: (context, courseSnap) {
+        if (courseSnap.hasData) {
+          return Expanded(
+              child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: courseSnap.data.length ?? 0,
+            itemBuilder: (context, index) {
+              CourseModel course = courseSnap.data[index];
+              return ListTile(
+                title: Text(course.course_name.toUpperCase()),
+              );
+            },
+          ));
+        }
+
+        if (courseSnap.hasData == null) {
+          // print('project snapshot data is: ${courseSnap.data}');
+          return SizedBox(
+            child: CircularProgressIndicator(
+                backgroundColor: ArgonColors.redUnito),
+            width: 60,
+            height: 60,
+          );
+        } else if (courseSnap.hasError) {
+          List<Widget> children;
+          children = <Widget>[
+            const Icon(
+              Icons.error_outline,
+              color: Colors.red,
+              size: 60,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: Text('Error: ${courseSnap.error}'),
+            )
+          ];
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: children,
+            ),
+          );
+        } else {
+          List<Widget> children;
+          children = const <Widget>[
+            SizedBox(
+              child: CircularProgressIndicator(
+                  backgroundColor: ArgonColors.redUnito),
+              width: 60,
+              height: 60,
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 15),
+              child: Text('Awaiting result...',
+                  style: TextStyle(color: ArgonColors.redUnito)),
+            )
+          ];
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: children,
+            ),
+          );
+        }
+      },
+      future: getUserCourseSearchFromWS(),
+    );
+  }
+}
+
+class ChildItem extends StatelessWidget {
+  final String courseName;
+  final String courseCfu;
+  final String privateLessonId;
+  ChildItem(this.courseName, this.courseCfu, this.privateLessonId);
+  @override
+  Widget build(BuildContext context) {
+    // return new ListTile(title: new Text(this.name));
+    return new ListTile(
+        title: Text(this.courseName.toUpperCase()),
+        subtitle: Text('CFU: ' + this.courseCfu.toUpperCase()),
+        leading: Icon(Icons.library_books),
+        trailing: this.privateLessonId != '-'
+            ? Icon(
+                Icons.calendar_today,
+                color: Colors.green,
+              )
+            : Icon(Icons.not_interested, color: Colors.red));
   }
 }
