@@ -47,7 +47,8 @@ dependencies:
   email_validator: ^2.0.1
 
   select_form_field: "^1.0.0"
-  
+
+
 dev_dependencies:
   
   flutter_test:

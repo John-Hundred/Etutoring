@@ -3,8 +3,6 @@ import 'package:argon_flutter/model/courseModel.dart';
 import 'package:argon_flutter/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'courseDetail.dart';
-
 class TutoringCourse extends StatefulWidget {
   @override
   TutoringCourseState createState() => new TutoringCourseState();
