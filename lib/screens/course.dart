@@ -96,7 +96,7 @@ class CourseState extends State<Course> {
         color: Colors.white,
       );
       this.appBarTitle = new Text(
-        "Search Sample",
+        "Course",
         style: new TextStyle(color: Colors.white),
       );
       _IsSearching = false;

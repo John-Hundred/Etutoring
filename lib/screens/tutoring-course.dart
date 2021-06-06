@@ -21,7 +21,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   bool _IsSearching;
   String _searchText = "";
   Widget appBarTitle = new Text(
-    "Course",
+    "Tutoring Course",
     style: new TextStyle(color: Colors.white),
   );
   Icon actionIcon = new Icon(
@@ -97,7 +97,7 @@ class TutoringCourseState extends State<TutoringCourse> {
         color: Colors.white,
       );
       this.appBarTitle = new Text(
-        "Search Sample",
+        "Tutoring Course",
         style: new TextStyle(color: Colors.white),
       );
       _IsSearching = false;
@@ -144,7 +144,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: buildBar(context),
-      drawer: ArgonDrawer("course"),
+      drawer: ArgonDrawer("Tutoring Course"),
       body: Container(
         child: ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
