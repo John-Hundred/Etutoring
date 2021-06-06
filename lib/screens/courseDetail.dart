@@ -211,46 +211,28 @@ class CourseDetailState extends State<CourseDetail> {
                                                                 fontSize: 15))),
                                                       ],
                                                     ),
-                                                    /*DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Luogo di Nascita',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold))),
-                                                            DataCell(Text(
-                                                                "${user.data.birth_city}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Città di residenza',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold))),
-                                                            DataCell(Text(
-                                                                "${user.data.residence_city}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),*/
+                                                    DataRow(
+                                                      cells: <DataCell>[
+                                                        DataCell(Text(
+                                                            'Department',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .redAccent,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))),
+                                                        DataCell(Text(
+                                                            "${course.data.department}",
+                                                            style: TextStyle(
+                                                                fontSize: 15))),
+                                                      ],
+                                                    ),
                                                   ],
                                                 )),
                                             SizedBox(
                                               height: 20,
                                             ),
-                                            Container(
+                                            /*Container(
                                                 color: Color.fromRGBO(
                                                     205, 205, 205, 1),
                                                 child: DataTable(
@@ -293,105 +275,9 @@ class CourseDetailState extends State<CourseDetail> {
                                                                         15))),
                                                           ],
                                                         ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Matricola',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.badge_number}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Corso di Laurea',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.degree_name} (" +
-                                                                    "${user.data.degree_athenaeum})",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Tipologia',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.degree_type_note} (" +
-                                                                    "${user.data.degree_type_name})",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Sede',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.degree_location}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Percorso',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.degree_path_name}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),*/
+                                                        */
                                                   ],
-                                                )),
+                                                )),*/
                                           ];
                                         } else if (course.hasError) {
                                           children = <Widget>[
