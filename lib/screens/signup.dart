@@ -71,15 +71,22 @@ class _SignupState extends State<Signup> {
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
       // Store all data with Param Name: json format
-      var data = {'email': email, 'password': password};
-
+      var data = {
+        'email': email,
+        'password': password,
+        'degree_name': degreeNameSelected.toString(),
+        'degree_type': degreeTypeNoteSelected.toString(),
+        'curriculum': dropDownValueCurriculum.toString(),
+        'role': dropDownValueRole.toString()
+      };
+      print(json.encode(data));
       // Starting Web API Call.
       // http method: POST
       var response = await http
           .post(Uri.https(authority, unencodedPath + 'user_signup.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
-      // print(response.body);
+      print(response.body);
       if (response.statusCode == 200) {
         var message = jsonDecode(response.body);
         if (message == 'New record created successfully') {
@@ -138,7 +145,8 @@ class _SignupState extends State<Signup> {
         // Showing CircularProgressIndicator.
         visible = false;
       });
-    } on Exception {
+    } on Exception catch ($e) {
+      print('error caught: ' + $e.toString());
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Sign up Error. Verify Your Connection.'),
         backgroundColor: Colors.redAccent,

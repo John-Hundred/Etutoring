@@ -11,6 +11,10 @@ define("DB_NAME", "Sql1558195_1");
 sleep(2);
 
 try {
+	/*$degree_id = 0;
+	$degree_path_id = 0;
+	$role_id = 0;*/
+	
 	$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	if (mysqli_connect_errno($connect)){
 		die("Unable to connect to MySQL Database: " . mysqli_connect_error());
@@ -22,15 +26,14 @@ try {
 	// Decoding the received JSON and store into $obj variable.
 	$obj = json_decode($json,true);
 
-	// Getting User email from JSON $obj array and store into $email.
-	$email = $obj['email'];
 
-	// Getting Password from JSON $obj array and store into $password.
+	$email = $obj['email'];
 	$password = $obj['password'];
 	$hashed_password = md5($password);
-
-	$firstname = $obj['firstname'] ?? '';
-	$lastname = $obj['lastname'] ?? '';
+	$degree_name = $obj['degree_name'];
+	$degree_type = $obj['degree_type'];
+	$curriculum = $obj['curriculum'];
+	$role = $obj['role'];
 	
 	if($email && $password){
 		//Verify if User email exist.
@@ -58,9 +61,32 @@ try {
 			
 			if($connect->query($sql)){
 				
-				$last_id = $connect->insert_id;
+				// get degree type id
+				$sqlDegreeType = "SELECT degree_type_id FROM `degree_type` WHERE degree_type_note = '" . $degree_type ."'";
+				$result = $connect->query($sqlDegreeType);
+				$row = $result->fetch_assoc();
+				$degree_type_id = $row['degree_type_id'];
 				
-				$sql = "INSERT INTO user_attribute (firstname, lastname, user_id) VALUES ('$firstname', '$lastname', $last_id)";
+				// get degree id
+				$sqlDegree = "SELECT degree_id FROM `degree` WHERE degree_name = '" . $degree_name ."' AND degree_type_id = '" . $degree_type_id ."'";
+				$result = $connect->query($sqlDegree);
+				$row = $result->fetch_assoc();
+				$degree_id = $row['degree_id'];
+				
+				// get curriculum path id
+				$sqlCurriculum = "SELECT degree_path_id FROM `degree_path` WHERE degree_path_name = '" . $curriculum ."'";
+				$result = $connect->query($sqlCurriculum);
+				$row = $result->fetch_assoc();
+				$degree_path_id = $row['degree_path_id'];
+				
+				// get role id
+				$sqlRole = "SELECT role_id FROM `role` WHERE role_name = '" . $role ."'";
+				$result = $connect->query($sqlRole);
+				$row = $result->fetch_assoc();
+				$role_id = $row['role_id'];
+				
+				$last_id = $connect->insert_id;
+				$sql = "INSERT INTO user_attribute (degree_id, degree_path_id, role_id, user_id) VALUES ($degree_id, $degree_path_id, $role_id, $last_id)";
 				
 				if($connect->query($sql)){
 					
