@@ -66,7 +66,7 @@ class _ProfileState extends State<Profile> {
                   PopupMenuButton(
                       onSelected: (result) {
                         if (result == 0) {
-                          print("fill data");
+                          print(0);
                         }
                       },
                       icon: Icon(Icons.more_vert, color: Colors.white),
