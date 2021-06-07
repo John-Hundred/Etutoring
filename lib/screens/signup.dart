@@ -79,16 +79,16 @@ class _SignupState extends State<Signup> {
         'curriculum': dropDownValueCurriculum.toString(),
         'role': dropDownValueRole.toString()
       };
-      print(json.encode(data));
+      // print(json.encode(data));
       // Starting Web API Call.
       // http method: POST
       var response = await http
           .post(Uri.https(authority, unencodedPath + 'user_signup.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
-      print(response.body);
+      // print(response.body);
+      var message = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        var message = jsonDecode(response.body);
         if (message == 'New record created successfully') {
           showDialog<String>(
               context: context,
@@ -113,8 +113,8 @@ class _SignupState extends State<Signup> {
           showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Sign Up'),
-                    content: const Text('Error. Try Again'),
+                    title: Text("Sign Up"),
+                    content: Text(message.toString()),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () {
@@ -130,7 +130,7 @@ class _SignupState extends State<Signup> {
             context: context,
             builder: (BuildContext context) => AlertDialog(
                   title: const Text('Sign Up'),
-                  content: const Text('Error. Try Again'),
+                  content: Text(message.toString()),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
