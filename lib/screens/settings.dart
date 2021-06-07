@@ -31,6 +31,7 @@ class _SettingsState extends State<Settings> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text("Change Language TODO"),
+                    Text("Other settings"),
                     SizedBox(
                       width: double.infinity,
                       child: Padding(
