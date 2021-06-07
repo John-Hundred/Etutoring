@@ -164,12 +164,6 @@ class ChildItem extends StatelessWidget {
       title: Text(this.course.course_name.toUpperCase()),
       subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase()),
       leading: Icon(Icons.library_books),
-      trailing: this.course.private_lesson_id != '-'
-          ? Icon(
-              Icons.calendar_today,
-              color: Colors.green,
-            )
-          : Icon(Icons.not_interested, color: Colors.red),
       onTap: () {
         Navigator.push(
           context,
