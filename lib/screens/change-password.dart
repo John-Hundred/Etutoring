@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:ui';
+import 'package:argon_flutter/config/config.dart';
 import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:argon_flutter/constants/Theme.dart';
 
@@ -63,6 +66,65 @@ class _ChangepasswordState extends State<Changepassword> {
     this.password = password;
   }
 
+  // CONTROLLER
+  Future userChangePassword() async {
+    try {
+      setState(() {
+        // Showing CircularProgressIndicator.
+        visible = true;
+      });
+
+      // Getting value from Controller
+      String email = await UserSecureStorage.getEmail();
+      String password = passwordController.text.trim();
+
+      var data = {
+        'email': email,
+        'password': password,
+      };
+      // print(json.encode(data));
+
+      var response = await http
+          .post(
+              Uri.https(authority, unencodedPath + 'user_change_password.php'),
+              body: json.encode(data))
+          .timeout(const Duration(seconds: 8));
+
+      if (response.statusCode == 200) {
+        var message = jsonDecode(response.body);
+        // print(message);
+        setState(() {
+          visible = false;
+        });
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: new Text(message),
+              actions: <Widget>[
+                TextButton(
+                  child: new Text("OK"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } on Exception catch ($e) {
+      print('error caught: ' + $e.toString());
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+      setState(() {
+        visible = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     this.init();
@@ -83,11 +145,6 @@ class _ChangepasswordState extends State<Changepassword> {
                   child: ListView(
                     padding: EdgeInsets.all(8),
                     children: [
-                      const SizedBox(height: 12),
-                      Text(
-                        "E-mail: " + this.email,
-                        style: TextStyle(fontSize: 20),
-                      ),
                       const SizedBox(height: 12),
                       buildOldPassword(),
                       const SizedBox(height: 12),
@@ -118,7 +175,7 @@ class _ChangepasswordState extends State<Changepassword> {
   Widget buildOldPassword() => buildTitle(
         title: 'Old Password',
         child: TextFormField(
-          obscureText: _obscureText,
+          obscureText: _obscureTextOld,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your old password';
@@ -137,11 +194,10 @@ class _ChangepasswordState extends State<Changepassword> {
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
-                // (this.emailController.text);
                 _toggleOld();
               },
               child: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
+                _obscureTextOld ? Icons.visibility : Icons.visibility_off,
                 color: Colors.black,
               ),
             ),
@@ -155,7 +211,13 @@ class _ChangepasswordState extends State<Changepassword> {
           obscureText: _obscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your new password';
+              return 'Please enter your new password.';
+            }
+            if (value.length < 4) {
+              return 'Enter a password of at least 4 characters.';
+            }
+            if (value == this.password) {
+              return 'The new password is the same as the old one.';
             }
             return null;
           },
@@ -197,7 +259,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'New Password',
+            hintText: 'Confirm New Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -218,7 +280,7 @@ class _ChangepasswordState extends State<Changepassword> {
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {
-          // userSignup();
+          userChangePassword();
         }
       });
 

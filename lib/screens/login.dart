@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
           .post(Uri.https(authority, unencodedPath + 'user_login.php'),
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
-      print(response.body);
+      // print(response.body);
       switch (response.statusCode) {
         case 200:
           // Getting Server response into variable.

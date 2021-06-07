@@ -243,6 +243,9 @@ class _SignupState extends State<Signup> {
             if (value == null || value.isEmpty) {
               return 'Please enter your password';
             }
+            if (value.length < 4) {
+              return 'Enter a password of at least 4 characters.';
+            }
             return null;
           },
           controller: passwordController,
