@@ -36,13 +36,22 @@ try {
 
 		if ($connect->query($sql) === TRUE) {
 			$last_id = $connect->insert_id;
-			$sql = "DELETE FROM user_attribute WHERE id='" . $user_id ."'";
+			$sql = "DELETE FROM user_attribute WHERE user_id='" . $user_id ."'";
 			if ($connect->query($sql) === TRUE) {
-				echo "User deleted successfully";
+				$SuccessMSG = json_encode("User deleted successfully");
+				// Echo the message.
+				echo $SuccessMSG ; 
 			}
 		} else {
-		  echo "Error deleting User: " . $conn->error;
+			$InvalidMSG = "Error deleting User: " . $connect->error;
+			$InvalidMSGJSon = json_encode($InvalidMSG, JSON_INVALID_UTF8_IGNORE);
+			echo $InvalidMSGJSon;
 		}
+	} else {
+			$InvalidMSG = "Error deleting User: No email param found";
+			$InvalidMSGJSon = json_encode($InvalidMSG, JSON_INVALID_UTF8_IGNORE);
+			echo $InvalidMSGJSon;
+	}
 		
 	mysqli_close($connect);
 } catch (Exception $e) {
