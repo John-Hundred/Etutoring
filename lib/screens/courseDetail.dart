@@ -224,7 +224,7 @@ class CourseDetailState extends State<CourseDetail> {
                                                             "${course.data.curriculum}"
                                                                 .capitalize(),
                                                             style: TextStyle(
-                                                                fontSize: 12))),
+                                                                fontSize: 15))),
                                                       ],
                                                     ),
                                                   ],
