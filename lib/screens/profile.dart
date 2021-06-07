@@ -1,6 +1,7 @@
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/controller/controllerWS.dart';
 import 'package:argon_flutter/model/userModel.dart';
+import 'package:argon_flutter/screens/calendar.dart';
 import 'package:argon_flutter/screens/change-password.dart';
 import 'package:argon_flutter/screens/course.dart';
 import 'package:argon_flutter/screens/tutoring-course.dart';
@@ -52,6 +53,7 @@ class _ProfileState extends State<Profile> {
               "/course": (BuildContext context) => new Course(),
               "/tutoring-course": (BuildContext context) =>
                   new TutoringCourse(),
+              "/calendar": (BuildContext context) => new Calendar(),
             },
             home: Scaffold(
               backgroundColor: Color.fromRGBO(205, 205, 205, 1),

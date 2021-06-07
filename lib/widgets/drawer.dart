@@ -95,12 +95,12 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
               DrawerTile(
                   icon: Icons.calendar_today,
                   onTap: () {
-                    /*if (widget.currentPage != "course")
-                      Navigator.pushReplacementNamed(context, '/course');*/
+                    if (widget.currentPage != "calendar")
+                      Navigator.pushReplacementNamed(context, '/calendar');
                   },
                   iconColor: ArgonColors.black,
                   title: "Calendar",
-                  isSelected: widget.currentPage == "Calendar" ? true : false),
+                  isSelected: widget.currentPage == "calendar" ? true : false),
             ],
           ),
         ),
