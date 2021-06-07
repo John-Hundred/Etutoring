@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:argon_flutter/utils/user_secure_storage.dart';
 import 'package:argon_flutter/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +16,25 @@ class _ChangepasswordState extends State<Changepassword> {
     super.initState();
   }
 
+  String email;
+  String password;
+
   final double height = window.physicalSize.height;
 
   // For CircularProgressIndicator.
   bool visible = false;
 
   // Initially password is obscure
+  bool _obscureTextOld = true;
   bool _obscureText = true;
   bool _obscureTextConfirm = true;
+
+  // Toggles the password show status
+  void _toggleOld() {
+    setState(() {
+      _obscureTextOld = !_obscureTextOld;
+    });
+  }
 
   // Toggles the password show status
   void _toggle() {
@@ -42,9 +54,18 @@ class _ChangepasswordState extends State<Changepassword> {
 
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final passwordOldController = TextEditingController();
+
+  Future init() async {
+    final email = await UserSecureStorage.getEmail() ?? '';
+    final password = await UserSecureStorage.getPassword() ?? '';
+    this.email = email;
+    this.password = password;
+  }
 
   @override
   Widget build(BuildContext context) {
+    this.init();
     return Scaffold(
         appBar: AppBar(
             title: const Text('Change Password'),
@@ -63,9 +84,16 @@ class _ChangepasswordState extends State<Changepassword> {
                     padding: EdgeInsets.all(8),
                     children: [
                       const SizedBox(height: 12),
-                      buildPassword(),
+                      Text(
+                        "E-mail: " + this.email,
+                        style: TextStyle(fontSize: 20),
+                      ),
                       const SizedBox(height: 12),
-                      buildConfirmPassword(),
+                      buildOldPassword(),
+                      const SizedBox(height: 12),
+                      buildNewPassword(),
+                      const SizedBox(height: 12),
+                      buildConfirmNewPassword(),
                       const SizedBox(height: 12),
                       buildButton(),
                       const SizedBox(height: 20),
@@ -87,13 +115,47 @@ class _ChangepasswordState extends State<Changepassword> {
         ));
   }
 
-  Widget buildPassword() => buildTitle(
-        title: 'Password',
+  Widget buildOldPassword() => buildTitle(
+        title: 'Old Password',
         child: TextFormField(
           obscureText: _obscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your password';
+              return 'Please enter your old password';
+            }
+            if (value != this.password) {
+              return 'The old password you entered do not match.';
+            }
+            return null;
+          },
+          controller: passwordOldController,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(),
+            hintText: 'Old Password',
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: GestureDetector(
+              onTap: () async {
+                // (this.emailController.text);
+                _toggleOld();
+              },
+              child: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget buildNewPassword() => buildTitle(
+        title: 'New Password',
+        child: TextFormField(
+          obscureText: _obscureText,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your new password';
             }
             return null;
           },
@@ -102,7 +164,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Password',
+            hintText: 'New Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -118,16 +180,16 @@ class _ChangepasswordState extends State<Changepassword> {
         ),
       );
 
-  Widget buildConfirmPassword() => buildTitle(
+  Widget buildConfirmNewPassword() => buildTitle(
         title: 'Confirm Password',
         child: TextFormField(
           obscureText: _obscureTextConfirm,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please confirm your password';
+              return 'Please confirm your new password';
             }
             if (value != passwordController.text)
-              return 'The passwords you entered do not match.';
+              return 'The new passwords you entered do not match.';
             return null;
           },
           controller: confirmPasswordController,
@@ -135,7 +197,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Password',
+            hintText: 'New Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
