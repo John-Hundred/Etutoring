@@ -60,8 +60,18 @@ class _ProfileState extends State<Profile> {
             home: Scaffold(
               backgroundColor: Color.fromRGBO(205, 205, 205, 1),
               appBar: AppBar(
-                  title: const Text('Profilo'),
-                  backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+                title: const Text('Profilo'),
+                backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+                actions: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.only(right: 20.0),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.more_vert),
+                      )),
+                ],
+              ),
+
               // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
               drawer: ArgonDrawer("profile"),
               body: Stack(children: <Widget>[
