@@ -96,6 +96,10 @@ class _ProfileState extends State<Profile> {
                                                       // print(user.data);
                                                       children = <Widget>[
                                                         Container(
+                                                            constraints:
+                                                                BoxConstraints(
+                                                                    minWidth:
+                                                                        600),
                                                             color:
                                                                 Color.fromRGBO(
                                                                     205,
@@ -302,6 +306,10 @@ class _ProfileState extends State<Profile> {
                                                           height: 20,
                                                         ),
                                                         Container(
+                                                            constraints:
+                                                                BoxConstraints(
+                                                                    minWidth:
+                                                                        600),
                                                             color:
                                                                 Color.fromRGBO(
                                                                     205,
