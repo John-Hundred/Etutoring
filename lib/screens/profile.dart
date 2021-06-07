@@ -63,12 +63,19 @@ class _ProfileState extends State<Profile> {
                 title: const Text('Profilo'),
                 backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                 actions: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(right: 20.0),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Icon(Icons.more_vert),
-                      )),
+                  PopupMenuButton(
+                      onSelected: (result) {
+                        if (result == 0) {
+                          print("fill data");
+                        }
+                      },
+                      icon: Icon(Icons.more_vert, color: Colors.white),
+                      itemBuilder: (context) => [
+                            PopupMenuItem(
+                              child: Text("Fill data"),
+                              value: 0,
+                            ),
+                          ]),
                 ],
               ),
 
