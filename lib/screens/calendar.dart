@@ -143,7 +143,6 @@ class _CalendarState extends State<Calendar> {
       appBar: AppBar(
           title: const Text('Calendar'),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
-      // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
       drawer: ArgonDrawer("calendar"),
       body: Column(
         children: [
