@@ -179,25 +179,6 @@ class CourseDetailState extends State<CourseDetail> {
                                                     ),
                                                     DataRow(
                                                       cells: <DataCell>[
-                                                        DataCell(Text(
-                                                          'Curriculum',
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .redAccent,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 15),
-                                                        )),
-                                                        DataCell(Text(
-                                                            "${course.data.curriculum}"
-                                                                .capitalize(),
-                                                            style: TextStyle(
-                                                                fontSize: 15))),
-                                                      ],
-                                                    ),
-                                                    DataRow(
-                                                      cells: <DataCell>[
                                                         DataCell(Text('Type',
                                                             style: TextStyle(
                                                                 color: Colors
@@ -223,6 +204,25 @@ class CourseDetailState extends State<CourseDetail> {
                                                                         .bold))),
                                                         DataCell(Text(
                                                             "${course.data.department}",
+                                                            style: TextStyle(
+                                                                fontSize: 15))),
+                                                      ],
+                                                    ),
+                                                    DataRow(
+                                                      cells: <DataCell>[
+                                                        DataCell(Text(
+                                                          'Curriculum',
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .redAccent,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 15),
+                                                        )),
+                                                        DataCell(Text(
+                                                            "${course.data.curriculum}"
+                                                                .capitalize(),
                                                             style: TextStyle(
                                                                 fontSize: 15))),
                                                       ],
