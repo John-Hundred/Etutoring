@@ -219,6 +219,7 @@ class _CalendarState extends State<Calendar> {
                       decoration: BoxDecoration(
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(12.0),
+                        /*color: Colors.grey*/
                       ),
                       child: ListTile(
                         onTap: () => print('${value[index]}'),
