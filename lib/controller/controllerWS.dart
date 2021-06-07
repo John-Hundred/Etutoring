@@ -52,6 +52,7 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
     var response = await http.get(Uri.https(
         authority, unencodedPath + "course_search.php", queryParameters));
     if (response.statusCode == 200) {
+      // print(response.body);
       var courseJsonData = json.decode(response.body);
       // print(courseJsonData);
       for (var courseItem in courseJsonData) {

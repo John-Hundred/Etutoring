@@ -50,6 +50,7 @@ class CourseState extends State<Course> {
     _IsSearching = false;
     getUserCourseSearchFromWS().then((value) => {
           setState(() {
+            // print(value);
             courseList = value;
             // print(courseList);
           })

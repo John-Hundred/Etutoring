@@ -2,12 +2,10 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 define("DB_HOST", "31.11.39.54");
 define("DB_USER", "Sql1558195");
 define("DB_PASSWORD", "ab12pozt12Q!!");
 define("DB_NAME", "Sql1558195_1");
-	
 try {
 	$query = "";
 	$arrayResults = array();
@@ -22,8 +20,12 @@ try {
 		// changes characters used in html to their equivalents, for example: < to &gt;
 		// var_dump($query);
 				
+				
 		// $sql = "SELECT * FROM course order by course_name";
-		$sql = "SELECT course.*, private_lesson.* FROM user 
+		$sql = "SELECT course.*, private_lesson.private_lesson_id, private_lesson.private_lesson_start_hour, 
+		private_lesson.private_lesson_end_hour, private_lesson.private_lesson_day, private_lesson.private_lesson_location,
+		private_lesson.private_lesson_note, private_lesson.user_id, private_lesson.tutor_id
+		FROM user 
 		left join user_attribute on user.id = user_attribute.user_id
 		left join degree on user_attribute.degree_id = degree.degree_id
 		left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
@@ -38,7 +40,7 @@ try {
 		if($results){
 			if ($results->num_rows > 0) {
 				while($row = $results->fetch_assoc()) {
-					$arrayResults[] = $row;
+				if($row['course_id']) $arrayResults[] = $row;
 				  }
 			}
 		}
@@ -59,7 +61,9 @@ try {
 		// var_dump($query);
 				
 		// $sql = "SELECT * FROM course WHERE (`course_name` LIKE '%".$query."%') order by course_name";
-		$sql = "SELECT course.*, private_lesson.* FROM user 
+		$sql = "SELECT course.*, private_lesson.private_lesson_id, private_lesson.private_lesson_start_hour, 
+		private_lesson.private_lesson_end_hour, private_lesson.private_lesson_day, private_lesson.private_lesson_location,
+		private_lesson.private_lesson_note, private_lesson.user_id, private_lesson.tutor_id FROM user 
 			left join user_attribute on user.id = user_attribute.user_id
 			left join degree on user_attribute.degree_id = degree.degree_id
 			left join degree_path on user_attribute.degree_path_id = degree_path.degree_path_id
