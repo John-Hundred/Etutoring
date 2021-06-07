@@ -46,7 +46,27 @@ class _SettingsState extends State<Settings> {
                               borderRadius: BorderRadius.circular(25),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => new AlertDialog(
+                                      title: new Text('Are you sure?'),
+                                      content: new Text(
+                                          'Do you want to delete your account?\n'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.of(context).pop(false),
+                                          child: new Text('No'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.of(context).pop(true),
+                                          child: new Text('Yes'),
+                                        ),
+                                      ],
+                                    ));
+                          },
                           child: Padding(
                               padding: EdgeInsets.only(
                                   left: 16.0, right: 16.0, top: 12, bottom: 12),
