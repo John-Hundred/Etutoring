@@ -115,21 +115,40 @@ class _SettingsState extends State<Settings> {
                             showDialog(
                                 context: context,
                                 builder: (context) => new AlertDialog(
-                                      title: new Text('Are you sure?'),
+                                      // backgroundColor: Colors.grey,
+                                      title: new Text('Are you sure?',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20)),
                                       content: new Text(
-                                          'Do you want to delete your account?\n'),
+                                          'Do you want to delete your account?',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15)),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () =>
                                               Navigator.of(context).pop(false),
-                                          child: new Text('No'),
+                                          child: new Text(
+                                            'No',
+                                            style: TextStyle(
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
+                                          ),
                                         ),
                                         TextButton(
                                           onPressed: () {
                                             Navigator.of(context).pop(true);
                                             userDelete();
                                           },
-                                          child: new Text('Yes'),
+                                          child: new Text('Yes',
+                                              style: TextStyle(
+                                                  color: Colors.green,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                       ],
                                     ));
