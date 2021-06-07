@@ -151,7 +151,7 @@ class _ChangepasswordState extends State<Changepassword> {
                       buildNewPassword(),
                       const SizedBox(height: 12),
                       buildConfirmNewPassword(),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 30),
                       buildButton(),
                       const SizedBox(height: 20),
                       Visibility(
