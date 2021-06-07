@@ -43,7 +43,7 @@ class _SettingsState extends State<Settings> {
       var data = {
         'email': email,
       };
-      print(json.encode(data));
+      // print(json.encode(data));
       // Starting Web API Call.
       // http method: POST
       var response = await http
