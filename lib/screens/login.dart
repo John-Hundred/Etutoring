@@ -151,14 +151,6 @@ class _LoginState extends State<Login> {
             child: ListView(
               padding: EdgeInsets.all(16),
               children: [
-                /*Text(
-                  AppLocalizations.of(context).language ?? '',
-                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  AppLocalizations.of(context).helloWorld ?? '',
-                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-                ),*/
                 const SizedBox(height: 50),
                 Image.asset('assets/img/logo_size_2.jpg',
                     height: 100, width: 100),

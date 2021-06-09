@@ -5,6 +5,7 @@ import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/screens/login.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -96,13 +97,15 @@ class _SettingsState extends State<Settings> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text("Change Language TODO"),
-                    Text("Other settings"),
+                    const SizedBox(height: 32),
+                    Text("Change Language"),
+                    LanguagePickerWidget(),
+                    const SizedBox(height: 32),
                     SizedBox(
                       width: double.infinity,
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 34.0, right: 34.0, top: 8),
+                            left: 1.0, right: 1.0, top: 8),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size.fromHeight(52),

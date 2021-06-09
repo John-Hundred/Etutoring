@@ -50,6 +50,9 @@ dependencies:
 
   table_calendar: ^3.0.0
 
+  # state management
+  provider: ^4.3.3
+
 
 dev_dependencies:
   

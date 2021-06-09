@@ -47,6 +47,9 @@
   "error_password_empty": "Please enter your password",
   "@error_password_empty": {
     "description": "Please enter your password"
+  },
+  "lastname": "Lastname",
+  "@lastname": {
+    "description": "Lastname"
   }
- 
 }

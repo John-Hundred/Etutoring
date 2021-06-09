@@ -9,5 +9,6 @@
     "youremail": "Inserisci l'email",
     "error_email_empty": "Inserisci la tua email",
     "error_email_not_valid": "Inserisci un email valida",
-    "error_password_empty": "Inserisci la tua passowrd"
+    "error_password_empty": "Inserisci la tua passowrd",
+    "lastname": "Cognome"
 }

@@ -8,6 +8,7 @@ import 'package:e_tutoring/screens/settings.dart';
 import 'package:e_tutoring/screens/tutoring-course.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:move_to_background/move_to_background.dart';
@@ -63,6 +64,7 @@ class _ProfileState extends State<Profile> {
                 title: const Text('Profilo'),
                 backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                 actions: <Widget>[
+                  LanguagePickerWidget(),
                   PopupMenuButton(
                       onSelected: (result) {
                         if (result == 0) {
