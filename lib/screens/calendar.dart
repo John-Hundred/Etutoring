@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 /// Example event class.
 class Event {
   final String title;
@@ -141,7 +143,7 @@ class _CalendarState extends State<Calendar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Calendar'),
+          title: Text(AppLocalizations.of(context).calendar),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
       drawer: ArgonDrawer("calendar"),
       body: Column(
