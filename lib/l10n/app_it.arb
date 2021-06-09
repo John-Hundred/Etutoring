@@ -19,5 +19,6 @@
     "select_curriculum" : "Scegli il curriculum di studi",
     "agree" : "Accetto",
     "privacy_policy" : "l'informativa sulla privacy",
-    "privacy_policy_title" : "Informativa sulla privacy"
+    "privacy_policy_title" : "Informativa sulla privacy",
+    "change_language" : "Cambia lingua"
 }

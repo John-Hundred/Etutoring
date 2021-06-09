@@ -87,5 +87,9 @@
   "privacy_policy_title" : "Privacy Policy",
   "@privacy_policy_title": {
     "description": "Privacy Policy Title"
+  },
+  "change_language" : "Change language",
+  "@change_language": {
+    "description": "Change language"
   }
 }
