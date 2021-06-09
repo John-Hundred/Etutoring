@@ -146,15 +146,18 @@ class _LoginState extends State<Login> {
           return false;
         },
         child: Scaffold(
+          appBar: AppBar(
+            title: Text("E-Tutoring " + AppLocalizations.of(context).login),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+            actions: [LanguagePickerWidget()],
+          ),
           backgroundColor: Colors.white,
           body: Form(
             key: formKey,
             child: ListView(
               padding: EdgeInsets.all(16),
               children: [
-                LanguagePickerWidget(),
-                // LanguageWidget(),
-                const SizedBox(height: 50),
+                const SizedBox(height: 10),
                 Image.asset('assets/img/logo_size_2.jpg',
                     height: 100, width: 100),
                 TitleWidget(
