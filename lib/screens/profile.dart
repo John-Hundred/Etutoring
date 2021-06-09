@@ -65,6 +65,7 @@ class _ProfileState extends State<Profile> {
                         new RouterDispatcher(),
                     "/settings": (BuildContext context) =>
                         new RouterDispatcher(),
+                    "/tutor": (BuildContext context) => new RouterDispatcher(),
                   },
                   locale: provider.locale,
                   supportedLocales: L10n.all,

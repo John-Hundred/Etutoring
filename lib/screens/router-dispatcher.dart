@@ -4,6 +4,7 @@ import 'package:e_tutoring/screens/profile.dart';
 import 'package:e_tutoring/screens/calendar.dart';
 import 'package:e_tutoring/screens/course.dart';
 import 'package:e_tutoring/screens/settings.dart';
+import 'package:e_tutoring/screens/tutor.dart';
 import 'package:e_tutoring/screens/tutoring-course.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -42,6 +43,9 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/settings':
           _body = Settings();
           break;
+        case '/tutor':
+          _body = Tutor();
+          break;
         default:
           _body = Profile();
           break;
@@ -61,6 +65,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/tutoring-course": (BuildContext context) => this.widget,
             "/calendar": (BuildContext context) => this.widget,
             "/settings": (BuildContext context) => this.widget,
+            "/tutor": (BuildContext context) => this.widget,
           },
           title: 'Router Dispatcher',
           /*theme: ThemeData(
