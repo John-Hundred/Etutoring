@@ -1,6 +1,6 @@
-import 'package:argon_flutter/controller/controllerWS.dart';
-import 'package:argon_flutter/model/courseModel.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/courseModel.dart';
+import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'courseDetail.dart';

@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:argon_flutter/config/config.dart';
-import 'package:argon_flutter/constants/Theme.dart';
-import 'package:argon_flutter/screens/login.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
+import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/login.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
+import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
@@ -157,7 +157,7 @@ class _SettingsState extends State<Settings> {
                           child: Padding(
                               padding: EdgeInsets.only(
                                   left: 16.0, right: 16.0, top: 12, bottom: 12),
-                              child: Text("Delete User",
+                              child: Text("Delete Account",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16.0))),

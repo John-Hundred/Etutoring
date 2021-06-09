@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:ui';
-import 'package:argon_flutter/config/config.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
-import 'package:argon_flutter/widgets/button_widget.dart';
+import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
+import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:argon_flutter/constants/Theme.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 
 class Changepassword extends StatefulWidget {
   @override

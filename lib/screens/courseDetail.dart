@@ -1,6 +1,6 @@
-import 'package:argon_flutter/constants/Theme.dart';
-import 'package:argon_flutter/controller/controllerWS.dart';
-import 'package:argon_flutter/model/courseModel.dart';
+import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/courseModel.dart';
 import 'package:flutter/material.dart';
 import "string_extension.dart";
 

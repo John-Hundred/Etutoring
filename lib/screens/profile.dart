@@ -1,13 +1,13 @@
-import 'package:argon_flutter/constants/Theme.dart';
-import 'package:argon_flutter/controller/controllerWS.dart';
-import 'package:argon_flutter/model/userModel.dart';
-import 'package:argon_flutter/screens/calendar.dart';
-import 'package:argon_flutter/screens/change-password.dart';
-import 'package:argon_flutter/screens/course.dart';
-import 'package:argon_flutter/screens/settings.dart';
-import 'package:argon_flutter/screens/tutoring-course.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
+import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/userModel.dart';
+import 'package:e_tutoring/screens/calendar.dart';
+import 'package:e_tutoring/screens/change-password.dart';
+import 'package:e_tutoring/screens/course.dart';
+import 'package:e_tutoring/screens/settings.dart';
+import 'package:e_tutoring/screens/tutoring-course.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
+import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:move_to_background/move_to_background.dart';

@@ -1,4 +1,4 @@
-import 'package:argon_flutter/constants/Theme.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyPolicy extends StatelessWidget {

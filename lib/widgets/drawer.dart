@@ -1,10 +1,10 @@
-import 'package:argon_flutter/screens/login.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
+import 'package:e_tutoring/screens/login.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 
-import 'package:argon_flutter/widgets/drawer-tile.dart';
+import 'package:e_tutoring/widgets/drawer-tile.dart';
 
 // ignore: must_be_immutable
 class ArgonDrawer extends StatefulWidget {

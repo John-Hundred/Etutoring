@@ -1,13 +1,13 @@
-import 'package:argon_flutter/config/config.dart';
-import 'package:argon_flutter/constants/Theme.dart';
-import 'package:argon_flutter/screens/signup.dart';
-import 'package:argon_flutter/widgets/button_widget.dart';
-import 'package:argon_flutter/widgets/title_widget.dart';
+import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/signup.dart';
+import 'package:e_tutoring/widgets/button_widget.dart';
+import 'package:e_tutoring/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 
-import 'package:argon_flutter/screens/profile.dart';
+import 'package:e_tutoring/screens/profile.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:move_to_background/move_to_background.dart';

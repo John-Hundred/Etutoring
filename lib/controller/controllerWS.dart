@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:argon_flutter/config/config.dart';
-import 'package:argon_flutter/model/RoleModel.dart';
-import 'package:argon_flutter/model/courseModel.dart';
-import 'package:argon_flutter/model/curriculumModel.dart';
-import 'package:argon_flutter/model/degreeModel.dart';
-import 'package:argon_flutter/model/userModel.dart';
-import 'package:argon_flutter/utils/user_secure_storage.dart';
+import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/model/RoleModel.dart';
+import 'package:e_tutoring/model/courseModel.dart';
+import 'package:e_tutoring/model/curriculumModel.dart';
+import 'package:e_tutoring/model/degreeModel.dart';
+import 'package:e_tutoring/model/userModel.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 Future<UserModel> getUserInfoFromWS() async {

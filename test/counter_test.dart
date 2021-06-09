@@ -1,6 +1,6 @@
 // Import the test package and Counter class
 
-import 'package:argon_flutter/counter.dart';
+import 'package:e_tutoring/counter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

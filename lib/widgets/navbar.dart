@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:argon_flutter/constants/Theme.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 
-import 'package:argon_flutter/widgets/input.dart';
+import 'package:e_tutoring/widgets/input.dart';
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;

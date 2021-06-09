@@ -1,12 +1,12 @@
 import 'dart:ui';
-import 'package:argon_flutter/config/config.dart';
-import 'package:argon_flutter/controller/controllerWS.dart';
-import 'package:argon_flutter/screens/privacy-policy.dart';
-import 'package:argon_flutter/widgets/button_widget.dart';
+import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/screens/privacy-policy.dart';
+import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
