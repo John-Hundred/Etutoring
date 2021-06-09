@@ -2,7 +2,7 @@
     "language": "Italiano",
     "helloWorld": "Ciao",
     "hello": "Ciao {username}",
-    "welcome": "Benvenuto in E-Tutoring",
+    "welcome": "Benvenuto in\nE-Tutoring",
     "login": "Accedi",
     "signup" : "Registrati",
     "yourpassword": "La tua Password",
