@@ -2,6 +2,7 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/screens/signup.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:e_tutoring/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -151,6 +152,8 @@ class _LoginState extends State<Login> {
             child: ListView(
               padding: EdgeInsets.all(16),
               children: [
+                LanguagePickerWidget(),
+                // LanguageWidget(),
                 const SizedBox(height: 50),
                 Image.asset('assets/img/logo_size_2.jpg',
                     height: 100, width: 100),

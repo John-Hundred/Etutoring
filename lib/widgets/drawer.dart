@@ -134,6 +134,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         UserSecureStorage.delete('email');
                         // Delete password from secure storage
                         UserSecureStorage.delete('password');
+
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Login()));
                       },
