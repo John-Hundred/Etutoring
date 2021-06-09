@@ -35,7 +35,6 @@ class LanguagePickerWidget extends StatelessWidget {
         items: L10n.all.map(
           (locale) {
             final flag = L10n.getFlag(locale.languageCode);
-
             return DropdownMenuItem(
               child: Center(
                 child: Text(
