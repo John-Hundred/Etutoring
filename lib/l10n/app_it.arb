@@ -10,5 +10,14 @@
     "error_email_empty": "Inserisci la tua email",
     "error_email_not_valid": "Inserisci un email valida",
     "error_password_empty": "Inserisci la tua passowrd",
-    "lastname": "Cognome"
+    "error_password_not_valid" : "Inserisci una password di almeno 4 caratteri.",
+    "lastname": "Cognome",
+    "confirmPassword" : "Confirma Password",
+    "passwords_not_match": "Le password inserite non combaciano.",
+    "select_degree_course" : "Scegli il corso di laurea",
+    "select_role" : "Scegli il ruolo",
+    "select_curriculum" : "Scegli il curriculum di studi",
+    "agree" : "Accetto",
+    "privacy_policy" : "l'informativa sulla privacy",
+    "privacy_policy_title" : "Informativa sulla privacy"
 }

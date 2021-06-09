@@ -3,10 +3,13 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/screens/privacy-policy.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:e_tutoring/constants/Theme.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -162,8 +165,10 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Sign Up'),
-            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+          title: const Text('Sign Up'),
+          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+          actions: [LanguagePickerWidget()],
+        ),
         extendBodyBehindAppBar: true,
         body: Stack(
           children: [
@@ -177,15 +182,6 @@ class _SignupState extends State<Signup> {
                   child: ListView(
                     padding: EdgeInsets.all(8),
                     children: [
-                      //const SizedBox(height: 10),
-                      /*Image.asset('assets/img/logo_size_2.jpg',
-                          height: 100, width: 100),*/
-                      /*TitleWidget(
-                        icon: Icons.login,
-                        text: 'Sign Up',
-                        color: ArgonColors.redUnito,
-                        fontSize: 20,
-                      ),*/
                       const SizedBox(height: 20),
                       buildEmail(),
                       const SizedBox(height: 12),
@@ -201,7 +197,6 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 20),
                       buildAgreePrivacyPolicy(),
                       const SizedBox(height: 30),
-
                       buildSignupButton(),
                       const SizedBox(height: 20),
                       Visibility(
@@ -227,10 +222,10 @@ class _SignupState extends State<Signup> {
         child: TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your email';
+              return AppLocalizations.of(context).error_email_empty;
             }
             if (!EmailValidator.validate(value)) {
-              return 'Please enter a valid email';
+              return AppLocalizations.of(context).error_email_not_valid;
             }
             return null;
           },
@@ -250,10 +245,10 @@ class _SignupState extends State<Signup> {
           obscureText: _obscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your password';
+              return AppLocalizations.of(context).error_password_empty;
             }
             if (value.length < 4) {
-              return 'Enter a password of at least 4 characters.';
+              return AppLocalizations.of(context).error_password_not_valid;
             }
             return null;
           },
@@ -266,7 +261,6 @@ class _SignupState extends State<Signup> {
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
-                // (this.emailController.text);
                 _toggle();
               },
               child: Icon(
@@ -279,15 +273,16 @@ class _SignupState extends State<Signup> {
       );
 
   Widget buildConfirmPassword() => buildTitle(
-        title: 'Confirm Password',
+        title: AppLocalizations.of(context).confirmPassword,
         child: TextFormField(
           obscureText: _obscureTextConfirm,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please confirm your password';
+              return AppLocalizations.of(context).confirmPassword;
             }
-            if (value != passwordController.text)
-              return 'The passwords you entered do not match.';
+            if (value != passwordController.text) {
+              return AppLocalizations.of(context).passwords_not_match;
+            }
             return null;
           },
           controller: confirmPasswordController,
@@ -343,7 +338,7 @@ class _SignupState extends State<Signup> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Seleziona il Corso di Laurea',
+            AppLocalizations.of(context).select_degree_course,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
@@ -417,7 +412,7 @@ class _SignupState extends State<Signup> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Seleziona il percorso',
+            AppLocalizations.of(context).select_curriculum,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
@@ -488,7 +483,7 @@ class _SignupState extends State<Signup> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Seleziona il ruolo',
+            AppLocalizations.of(context).select_role,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
@@ -557,7 +552,7 @@ class _SignupState extends State<Signup> {
                 onChanged: (bool newValue) =>
                     setState(() => _checkboxValue = newValue),
                 value: _checkboxValue),
-            Text("I agree with the",
+            Text(AppLocalizations.of(context).agree,
                 style: TextStyle(color: ArgonColors.black, fontSize: 15)),
             GestureDetector(
                 onTap: () {
@@ -566,7 +561,7 @@ class _SignupState extends State<Signup> {
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 5),
-                  child: Text("Privacy Policy",
+                  child: Text(AppLocalizations.of(context).privacy_policy,
                       style:
                           TextStyle(color: ArgonColors.redUnito, fontSize: 15)),
                 )),

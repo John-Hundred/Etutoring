@@ -1,5 +1,7 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({
@@ -15,8 +17,9 @@ class PrivacyPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Privacy Policy'),
-            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+            title: Text(AppLocalizations.of(context).privacy_policy_title),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+            actions: [LanguagePickerWidget()]),
         extendBodyBehindAppBar: true,
         body: Stack(children: <Widget>[
           SafeArea(
