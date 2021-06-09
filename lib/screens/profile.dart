@@ -77,7 +77,7 @@ class _ProfileState extends State<Profile> {
                   home: Scaffold(
                     backgroundColor: Color.fromRGBO(205, 205, 205, 1),
                     appBar: AppBar(
-                      title: const Text('Profilo'),
+                      title: Text(AppLocalizations.of(context).profile),
                       backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                       actions: <Widget>[
                         LanguagePickerWidget(),

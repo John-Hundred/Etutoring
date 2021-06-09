@@ -35,5 +35,6 @@
     "degree_course" : "Corso di Laurea",
     "type" : "Tipologia",
     "headquarters" : "Sede",
-    "curriculum" : "Curriculum"
+    "curriculum" : "Curriculum",
+    "profile" : "Profilo"
 }

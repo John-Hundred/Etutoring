@@ -151,5 +151,9 @@
   "curriculum" : "Curriculum",
   "@curriculum": {
     "description": "Curriculum"
+  },
+  "profile" : "Profile",
+  "@profile": {
+    "description": "Profile"
   }
 }
