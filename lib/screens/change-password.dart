@@ -283,7 +283,7 @@ class _ChangepasswordState extends State<Changepassword> {
 
   Widget buildButton() => ButtonWidget(
       pressed: true,
-      text: AppLocalizations.of(context).change_password,
+      text: AppLocalizations.of(context).save,
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {

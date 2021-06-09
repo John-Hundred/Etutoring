@@ -44,5 +44,6 @@
     "logout" : "Esci",
     "change_password" : "Cambia password",
     "old_password" : "Password attuale",
-    "new_password" : "Nuova password"
+    "new_password" : "Nuova password",
+    "save" : "Salva"
 }
