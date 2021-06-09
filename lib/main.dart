@@ -9,12 +9,6 @@ import 'package:provider/provider.dart';
 import 'l10n/l10n.dart';
 
 Future main() async {
-  /*WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);*/
-
   runApp(MyApp());
 }
 
@@ -59,28 +53,10 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     UserSecureStorage.getEmail().then((value) => (setState(() {
-          // print(value);
           if (value != null)
             _body = Profile();
           else {
             _body = Login();
-            /*MaterialApp(
-              title: 'E-Tutoring',
-              theme: ThemeData(fontFamily: 'OpenSans'),
-              initialRoute: "/login",
-              debugShowCheckedModeBanner: false,
-              routes: <String, WidgetBuilder>{
-                "/login": (BuildContext context) => new Login(),
-              },
-              locale: _provider.locale,
-              supportedLocales: L10n.all,
-              localizationsDelegates: [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-            );*/
           }
         })));
   }
@@ -89,15 +65,4 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
         body: _body,
       );
-
-  /*@override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => LocaleProvider(),
-      builder: (context, child) {
-        // _provider = Provider.of<LocaleProvider>(context);
-        return _body;
-      });*/
-  /*Widget build(BuildContext context) {
-    return _body;
-  }*/
 }
