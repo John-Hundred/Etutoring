@@ -175,5 +175,17 @@
   "logout" : "Logout",
   "@logout": {
     "description": "Logout"
+  },
+  "change_password" : "Change Password",
+  "@change_password": {
+    "description": "Change Password"
+  },
+  "old_password" : "Old Password",
+  "@old_password": {
+    "description": "Old Password"
+  },
+  "new_password" : "New Password",
+  "@new_password": {
+    "description": "New Password"
   }
 }

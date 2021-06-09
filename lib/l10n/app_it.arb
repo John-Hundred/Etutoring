@@ -11,7 +11,7 @@
     "error_email_not_valid": "Inserisci un email valida",
     "error_password_empty": "Inserisci la tua passowrd",
     "error_password_not_valid" : "Inserisci una password di almeno 4 caratteri.",
-    "confirmPassword" : "Confirma Password",
+    "confirmPassword" : "Conferma Password",
     "passwords_not_match": "Le password inserite non combaciano.",
     "select_degree_course" : "Scegli il corso di laurea",
     "select_role" : "Scegli il ruolo",
@@ -41,5 +41,8 @@
     "courses" : "Corsi",
     "tutor" : "Tutor",
     "calendar" : "Calendario",
-    "logout" : "Esci"
+    "logout" : "Esci",
+    "change_password" : "Cambia password",
+    "old_password" : "Password attuale",
+    "new_password" : "Nuova password"
 }

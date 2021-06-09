@@ -3,10 +3,13 @@ import 'dart:ui';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:e_tutoring/constants/Theme.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Changepassword extends StatefulWidget {
   @override
@@ -132,8 +135,10 @@ class _ChangepasswordState extends State<Changepassword> {
     this.init();
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Change Password'),
-            backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+          title: Text(AppLocalizations.of(context).change_password),
+          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+          actions: [LanguagePickerWidget()],
+        ),
         extendBodyBehindAppBar: true,
         body: Stack(
           children: [
@@ -175,7 +180,7 @@ class _ChangepasswordState extends State<Changepassword> {
   }
 
   Widget buildOldPassword() => buildTitle(
-        title: 'Old Password',
+        title: AppLocalizations.of(context).old_password,
         child: TextFormField(
           obscureText: _obscureTextOld,
           validator: (value) {
@@ -192,7 +197,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Old Password',
+            hintText: AppLocalizations.of(context).old_password,
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -208,7 +213,7 @@ class _ChangepasswordState extends State<Changepassword> {
       );
 
   Widget buildNewPassword() => buildTitle(
-        title: 'New Password',
+        title: AppLocalizations.of(context).new_password,
         child: TextFormField(
           obscureText: _obscureText,
           validator: (value) {
@@ -228,7 +233,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'New Password',
+            hintText: AppLocalizations.of(context).new_password,
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -245,7 +250,7 @@ class _ChangepasswordState extends State<Changepassword> {
       );
 
   Widget buildConfirmNewPassword() => buildTitle(
-        title: 'Confirm Password',
+        title: AppLocalizations.of(context).confirmPassword,
         child: TextFormField(
           obscureText: _obscureTextConfirm,
           validator: (value) {
@@ -261,7 +266,7 @@ class _ChangepasswordState extends State<Changepassword> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Confirm New Password',
+            hintText: AppLocalizations.of(context).confirmPassword,
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -278,7 +283,7 @@ class _ChangepasswordState extends State<Changepassword> {
 
   Widget buildButton() => ButtonWidget(
       pressed: true,
-      text: 'Change Password',
+      text: AppLocalizations.of(context).change_password,
       color: ArgonColors.redUnito,
       onClicked: () {
         if (formKey.currentState.validate()) {
