@@ -52,10 +52,6 @@
   "@error_password_not_valid": {
     "description": "Enter a password of at least 4 characters."
   },
-  "lastname": "Lastname",
-  "@lastname": {
-    "description": "Lastname"
-  },
   "confirmPassword" : "Confirm Password",
   "@confirmPassword": {
     "description": "Confirm Password"
@@ -103,5 +99,13 @@
   "settings" : "Settings",
   "@settings": {
     "description": "Settings"
+  },
+  "lastname": "Surname",
+  "@lastname": {
+    "description": "Surname"
+  },
+  "name": "Name",
+  "@name": {
+    "description": "Name"
   }
 }

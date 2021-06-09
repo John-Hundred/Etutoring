@@ -11,7 +11,6 @@
     "error_email_not_valid": "Inserisci un email valida",
     "error_password_empty": "Inserisci la tua passowrd",
     "error_password_not_valid" : "Inserisci una password di almeno 4 caratteri.",
-    "lastname": "Cognome",
     "confirmPassword" : "Confirma Password",
     "passwords_not_match": "Le password inserite non combaciano.",
     "select_degree_course" : "Scegli il corso di laurea",
@@ -23,5 +22,7 @@
     "change_language" : "Cambia lingua",
     "cancel_account" : "Cancella Account",
     "cancel" : "Elimina",
-    "settings" : "Impostazioni"
+    "settings" : "Impostazioni",
+    "lastname": "Cognome",
+    "name": "Nome"
 }
