@@ -45,5 +45,6 @@
     "change_password" : "Cambia password",
     "old_password" : "Password attuale",
     "new_password" : "Nuova password",
-    "save" : "Salva"
+    "save" : "Salva",
+    "favorite_tutor" : "Tutor preferiti"
 }

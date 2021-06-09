@@ -95,6 +95,17 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).tutor,
                   isSelected: widget.currentPage == "tutor" ? true : false),
               DrawerTile(
+                  icon: Icons.star,
+                  onTap: () {
+                    if (widget.currentPage != "favorite-tutor")
+                      Navigator.pushReplacementNamed(
+                          context, '/favorite-tutor');
+                  },
+                  iconColor: ArgonColors.black,
+                  title: AppLocalizations.of(context).favorite_tutor,
+                  isSelected:
+                      widget.currentPage == "favorite-tutor" ? true : false),
+              DrawerTile(
                   icon: Icons.calendar_today,
                   onTap: () {
                     if (widget.currentPage != "calendar")

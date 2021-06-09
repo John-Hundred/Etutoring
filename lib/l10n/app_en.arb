@@ -191,5 +191,9 @@
   "save" : "Save",
   "@save": {
     "description": "Save"
+  },
+  "favorite_tutor" : "Favorite tutors",
+  "@favorite_tutor": {
+    "description": "Favorite tutors"
   }
 }
