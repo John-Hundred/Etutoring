@@ -98,73 +98,104 @@ class _SettingsState extends State<Settings> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 20),
-                    Text("Change Language"),
-                    LanguagePickerWidget(),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 1.0, right: 1.0, top: 8),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: Size.fromHeight(52),
-                            primary: ArgonColors.redUnito,
-                            elevation: 5,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          WidgetSpan(
+                              child: Container(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Change Language",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
                             ),
+                          )),
+                          WidgetSpan(
+                            child: LanguagePickerWidget(),
                           ),
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => new AlertDialog(
-                                      // backgroundColor: Colors.grey,
-                                      title: new Text('Are you sure?',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20)),
-                                      content: new Text(
-                                          'Do you want to delete your account?',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15)),
-                                      actions: <Widget>[
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.of(context).pop(false),
-                                          child: new Text(
-                                            'No',
-                                            style: TextStyle(
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20),
-                                          ),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop(true);
-                                            userDelete();
-                                          },
-                                          child: new Text('Yes',
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          WidgetSpan(
+                              child: Container(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Delete Account",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
+                            ),
+                          )),
+                          WidgetSpan(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                //minimumSize: Size.fromHeight(52),
+                                primary: ArgonColors.redUnito,
+                                elevation: 5,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => new AlertDialog(
+                                          // backgroundColor: Colors.grey,
+                                          title: new Text('Are you sure?',
                                               style: TextStyle(
-                                                  color: Colors.green,
+                                                  color: Colors.black,
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 20)),
-                                        ),
-                                      ],
-                                    ));
-                          },
-                          child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: 16.0, right: 16.0, top: 12, bottom: 12),
-                              child: Text("Delete Account",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16.0))),
-                        ),
+                                          content: new Text(
+                                              'Do you want to delete your account?',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15)),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              onPressed: () =>
+                                                  Navigator.of(context)
+                                                      .pop(false),
+                                              child: new Text(
+                                                'No',
+                                                style: TextStyle(
+                                                    color: Colors.red,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20),
+                                              ),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop(true);
+                                                userDelete();
+                                              },
+                                              child: new Text('Yes',
+                                                  style: TextStyle(
+                                                      color: Colors.green,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 20)),
+                                            ),
+                                          ],
+                                        ));
+                              },
+                              child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 16.0,
+                                      right: 16.0,
+                                      top: 12,
+                                      bottom: 12),
+                                  child: Text("Delete",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16.0))),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(height: 20),
