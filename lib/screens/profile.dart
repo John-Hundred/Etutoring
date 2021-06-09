@@ -1,3 +1,4 @@
+import 'package:e_tutoring/main.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/userModel.dart';
@@ -11,6 +12,8 @@ import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:move_to_background/move_to_background.dart';
+
+import '../main.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -50,6 +53,7 @@ class _ProfileState extends State<Profile> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             routes: <String, WidgetBuilder>{
+              "/myapp": (BuildContext context) => new MyApp(),
               "/profile": (BuildContext context) => new Profile(),
               "/course": (BuildContext context) => new Course(),
               "/tutoring-course": (BuildContext context) =>

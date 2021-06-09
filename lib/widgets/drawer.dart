@@ -1,10 +1,11 @@
-import 'package:e_tutoring/screens/login.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:e_tutoring/constants/Theme.dart';
 
 import 'package:e_tutoring/widgets/drawer-tile.dart';
+
+import '../main.dart';
 
 // ignore: must_be_immutable
 class ArgonDrawer extends StatefulWidget {
@@ -136,7 +137,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         UserSecureStorage.delete('password');
 
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login()));
+                            MaterialPageRoute(builder: (context) => MyApp()));
                       },
                       iconColor: ArgonColors.black,
                       title: "Logout",
