@@ -5,8 +5,8 @@
     "welcome": "Benvenuto in\nE-Tutoring",
     "login": "Accedi",
     "signup" : "Registrati",
-    "yourpassword": "La tua Password",
-    "youremail": "La tua Email",
+    "yourpassword": "Inserisci la password",
+    "youremail": "Inserisci l'email",
     "error_email_empty": "Inserisci la tua email",
     "error_email_not_valid": "Inserisci un email valida",
     "error_password_empty": "Inserisci la tua passowrd"
