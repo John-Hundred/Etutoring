@@ -97,10 +97,10 @@ class _SettingsState extends State<Settings> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 20),
                     Text("Change Language"),
                     LanguagePickerWidget(),
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity,
                       child: Padding(
