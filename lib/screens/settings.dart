@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
@@ -84,7 +86,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Settings'),
+          title: Text(AppLocalizations.of(context).settings),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
       // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
       drawer: ArgonDrawer("settings"),
@@ -105,7 +107,7 @@ class _SettingsState extends State<Settings> {
                               child: Container(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "Change Language",
+                              AppLocalizations.of(context).change_language,
                               style:
                                   TextStyle(color: Colors.black, fontSize: 20),
                             ),
@@ -124,7 +126,7 @@ class _SettingsState extends State<Settings> {
                               child: Container(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              "Delete Account",
+                              AppLocalizations.of(context).cancel_account,
                               style:
                                   TextStyle(color: Colors.black, fontSize: 20),
                             ),
@@ -189,7 +191,8 @@ class _SettingsState extends State<Settings> {
                                       right: 16.0,
                                       top: 12,
                                       bottom: 12),
-                                  child: Text("Delete",
+                                  child: Text(
+                                      AppLocalizations.of(context).cancel,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 16.0))),

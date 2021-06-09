@@ -20,5 +20,8 @@
     "agree" : "Accetto",
     "privacy_policy" : "l'informativa sulla privacy",
     "privacy_policy_title" : "Informativa sulla privacy",
-    "change_language" : "Cambia lingua"
+    "change_language" : "Cambia lingua",
+    "cancel_account" : "Cancella Account",
+    "cancel" : "Elimina",
+    "settings" : "Impostazioni"
 }

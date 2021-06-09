@@ -91,5 +91,17 @@
   "change_language" : "Change language",
   "@change_language": {
     "description": "Change language"
+  },
+  "cancel_account" : "Cancel Account",
+  "@cancel_account": {
+    "description": "Canel Account"
+  },
+  "cancel" : "Delete",
+  "@cancel": {
+    "description": "Delete"
+  },
+  "settings" : "Settings",
+  "@settings": {
+    "description": "Settings"
   }
 }
