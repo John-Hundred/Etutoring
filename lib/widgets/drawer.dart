@@ -106,6 +106,15 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   isSelected:
                       widget.currentPage == "favorite-tutor" ? true : false),
               DrawerTile(
+                  icon: Icons.chat,
+                  onTap: () {
+                    if (widget.currentPage != "chat")
+                      Navigator.pushReplacementNamed(context, '/chat');
+                  },
+                  iconColor: ArgonColors.black,
+                  title: AppLocalizations.of(context).chat,
+                  isSelected: widget.currentPage == "chat" ? true : false),
+              DrawerTile(
                   icon: Icons.calendar_today,
                   onTap: () {
                     if (widget.currentPage != "calendar")
@@ -123,10 +132,45 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: AppLocalizations.of(context).settings,
                   isSelected: widget.currentPage == "settings" ? true : false),
+              DrawerTile(
+                  icon: Icons.logout,
+                  onTap: () async {
+                    setState(() {
+                      visible = true;
+                    });
+                    await Future.delayed(const Duration(seconds: 1), () {});
+
+                    // Delete email from secure storage
+                    UserSecureStorage.delete('email');
+                    // Delete password from secure storage
+                    UserSecureStorage.delete('password');
+
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MyApp()));
+                  },
+                  iconColor: ArgonColors.black,
+                  title: AppLocalizations.of(context).logout,
+                  isSelected: widget.currentPage == "Logout" ? true : false),
+              FutureBuilder(
+                  future: wait(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Text(snapshot.data);
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    // By default, show a loading spinner
+                    return Visibility(
+                        visible: visible,
+                        child: Center(
+                            child: CircularProgressIndicator(
+                          backgroundColor: ArgonColors.redUnito,
+                        )));
+                  }),
             ],
           ),
         ),
-        Expanded(
+        /* Expanded(
           flex: 1,
           child: Container(
               padding: EdgeInsets.only(left: 8, right: 16),
@@ -173,7 +217,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       }),
                 ],
               )),
-        ),
+        ),*/
       ]),
     ));
   }

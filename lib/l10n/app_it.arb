@@ -47,5 +47,6 @@
     "new_password" : "Nuova password",
     "save" : "Salva",
     "favorite_tutor" : "Tutor preferiti",
-    "complete_your_profile" : "Completa il tuo profilo"
+    "complete_your_profile" : "Completa il tuo profilo",
+    "chat" : "Chat"
 }

@@ -199,5 +199,9 @@
   "complete_your_profile" : "Complete your profile",
   "@complete_your_profile": {
     "description": "Complete your profile"
+  },
+  "chat" : "Chat",
+  "@chat": {
+    "description": "Chat"
   }
 }
