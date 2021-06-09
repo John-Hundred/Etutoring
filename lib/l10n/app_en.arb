@@ -164,7 +164,7 @@
   "@cousers": {
     "description": "Courses"
   },
-  "tutor" : "Tutor",
+  "tutor" : "Tutors",
   "@tutor": {
     "description": "Tutor"
   },
