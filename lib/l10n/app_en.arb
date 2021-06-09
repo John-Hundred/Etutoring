@@ -115,5 +115,41 @@
   "nationality": "Nationality",
   "@nationality": {
     "description": "Nationality"
+  },
+  "date_of_birth" : "Date of birth",
+  "@date_of_birth": {
+    "description": "Date of birth"
+  },
+  "birth_place" : "Birth place",
+  "@birth_place": {
+    "description": "Birth place"
+  },
+  "residence_city" : "Residence",
+  "@residence_city": {
+    "description": "City of residence"
+  },
+  "role" : "Role",
+  "@role": {
+    "description": "Role"
+  },
+  "number" : "Numero",
+  "@role": {
+    "description": "Number"
+  },
+  "degree_course" : "Degree Course",
+  "@degree_course": {
+    "description": "Degree Course"
+  },
+  "type" : "Type",
+  "@type": {
+    "description": "Type"
+  },
+  "headquarters" : "Headquarters",
+  "@headquarters": {
+    "description": "Headquarters"
+  },
+  "curriculum" : "Curriculum",
+  "@curriculum": {
+    "description": "Curriculum"
   }
 }

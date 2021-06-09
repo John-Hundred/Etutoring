@@ -7,6 +7,7 @@ import 'package:e_tutoring/screens/change-password.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -79,6 +80,7 @@ class _ProfileState extends State<Profile> {
                       title: const Text('Profilo'),
                       backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                       actions: <Widget>[
+                        LanguagePickerWidget(),
                         PopupMenuButton(
                             onSelected: (result) {
                               if (result == 0) {
@@ -266,7 +268,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Data di Nascita',
+                                                                              AppLocalizations.of(context).date_of_birth,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
                                                                           DataCell(Text(
                                                                               "${user.data.birth_date}",
@@ -277,7 +279,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Luogo di Nascita',
+                                                                              AppLocalizations.of(context).birth_place,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
                                                                           DataCell(Text(
                                                                               "${user.data.birth_city}",
@@ -288,7 +290,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Città di residenza',
+                                                                              AppLocalizations.of(context).residence_city,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
                                                                           DataCell(Text(
                                                                               "${user.data.residence_city}",
@@ -341,7 +343,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Ruolo',
+                                                                              AppLocalizations.of(context).role,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.role_name}",
@@ -352,7 +354,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Matricola',
+                                                                              AppLocalizations.of(context).number,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.badge_number}",
@@ -363,7 +365,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Corso di Laurea',
+                                                                              AppLocalizations.of(context).degree_course,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.degree_name} (" + "${user.data.degree_athenaeum})",
@@ -374,7 +376,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Tipologia',
+                                                                              AppLocalizations.of(context).type,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.degree_type_note} (" + "${user.data.degree_type_name})",
@@ -385,7 +387,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Sede',
+                                                                              AppLocalizations.of(context).headquarters,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.degree_location}",
@@ -396,7 +398,7 @@ class _ProfileState extends State<Profile> {
                                                                         cells: <
                                                                             DataCell>[
                                                                           DataCell(Text(
-                                                                              'Percorso',
+                                                                              AppLocalizations.of(context).curriculum,
                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                           DataCell(Text(
                                                                               "${user.data.degree_path_name}",

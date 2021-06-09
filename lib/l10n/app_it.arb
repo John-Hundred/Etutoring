@@ -26,5 +26,14 @@
     "lastname": "Cognome",
     "name": "Nome",
     "change": "Cambia",
-    "nationality": "Nazionalità"
+    "nationality": "Nazionalità",
+    "date_of_birth" : "Data di nascita",
+    "birth_place" : "Luogo di nascita",
+    "residence_city" : "Residenza",
+    "role" : "Ruolo",
+    "number" : "Matricola",
+    "degree_course" : "Corso di Laurea",
+    "type" : "Tipologia",
+    "headquarters" : "Sede",
+    "curriculum" : "Curriculum"
 }
