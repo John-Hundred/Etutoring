@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:e_tutoring/widgets/drawer.dart';
+import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -144,7 +145,8 @@ class _CalendarState extends State<Calendar> {
     return Scaffold(
       appBar: AppBar(
           title: Text(AppLocalizations.of(context).calendar),
-          backgroundColor: Color.fromRGBO(213, 21, 36, 1)),
+          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+          actions: [LanguagePickerWidget()]),
       drawer: ArgonDrawer("calendar"),
       body: Column(
         children: [
