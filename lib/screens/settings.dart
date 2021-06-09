@@ -48,6 +48,7 @@ class _SettingsState extends State<Settings> {
       // http method: POST
       var response = await http
           .post(Uri.https(authority, unencodedPath + 'user_delete.php'),
+              headers: <String, String>{'authorization': basicAuth},
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
       // print(response.body);

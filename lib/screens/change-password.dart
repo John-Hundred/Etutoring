@@ -86,8 +86,10 @@ class _ChangepasswordState extends State<Changepassword> {
 
       var response = await http
           .post(
-              Uri.https(authority, unencodedPath + 'user_change_password.php'),
-              body: json.encode(data))
+            Uri.https(authority, unencodedPath + 'user_change_password.php'),
+            headers: <String, String>{'authorization': basicAuth},
+            body: json.encode(data),
+          )
           .timeout(const Duration(seconds: 8));
 
       if (response.statusCode == 200) {

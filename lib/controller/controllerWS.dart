@@ -15,8 +15,9 @@ Future<UserModel> getUserInfoFromWS() async {
       'email': await UserSecureStorage.getEmail(),
     };
     // print(queryParameters);
-    var response = await http.get(Uri.https(
-        authority, unencodedPath + "users_list.php", queryParameters));
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "users_list.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
 
     var user;
     if (response.statusCode == 200) {
@@ -49,8 +50,10 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
     }
     // print(queryParameters);
 
-    var response = await http.get(Uri.https(
-        authority, unencodedPath + "course_search.php", queryParameters));
+    var response = await http.get(
+        Uri.https(
+            authority, unencodedPath + "course_search.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
       // print(response.body);
       var courseJsonData = json.decode(response.body);
@@ -85,8 +88,10 @@ Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
     }
     // print(queryParameters);
 
-    var response = await http.get(Uri.https(authority,
-        unencodedPath + "course_search_private_lesson.php", queryParameters));
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "course_search_private_lesson.php",
+            queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
       var courseJsonData = json.decode(response.body);
       // print(courseJsonData);
@@ -107,8 +112,10 @@ Future<List<DegreeModel>> getDegreeListFromWS() async {
   List<DegreeModel> degreeList = [];
 
   try {
-    var response =
-        await http.get(Uri.https(authority, unencodedPath + "degree_list.php"));
+    var response = await http.get(
+      Uri.https(authority, unencodedPath + "degree_list.php"),
+      headers: <String, String>{'authorization': basicAuth},
+    );
     if (response.statusCode == 200) {
       var degreeJsonData = json.decode(response.body);
       for (var degreeItem in degreeJsonData) {
@@ -133,8 +140,10 @@ Future<List<CurriculumModel>> getCurriculumListFromWS(
     'degree_type_note': degreeTypeName
   };
   try {
-    var response = await http.get(Uri.https(authority,
-        unencodedPath + "curriculum_path_by_degree.php", queryParameters));
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "curriculum_path_by_degree.php",
+            queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
       var curriculumJsonData = json.decode(response.body);
       for (var curriculumItem in curriculumJsonData) {
@@ -153,8 +162,9 @@ Future<List<RoleModel>> getRoleListFromWS() async {
   List<RoleModel> roleList = [];
 
   try {
-    var response =
-        await http.get(Uri.https(authority, unencodedPath + "role_list.php"));
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "role_list.php"),
+        headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
       var roleJsonData = json.decode(response.body);
       for (var roleItem in roleJsonData) {
