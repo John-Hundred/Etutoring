@@ -24,10 +24,6 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: title,
-            theme: ThemeData(
-              scaffoldBackgroundColor: Colors.deepPurple.shade100,
-              primaryColor: Colors.deepPurpleAccent,
-            ),
             locale: provider.locale,
             supportedLocales: L10n.all,
             localizationsDelegates: [
