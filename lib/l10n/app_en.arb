@@ -195,5 +195,9 @@
   "favorite_tutor" : "Favorite tutors",
   "@favorite_tutor": {
     "description": "Favorite tutors"
+  },
+  "complete_your_profile" : "Complete your profile",
+  "@complete_your_profile": {
+    "description": "Complete your profile"
   }
 }

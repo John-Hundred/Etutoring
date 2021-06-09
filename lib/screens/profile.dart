@@ -93,7 +93,8 @@ class _ProfileState extends State<Profile> {
                             icon: Icon(Icons.more_vert, color: Colors.white),
                             itemBuilder: (context) => [
                                   PopupMenuItem(
-                                    child: Text("Fill data"),
+                                    child: Text(AppLocalizations.of(context)
+                                        .complete_your_profile),
                                     value: 0,
                                   ),
                                 ]),

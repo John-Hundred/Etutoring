@@ -46,5 +46,6 @@
     "old_password" : "Password attuale",
     "new_password" : "Nuova password",
     "save" : "Salva",
-    "favorite_tutor" : "Tutor preferiti"
+    "favorite_tutor" : "Tutor preferiti",
+    "complete_your_profile" : "Completa il tuo profilo"
 }
