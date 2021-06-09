@@ -36,5 +36,10 @@
     "type" : "Tipologia",
     "headquarters" : "Sede",
     "curriculum" : "Curriculum",
-    "profile" : "Profilo"
+    "profile" : "Profilo",
+    "tutoring_course" : "I miei tutoraggi",
+    "courses" : "Corsi",
+    "tutor" : "Tutor",
+    "calendar" : "Calendario",
+    "logout" : "Esci"
 }

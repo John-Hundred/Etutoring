@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 
 import 'package:e_tutoring/widgets/drawer-tile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../main.dart';
 
@@ -62,7 +63,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       Navigator.pushReplacementNamed(context, '/profile');
                   },
                   iconColor: ArgonColors.black,
-                  title: "Profilo",
+                  title: AppLocalizations.of(context).profile,
                   isSelected: widget.currentPage == "profile" ? true : false),
               DrawerTile(
                   icon: Icons.my_library_books,
@@ -72,7 +73,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                           context, '/tutoring-course');
                   },
                   iconColor: ArgonColors.black,
-                  title: "My Tutoring Course",
+                  title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
                       widget.currentPage == "Tutoring Course" ? true : false),
               DrawerTile(
@@ -82,7 +83,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       Navigator.pushReplacementNamed(context, '/course');
                   },
                   iconColor: ArgonColors.black,
-                  title: "Course",
+                  title: AppLocalizations.of(context).courses,
                   isSelected: widget.currentPage == "course" ? true : false),
               DrawerTile(
                   icon: Icons.help_center_outlined,
@@ -91,7 +92,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       Navigator.pushReplacementNamed(context, '/course');*/
                   },
                   iconColor: ArgonColors.black,
-                  title: "Tutor",
+                  title: AppLocalizations.of(context).tutor,
                   isSelected: widget.currentPage == "Tutor" ? true : false),
               DrawerTile(
                   icon: Icons.calendar_today,
@@ -100,7 +101,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       Navigator.pushReplacementNamed(context, '/calendar');
                   },
                   iconColor: ArgonColors.black,
-                  title: "Calendar",
+                  title: AppLocalizations.of(context).calendar,
                   isSelected: widget.currentPage == "calendar" ? true : false),
               DrawerTile(
                   icon: Icons.settings,
@@ -109,7 +110,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       Navigator.pushReplacementNamed(context, '/settings');
                   },
                   iconColor: ArgonColors.black,
-                  title: "Settings",
+                  title: AppLocalizations.of(context).settings,
                   isSelected: widget.currentPage == "settings" ? true : false),
             ],
           ),
@@ -140,7 +141,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                             MaterialPageRoute(builder: (context) => MyApp()));
                       },
                       iconColor: ArgonColors.black,
-                      title: "Logout",
+                      title: AppLocalizations.of(context).logout,
                       isSelected:
                           widget.currentPage == "Logout" ? true : false),
                   FutureBuilder(

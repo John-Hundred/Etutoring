@@ -155,5 +155,25 @@
   "profile" : "Profile",
   "@profile": {
     "description": "Profile"
+  },
+  "tutoring_course" : "My Tutoring Course",
+  "@tutoring_course": {
+    "description": "My Tutoring Course"
+  },
+  "courses" : "Courses",
+  "@cousers": {
+    "description": "Courses"
+  },
+  "tutor" : "Tutor",
+  "@tutor": {
+    "description": "Tutor"
+  },
+  "calendar" : "Calendar",
+  "@calendar": {
+    "description": "Calendar"
+  },
+  "logout" : "Logout",
+  "@logout": {
+    "description": "Logout"
   }
 }
