@@ -1,0 +1,52 @@
+{
+  "language": "English",
+  "@language":{
+    "description": "The current Language"
+  },
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "A programmer greeting"
+  },
+  "hello": "Hello {username}",
+  "@hello": {
+    "description": "A welcome message",
+    "placeholders": {
+       "username": {
+         "type": "String"
+       }
+    }
+  },
+  "welcome": "Welcome to\nE-Tutoring",
+  "@welcome": {
+    "description": "Welcome to E-Tutoring"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login"
+  },
+  "signup": "Sign up",
+  "@signup": {
+    "description": "Sign up"
+  },
+  "yourpassword": "Your Password",
+  "@yourpassword": {
+    "description": "Your Password"
+  },
+  "youremail": "Your Email",
+  "@youremail": {
+    "description": "Your Email"
+  },
+  "error_email_empty": "Please enter your email",
+  "@error_password_empty": {
+    "description": "Please enter your email"
+  },
+  "error_email_not_valid": "Please enter a valid email",
+  "@error_email_not_valid": {
+    "description": "Please enter a valid email"
+  }, 
+  "error_password_empty": "Please enter your password",
+  "@error_password_empty": {
+    "description": "Please enter your password"
+  }
+ 
+}

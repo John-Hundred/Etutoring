@@ -2,6 +2,9 @@ import 'package:e_tutoring/screens/login.dart';
 import 'package:e_tutoring/screens/profile.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'l10n/l10n.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +33,14 @@ class _MyAppState extends State<MyApp> {
                 "/login": (BuildContext context) => new Login(),
                 // "/register": (BuildContext context) => new Signin(),
               },
+              // locale: provider.locale,
+              supportedLocales: L10n.all,
+              localizationsDelegates: [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
             );
         })));
   }

@@ -12,6 +12,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:move_to_background/move_to_background.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -149,12 +151,20 @@ class _LoginState extends State<Login> {
             child: ListView(
               padding: EdgeInsets.all(16),
               children: [
+                /*Text(
+                  AppLocalizations.of(context).language ?? '',
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  AppLocalizations.of(context).helloWorld ?? '',
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                ),*/
                 const SizedBox(height: 50),
                 Image.asset('assets/img/logo_size_2.jpg',
                     height: 100, width: 100),
                 TitleWidget(
                   icon: Icons.login,
-                  text: 'Welcome to\nE-tutoring',
+                  text: AppLocalizations.of(context).welcome,
                   color: ArgonColors.redUnito,
                   fontSize: 36,
                 ),
@@ -187,10 +197,10 @@ class _LoginState extends State<Login> {
         child: TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your email';
+              return AppLocalizations.of(context).error_email_empty;
             }
             if (!EmailValidator.validate(value)) {
-              return 'Please enter a valid email';
+              return AppLocalizations.of(context).error_email_not_valid;
             }
             return null;
           },
@@ -199,7 +209,7 @@ class _LoginState extends State<Login> {
               filled: true,
               fillColor: Colors.white,
               border: OutlineInputBorder(),
-              hintText: 'Your Email',
+              hintText: AppLocalizations.of(context).youremail,
               prefixIcon: Icon(Icons.email)),
         ),
       );
@@ -210,7 +220,7 @@ class _LoginState extends State<Login> {
           obscureText: _obscureText,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your password';
+              return AppLocalizations.of(context).error_password_empty;
             }
             return null;
           },
@@ -219,7 +229,7 @@ class _LoginState extends State<Login> {
             filled: true,
             fillColor: Colors.white,
             border: OutlineInputBorder(),
-            hintText: 'Your Password',
+            hintText: AppLocalizations.of(context).yourpassword,
             prefixIcon: Icon(Icons.lock),
             suffixIcon: GestureDetector(
               onTap: () async {
@@ -237,7 +247,7 @@ class _LoginState extends State<Login> {
 
   Widget buildLoginButton() => ButtonWidget(
       pressed: true,
-      text: 'Login',
+      text: AppLocalizations.of(context).login,
       color: ArgonColors.redUnito,
       onClicked: () async {
         if (formKey.currentState.validate()) {
@@ -247,7 +257,7 @@ class _LoginState extends State<Login> {
 
   Widget builRegisteredButton() => ButtonWidget(
       pressed: true,
-      text: 'Sign Up',
+      text: AppLocalizations.of(context).signup,
       color: ArgonColors.blueUnito,
       onClicked: () {
         Navigator.push(
