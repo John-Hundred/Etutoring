@@ -19,7 +19,7 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   String dropDownValueDegree;
   String dropDownValueCurriculum;
-  String dropDownValueRole;
+  String dropDownValueRole = 'Student';
 
   String degreeNameSelected = "Fisica";
   String degreeTypeNoteSelected = "Laurea Triennale";
@@ -456,7 +456,8 @@ class _SignupState extends State<Signup> {
                             .map<DropdownMenuItem<String>>((curriculum) {
                           return DropdownMenuItem<String>(
                             value: curriculum.degree_path_name,
-                            child: Text(curriculum.degree_path_name),
+                            child: Text(curriculum.degree_path_name,
+                                overflow: TextOverflow.visible),
                           );
                         }).toList(),
                         onChanged: (value) {
