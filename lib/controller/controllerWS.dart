@@ -185,8 +185,10 @@ Future<CourseModel> getCourseDetailFromWS(String courseId) async {
       'course_id': courseId,
     };
     // print(queryParameters);
-    var response = await http.get(Uri.https(
-        authority, unencodedPath + "course_list.php", queryParameters));
+    var response = await http.get(
+        Uri.https(
+            authority, unencodedPath + "course_list.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
 
     var course;
     if (response.statusCode == 200) {

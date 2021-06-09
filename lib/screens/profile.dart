@@ -1,19 +1,13 @@
-import 'package:e_tutoring/main.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/userModel.dart';
-import 'package:e_tutoring/screens/calendar.dart';
 import 'package:e_tutoring/screens/change-password.dart';
-import 'package:e_tutoring/screens/course.dart';
-import 'package:e_tutoring/screens/settings.dart';
-import 'package:e_tutoring/screens/tutoring-course.dart';
+import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:move_to_background/move_to_background.dart';
-
-import '../main.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -41,9 +35,6 @@ class _ProfileState extends State<Profile> {
 
   Widget build(BuildContext context) {
     this.init();
-    /*this.setState(() {
-      init();
-    });*/
 
     return new WillPopScope(
         onWillPop: () async {
@@ -53,13 +44,13 @@ class _ProfileState extends State<Profile> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             routes: <String, WidgetBuilder>{
-              "/myapp": (BuildContext context) => new MyApp(),
-              "/profile": (BuildContext context) => new Profile(),
-              "/course": (BuildContext context) => new Course(),
+              "/myapp": (BuildContext context) => new RouterDispatcher(),
+              "/profile": (BuildContext context) => new RouterDispatcher(),
+              "/course": (BuildContext context) => new RouterDispatcher(),
               "/tutoring-course": (BuildContext context) =>
-                  new TutoringCourse(),
-              "/calendar": (BuildContext context) => new Calendar(),
-              "/settings": (BuildContext context) => new Settings(),
+                  new RouterDispatcher(),
+              "/calendar": (BuildContext context) => new RouterDispatcher(),
+              "/settings": (BuildContext context) => new RouterDispatcher(),
             },
             home: Scaffold(
               backgroundColor: Color.fromRGBO(205, 205, 205, 1),
