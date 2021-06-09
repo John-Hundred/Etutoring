@@ -24,5 +24,7 @@
     "cancel" : "Elimina",
     "settings" : "Impostazioni",
     "lastname": "Cognome",
-    "name": "Nome"
+    "name": "Nome",
+    "change": "Cambia",
+    "nationality": "Nazionalità"
 }

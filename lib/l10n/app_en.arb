@@ -107,5 +107,13 @@
   "name": "Name",
   "@name": {
     "description": "Name"
+  },
+  "change": "Change",
+  "@change": {
+    "description": "Change"
+  },
+  "nationality": "Nationality",
+  "@nationality": {
+    "description": "Nationality"
   }
 }

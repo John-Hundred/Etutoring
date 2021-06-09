@@ -225,7 +225,7 @@ class _ProfileState extends State<Profile> {
                                                                               onPressed: () {
                                                                                 Navigator.push(context, MaterialPageRoute(builder: (context) => Changepassword()));
                                                                               },
-                                                                              child: Text('Change', style: TextStyle(fontSize: 15)),
+                                                                              child: Text(AppLocalizations.of(context).change, style: TextStyle(fontSize: 15)),
                                                                             )
                                                                           ])),
                                                                         ],
@@ -251,7 +251,7 @@ class _ProfileState extends State<Profile> {
                                                                             DataCell>[
                                                                           DataCell(
                                                                               Text(
-                                                                            'Nazionalità',
+                                                                            AppLocalizations.of(context).nationality,
                                                                             style: TextStyle(
                                                                                 color: Colors.redAccent,
                                                                                 fontWeight: FontWeight.bold,
