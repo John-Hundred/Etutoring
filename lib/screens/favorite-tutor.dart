@@ -29,22 +29,29 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
           padding: const EdgeInsets.all(8),
           children: <Widget>[
             ListTile(
-                title: Text("Tutor 1"),
-                subtitle: Text("Tutor 1"),
+                title: Text("Luca M. - Torino"),
+                subtitle: Text("Programmazione"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
                 trailing: Icon(Icons.star)),
             ListTile(
-                title: Text("Tutor 2"),
-                subtitle: Text("Tutor 2"),
+                title: Text("Simone B. - Torino"),
+                subtitle: Text("Agenti Intelligenti"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
                 trailing: Icon(Icons.star)),
             ListTile(
-                title: Text("Tutor 3"),
-                subtitle: Text("Tutor 3"),
+                title: Text("Davide D. - Milano"),
+                subtitle: Text("Analisi matematica"),
+                leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                trailing: Icon(Icons.star)),
+            ListTile(
+                title: Text("Carlo C. - Novara"),
+                subtitle: Text("Database multimediali"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
