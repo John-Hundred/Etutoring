@@ -66,7 +66,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).profile,
                   isSelected: widget.currentPage == "profile" ? true : false),
               DrawerTile(
-                  icon: Icons.my_library_books,
+                  icon: Icons.school,
                   onTap: () {
                     if (widget.currentPage != "Tutoring Course")
                       Navigator.pushReplacementNamed(
