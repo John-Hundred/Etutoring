@@ -146,6 +146,10 @@ class TutoringCourseState extends State<TutoringCourse> {
       appBar: buildBar(context),
       drawer: ArgonDrawer("Tutoring Course"),
       body: Container(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        // height: 220,
+        width: double.maxFinite,
+        color: Colors.white,
         child: ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
           children: _IsSearching ? _buildSearchList() : _buildList(),
@@ -161,16 +165,41 @@ class ChildItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return new ListTile(title: new Text(this.name));
-    return new ListTile(
-      title: Text(this.course.course_name.toUpperCase()),
-      subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase()),
-      leading: Icon(Icons.library_books),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CourseDetail(this.course)),
-        );
-      },
-    );
+    return new Card(
+        elevation: 5,
+        child: ListTile(
+          title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(this.course.course_name.toUpperCase(),
+                    style: new TextStyle(fontSize: 18.0)),
+                Row(children: <Widget>[
+                  Icon(Icons.event_available),
+                  Text(this.course.enrollment_year.toUpperCase()),
+                ]),
+              ]),
+          subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase(),
+              style: TextStyle(color: Colors.black)),
+          leading: Container(
+              padding: EdgeInsets.only(right: 12.0),
+              decoration: new BoxDecoration(
+                  border: new Border(
+                      right: new BorderSide(width: 1.0, color: Colors.black))),
+              child: Icon(Icons.school)),
+          trailing: this.course.private_lesson_id != '-'
+              ? Icon(
+                  Icons.calendar_today,
+                  color: Colors.green,
+                )
+              : Icon(Icons.not_interested, color: Colors.red),
+          onTap: () {
+            // print(this.course.toString());
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CourseDetail(this.course)),
+            );
+          },
+        ));
   }
 }
