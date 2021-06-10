@@ -1,3 +1,4 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/screens/courseDetail.dart';
@@ -178,8 +179,12 @@ class ChildItem extends StatelessWidget {
                   Text(this.course.enrollment_year.toUpperCase()),
                 ]),
               ]),
-          subtitle: Text('CFU: ' + this.course.course_cfu.toUpperCase(),
-              style: TextStyle(color: Colors.black)),
+          subtitle: Row(children: <Widget>[
+            Text('CFU: ' + this.course.course_cfu.toUpperCase(),
+                style: TextStyle(
+                  color: ArgonColors.redUnito,
+                )),
+          ]),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
