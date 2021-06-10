@@ -1,3 +1,4 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,37 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                           Text("Davide D.",
                               style: new TextStyle(fontSize: 20.0)),
                           Text("Milano"),
+                          Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 24.0,
+                                  semanticLabel:
+                                      'Text to announce in accessibility modes',
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 30.0,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                              ]),
                         ]),
                     subtitle: Text("Analisi matematica"),
                     leading: Container(
