@@ -140,7 +140,7 @@ class _TutorState extends State<Tutor> {
     return new Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: buildBar(context),
-      drawer: ArgonDrawer("course"),
+      drawer: ArgonDrawer("tutor"),
       body: Container(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         // height: 220,
@@ -205,7 +205,7 @@ class ChildItem extends StatelessWidget {
                       //size: 36.0,
                     ),
                   ],
-                )
+                ),
               ]),
           subtitle:
               Text("Programmazione", style: TextStyle(color: Colors.black)),
