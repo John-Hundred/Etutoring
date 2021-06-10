@@ -51,5 +51,7 @@
     "chat" : "Chat",
     "tutor_detail" : "Dettaglio del tutor",
     "description" : "Descrizione",
-    "address" : "Indirizzo"
+    "address" : "Indirizzo",
+    "reviews" : "Recensioni",
+    "conctact_me" : "Contatta"
 }

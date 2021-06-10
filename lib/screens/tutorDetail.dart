@@ -120,19 +120,91 @@ class _TutorDetailState extends State<TutorDetail> {
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16)))
                         ]),
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5.0, right: 15.0, top: 15.0),
+                        child: Text(AppLocalizations.of(context).courses,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold))),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 15.0, top: 2.0),
+                              child: Text(this.tutorData.description,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16)))
+                        ]),
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5.0, right: 15.0, top: 15.0),
+                        child: Text(AppLocalizations.of(context).reviews,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold))),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Row(
+                            //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const <Widget>[
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                                //size: 30.0,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                              Icon(
+                                Icons.star_border,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                              Icon(
+                                Icons.star_border,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                              Text(" (3)")
+                            ],
+                          )
+                        ]),
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  TextButton(
-                    child: const Text('CONTACT',
-                        style: TextStyle(color: ArgonColors.redUnito)),
-                    onPressed: () {/* ... */},
-                  ),
-                ],
-              ),
+              Padding(
+                  padding: const EdgeInsets.only(
+                      left: 5.0, right: 15.0, top: 20.0, bottom: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            primary: ArgonColors.redUnito,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25))),
+                        label: Text(
+                            AppLocalizations.of(context)
+                                .conctact_me
+                                .toUpperCase(),
+                            style: TextStyle(
+                                color: ArgonColors.white, fontSize: 20)),
+                        icon: Icon(Icons.chat),
+                        onPressed: () {},
+                      ),
+                    ],
+                  )),
             ],
           ),
         ),

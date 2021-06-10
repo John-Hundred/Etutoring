@@ -215,5 +215,13 @@
   "address" : "Address",
   "@address": {
     "description": "Address"
+  },
+  "reviews" : "Reviews",
+  "@reviews": {
+    "description": "Reviews"
+  },
+  "conctact_me" : "Contact",
+  "@conctact_me": {
+    "description": "Contanct"
   }
 }
