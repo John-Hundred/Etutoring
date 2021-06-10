@@ -52,33 +52,27 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                                 Icon(
                                   Icons.star,
                                   color: ArgonColors.redUnito,
-                                  //size: 24.0,
-                                  semanticLabel:
-                                      'Text to announce in accessibility modes',
                                 ),
                                 Icon(
                                   Icons.star,
                                   color: ArgonColors.redUnito,
-                                  //size: 30.0,
                                 ),
                                 Icon(
                                   Icons.star,
                                   color: ArgonColors.redUnito,
-                                  //size: 36.0,
                                 ),
                                 Icon(
                                   Icons.star_border,
                                   color: ArgonColors.redUnito,
-                                  //size: 36.0,
                                 ),
                                 Icon(
                                   Icons.star_border,
                                   color: ArgonColors.redUnito,
-                                  //size: 36.0,
                                 ),
                               ]),
                         ]),
-                    subtitle: Text("Analisi matematica"),
+                    subtitle: Text("Analisi matematica",
+                        style: TextStyle(color: Colors.black)),
                     leading: Container(
                         padding: EdgeInsets.only(right: 12.0),
                         decoration: new BoxDecoration(

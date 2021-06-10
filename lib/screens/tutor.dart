@@ -52,9 +52,6 @@ class _TutorState extends State<Tutor> {
                                 Icon(
                                   Icons.star,
                                   color: ArgonColors.redUnito,
-                                  //size: 24.0,
-                                  semanticLabel:
-                                      'Text to announce in accessibility modes',
                                 ),
                                 Icon(
                                   Icons.star,
@@ -79,7 +76,8 @@ class _TutorState extends State<Tutor> {
                               ],
                             )
                           ]),
-                      subtitle: Text("Programmazione"),
+                      subtitle: Text("Programmazione",
+                          style: TextStyle(color: Colors.black)),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
                           decoration: new BoxDecoration(
@@ -108,9 +106,6 @@ class _TutorState extends State<Tutor> {
                                   Icon(
                                     Icons.star,
                                     color: ArgonColors.redUnito,
-                                    //size: 24.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
                                   ),
                                   Icon(
                                     Icons.star,
@@ -134,7 +129,8 @@ class _TutorState extends State<Tutor> {
                                   ),
                                 ]),
                           ]),
-                      subtitle: Text("Agenti Intelligenti"),
+                      subtitle: Text("Agenti Intelligenti",
+                          style: TextStyle(color: Colors.black)),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
                           decoration: new BoxDecoration(
@@ -164,8 +160,6 @@ class _TutorState extends State<Tutor> {
                                     Icons.star,
                                     color: ArgonColors.redUnito,
                                     //size: 24.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
                                   ),
                                   Icon(
                                     Icons.star,
@@ -189,7 +183,8 @@ class _TutorState extends State<Tutor> {
                                   ),
                                 ]),
                           ]),
-                      subtitle: Text("Analisi matematica"),
+                      subtitle: Text("Analisi matematica",
+                          style: TextStyle(color: Colors.black)),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
                           decoration: new BoxDecoration(
@@ -218,9 +213,6 @@ class _TutorState extends State<Tutor> {
                                   Icon(
                                     Icons.star,
                                     color: ArgonColors.redUnito,
-                                    //size: 24.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
                                   ),
                                   Icon(
                                     Icons.star,
@@ -245,7 +237,8 @@ class _TutorState extends State<Tutor> {
                                 ]),
                           ]),
                       subtitle: Text(
-                          "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica"),
+                          "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica",
+                          style: TextStyle(color: Colors.black)),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
                           decoration: new BoxDecoration(
