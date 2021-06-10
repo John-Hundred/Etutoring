@@ -16,32 +16,40 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(205, 205, 205, 1),
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context).favorite_tutor),
-        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-        actions: <Widget>[
-          LanguagePickerWidget(),
-        ],
-      ),
-      drawer: ArgonDrawer("favorite-tutor"),
-      body: Stack(children: <Widget>[
-        SafeArea(
-            child: ListView(children: [
-          Padding(
-              padding:
-                  const EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Stack(children: <Widget>[
-                      Container(
-                        child: Card(),
-                      ),
-                    ]),
-                  ])),
-        ]))
-      ]),
-    );
+        backgroundColor: Color.fromRGBO(205, 205, 205, 1),
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context).favorite_tutor),
+          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+          actions: <Widget>[
+            LanguagePickerWidget(),
+          ],
+        ),
+        drawer: ArgonDrawer("favorite-tutor"),
+        body: ListView(
+          padding: const EdgeInsets.all(8),
+          children: <Widget>[
+            ListTile(
+                title: Text("Tutor 1"),
+                subtitle: Text("Tutor 1"),
+                leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                trailing: Icon(Icons.star)),
+            ListTile(
+                title: Text("Tutor 2"),
+                subtitle: Text("Tutor 2"),
+                leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                trailing: Icon(Icons.star)),
+            ListTile(
+                title: Text("Tutor 3"),
+                subtitle: Text("Tutor 3"),
+                leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                trailing: Icon(Icons.star))
+          ],
+        ));
   }
 }
