@@ -34,28 +34,28 @@ class _TutorState extends State<Tutor> {
                 subtitle: Text("Programmazione"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
                 trailing: Icon(Icons.star)),
             ListTile(
                 title: Text("Simone B. - Torino"),
                 subtitle: Text("Agenti Intelligenti"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
                 trailing: Icon(Icons.star)),
             ListTile(
                 title: Text("Davide D. - Milano"),
                 subtitle: Text("Analisi matematica"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
                 trailing: Icon(Icons.star)),
             ListTile(
                 title: Text("Carlo C. - Novara"),
                 subtitle: Text("Database multimediali"),
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
                 trailing: Icon(Icons.star))
           ],
         )));
