@@ -222,7 +222,7 @@ class ChildItem extends StatelessWidget {
             // print(this.course.toString());
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TutorDetail()),
+              MaterialPageRoute(builder: (context) => TutorDetail(this.tutor)),
             );
           },
         ));

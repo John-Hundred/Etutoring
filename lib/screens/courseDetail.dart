@@ -10,7 +10,6 @@ class CourseDetail extends StatefulWidget {
 
   CourseDetail(dynamic course) {
     this.courseData = course;
-    // print(this.courseData);
   }
 
   @override
@@ -21,29 +20,7 @@ class CourseDetailState extends State<CourseDetail> {
   dynamic courseData;
   CourseDetailState(dynamic course) {
     this.courseData = course;
-    // print(this.courseData);
   }
-
-  /*Future<bool> _onWillPop() async {
-    return (await showDialog(
-          context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
-                child: new Text('Yes'),
-              ),
-            ],
-          ),
-        )) ??
-        false;
-  }*/
 
   @override
   Widget build(BuildContext context) {
