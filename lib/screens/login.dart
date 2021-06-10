@@ -145,6 +145,7 @@ class _LoginState extends State<Login> {
           return false;
         },
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title: Text("E-Tutoring " + AppLocalizations.of(context).login),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1),

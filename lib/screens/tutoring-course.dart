@@ -142,6 +142,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: buildBar(context),
       drawer: ArgonDrawer("Tutoring Course"),
       body: Container(
