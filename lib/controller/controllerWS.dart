@@ -5,6 +5,7 @@ import 'package:e_tutoring/model/RoleModel.dart';
 import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/model/curriculumModel.dart';
 import 'package:e_tutoring/model/degreeModel.dart';
+import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -198,6 +199,31 @@ Future<CourseModel> getCourseDetailFromWS(String courseId) async {
       // print(user);
     }
     return course;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
+Future<List<TutorModel>> getTutorSearchFromWS() async {
+  List<TutorModel> tutorList = [];
+  try {
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "tutor_list.php"),
+        headers: <String, String>{'authorization': basicAuth});
+
+    if (response.statusCode == 200) {
+      // print(response.body);
+      var tutorJsonData = json.decode(response.body);
+      //  print(tutorJsonData);
+      for (var item in tutorJsonData) {
+        // print(item['id']);
+        var tutorItem = TutorModel.fromJson(item);
+        tutorList.add(tutorItem);
+      }
+      // print(tutorList);
+    }
+    return tutorList;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;

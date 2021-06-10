@@ -1,9 +1,9 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/tutorDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoriteTutor extends StatefulWidget {
   @override
@@ -11,90 +11,220 @@ class FavoriteTutor extends StatefulWidget {
 }
 
 class _FavoriteTutorState extends State<FavoriteTutor> {
+  List<TutorModel> tutorList;
+
   @override
   void initState() {
     super.initState();
+    _IsSearching = false;
+    getTutorSearchFromWS().then((value) => {
+          setState(() {
+            tutorList = value;
+            // print(tutorList);
+          })
+        });
   }
 
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color.fromRGBO(205, 205, 205, 1),
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context).favorite_tutor),
-          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: <Widget>[
-            LanguagePickerWidget(),
-          ],
-        ),
-        drawer: ArgonDrawer("favorite-tutor"),
-        body: Container(
-          color: Colors.white,
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          // height: 220,
-          width: double.maxFinite,
-          child: ListView(
-            padding: const EdgeInsets.all(8),
-            children: <Widget>[
-              Card(
-                  elevation: 5,
-                  child: ListTile(
-                    title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Davide D.",
-                              style: new TextStyle(fontSize: 20.0)),
-                          Row(children: <Widget>[
-                            Icon(Icons.location_on),
-                            Text("Milano"),
-                          ]),
-                          Row(
-                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const <Widget>[
-                                Icon(
-                                  Icons.star,
-                                  color: ArgonColors.redUnito,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: ArgonColors.redUnito,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: ArgonColors.redUnito,
-                                ),
-                                Icon(
-                                  Icons.star_border,
-                                  color: ArgonColors.redUnito,
-                                ),
-                                Icon(
-                                  Icons.star_border,
-                                  color: ArgonColors.redUnito,
-                                ),
-                              ]),
-                        ]),
-                    subtitle: Text("Analisi matematica",
-                        style: TextStyle(color: Colors.black)),
-                    leading: Container(
-                        padding: EdgeInsets.only(right: 12.0),
-                        decoration: new BoxDecoration(
-                            border: new Border(
-                                right: new BorderSide(
-                                    width: 1.0, color: Colors.black))),
-                        child: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                    trailing: Icon(Icons.star, color: ArgonColors.redUnito),
-                    onTap: () {
-                      // print(this.course.toString());
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TutorDetail()),
-                      );
-                    },
-                    // selected: true,
-                  )),
-            ],
+  final searchController = TextEditingController();
+  // ignore: non_constant_identifier_names
+  bool _IsSearching;
+  String _searchText = "";
+  Widget appBarTitle = new Text(
+    "Tutor",
+    style: new TextStyle(color: Colors.white),
+  );
+  Icon actionIcon = new Icon(
+    Icons.search,
+    color: Colors.white,
+  );
+  _FavoriteTutorState() {
+    searchController.addListener(() {
+      if (searchController.text.isEmpty) {
+        setState(() {
+          _IsSearching = false;
+          _searchText = "";
+        });
+      } else {
+        setState(() {
+          _IsSearching = true;
+          _searchText = searchController.text;
+        });
+      }
+    });
+  }
+
+  List<ChildItem> _buildList() {
+    if (tutorList != null) {
+      return tutorList.map((tutor) => new ChildItem(tutor)).toList();
+    } else
+      return [];
+  }
+
+  List<ChildItem> _buildSearchList() {
+    if (_searchText.isEmpty) {
+      return tutorList.map((tutor) => new ChildItem(tutor)).toList();
+    } else {
+      List<TutorModel> _searchList = [];
+      for (int i = 0; i < tutorList.length; i++) {
+        TutorModel tutor = tutorList.elementAt(i);
+        if (tutor
+            .toString()
+            .toLowerCase()
+            .contains(_searchText.toLowerCase())) {
+          _searchList.add(tutor);
+        }
+      }
+      // print(_searchList);
+      return _searchList.map((tutor) => new ChildItem(tutor)).toList();
+    }
+  }
+
+  void _handleSearchStart() {
+    setState(() {
+      _IsSearching = true;
+    });
+  }
+
+  void _handleSearchEnd() {
+    setState(() {
+      this.actionIcon = new Icon(
+        Icons.search,
+        color: Colors.white,
+      );
+      this.appBarTitle = new Text(
+        "Tutor",
+        style: new TextStyle(color: Colors.white),
+      );
+      _IsSearching = false;
+      searchController.clear();
+    });
+  }
+
+  Widget buildBar(BuildContext context) {
+    return new AppBar(
+        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+        centerTitle: true,
+        title: appBarTitle,
+        actions: <Widget>[
+          new IconButton(
+            icon: actionIcon,
+            onPressed: () {
+              setState(() {
+                if (this.actionIcon.icon == Icons.search) {
+                  this.actionIcon = new Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  );
+                  this.appBarTitle = new TextField(
+                    controller: searchController,
+                    style: new TextStyle(
+                      color: Colors.white,
+                    ),
+                    decoration: new InputDecoration(
+                        prefixIcon: new Icon(Icons.search, color: Colors.white),
+                        hintText: "Search...",
+                        hintStyle: new TextStyle(color: Colors.white)),
+                  );
+                  _handleSearchStart();
+                } else {
+                  _handleSearchEnd();
+                }
+              });
+            },
           ),
+        ]);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: buildBar(context),
+      drawer: ArgonDrawer("favorite-tutor"),
+      body: Container(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        // height: 220,
+        width: double.maxFinite,
+        color: Colors.white,
+        child: ListView(
+          padding: new EdgeInsets.symmetric(vertical: 8.0),
+          children: _IsSearching ? _buildSearchList() : _buildList(),
+        ),
+      ),
+    );
+  }
+}
+
+class ChildItem extends StatelessWidget {
+  final dynamic tutor;
+  ChildItem(this.tutor);
+  @override
+  Widget build(BuildContext context) {
+    // return new ListTile(title: new Text(this.name));
+    return new Card(
+        elevation: 5,
+        child: ListTile(
+          title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(this.tutor.firstname + " " + this.tutor.lastname,
+                    style: new TextStyle(fontSize: 20.0)),
+                Row(children: <Widget>[
+                  Icon(Icons.email),
+                  Text(this.tutor.email),
+                ]),
+                Row(children: <Widget>[
+                  Icon(Icons.location_on),
+                  Text(this.tutor.residence_city),
+                ]),
+                Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: ArgonColors.redUnito,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: ArgonColors.redUnito,
+                      //size: 30.0,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: ArgonColors.redUnito,
+                      //size: 36.0,
+                    ),
+                    Icon(
+                      Icons.star_border,
+                      color: ArgonColors.redUnito,
+                      //size: 36.0,
+                    ),
+                    Icon(
+                      Icons.star_border,
+                      color: ArgonColors.redUnito,
+                      //size: 36.0,
+                    ),
+                  ],
+                )
+              ]),
+          subtitle:
+              Text("Programmazione", style: TextStyle(color: Colors.black)),
+          leading: Container(
+              padding: EdgeInsets.only(right: 12.0),
+              decoration: new BoxDecoration(
+                  border: new Border(
+                      right: new BorderSide(width: 1.0, color: Colors.black))),
+              child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+          trailing: Icon(Icons.star),
+          onTap: () {
+            // print(this.course.toString());
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TutorDetail()),
+            );
+          },
         ));
   }
 }
