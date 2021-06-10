@@ -170,7 +170,7 @@ class ChildItem extends StatelessWidget {
                 Text(this.tutor.firstname + " " + this.tutor.lastname,
                     style: new TextStyle(fontSize: 20.0)),
                 Row(children: [
-                  Icon(Icons.message),
+                  Icon(Icons.email),
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(left: 5.0),
