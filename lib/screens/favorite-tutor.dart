@@ -171,7 +171,7 @@ class ChildItem extends StatelessWidget {
                     style: new TextStyle(fontSize: 20.0)),
                 Row(children: <Widget>[
                   Icon(Icons.email),
-                  Text(this.tutor.email),
+                  Text(this.tutor.email, style: TextStyle(fontSize: 13)),
                 ]),
                 Row(children: <Widget>[
                   Icon(Icons.location_on),
