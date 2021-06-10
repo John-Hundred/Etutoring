@@ -40,7 +40,7 @@ class _TutorDetailState extends State<TutorDetail> {
       body: Stack(children: <Widget>[
         SafeArea(
             child: ListView(children: [
-          Padding(
+          /* Padding(
               padding:
                   const EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
               child: Column(
@@ -76,9 +76,9 @@ class _TutorDetailState extends State<TutorDetail> {
                         ),
                       ),
                     ]),
-                  ])),
+                  ])),*/
           Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 0.0),
+            padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
             child: Card(
                 child: DataTable(
                     dataRowHeight: 50,
@@ -98,32 +98,6 @@ class _TutorDetailState extends State<TutorDetail> {
                   ),
                 ],
                     rows: <DataRow>[
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Text(
-                        AppLocalizations.of(context).name,
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                      DataCell(Text(this.tutorData.firstname,
-                          style: TextStyle(fontSize: 15))),
-                    ],
-                  ),
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Text(
-                        AppLocalizations.of(context).lastname,
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                      DataCell(Text(this.tutorData.lastname,
-                          style: TextStyle(fontSize: 15))),
-                    ],
-                  ),
                   DataRow(
                     cells: <DataCell>[
                       DataCell(Text(
