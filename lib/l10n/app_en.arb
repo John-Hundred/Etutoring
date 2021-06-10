@@ -207,5 +207,9 @@
   "tutor_detail" : "Tutor detail",
   "@tutor_detail": {
     "description": "Tutor detail"
+  },
+  "description" : "Description",
+  "@description": {
+    "description": "Description"
   }
 }

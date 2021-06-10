@@ -49,5 +49,6 @@
     "favorite_tutor" : "Tutor preferiti",
     "complete_your_profile" : "Completa il tuo profilo",
     "chat" : "Chat",
-    "tutor_detail" : "Dettaglio del tutor"
+    "tutor_detail" : "Dettaglio del tutor",
+    "description" : "Descrizione"
 }

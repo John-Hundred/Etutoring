@@ -150,6 +150,19 @@ class _TutorDetailState extends State<TutorDetail> {
                           style: TextStyle(fontSize: 15))),
                     ],
                   ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text(
+                        AppLocalizations.of(context).description,
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      )),
+                      DataCell(Text(this.tutorData.description,
+                          style: TextStyle(fontSize: 15))),
+                    ],
+                  ),
                 ])),
           )
         ]))
