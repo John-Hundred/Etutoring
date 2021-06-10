@@ -1,4 +1,5 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/tutorDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,13 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                             backgroundImage: NetworkImage(
                                 "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                     trailing: Icon(Icons.star, color: ArgonColors.redUnito),
+                    onTap: () {
+                      // print(this.course.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorDetail()),
+                      );
+                    },
                     // selected: true,
                   )),
             ],

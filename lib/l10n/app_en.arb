@@ -164,7 +164,7 @@
   "@cousers": {
     "description": "Courses"
   },
-  "tutor" : "Tutors",
+  "tutor" : "Search Tutor",
   "@tutor": {
     "description": "Tutor"
   },
@@ -192,9 +192,9 @@
   "@save": {
     "description": "Save"
   },
-  "favorite_tutor" : "Favorite tutors",
+  "favorite_tutor" : "Favorite tutor",
   "@favorite_tutor": {
-    "description": "Favorite tutors"
+    "description": "Favorite tutor"
   },
   "complete_your_profile" : "Complete your profile",
   "@complete_your_profile": {
@@ -203,5 +203,9 @@
   "chat" : "Chat",
   "@chat": {
     "description": "Chat"
+  },
+  "tutor_detail" : "Tutor detail",
+  "@tutor_detail": {
+    "description": "Tutor detail"
   }
 }

@@ -1,4 +1,5 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/tutorDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -37,21 +38,144 @@ class _TutorState extends State<Tutor> {
               Card(
                   elevation: 5,
                   child: ListTile(
-                      title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Luca M.",
-                                style: new TextStyle(fontSize: 20.0)),
-                            Row(children: <Widget>[
-                              Icon(Icons.location_on),
-                              Text("Torino"),
-                            ]),
-                            Row(
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Luca M.", style: new TextStyle(fontSize: 20.0)),
+                          Row(children: <Widget>[
+                            Icon(Icons.location_on),
+                            Text("Torino"),
+                          ]),
+                          Row(
+                            //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const <Widget>[
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                                //size: 30.0,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                              Icon(
+                                Icons.star_border,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                              Icon(
+                                Icons.star_border,
+                                color: ArgonColors.redUnito,
+                                //size: 36.0,
+                              ),
+                            ],
+                          )
+                        ]),
+                    subtitle: Text("Programmazione",
+                        style: TextStyle(color: Colors.black)),
+                    leading: Container(
+                        padding: EdgeInsets.only(right: 12.0),
+                        decoration: new BoxDecoration(
+                            border: new Border(
+                                right: new BorderSide(
+                                    width: 1.0, color: Colors.black))),
+                        child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                    trailing: Icon(Icons.star),
+                    onTap: () {
+                      // print(this.course.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorDetail()),
+                      );
+                    },
+                  )),
+              Card(
+                  elevation: 5,
+                  child: ListTile(
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Simone B.",
+                              style: new TextStyle(fontSize: 20.0)),
+                          Row(children: <Widget>[
+                            Icon(Icons.location_on),
+                            Text("Torino"),
+                          ]),
+                          Row(
                               //mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const <Widget>[
                                 Icon(
                                   Icons.star,
                                   color: ArgonColors.redUnito,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 30.0,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                              ]),
+                        ]),
+                    subtitle: Text("Agenti Intelligenti",
+                        style: TextStyle(color: Colors.black)),
+                    leading: Container(
+                        padding: EdgeInsets.only(right: 12.0),
+                        decoration: new BoxDecoration(
+                            border: new Border(
+                                right: new BorderSide(
+                                    width: 1.0, color: Colors.black))),
+                        child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                    trailing: Icon(Icons.star),
+                    onTap: () {
+                      // print(this.course.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorDetail()),
+                      );
+                    },
+                  )),
+              Card(
+                  elevation: 5,
+                  child: ListTile(
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Davide D.",
+                              style: new TextStyle(fontSize: 20.0)),
+                          Row(children: <Widget>[
+                            Icon(Icons.location_on),
+                            Text("Milano"),
+                          ]),
+                          Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 24.0,
                                 ),
                                 Icon(
                                   Icons.star,
@@ -73,182 +197,90 @@ class _TutorState extends State<Tutor> {
                                   color: ArgonColors.redUnito,
                                   //size: 36.0,
                                 ),
-                              ],
-                            )
-                          ]),
-                      subtitle: Text("Programmazione",
-                          style: TextStyle(color: Colors.black)),
-                      leading: Container(
-                          padding: EdgeInsets.only(right: 12.0),
-                          decoration: new BoxDecoration(
-                              border: new Border(
-                                  right: new BorderSide(
-                                      width: 1.0, color: Colors.black))),
-                          child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star))),
+                              ]),
+                        ]),
+                    subtitle: Text("Analisi matematica",
+                        style: TextStyle(color: Colors.black)),
+                    leading: Container(
+                        padding: EdgeInsets.only(right: 12.0),
+                        decoration: new BoxDecoration(
+                            border: new Border(
+                                right: new BorderSide(
+                                    width: 1.0, color: Colors.black))),
+                        child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                    trailing: Icon(Icons.star, color: ArgonColors.redUnito),
+                    onTap: () {
+                      // print(this.course.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorDetail()),
+                      );
+                    },
+                  )),
               Card(
                   elevation: 5,
                   child: ListTile(
-                      title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Simone B.",
-                                style: new TextStyle(fontSize: 20.0)),
-                            Row(children: <Widget>[
-                              Icon(Icons.location_on),
-                              Text("Torino"),
-                            ]),
-                            Row(
-                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: const <Widget>[
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 30.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                ]),
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Carlo C.",
+                              style: new TextStyle(fontSize: 20.0)),
+                          Row(children: <Widget>[
+                            Icon(Icons.location_on),
+                            Text("Novara"),
                           ]),
-                      subtitle: Text("Agenti Intelligenti",
-                          style: TextStyle(color: Colors.black)),
-                      leading: Container(
-                          padding: EdgeInsets.only(right: 12.0),
-                          decoration: new BoxDecoration(
-                              border: new Border(
-                                  right: new BorderSide(
-                                      width: 1.0, color: Colors.black))),
-                          child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star))),
-              Card(
-                  elevation: 5,
-                  child: ListTile(
-                      title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Davide D.",
-                                style: new TextStyle(fontSize: 20.0)),
-                            Row(children: <Widget>[
-                              Icon(Icons.location_on),
-                              Text("Milano"),
-                            ]),
-                            Row(
-                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: const <Widget>[
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 24.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 30.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                ]),
-                          ]),
-                      subtitle: Text("Analisi matematica",
-                          style: TextStyle(color: Colors.black)),
-                      leading: Container(
-                          padding: EdgeInsets.only(right: 12.0),
-                          decoration: new BoxDecoration(
-                              border: new Border(
-                                  right: new BorderSide(
-                                      width: 1.0, color: Colors.black))),
-                          child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star, color: ArgonColors.redUnito))),
-              Card(
-                  elevation: 5,
-                  child: ListTile(
-                      title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Carlo C.",
-                                style: new TextStyle(fontSize: 20.0)),
-                            Row(children: <Widget>[
-                              Icon(Icons.location_on),
-                              Text("Novara"),
-                            ]),
-                            Row(
-                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: const <Widget>[
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ArgonColors.redUnito,
-                                    //size: 30.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ArgonColors.redUnito,
-                                    //size: 36.0,
-                                  ),
-                                ]),
-                          ]),
-                      subtitle: Text(
-                          "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica",
-                          style: TextStyle(color: Colors.black)),
-                      leading: Container(
-                          padding: EdgeInsets.only(right: 12.0),
-                          decoration: new BoxDecoration(
-                              border: new Border(
-                                  right: new BorderSide(
-                                      width: 1.0, color: Colors.black))),
-                          child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star))),
+                          Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 30.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                              ]),
+                        ]),
+                    subtitle: Text(
+                        "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica",
+                        style: TextStyle(color: Colors.black)),
+                    leading: Container(
+                        padding: EdgeInsets.only(right: 12.0),
+                        decoration: new BoxDecoration(
+                            border: new Border(
+                                right: new BorderSide(
+                                    width: 1.0, color: Colors.black))),
+                        child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                    trailing: Icon(Icons.star),
+                    onTap: () {
+                      // print(this.course.toString());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorDetail()),
+                      );
+                    },
+                  )),
             ],
           ),
         ));

@@ -39,7 +39,7 @@
     "profile" : "Profilo",
     "tutoring_course" : "I miei tutoraggi",
     "courses" : "Corsi",
-    "tutor" : "Tutor",
+    "tutor" : "Ricerca Tutor",
     "calendar" : "Calendario",
     "logout" : "Esci",
     "change_password" : "Cambia password",
@@ -48,5 +48,6 @@
     "save" : "Salva",
     "favorite_tutor" : "Tutor preferiti",
     "complete_your_profile" : "Completa il tuo profilo",
-    "chat" : "Chat"
+    "chat" : "Chat",
+    "tutor_detail" : "Dettaglio del tutor"
 }
