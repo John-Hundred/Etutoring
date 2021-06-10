@@ -32,31 +32,11 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
             ListTile(
                 title: Text("Luca M. - Torino"),
                 subtitle: Text("Programmazione"),
+                selected: true,
                 leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
                 trailing: Icon(Icons.star)),
-            ListTile(
-                title: Text("Simone B. - Torino"),
-                subtitle: Text("Agenti Intelligenti"),
-                leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
-                trailing: Icon(Icons.star)),
-            ListTile(
-                title: Text("Davide D. - Milano"),
-                subtitle: Text("Analisi matematica"),
-                leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
-                trailing: Icon(Icons.star)),
-            ListTile(
-                title: Text("Carlo C. - Novara"),
-                subtitle: Text("Database multimediali"),
-                leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
-                trailing: Icon(Icons.star))
           ],
         )));
   }
