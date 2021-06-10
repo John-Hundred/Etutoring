@@ -42,7 +42,10 @@ class _TutorState extends State<Tutor> {
                           children: <Widget>[
                             Text("Luca M.",
                                 style: new TextStyle(fontSize: 20.0)),
-                            Text("Torino"),
+                            Row(children: <Widget>[
+                              Icon(Icons.map),
+                              Text("Torino"),
+                            ]),
                             Row(
                               //mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const <Widget>[
@@ -95,7 +98,10 @@ class _TutorState extends State<Tutor> {
                           children: <Widget>[
                             Text("Simone B.",
                                 style: new TextStyle(fontSize: 20.0)),
-                            Text("Torino"),
+                            Row(children: <Widget>[
+                              Icon(Icons.map),
+                              Text("Torino"),
+                            ]),
                             Row(
                                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: const <Widget>[
@@ -147,7 +153,10 @@ class _TutorState extends State<Tutor> {
                           children: <Widget>[
                             Text("Davide D.",
                                 style: new TextStyle(fontSize: 20.0)),
-                            Text("Milano"),
+                            Row(children: <Widget>[
+                              Icon(Icons.map),
+                              Text("Milano"),
+                            ]),
                             Row(
                                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: const <Widget>[
@@ -199,7 +208,10 @@ class _TutorState extends State<Tutor> {
                           children: <Widget>[
                             Text("Carlo C.",
                                 style: new TextStyle(fontSize: 20.0)),
-                            Text("Novara"),
+                            Row(children: <Widget>[
+                              Icon(Icons.map),
+                              Text("Novara"),
+                            ]),
                             Row(
                                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: const <Widget>[

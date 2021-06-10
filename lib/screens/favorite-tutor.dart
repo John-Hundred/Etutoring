@@ -42,7 +42,10 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                         children: <Widget>[
                           Text("Davide D.",
                               style: new TextStyle(fontSize: 20.0)),
-                          Text("Milano"),
+                          Row(children: <Widget>[
+                            Icon(Icons.map),
+                            Text("Milano"),
+                          ]),
                           Row(
                               //mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const <Widget>[
