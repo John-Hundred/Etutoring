@@ -85,7 +85,7 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                         child: CircleAvatar(
                             backgroundImage: NetworkImage(
                                 "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                    trailing: Icon(Icons.star),
+                    trailing: Icon(Icons.star, color: ArgonColors.redUnito),
                     // selected: true,
                   ),
                 ],

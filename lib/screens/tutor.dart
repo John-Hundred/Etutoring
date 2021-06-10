@@ -186,7 +186,7 @@ class _TutorState extends State<Tutor> {
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star)),
+                      trailing: Icon(Icons.star, color: ArgonColors.redUnito)),
                   ListTile(
                       title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
