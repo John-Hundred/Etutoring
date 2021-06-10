@@ -36,7 +36,13 @@ class _TutorState extends State<Tutor> {
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
                   ListTile(
-                      title: Text("Luca M. - Torino"),
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Luca M.",
+                                style: new TextStyle(fontSize: 20.0)),
+                            Text("Torino"),
+                          ]),
                       subtitle: Text("Programmazione"),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
@@ -49,7 +55,13 @@ class _TutorState extends State<Tutor> {
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
-                      title: Text("Simone B. - Torino"),
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Simone B.",
+                                style: new TextStyle(fontSize: 20.0)),
+                            Text("Torino"),
+                          ]),
                       subtitle: Text("Agenti Intelligenti"),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
@@ -62,7 +74,13 @@ class _TutorState extends State<Tutor> {
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
-                      title: Text("Davide D. - Milano"),
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Davide D.",
+                                style: new TextStyle(fontSize: 20.0)),
+                            Text("Milano"),
+                          ]),
                       subtitle: Text("Analisi matematica"),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
@@ -75,7 +93,13 @@ class _TutorState extends State<Tutor> {
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
-                      title: Text("Carlo C. - Novara"),
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Carlo C.",
+                                style: new TextStyle(fontSize: 20.0)),
+                            Text("Novara"),
+                          ]),
                       subtitle: Text(
                           "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica"),
                       leading: Container(
