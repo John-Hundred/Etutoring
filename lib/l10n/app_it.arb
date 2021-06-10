@@ -50,5 +50,6 @@
     "complete_your_profile" : "Completa il tuo profilo",
     "chat" : "Chat",
     "tutor_detail" : "Dettaglio del tutor",
-    "description" : "Descrizione"
+    "description" : "Descrizione",
+    "address" : "Indirizzo"
 }

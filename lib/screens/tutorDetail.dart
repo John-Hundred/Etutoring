@@ -126,18 +126,23 @@ class _TutorDetailState extends State<TutorDetail> {
                   DataRow(
                     cells: <DataCell>[
                       DataCell(Text(
-                        AppLocalizations.of(context).description,
+                        AppLocalizations.of(context).address,
                         style: TextStyle(
                             color: Colors.redAccent,
                             fontWeight: FontWeight.bold,
                             fontSize: 15),
                       )),
-                      DataCell(Text(this.tutorData.description,
+                      DataCell(Text(this.tutorData.address,
                           style: TextStyle(fontSize: 15))),
                     ],
                   ),
                 ])),
-          )
+          ),
+          Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 0.0),
+              child: Card(
+                  child: Text(this.tutorData.description,
+                      style: TextStyle(fontSize: 15))))
         ]))
       ]),
     );

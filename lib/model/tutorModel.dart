@@ -18,6 +18,7 @@ class TutorModel {
 
   String nationality;
 
+  String address;
   // ignore: non_constant_identifier_names
   String residence_city;
 
@@ -35,6 +36,7 @@ class TutorModel {
     this.role_name,
     this.phone_number,
     this.nationality,
+    this.address,
     this.residence_city,
   );
 
@@ -52,6 +54,7 @@ class TutorModel {
     role_name = json['role_name'] ?? '-';
     phone_number = json['phone_number'] ?? '-';
     nationality = json['nationality'] ?? '-';
+    address = json['address'] ?? '-';
     residence_city = json['residence_city'] ?? '-';
   }
 

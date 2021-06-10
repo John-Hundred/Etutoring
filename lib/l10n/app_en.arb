@@ -211,5 +211,9 @@
   "description" : "Description",
   "@description": {
     "description": "Description"
+  },
+  "address" : "Address",
+  "@address": {
+    "description": "Address"
   }
 }
