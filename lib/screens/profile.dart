@@ -85,7 +85,12 @@ class _ProfileState extends State<Profile> {
                       backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                       actions: <Widget>[
                         LanguagePickerWidget(),
-                        PopupMenuButton(
+                        IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {
+                              print('edit');
+                            }),
+                        /*PopupMenuButton(
                             onSelected: (result) {
                               if (result == 0) {
                                 print(0);
@@ -98,7 +103,7 @@ class _ProfileState extends State<Profile> {
                                         .complete_your_profile),
                                     value: 0,
                                   ),
-                                ]),
+                                ]),*/
                       ],
                     ),
 
