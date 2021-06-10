@@ -86,7 +86,7 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                             backgroundImage: NetworkImage(
                                 "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                     trailing: Icon(Icons.star),
-                    selected: true,
+                    // selected: true,
                   ),
                 ],
               ),
