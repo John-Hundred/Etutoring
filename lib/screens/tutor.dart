@@ -43,7 +43,7 @@ class _TutorState extends State<Tutor> {
                             Text("Luca M.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Row(children: <Widget>[
-                              Icon(Icons.map),
+                              Icon(Icons.location_on),
                               Text("Torino"),
                             ]),
                             Row(
@@ -99,7 +99,7 @@ class _TutorState extends State<Tutor> {
                             Text("Simone B.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Row(children: <Widget>[
-                              Icon(Icons.map),
+                              Icon(Icons.location_on),
                               Text("Torino"),
                             ]),
                             Row(
@@ -154,7 +154,7 @@ class _TutorState extends State<Tutor> {
                             Text("Davide D.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Row(children: <Widget>[
-                              Icon(Icons.map),
+                              Icon(Icons.location_on),
                               Text("Milano"),
                             ]),
                             Row(
@@ -209,7 +209,7 @@ class _TutorState extends State<Tutor> {
                             Text("Carlo C.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Row(children: <Widget>[
-                              Icon(Icons.map),
+                              Icon(Icons.location_on),
                               Text("Novara"),
                             ]),
                             Row(

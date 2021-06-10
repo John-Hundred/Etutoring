@@ -43,7 +43,7 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                           Text("Davide D.",
                               style: new TextStyle(fontSize: 20.0)),
                           Row(children: <Widget>[
-                            Icon(Icons.map),
+                            Icon(Icons.location_on),
                             Text("Milano"),
                           ]),
                           Row(
