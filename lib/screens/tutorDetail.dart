@@ -1,6 +1,6 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
 class TutorDetail extends StatefulWidget {
@@ -37,131 +37,85 @@ class _TutorDetailState extends State<TutorDetail> {
         ],
       ),
       body: Stack(children: <Widget>[
-        SafeArea(
-            child: ListView(children: [
-          /* Padding(
-              padding:
-                  const EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Stack(children: <Widget>[
+        Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                // leading: Icon(Icons.person),
+                title: Column(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
                       Container(
-                        child: new Card(
-                          child: new Stack(
-                            alignment: AlignmentDirectional.center,
-                            children: <Widget>[
-                              new Container(
-                                width: 150.0,
-                                height: 150.0,
-                              ),
-                              new Container(
-                                alignment: new FractionalOffset(0.0, 0.0),
-                                decoration: new BoxDecoration(
-                                  border: new Border.all(
-                                    color: ArgonColors.redUnito,
-                                    width: 50.0,
-                                  ),
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              Text(this.tutorData.firstname,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18)),
-                            ],
+                        width: 150.0,
+                        height: 150.0,
+                        decoration: new BoxDecoration(
+                          border: new Border.all(
+                            color: Colors.white,
+                            width: 10.0,
                           ),
+                          image: new DecorationImage(
+                              //fit: BoxFit.fill,
+                              image: new NetworkImage(
+                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                          shape: BoxShape.circle,
                         ),
                       ),
                     ]),
-                  ])),*/
-          Padding(
-              padding:
-                  const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
-              child: new Container(
-                width: 150.0,
-                height: 150.0,
-                decoration: new BoxDecoration(
-                  border: new Border.all(
-                    color: Colors.white,
-                    width: 10.0,
-                  ),
-                  image: new DecorationImage(
-                      //fit: BoxFit.fill,
-                      image: new NetworkImage(
-                          "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
-                  shape: BoxShape.circle,
+                subtitle: Column(
+                  children: <Widget>[
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.person),
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 15.0, top: 0.0),
+                              child: Text(
+                                  this.tutorData.firstname +
+                                      " " +
+                                      this.tutorData.lastname,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15))),
+                        ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.email),
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 15.0, top: 0.0),
+                              child: Text(this.tutorData.email,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15))),
+                        ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.location_on),
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 15.0, top: 0.0),
+                              child: Text(this.tutorData.residence_city,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15))),
+                        ]),
+                  ],
                 ),
-              )),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
-            child: Card(
-                child: DataTable(
-                    dataRowHeight: 50,
-                    dataRowColor: MaterialStateColor.resolveWith(
-                        (states) => Colors.white),
-                    headingRowHeight: 0,
-                    columns: <DataColumn>[
-                  DataColumn(
-                    label: Text(
-                      '',
-                    ),
-                  ),
-                  DataColumn(
-                    label: Text(
-                      '',
-                    ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  TextButton(
+                    child: const Text('CONTACT',
+                        style: TextStyle(color: ArgonColors.redUnito)),
+                    onPressed: () {/* ... */},
                   ),
                 ],
-                    rows: <DataRow>[
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Text(
-                        "Email",
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                      DataCell(Text(this.tutorData.email,
-                          style: TextStyle(fontSize: 15))),
-                    ],
-                  ),
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Text(
-                        AppLocalizations.of(context).residence_city,
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                      DataCell(Text(this.tutorData.residence_city,
-                          style: TextStyle(fontSize: 15))),
-                    ],
-                  ),
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Text(
-                        AppLocalizations.of(context).address,
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      )),
-                      DataCell(Text(this.tutorData.address,
-                          style: TextStyle(fontSize: 15))),
-                    ],
-                  ),
-                ])),
+              ),
+            ],
           ),
-          Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 0.0),
-              child: Card(
-                  child: Text(this.tutorData.description,
-                      style: TextStyle(fontSize: 15))))
-        ]))
+        ),
       ]),
     );
   }
