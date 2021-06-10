@@ -1,3 +1,4 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,38 @@ class _TutorState extends State<Tutor> {
                             Text("Luca M.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Text("Torino"),
+                            Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 24.0,
+                                  semanticLabel:
+                                      'Text to announce in accessibility modes',
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 30.0,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: ArgonColors.redUnito,
+                                  //size: 36.0,
+                                ),
+                              ],
+                            )
                           ]),
                       subtitle: Text("Programmazione"),
                       leading: Container(
@@ -61,6 +94,37 @@ class _TutorState extends State<Tutor> {
                             Text("Simone B.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Text("Torino"),
+                            Row(
+                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: const <Widget>[
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 30.0,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                ]),
                           ]),
                       subtitle: Text("Agenti Intelligenti"),
                       leading: Container(
@@ -80,6 +144,37 @@ class _TutorState extends State<Tutor> {
                             Text("Davide D.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Text("Milano"),
+                            Row(
+                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: const <Widget>[
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 30.0,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                ]),
                           ]),
                       subtitle: Text("Analisi matematica"),
                       leading: Container(
@@ -99,6 +194,37 @@ class _TutorState extends State<Tutor> {
                             Text("Carlo C.",
                                 style: new TextStyle(fontSize: 20.0)),
                             Text("Novara"),
+                            Row(
+                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: const <Widget>[
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: ArgonColors.redUnito,
+                                    //size: 30.0,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: ArgonColors.redUnito,
+                                    //size: 36.0,
+                                  ),
+                                ]),
                           ]),
                       subtitle: Text(
                           "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica"),
@@ -114,39 +240,6 @@ class _TutorState extends State<Tutor> {
                       trailing: Icon(Icons.star)),
                 ],
               ),
-              /*child: Padding(
-                padding: EdgeInsets.all(7),
-                child: Stack(children: <Widget>[
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Stack(
-                      children: <Widget>[
-                        Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 5),
-                            child: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Icon(
-                                            Icons.ac_unit,
-                                            color: Colors.amber,
-                                            size: 40,
-                                          )),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ))
-                      ],
-                    ),
-                  )
-                ]),
-              ),*/
             )));
   }
 }
