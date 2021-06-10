@@ -169,13 +169,21 @@ class ChildItem extends StatelessWidget {
               children: <Widget>[
                 Text(this.tutor.firstname + " " + this.tutor.lastname,
                     style: new TextStyle(fontSize: 20.0)),
-                Row(children: <Widget>[
-                  Icon(Icons.email),
-                  Text(this.tutor.email, style: new TextStyle(fontSize: 13.0)),
+                Row(children: [
+                  Icon(Icons.message),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 5.0),
+                      child: Text(this.tutor.email),
+                    ),
+                  ),
                 ]),
-                Row(children: <Widget>[
+                Row(children: [
                   Icon(Icons.location_on),
-                  Text(this.tutor.residence_city),
+                  Expanded(
+                      child: Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Text(this.tutor.residence_city))),
                 ]),
                 Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceAround,

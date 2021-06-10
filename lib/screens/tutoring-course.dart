@@ -174,9 +174,14 @@ class ChildItem extends StatelessWidget {
               children: <Widget>[
                 Text(this.course.course_name.toUpperCase(),
                     style: new TextStyle(fontSize: 18.0)),
-                Row(children: <Widget>[
+                Row(children: [
                   Icon(Icons.event_available),
-                  Text(this.course.enrollment_year.toUpperCase()),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 5.0),
+                      child: Text(this.course.enrollment_year),
+                    ),
+                  ),
                 ]),
               ]),
           subtitle: Row(children: <Widget>[
