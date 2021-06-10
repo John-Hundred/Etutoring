@@ -40,8 +40,8 @@ class _TutorDetailState extends State<TutorDetail> {
       ),
       body: Stack(children: <Widget>[
         Card(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: ListView(
+            // mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
                 // leading: Icon(Icons.person),
