@@ -45,39 +45,6 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                   ),
                 ],
               ),
-              /*child: Padding(
-                padding: EdgeInsets.all(7),
-                child: Stack(children: <Widget>[
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Stack(
-                      children: <Widget>[
-                        Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 5),
-                            child: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Icon(
-                                            Icons.ac_unit,
-                                            color: Colors.amber,
-                                            size: 40,
-                                          )),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ))
-                      ],
-                    ),
-                  )
-                ]),
-              ),*/
             )));
   }
 }
