@@ -25,7 +25,8 @@ class _TutorState extends State<Tutor> {
           ],
         ),
         drawer: ArgonDrawer("tutor"),
-        body: ListView(
+        body: Card(
+            child: ListView(
           padding: const EdgeInsets.all(8),
           children: <Widget>[
             ListTile(
@@ -57,6 +58,6 @@ class _TutorState extends State<Tutor> {
                         "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
                 trailing: Icon(Icons.star))
           ],
-        ));
+        )));
   }
 }
