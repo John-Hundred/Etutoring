@@ -174,7 +174,8 @@ class ChildItem extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(left: 5.0),
-                      child: Text(this.tutor.email, style: TextStyle(fontSize: 13),
+                      child: Text(this.tutor.email,
+                          style: TextStyle(fontSize: 13)),
                     ),
                   ),
                 ]),
