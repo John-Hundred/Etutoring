@@ -34,8 +34,26 @@ if ($result->num_rows > 0) {
   if($result->num_rows == 1) $emparray = $row = $result->fetch_assoc();
   // output data of each row
   else {
+	  $row['time_slot'] = [];
 	  while($row = $result->fetch_assoc()) {
-		$emparray[] = $row;
+		  
+		  	$sql = "SELECT * FROM tutor_time_slot where user_id = '" . $row['id'] ."'";
+			$result_tutor_time_slot = $connect->query($sql);
+			$row['time_slot'] = [];
+			while($row_tutor_time_slot = $result_tutor_time_slot->fetch_assoc()) {
+				array_push($row['time_slot'], $row_tutor_time_slot);
+			}
+			
+			$sql = "SELECT * FROM tutor_course  
+				left join course on tutor_course.course_id = course.course_id 
+				where user_id = '" . $row['id'] ."'";
+			$result_courses = $connect->query($sql);
+			$row['courses'] = [];
+			while($row_courses = $result_courses->fetch_assoc()) {
+				array_push($row['courses'], $row_courses);
+			}
+			
+			$emparray[] = $row;
 	}
   }
 } else { 
