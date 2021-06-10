@@ -77,6 +77,24 @@ class _TutorDetailState extends State<TutorDetail> {
                     ]),
                   ])),*/
           Padding(
+              padding:
+                  const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+              child: new Container(
+                width: 150.0,
+                height: 150.0,
+                decoration: new BoxDecoration(
+                  border: new Border.all(
+                    color: Colors.white,
+                    width: 10.0,
+                  ),
+                  image: new DecorationImage(
+                      //fit: BoxFit.fill,
+                      image: new NetworkImage(
+                          "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                  shape: BoxShape.circle,
+                ),
+              )),
+          Padding(
             padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
             child: Card(
                 child: DataTable(
