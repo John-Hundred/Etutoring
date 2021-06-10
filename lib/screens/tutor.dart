@@ -76,7 +76,8 @@ class _TutorState extends State<Tutor> {
                       trailing: Icon(Icons.star)),
                   ListTile(
                       title: Text("Carlo C. - Novara"),
-                      subtitle: Text("Database multimediali"),
+                      subtitle: Text(
+                          "Database multimediali\nProgrammazione 1\nProgrammazione 2\nAnalisi Matematica"),
                       leading: Container(
                           padding: EdgeInsets.only(right: 12.0),
                           decoration: new BoxDecoration(
