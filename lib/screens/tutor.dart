@@ -27,16 +27,16 @@ class _TutorState extends State<Tutor> {
         ),
         drawer: ArgonDrawer("tutor"),
         body: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            // height: 220,
-            width: double.maxFinite,
-            color: Colors.white,
-            child: Card(
-              // elevation: 5,
-              child: ListView(
-                padding: const EdgeInsets.all(8),
-                children: <Widget>[
-                  ListTile(
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+          // height: 220,
+          width: double.maxFinite,
+          color: Colors.white,
+          child: ListView(
+            padding: const EdgeInsets.all(8),
+            children: <Widget>[
+              Card(
+                  elevation: 5,
+                  child: ListTile(
                       title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -86,8 +86,10 @@ class _TutorState extends State<Tutor> {
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star)),
-                  ListTile(
+                      trailing: Icon(Icons.star))),
+              Card(
+                  elevation: 5,
+                  child: ListTile(
                       title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -136,8 +138,10 @@ class _TutorState extends State<Tutor> {
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star)),
-                  ListTile(
+                      trailing: Icon(Icons.star))),
+              Card(
+                  elevation: 5,
+                  child: ListTile(
                       title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -186,8 +190,10 @@ class _TutorState extends State<Tutor> {
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star, color: ArgonColors.redUnito)),
-                  ListTile(
+                      trailing: Icon(Icons.star, color: ArgonColors.redUnito))),
+              Card(
+                  elevation: 5,
+                  child: ListTile(
                       title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -237,9 +243,9 @@ class _TutorState extends State<Tutor> {
                           child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
-                      trailing: Icon(Icons.star)),
-                ],
-              ),
-            )));
+                      trailing: Icon(Icons.star))),
+            ],
+          ),
+        ));
   }
 }

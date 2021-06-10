@@ -27,16 +27,16 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
         ),
         drawer: ArgonDrawer("favorite-tutor"),
         body: Container(
-            color: Colors.white,
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            // height: 220,
-            width: double.maxFinite,
-            child: Card(
-              // elevation: 5,
-              child: ListView(
-                padding: const EdgeInsets.all(8),
-                children: <Widget>[
-                  ListTile(
+          color: Colors.white,
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+          // height: 220,
+          width: double.maxFinite,
+          child: ListView(
+            padding: const EdgeInsets.all(8),
+            children: <Widget>[
+              Card(
+                  elevation: 5,
+                  child: ListTile(
                     title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -87,9 +87,9 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                                 "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                     trailing: Icon(Icons.star, color: ArgonColors.redUnito),
                     // selected: true,
-                  ),
-                ],
-              ),
-            )));
+                  )),
+            ],
+          ),
+        ));
   }
 }
