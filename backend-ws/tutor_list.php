@@ -14,16 +14,16 @@ if (mysqli_connect_errno($connect)){
 }
 
 if(isset($_GET['id'])) {
-    $sql = "SELECT * FROM user left join tutor_attribute on user.id = tutor_attribute.user_id 
+    $sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
 left join role on tutor_attribute.role_id = role.role_id
 where id = " . $_GET['id'];
 } else {
 			if(isset($_GET['email'])) {
-				$sql = "SELECT * FROM user left join tutor_attribute on user.id = tutor_attribute.user_id 
+				$sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
 left join role on tutor_attribute.role_id = role.role_id
 		where email = '" . $_GET['email'] ."'";
 	} else {
-			$sql = "SELECT * FROM user left join tutor_attribute on user.id = tutor_attribute.user_id 
+			$sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
 left join role on tutor_attribute.role_id = role.role_id";
 }
 }

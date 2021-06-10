@@ -60,7 +60,7 @@ try {
 			$sql = "INSERT INTO user (password, email) VALUES ('$hashed_password', '$email')";
 			
 			if($connect->query($sql)){
-				$last_id = $connect->insert_id;
+				
 				// get degree type id
 				$sqlDegreeType = "SELECT degree_type_id FROM `degree_type` WHERE degree_type_note = '" . $degree_type ."'";
 				$result = $connect->query($sqlDegreeType);

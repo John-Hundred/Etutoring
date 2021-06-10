@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 define("DB_HOST", "31.11.39.54");
 define("DB_USER", "Sql1558195");
 define("DB_PASSWORD", "ab12pozt12Q!!");
@@ -33,14 +34,16 @@ try {
 			AND user_attribute.degree_id = course_path_degree.degree_id
 		left join course on course_path_degree.course_id = course.course_id
 		left join private_lesson on private_lesson.course_id = course.course_id AND user.id = private_lesson.user_id
-		where email = '" . $_GET['email'] ."' order by course.course_name ASC";
+		where email = '" . $_GET['email'] ."' 
+		AND private_lesson_id is not null
+		order by course.course_name ASC";
 		
 		// var_dump($sql);
 		$results = $connect->query($sql);
 		if($results){
 			if ($results->num_rows > 0) {
 				while($row = $results->fetch_assoc()) {
-				if($row['course_id']) $arrayResults[] = $row;
+					$arrayResults[] = $row;
 				  }
 			}
 		}
@@ -71,7 +74,9 @@ try {
 				AND user_attribute.degree_id = course_path_degree.degree_id
 			left join course on course_path_degree.course_id = course.course_id
 			left join private_lesson on private_lesson.course_id = course.course_id AND user.id = private_lesson.user_id
-			where email = '" . $_GET['email'] ."' AND `course_name` LIKE '%".$query."%' order by course.course_name ASC";
+			where email = '" . $_GET['email'] ."' AND `course_name` LIKE '%".$query."%' 
+			AND private_lesson_id is not null
+			order by course.course_name ASC";
 		// var_dump($sql);
 		$results = $connect->query($sql);
 		if($results){
