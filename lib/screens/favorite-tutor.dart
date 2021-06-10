@@ -36,8 +36,14 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
                   ListTile(
-                    title: Text("Luca M. - Torino"),
-                    subtitle: Text("Programmazione"),
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Davide D.",
+                              style: new TextStyle(fontSize: 20.0)),
+                          Text("Milano"),
+                        ]),
+                    subtitle: Text("Analisi matematica"),
                     leading: Container(
                         padding: EdgeInsets.only(right: 12.0),
                         decoration: new BoxDecoration(
