@@ -26,20 +26,27 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
         ),
         drawer: ArgonDrawer("favorite-tutor"),
         body: Container(
+            color: Colors.white,
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             // height: 220,
             width: double.maxFinite,
             child: Card(
-              elevation: 5,
+              // elevation: 5,
               child: ListView(
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
                   ListTile(
                     title: Text("Luca M. - Torino"),
                     subtitle: Text("Programmazione"),
-                    leading: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                    leading: Container(
+                        padding: EdgeInsets.only(right: 12.0),
+                        decoration: new BoxDecoration(
+                            border: new Border(
+                                right: new BorderSide(
+                                    width: 1.0, color: Colors.black))),
+                        child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                     trailing: Icon(Icons.star),
                     selected: true,
                   ),

@@ -29,39 +29,64 @@ class _TutorState extends State<Tutor> {
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             // height: 220,
             width: double.maxFinite,
+            color: Colors.white,
             child: Card(
-              elevation: 5,
+              // elevation: 5,
               child: ListView(
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
                   ListTile(
                       title: Text("Luca M. - Torino"),
                       subtitle: Text("Programmazione"),
-                      leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                      leading: Container(
+                          padding: EdgeInsets.only(right: 12.0),
+                          decoration: new BoxDecoration(
+                              border: new Border(
+                                  right: new BorderSide(
+                                      width: 1.0, color: Colors.black))),
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
                       title: Text("Simone B. - Torino"),
                       subtitle: Text("Agenti Intelligenti"),
-                      leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                      leading: Container(
+                          padding: EdgeInsets.only(right: 12.0),
+                          decoration: new BoxDecoration(
+                              border: new Border(
+                                  right: new BorderSide(
+                                      width: 1.0, color: Colors.black))),
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
                       title: Text("Davide D. - Milano"),
                       subtitle: Text("Analisi matematica"),
-                      leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                      leading: Container(
+                          padding: EdgeInsets.only(right: 12.0),
+                          decoration: new BoxDecoration(
+                              border: new Border(
+                                  right: new BorderSide(
+                                      width: 1.0, color: Colors.black))),
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
                       trailing: Icon(Icons.star)),
                   ListTile(
                       title: Text("Carlo C. - Novara"),
                       subtitle: Text("Database multimediali"),
-                      leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
-                      trailing: Icon(Icons.star))
+                      leading: Container(
+                          padding: EdgeInsets.only(right: 12.0),
+                          decoration: new BoxDecoration(
+                              border: new Border(
+                                  right: new BorderSide(
+                                      width: 1.0, color: Colors.black))),
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                      trailing: Icon(Icons.star)),
                 ],
               ),
               /*child: Padding(
