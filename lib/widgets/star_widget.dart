@@ -26,7 +26,8 @@ class StarWidget extends StatelessWidget {
       int count = 0;
       // reviews > 0
       if (this.pre)
-        items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5)"));
+        items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5)",
+            style: TextStyle(color: Colors.black)));
 
       var avgInteger = tutorData.avg_reviews.truncate();
       for (var i = 0; i < avgInteger; i = i + 1) {
@@ -57,7 +58,8 @@ class StarWidget extends StatelessWidget {
     }
 
     if (this.post)
-      items.add(Text(" (" + tutorData.reviews.length.toString() + ")"));
+      items.add(Text(" (" + tutorData.reviews.length.toString() + ")",
+          style: TextStyle(color: Colors.black)));
     return Row(children: items);
   }
 }

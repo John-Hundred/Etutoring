@@ -1,5 +1,4 @@
 import 'package:e_tutoring/constants/Theme.dart';
-import 'package:e_tutoring/screens/chat.dart';
 import 'package:e_tutoring/screens/chatDetail.dart';
 import 'package:e_tutoring/screens/review.dart';
 import 'package:flutter/material.dart';
