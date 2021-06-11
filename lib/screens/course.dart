@@ -27,7 +27,6 @@ class CourseState extends State<Course> {
     Icons.search,
     color: Colors.white,
   );
-  final key = new GlobalKey<ScaffoldState>();
 
   CourseState() {
     searchController.addListener(() {
