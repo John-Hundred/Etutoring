@@ -19,13 +19,13 @@ class _ChatState extends State<Chat> {
   List<ChatUsers> chatUsers = [
     ChatUsers(
         name: "Luca Marignati",
-        messageText: "Lezione",
+        messageText: "Ciao!",
         imageURL:
             "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
         time: "Now"),
     ChatUsers(
         name: "Simone Bortolotti",
-        messageText: "Lezione",
+        messageText: "Ciao!",
         imageURL:
             "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
         time: "Now"),
