@@ -1,4 +1,3 @@
-import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,7 +24,7 @@ class _ReviewState extends State<Review> {
           LanguagePickerWidget(),
         ],
       ),
-      drawer: ArgonDrawer("reviews"),
+      // drawer: ArgonDrawer("reviews"),
       body: SingleChildScrollView(),
     );
   }
