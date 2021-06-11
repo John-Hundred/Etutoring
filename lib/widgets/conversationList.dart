@@ -1,3 +1,4 @@
+import 'package:e_tutoring/screens/chatDetail.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -21,7 +22,11 @@ class _ConversationListState extends State<ConversationList> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChatDetail();
+        }));
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(
