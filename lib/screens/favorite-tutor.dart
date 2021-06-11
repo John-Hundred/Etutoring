@@ -189,8 +189,18 @@ class ChildItem extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[starWidget(this.tutor)]),
               ]),
-          subtitle:
-              Text("Programmazione", style: TextStyle(color: Colors.black)),
+          subtitle: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: this.tutor.courses.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Text(
+                          this.tutor.courses[index]['course_name'].toString(),
+                          style: TextStyle(color: Colors.black));
+                    })
+              ]),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
