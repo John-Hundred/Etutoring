@@ -42,7 +42,6 @@ class _ReviewState extends State<Review> {
           LanguagePickerWidget(),
         ],
       ),
-      // drawer: ArgonDrawer("reviews"),
       body: SingleChildScrollView(),
     );
   }
