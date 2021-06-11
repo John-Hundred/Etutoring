@@ -129,14 +129,52 @@ class _TutorDetailState extends State<TutorDetail> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold))),
                     Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5.0, right: 15.0, top: 2.0),
-                              child: Text(this.tutorData.description,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 16)))
+                          ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: this.tutorData.courses.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                    leading: Icon(Icons.school),
+                                    title: Text(this
+                                        .tutorData
+                                        .courses[index]['name']
+                                        .toString()));
+                              })
+                        ]),
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5.0, right: 15.0, top: 15.0),
+                        child: Text(AppLocalizations.of(context).time_slot,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold))),
+                    Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: this.tutorData.time_slot.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                    leading: Icon(Icons.calendar_today),
+                                    title: Text(this
+                                            .tutorData
+                                            .time_slot[index]['day']
+                                            .toString() +
+                                        " | " +
+                                        this
+                                            .tutorData
+                                            .time_slot[index]['hour_from']
+                                            .toString() +
+                                        " - " +
+                                        this
+                                            .tutorData
+                                            .time_slot[index]['hour_to']
+                                            .toString()));
+                              })
                         ]),
                     Padding(
                         padding: const EdgeInsets.only(

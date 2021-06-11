@@ -53,5 +53,6 @@
     "description" : "Descrizione",
     "address" : "Indirizzo",
     "reviews" : "Recensioni",
-    "conctact_me" : "Contatta"
+    "conctact_me" : "Contatta",
+    "time_slot" : "Disponibilità"
 }
