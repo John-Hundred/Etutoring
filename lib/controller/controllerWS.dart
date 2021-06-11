@@ -229,3 +229,26 @@ Future<List<TutorModel>> getTutorSearchFromWS() async {
     return null;
   }
 }
+
+Future<CourseModel> getReviewFromWS(String userTutorId) async {
+  try {
+    var queryParameters = {
+      'user_tutor_id': userTutorId,
+    };
+    // print(queryParameters);
+    var response = await http.get(
+        Uri.https(
+            authority, unencodedPath + "review_list.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    var review;
+    if (response.statusCode == 200) {
+      var reviewJsonData = json.decode(response.body);
+      review = CourseModel.fromJson(reviewJsonData);
+    }
+    return review;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
