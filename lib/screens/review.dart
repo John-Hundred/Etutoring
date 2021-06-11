@@ -19,13 +19,17 @@ class _ReviewState extends State<Review> {
 
   _ReviewState(dynamic tutorData) {
     this.tutorData = tutorData;
-    // print(this.tutorData);
   }
 
   @override
   void initState() {
     super.initState();
   }
+
+  Icon actionIcon = new Icon(
+    Icons.search,
+    color: Colors.white,
+  );
 
   Widget build(BuildContext context) {
     return Scaffold(
