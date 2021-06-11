@@ -200,7 +200,7 @@ class _TutorDetailState extends State<TutorDetail> {
                         children: <Widget>[
                           Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const <Widget>[
+                            children: <Widget>[
                               Icon(
                                 Icons.star,
                                 color: ArgonColors.redUnito,
@@ -225,7 +225,9 @@ class _TutorDetailState extends State<TutorDetail> {
                                 color: ArgonColors.redUnito,
                                 //size: 36.0,
                               ),
-                              Text(" (3)")
+                              Text(" (" +
+                                  this.tutorData.reviews.length.toString() +
+                                  ")")
                             ],
                           )
                         ]),

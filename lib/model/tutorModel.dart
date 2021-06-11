@@ -27,6 +27,10 @@ class TutorModel {
 
   dynamic courses;
 
+  dynamic reviews;
+  // ignore: non_constant_identifier_names
+  dynamic avg_reviews;
+
   TutorModel(
       this.id,
       this.firstname,
@@ -44,7 +48,9 @@ class TutorModel {
       this.address,
       this.residence_city,
       this.time_slot,
-      this.courses);
+      this.courses,
+      this.reviews,
+      this.avg_reviews);
 
   TutorModel.fromJson(dynamic json) {
     id = json['id'] ?? '';
@@ -64,6 +70,8 @@ class TutorModel {
     residence_city = json['residence_city'] ?? '-';
     time_slot = json['time_slot'] ?? '-';
     courses = json['courses'] ?? '-';
+    reviews = json['reviews'] ?? '-';
+    avg_reviews = json['avg_reviews'] ?? '-';
   }
 
   toString() {
