@@ -216,6 +216,7 @@ class _ProfileState extends State<Profile> {
                                                                           DataCell(
                                                                             Text(
                                                                               "${user.data.email}",
+                                                                              style: TextStyle(fontSize: 13),
                                                                             ),
                                                                           ),
                                                                         ],
