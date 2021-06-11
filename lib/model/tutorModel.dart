@@ -82,6 +82,8 @@ class TutorModel {
         "\nbirth city = " +
         this.birth_city +
         "\nrole_name = " +
-        this.role_name;
+        this.role_name +
+        "\ncourse = " +
+        this.courses.toString();
   }
 }

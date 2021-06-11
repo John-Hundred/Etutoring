@@ -67,6 +67,7 @@ class _TutorState extends State<Tutor> {
       List<TutorModel> _searchList = [];
       for (int i = 0; i < tutorList.length; i++) {
         TutorModel tutor = tutorList.elementAt(i);
+        // print(tutor);
         if (tutor
             .toString()
             .toLowerCase()
@@ -216,8 +217,18 @@ class ChildItem extends StatelessWidget {
                   ],
                 ),
               ]),
-          subtitle:
-              Text("Programmazione", style: TextStyle(color: Colors.black)),
+          subtitle: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: this.tutor.courses.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Text(
+                          this.tutor.courses[index]['course_name'].toString(),
+                          style: TextStyle(color: Colors.black));
+                    })
+              ]),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
