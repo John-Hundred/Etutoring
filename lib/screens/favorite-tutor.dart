@@ -1,9 +1,10 @@
-import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/tutorDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
+
+import 'package:e_tutoring/widgets/star_widget.dart';
 
 class FavoriteTutor extends StatefulWidget {
   @override
@@ -187,7 +188,9 @@ class ChildItem extends StatelessWidget {
                 ]),
                 Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[starWidget(this.tutor)]),
+                    children: <Widget>[
+                      StarWidget(tutorData: this.tutor, pre: false, post: false)
+                    ]),
               ]),
           subtitle: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
@@ -219,53 +222,4 @@ class ChildItem extends StatelessWidget {
           },
         ));
   }
-}
-
-Widget starWidget(tutorData) {
-  // print(tutorData.avg_reviews);
-
-  final items = <Widget>[];
-  if (tutorData.avg_reviews <= 0) {
-    // no reviews
-    for (var i = 0; i < 5; i += 1) {
-      items.add(Icon(
-        Icons.star_border_outlined,
-        color: ArgonColors.redUnito,
-      ));
-    }
-  } else {
-    int count = 0;
-    // reviews > 0
-    // items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5)"));
-
-    var avgInteger = tutorData.avg_reviews.truncate();
-    for (var i = 0; i < avgInteger; i = i + 1) {
-      items.add(Icon(
-        Icons.star,
-        color: ArgonColors.redUnito,
-      ));
-      count += 1;
-    }
-    dynamic avgFraction =
-        tutorData.avg_reviews - tutorData.avg_reviews.truncate();
-    if (avgFraction >= 0.5) {
-      items.add(Icon(
-        Icons.star_half_outlined,
-        color: ArgonColors.redUnito,
-      ));
-      count += 1;
-    }
-
-    if (count < 5) {
-      for (var i = 0; i < (5 - count); i = i + 1) {
-        items.add(Icon(
-          Icons.star_border_outlined,
-          color: ArgonColors.redUnito,
-        ));
-      }
-    }
-  }
-
-  // items.add(Text(" (" + tutorData.reviews.length.toString() + ")"));
-  return Row(children: items);
 }
