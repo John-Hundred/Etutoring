@@ -20,12 +20,20 @@ class _ChatState extends State<Chat> {
     ChatUsers(
         name: "Luca Marignati",
         messageText: "Lezione",
-        imageURL: "asset/img/img_avatar.jpg",
+        imageURL:
+            "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
+        time: "Now"),
+    ChatUsers(
+        name: "Simone Bortolotti",
+        messageText: "Lezione",
+        imageURL:
+            "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
         time: "Now"),
   ];
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(205, 205, 205, 1),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).chat),

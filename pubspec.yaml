@@ -91,6 +91,7 @@ flutter:
    - assets/img/logo_size_2.jpg
    - assets/img/logo_size_invert.jpg
    - assets/img/img_avatar.png
+   - assets/img/user-profile.jpg
 
   fonts:
     - family: OpenSans
