@@ -30,9 +30,7 @@ class _ReviewState extends State<Review> {
     super.initState();
     getReviewFromWS(tutorData.id).then((value) => {
           setState(() {
-            // print(value);
             reviewList = value;
-            // print(courseList);
           })
         });
   }
