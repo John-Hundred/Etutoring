@@ -1,4 +1,5 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/review.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -41,6 +42,14 @@ class _TutorDetailState extends State<TutorDetail> {
               icon: Icon(Icons.chat),
               onPressed: () {
                 print('chat');
+              }),
+          IconButton(
+              icon: Icon(Icons.rate_review),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Review()),
+                );
               }),
         ],
       ),
