@@ -51,7 +51,14 @@ class _ReviewState extends State<Review> {
           LanguagePickerWidget(),
         ],
       ),
-      body: SingleChildScrollView(),
+      body: ListView.builder(
+        itemCount: reviewList.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text('${reviewList[index]}'),
+          );
+        },
+      ),
     );
   }
 }
