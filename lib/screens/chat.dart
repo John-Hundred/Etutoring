@@ -75,7 +75,7 @@ class _ChatState extends State<Chat> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Conversations",
+                      AppLocalizations.of(context).conversations,
                       style:
                           TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),

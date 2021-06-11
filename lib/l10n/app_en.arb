@@ -227,5 +227,9 @@
   "time_slot" : "Availability",
   "@time_slot": {
     "description": "Time slot"
+  },
+  "conversations" : "Conversations",
+  "@conversations": {
+    "description": "Conversations"
   }
 }

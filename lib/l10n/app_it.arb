@@ -54,5 +54,6 @@
     "address" : "Indirizzo",
     "reviews" : "Recensioni",
     "conctact_me" : "Contatta",
-    "time_slot" : "Disponibilità"
+    "time_slot" : "Disponibilità",
+    "conversations" : "Chat"
 }
