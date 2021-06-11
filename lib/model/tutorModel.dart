@@ -67,23 +67,16 @@ class TutorModel {
   }
 
   toString() {
-    return "id = " +
-        this.id +
-        "\nfirstname = " +
-        this.firstname +
-        "\nfirstname = " +
+    return this.firstname +
+        ',' +
         this.lastname +
-        "\nusername = " +
+        ',' +
         this.username +
-        "\nemail =" +
+        ',' +
         this.email +
-        "\nbirth date = " +
-        this.birth_date +
-        "\nbirth city = " +
-        this.birth_city +
-        "\nrole_name = " +
-        this.role_name +
-        "\ncourse = " +
+        ',' +
+        this.residence_city +
+        ',' +
         this.courses.toString();
   }
 }
