@@ -197,40 +197,7 @@ class _TutorDetailState extends State<TutorDetail> {
                                 fontWeight: FontWeight.bold))),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Row(
-                            //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Icon(
-                                Icons.star,
-                                color: ArgonColors.redUnito,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: ArgonColors.redUnito,
-                                //size: 30.0,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: ArgonColors.redUnito,
-                                //size: 36.0,
-                              ),
-                              Icon(
-                                Icons.star_border,
-                                color: ArgonColors.redUnito,
-                                //size: 36.0,
-                              ),
-                              Icon(
-                                Icons.star_border,
-                                color: ArgonColors.redUnito,
-                                //size: 36.0,
-                              ),
-                              Text(" (" +
-                                  this.tutorData.reviews.length.toString() +
-                                  ")")
-                            ],
-                          )
-                        ]),
+                        children: <Widget>[starWidget(this.tutorData)]),
                   ],
                 ),
               ),
@@ -262,4 +229,37 @@ class _TutorDetailState extends State<TutorDetail> {
       ]),
     );
   }
+}
+
+Widget starWidget(tutorData) {
+  print(tutorData.avg_reviews);
+  return Row(
+    children: <Widget>[
+      Icon(
+        Icons.star,
+        color: ArgonColors.redUnito,
+      ),
+      Icon(
+        Icons.star,
+        color: ArgonColors.redUnito,
+        //size: 30.0,
+      ),
+      Icon(
+        Icons.star,
+        color: ArgonColors.redUnito,
+        //size: 36.0,
+      ),
+      Icon(
+        Icons.star_border,
+        color: ArgonColors.redUnito,
+        //size: 36.0,
+      ),
+      Icon(
+        Icons.star_border,
+        color: ArgonColors.redUnito,
+        //size: 36.0,
+      ),
+      Text(" (" + tutorData.reviews.length.toString() + ")")
+    ],
+  );
 }
