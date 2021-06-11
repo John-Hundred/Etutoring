@@ -21,7 +21,7 @@ class Review extends StatefulWidget {
 class _ReviewState extends State<Review> {
   dynamic tutorData;
 
-  List<ReviewModel> reviewList;
+  List<ReviewModel> reviewList = [];
 
   _ReviewState(dynamic tutorData) {
     this.tutorData = tutorData;
