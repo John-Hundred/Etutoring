@@ -141,37 +141,6 @@ class CourseDetailState extends State<CourseDetail> {
                                                     DataRow(
                                                       cells: <DataCell>[
                                                         DataCell(Text(
-                                                          'Didactic period',
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .redAccent,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        )),
-                                                        DataCell(Text(
-                                                            "${course.data.study_year} - " +
-                                                                "${course.data.didactic_period}")),
-                                                      ],
-                                                    ),
-                                                    DataRow(
-                                                      cells: <DataCell>[
-                                                        DataCell(Text('Type',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .redAccent,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold))),
-                                                        DataCell(Text(
-                                                            "${course.data.component_type}",
-                                                            style: TextStyle(
-                                                                fontSize: 15))),
-                                                      ],
-                                                    ),
-                                                    DataRow(
-                                                      cells: <DataCell>[
-                                                        DataCell(Text(
                                                             'Department',
                                                             style: TextStyle(
                                                                 color: Colors
