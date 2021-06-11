@@ -238,7 +238,7 @@ Future<CourseModel> getReviewFromWS(String userTutorId) async {
     // print(queryParameters);
     var response = await http.get(
         Uri.https(
-            authority, unencodedPath + "review_list.php", queryParameters),
+            authority, unencodedPath + "reviews_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
 
     var review;
