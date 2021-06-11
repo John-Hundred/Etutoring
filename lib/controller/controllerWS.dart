@@ -5,6 +5,7 @@ import 'package:e_tutoring/model/RoleModel.dart';
 import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/model/curriculumModel.dart';
 import 'package:e_tutoring/model/degreeModel.dart';
+import 'package:e_tutoring/model/reviewModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
@@ -230,7 +231,8 @@ Future<List<TutorModel>> getTutorSearchFromWS() async {
   }
 }
 
-Future<CourseModel> getReviewFromWS(String userTutorId) async {
+Future<List<ReviewModel>> getReviewFromWS(String userTutorId) async {
+  List<ReviewModel> reviewList = [];
   try {
     var queryParameters = {
       'user_tutor_id': userTutorId,
@@ -241,12 +243,15 @@ Future<CourseModel> getReviewFromWS(String userTutorId) async {
             authority, unencodedPath + "reviews_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
 
-    var review;
     if (response.statusCode == 200) {
       var reviewJsonData = json.decode(response.body);
-      review = CourseModel.fromJson(reviewJsonData);
+      for (var item in reviewJsonData) {
+        // print(item['id']);
+        var reviewItem = ReviewModel.fromJson(item);
+        reviewList.add(reviewItem);
+      }
     }
-    return review;
+    return reviewList;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;

@@ -1,3 +1,5 @@
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/reviewModel.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,6 +19,8 @@ class Review extends StatefulWidget {
 class _ReviewState extends State<Review> {
   dynamic tutorData;
 
+  List<ReviewModel> reviewList;
+
   _ReviewState(dynamic tutorData) {
     this.tutorData = tutorData;
   }
@@ -24,6 +28,13 @@ class _ReviewState extends State<Review> {
   @override
   void initState() {
     super.initState();
+    getReviewFromWS(tutorData.id).then((value) => {
+          setState(() {
+            // print(value);
+            reviewList = value;
+            // print(courseList);
+          })
+        });
   }
 
   Icon actionIcon = new Icon(
