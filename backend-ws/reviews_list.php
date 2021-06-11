@@ -15,7 +15,9 @@ try{
 		die("Unable to connect to MySQL Database: " . mysqli_connect_error());
 	}
 	if(isset($_GET['user_tutor_id'])) {
-		$sql = "SELECT DISTINCT * FROM review where user_tutor_id = " . $_GET['user_tutor_id'];
+		$sql = "SELECT DISTINCT * FROM review
+		left join user on review.user_id = user.id
+		where user_tutor_id = " . $_GET['user_tutor_id'];
 		$result = $connect->query($sql);
 		$emparray = array();
 		if ($result->num_rows > 0) {
@@ -28,7 +30,8 @@ try{
 		  echo "0 results";
 		}
 	}else {
-		$sql = "SELECT DISTINCT * FROM review";
+		$sql = "SELECT DISTINCT * FROM review 
+		left join user on review.user_id = user.id";
 		$result = $connect->query($sql);
 		$emparray = array();
 		if ($result->num_rows > 0) {
