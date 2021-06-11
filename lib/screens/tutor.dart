@@ -191,7 +191,7 @@ class ChildItem extends StatelessWidget {
                 Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      StarWidget(tutorData: this.tutor, pre: false, post: false)
+                      StarWidget(tutorData: this.tutor, pre: false, post: true)
                     ]),
               ]),
           subtitle: Column(
