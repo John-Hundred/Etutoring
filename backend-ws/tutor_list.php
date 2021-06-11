@@ -53,6 +53,21 @@ if ($result->num_rows > 0) {
 				array_push($row['courses'], $row_courses);
 			}
 			
+			$sql = "SELECT * FROM review where user_tutor_id = '" . $row['id'] ."'";
+			$result_reviews = $connect->query($sql);
+			$row['reviews'] = [];
+			while($row_reviews = $result_reviews->fetch_assoc()) {
+				array_push($row['reviews'], $row_reviews);
+			}
+			
+			$sql = "SELECT AVG(review_star) as avg FROM review where user_tutor_id = '" . $row['id'] ."'";
+			$result_avg = $connect->query($sql);
+			if($result_avg) {
+				$avg = $result_avg->fetch_assoc()['avg'];
+				if($avg) $row['avg_reviews'] = $avg;
+				else $row['avg_reviews'] = -1;
+			}
+			
 			$emparray[] = $row;
 	}
   }
