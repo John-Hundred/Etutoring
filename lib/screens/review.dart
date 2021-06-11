@@ -64,7 +64,7 @@ class _ReviewState extends State<Review> {
                     title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('${reviewList[index].username}'),
+                          Text('${reviewList[index].firstname}'),
                           Text('${reviewList[index].review_comment}')
                         ]),
                     subtitle: StarOneWidget(

@@ -11,6 +11,8 @@ class ReviewModel {
   String review_comment;
   String email;
   String username;
+  String firstname;
+  String lastname;
 
   ReviewModel(this.review_id, this.user_tutor_id, this.user_id,
       this.review_star, this.review_comment, this.email, this.username);
@@ -23,6 +25,8 @@ class ReviewModel {
     review_comment = json['review_comment'] ?? '-';
     email = json['email'] ?? '-';
     username = json['username'] ?? '-';
+    firstname = json['firstname'] ?? '-';
+    lastname = json['lastname'] ?? '-';
   }
 
   toString() {
