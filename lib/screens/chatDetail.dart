@@ -40,7 +40,7 @@ class _ChatDetailState extends State<ChatDetail> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   SizedBox(
