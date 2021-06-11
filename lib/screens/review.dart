@@ -2,12 +2,26 @@ import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// ignore: must_be_immutable
 class Review extends StatefulWidget {
+  dynamic tutorData;
+
+  Review(dynamic tutorData) {
+    this.tutorData = tutorData;
+  }
+
   @override
-  _ReviewState createState() => _ReviewState();
+  _ReviewState createState() => new _ReviewState(tutorData);
 }
 
 class _ReviewState extends State<Review> {
+  dynamic tutorData;
+
+  _ReviewState(dynamic tutorData) {
+    this.tutorData = tutorData;
+    // print(this.tutorData);
+  }
+
   @override
   void initState() {
     super.initState();

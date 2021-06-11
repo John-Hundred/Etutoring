@@ -1,5 +1,4 @@
 import 'package:e_tutoring/constants/Theme.dart';
-import 'package:e_tutoring/screens/review.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -61,10 +60,10 @@ class StarWidget extends StatelessWidget {
     if (this.post)
       items.add(new GestureDetector(
           onTap: () {
-            Navigator.push(
+            /*Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Review()),
-            );
+            );*/
           },
           child: Text(
             " (" + tutorData.reviews.length.toString() + ")",

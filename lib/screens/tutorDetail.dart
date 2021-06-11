@@ -52,7 +52,7 @@ class _TutorDetailState extends State<TutorDetail> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Review()),
+                  MaterialPageRoute(builder: (context) => Review(tutorData)),
                 );
               }),
         ],
