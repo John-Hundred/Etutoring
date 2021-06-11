@@ -237,6 +237,7 @@ class _TutorDetailState extends State<TutorDetail> {
 
 Widget starWidget(tutorData) {
   // print(tutorData.avg_reviews);
+
   final items = <Widget>[];
   if (tutorData.avg_reviews <= 0) {
     // no reviews
@@ -247,8 +248,9 @@ Widget starWidget(tutorData) {
       ));
     }
   } else {
+    int count = 0;
     // reviews > 0
-    items.add(Text(" (" + tutorData.avg_reviews.toString() + ")"));
+    items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5)"));
 
     var avgInteger = tutorData.avg_reviews.truncate();
     for (var i = 0; i < avgInteger; i = i + 1) {
@@ -256,9 +258,20 @@ Widget starWidget(tutorData) {
         Icons.star,
         color: ArgonColors.redUnito,
       ));
+      count += 1;
     }
-    if (avgInteger < 5) {
-      for (var i = 0; i < (5 - avgInteger); i = i + 1) {
+    dynamic avgFraction =
+        tutorData.avg_reviews - tutorData.avg_reviews.truncate();
+    if (avgFraction >= 0.5) {
+      items.add(Icon(
+        Icons.star_half_outlined,
+        color: ArgonColors.redUnito,
+      ));
+      count += 1;
+    }
+
+    if (count < 5) {
+      for (var i = 0; i < (5 - count); i = i + 1) {
         items.add(Icon(
           Icons.star_border_outlined,
           color: ArgonColors.redUnito,
