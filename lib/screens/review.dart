@@ -1,6 +1,5 @@
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/reviewModel.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -50,7 +49,7 @@ class _ReviewState extends State<Review> {
         title: Text(AppLocalizations.of(context).reviews),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[
-          LanguagePickerWidget(),
+          // LanguagePickerWidget(),
         ],
       ),
       body: ListView.builder(
