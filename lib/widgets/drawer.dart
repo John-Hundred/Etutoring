@@ -65,7 +65,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: AppLocalizations.of(context).profile,
                   isSelected: widget.currentPage == "profile" ? true : false),
-              DrawerTile(
+              /*DrawerTile(
                   icon: Icons.school,
                   onTap: () {
                     if (widget.currentPage != "Tutoring Course")
@@ -75,7 +75,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
-                      widget.currentPage == "Tutoring Course" ? true : false),
+                      widget.currentPage == "Tutoring Course" ? true : false),*/
               DrawerTile(
                   icon: Icons.menu_book_rounded,
                   onTap: () {
@@ -94,7 +94,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: AppLocalizations.of(context).tutor,
                   isSelected: widget.currentPage == "tutor" ? true : false),
-              DrawerTile(
+              /* DrawerTile(
                   icon: Icons.star,
                   onTap: () {
                     if (widget.currentPage != "favorite-tutor")
@@ -104,7 +104,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   iconColor: ArgonColors.black,
                   title: AppLocalizations.of(context).favorite_tutor,
                   isSelected:
-                      widget.currentPage == "favorite-tutor" ? true : false),
+                      widget.currentPage == "favorite-tutor" ? true : false),*/
               DrawerTile(
                   icon: Icons.chat,
                   onTap: () {
