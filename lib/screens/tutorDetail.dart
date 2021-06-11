@@ -1,5 +1,4 @@
 import 'package:e_tutoring/constants/Theme.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -35,7 +34,12 @@ class _TutorDetailState extends State<TutorDetail> {
         title: Text(this.tutorData.firstname + " " + this.tutorData.lastname),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[
-          LanguagePickerWidget(),
+          // LanguagePickerWidget(),
+          IconButton(
+              icon: Icon(Icons.chat),
+              onPressed: () {
+                print('chat');
+              }),
         ],
       ),
       body: Stack(children: <Widget>[
