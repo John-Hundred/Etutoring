@@ -17,6 +17,7 @@ try{
 	if(isset($_GET['user_tutor_id'])) {
 		$sql = "SELECT DISTINCT * FROM review
 		left join user on review.user_id = user.id
+		left join user_attribute on user_attribute.user_id = user.id
 		where user_tutor_id = " . $_GET['user_tutor_id'];
 		$result = $connect->query($sql);
 		$emparray = array();
@@ -31,6 +32,7 @@ try{
 		}
 	}else {
 		$sql = "SELECT DISTINCT * FROM review 
+		left join user_attribute on user_attribute.user_id = user.id
 		left join user on review.user_id = user.id";
 		$result = $connect->query($sql);
 		$emparray = array();
