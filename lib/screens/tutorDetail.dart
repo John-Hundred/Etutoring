@@ -92,6 +92,17 @@ class _TutorDetailState extends State<TutorDetail> {
                                       color: Colors.black, fontSize: 15))),
                         ]),
                     Row(
+                        // mainAxisAlignment: MainAxisAlignment.left,
+                        children: <Widget>[
+                          Icon(Icons.smartphone),
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 15.0, top: 0.0),
+                              child: Text(this.tutorData.phone_number,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 15))),
+                        ]),
+                    Row(
                         // mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(Icons.location_on),
