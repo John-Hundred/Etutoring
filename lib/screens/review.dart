@@ -4,6 +4,8 @@ import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:e_tutoring/widgets/star_one_widget.dart';
+
 // ignore: must_be_immutable
 class Review extends StatefulWidget {
   dynamic tutorData;
@@ -52,11 +54,19 @@ class _ReviewState extends State<Review> {
         ],
       ),
       body: ListView.builder(
+        shrinkWrap: true,
         itemCount: reviewList.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('${reviewList[index]}'),
-          );
+          return Card(
+              elevation: 5,
+              child: ListTile(
+                  title: Text('${reviewList[index].review_comment}'),
+                  subtitle: StarOneWidget(
+                      star: double.parse(reviewList[index].review_star),
+                      pre: true,
+                      post: false),
+                  leading: Icon(Icons.rate_review)));
+          // trailing: Icon(Icons.ac_unit));
         },
       ),
     );
