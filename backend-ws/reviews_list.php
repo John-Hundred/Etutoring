@@ -27,7 +27,7 @@ try{
 					$emparray[] = $row;
 			}
 		} else {
-		  echo "0 results";
+		  // echo "0 results";
 		}
 	}else {
 		$sql = "SELECT DISTINCT * FROM review 

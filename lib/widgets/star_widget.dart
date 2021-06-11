@@ -26,7 +26,7 @@ class StarWidget extends StatelessWidget {
       int count = 0;
       // reviews > 0
       if (this.pre)
-        items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5)",
+        items.add(Text(" (" + tutorData.avg_reviews.toString() + "/5.0)",
             style: TextStyle(color: Colors.black)));
 
       var avgInteger = tutorData.avg_reviews.truncate();

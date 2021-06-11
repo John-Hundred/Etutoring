@@ -54,21 +54,26 @@ class _ReviewState extends State<Review> {
         ],
       ),
       body: ListView.builder(
-        shrinkWrap: true,
-        itemCount: reviewList.length,
-        itemBuilder: (context, index) {
-          return Card(
-              elevation: 5,
-              child: ListTile(
-                  title: Text('${reviewList[index].review_comment}'),
-                  subtitle: StarOneWidget(
-                      star: double.parse(reviewList[index].review_star),
-                      pre: true,
-                      post: false),
-                  leading: Icon(Icons.rate_review)));
-          // trailing: Icon(Icons.ac_unit));
-        },
-      ),
+          shrinkWrap: true,
+          itemCount: reviewList.length,
+          itemBuilder: (context, index) {
+            print(reviewList);
+            return Card(
+                elevation: 5,
+                child: ListTile(
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text('${reviewList[index].username}'),
+                          Text('${reviewList[index].review_comment}')
+                        ]),
+                    subtitle: StarOneWidget(
+                        star: double.parse(reviewList[index].review_star),
+                        pre: true,
+                        post: false),
+                    leading: Icon(Icons.rate_review)));
+            // trailing: Icon(Icons.ac_unit));
+          }),
     );
   }
 }
