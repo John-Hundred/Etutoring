@@ -139,7 +139,7 @@ class _TutorDetailState extends State<TutorDetail> {
                                     leading: Icon(Icons.school),
                                     title: Text(this
                                         .tutorData
-                                        .courses[index]['name']
+                                        .courses[index]['course_name']
                                         .toString()));
                               })
                         ]),
