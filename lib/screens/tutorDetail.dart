@@ -1,4 +1,5 @@
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/chat.dart';
 import 'package:e_tutoring/screens/review.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,10 @@ class _TutorDetailState extends State<TutorDetail> {
           IconButton(
               icon: Icon(Icons.chat),
               onPressed: () {
-                print('chat');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Chat()),
+                );
               }),
           IconButton(
               icon: Icon(Icons.rate_review),
