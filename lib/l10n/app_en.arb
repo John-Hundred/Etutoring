@@ -228,7 +228,7 @@
   "@time_slot": {
     "description": "Time slot"
   },
-  "conversations" : "Conversations",
+  "conversations" : "Chat",
   "@conversations": {
     "description": "Conversations"
   }
