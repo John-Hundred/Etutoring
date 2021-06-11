@@ -56,7 +56,7 @@ class _ReviewState extends State<Review> {
           shrinkWrap: true,
           itemCount: reviewList.length,
           itemBuilder: (context, index) {
-            print(reviewList);
+            // print(reviewList);
             return Card(
                 elevation: 5,
                 child: ListTile(
