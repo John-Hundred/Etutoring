@@ -1,5 +1,6 @@
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/screens/signup.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
@@ -75,8 +76,10 @@ class _LoginState extends State<Login> {
             await UserSecureStorage.setPassword(passwordController.text);
 
             // get user role
-            //dynamic role = await getRoleFromWS(emailController.text);
-            //await UserSecureStorage.setRole(role.role_name);
+            dynamic role = await getRoleFromWS(emailController.text);
+            await UserSecureStorage.setRole(role.role_name);
+
+            // UserSecureStorage.getRole().then((value) => print(value));
 
             // Hiding the CircularProgressIndicator.
             //print(emailController.text);

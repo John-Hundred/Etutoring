@@ -19,11 +19,18 @@ class ArgonDrawer extends StatefulWidget {
 class _ArgonDrawerState extends State<ArgonDrawer> {
   // For CircularProgressIndicator.
   bool visible = false;
+  String role = "";
 
   @override
   initState() {
     super.initState();
+    //setRole();
   }
+
+  /*setRole() async {
+    await UserSecureStorage.getRole().then((value) => this.role = value);
+    // print(this.role);
+  }*/
 
   Future wait() async {
     await new Future.delayed(const Duration(seconds: 5), () {});
@@ -56,6 +63,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
           child: ListView(
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
+              // ALL USERS
               DrawerTile(
                   icon: Icons.person,
                   onTap: () {
@@ -76,7 +84,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
                       widget.currentPage == "Tutoring Course" ? true : false),*/
-
+              // ONLY STUDENT USERS
               DrawerTile(
                   icon: Icons.menu_book_rounded,
                   onTap: () {
@@ -145,6 +153,8 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     UserSecureStorage.delete('email');
                     // Delete password from secure storage
                     UserSecureStorage.delete('password');
+                    // Delete role from secure storage
+                    UserSecureStorage.delete('role');
 
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MyApp()));
