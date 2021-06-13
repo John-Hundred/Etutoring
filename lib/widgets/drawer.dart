@@ -75,6 +75,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         return new Text('Error: ${snapshot.error}');
                       else {
                         return Column(children: [
+                          // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.person,
                               onTap: () {
@@ -98,7 +99,8 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
                       widget.currentPage == "Tutoring Course" ? true : false),*/
-                          // ONLY STUDENT
+
+                          // ACL: ROLE = Student ONLY STUDENT VIEW
                           snapshot.data == "Student"
                               ? DrawerTile(
                                   icon: Icons.menu_book_rounded,
@@ -135,6 +137,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).favorite_tutor,
                   isSelected:
                       widget.currentPage == "favorite-tutor" ? true : false),*/
+                          // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.chat,
                               onTap: () {
@@ -146,6 +149,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               title: AppLocalizations.of(context).chat,
                               isSelected:
                                   widget.currentPage == "chat" ? true : false),
+                          // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.calendar_today,
                               onTap: () {
@@ -158,6 +162,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "calendar"
                                   ? true
                                   : false),
+                          // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.settings,
                               onTap: () {
@@ -170,6 +175,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "settings"
                                   ? true
                                   : false),
+                          // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.logout,
                               onTap: () async {
