@@ -32,6 +32,10 @@ class _ProfileState extends State<Profile> {
     super.initState();
   }
 
+  Future<String> setRole() {
+    return UserSecureStorage.getRole();
+  }
+
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
@@ -143,106 +147,98 @@ class _ProfileState extends State<Profile> {
                                                           if (user.hasData) {
                                                             // print(user.data);
                                                             children = <Widget>[
-                                                              Container(
-                                                                  constraints:
-                                                                      BoxConstraints(
-                                                                          minWidth:
-                                                                              600),
-                                                                  color: Color
-                                                                      .fromRGBO(
-                                                                          205,
-                                                                          205,
-                                                                          205,
-                                                                          1),
-                                                                  child:
-                                                                      DataTable(
-                                                                    dataRowHeight:
-                                                                        50,
-                                                                    dataRowColor:
-                                                                        MaterialStateColor.resolveWith((states) =>
-                                                                            Colors.white),
-                                                                    headingRowHeight:
-                                                                        0,
-                                                                    columns: <
-                                                                        DataColumn>[
-                                                                      DataColumn(
-                                                                        label:
-                                                                            Text(
-                                                                          '',
-                                                                        ),
-                                                                      ),
-                                                                      DataColumn(
-                                                                        label:
-                                                                            Text(
-                                                                          '',
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                    rows: <
-                                                                        DataRow>[
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(
-                                                                              Text(
-                                                                            AppLocalizations.of(context).lastname,
-                                                                            style: TextStyle(
-                                                                                color: Colors.redAccent,
-                                                                                fontWeight: FontWeight.bold,
-                                                                                fontSize: 15),
-                                                                          )),
-                                                                          DataCell(Text(
-                                                                              "${user.data.lastname}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).name,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.firstname}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              'Email',
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(
-                                                                            Text(
-                                                                              "${user.data.email}",
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              'Password',
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(
-                                                                              Row(children: <Widget>[
-                                                                            Text("********",
-                                                                                style: TextStyle(fontSize: 15)),
-                                                                            TextButton(
-                                                                              style: ButtonStyle(
-                                                                                foregroundColor: MaterialStateProperty.all<Color>(ArgonColors.redUnito),
-                                                                              ),
-                                                                              onPressed: () {
-                                                                                Navigator.push(context, MaterialPageRoute(builder: (context) => Changepassword()));
-                                                                              },
-                                                                              child: Text(AppLocalizations.of(context).change, style: TextStyle(fontSize: 15)),
-                                                                            )
-                                                                          ])),
-                                                                        ],
-                                                                      ),
-                                                                      /*DataRow(
+                                                              new FutureBuilder<
+                                                                      String>(
+                                                                  future:
+                                                                      setRole(),
+                                                                  builder: (BuildContext
+                                                                          context,
+                                                                      AsyncSnapshot<
+                                                                              String>
+                                                                          snapshot) {
+                                                                    switch (snapshot
+                                                                        .connectionState) {
+                                                                      case ConnectionState
+                                                                          .none:
+                                                                        return new Text(
+                                                                            'Press button to start');
+                                                                      case ConnectionState
+                                                                          .waiting:
+                                                                        return new Text(
+                                                                            'Awaiting result...');
+                                                                      default:
+                                                                        if (snapshot
+                                                                            .hasError)
+                                                                          return new Text(
+                                                                              'Error: ${snapshot.error}');
+                                                                        else {
+                                                                          print(
+                                                                              snapshot);
+                                                                          return Column(
+                                                                              children: [
+                                                                                Container(
+                                                                                    constraints: BoxConstraints(minWidth: 600),
+                                                                                    color: Color.fromRGBO(205, 205, 205, 1),
+                                                                                    child: DataTable(
+                                                                                      dataRowHeight: 50,
+                                                                                      dataRowColor: MaterialStateColor.resolveWith((states) => Colors.white),
+                                                                                      headingRowHeight: 0,
+                                                                                      columns: <DataColumn>[
+                                                                                        DataColumn(
+                                                                                          label: Text(
+                                                                                            '',
+                                                                                          ),
+                                                                                        ),
+                                                                                        DataColumn(
+                                                                                          label: Text(
+                                                                                            '',
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                      rows: <DataRow>[
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(
+                                                                                              AppLocalizations.of(context).lastname,
+                                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15),
+                                                                                            )),
+                                                                                            DataCell(Text("${user.data.lastname}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(AppLocalizations.of(context).name, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                            DataCell(Text("${user.data.firstname}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text('Email', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                            DataCell(
+                                                                                              Text(
+                                                                                                "${user.data.email}",
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text('Password', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                            DataCell(Row(children: <Widget>[
+                                                                                              Text("********", style: TextStyle(fontSize: 15)),
+                                                                                              TextButton(
+                                                                                                style: ButtonStyle(
+                                                                                                  foregroundColor: MaterialStateProperty.all<Color>(ArgonColors.redUnito),
+                                                                                                ),
+                                                                                                onPressed: () {
+                                                                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Changepassword()));
+                                                                                                },
+                                                                                                child: Text(AppLocalizations.of(context).change, style: TextStyle(fontSize: 15)),
+                                                                                              )
+                                                                                            ])),
+                                                                                          ],
+                                                                                        ),
+                                                                                        /*DataRow(
                                                                   cells: <
                                                                       DataCell>[
                                                                     DataCell(
@@ -258,165 +254,105 @@ class _ProfileState extends State<Profile> {
                                                                         "${user.data.phone_number}")),
                                                                   ],
                                                                 ),*/
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(
-                                                                              Text(
-                                                                            AppLocalizations.of(context).nationality,
-                                                                            style: TextStyle(
-                                                                                color: Colors.redAccent,
-                                                                                fontWeight: FontWeight.bold,
-                                                                                fontSize: 15),
-                                                                          )),
-                                                                          DataCell(Text(
-                                                                              "${user.data.nationality}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).date_of_birth,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.birth_date}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).birth_place,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.birth_city}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).residence_city,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.residence_city}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                    ],
-                                                                  )),
-                                                              SizedBox(
-                                                                height: 20,
-                                                              ),
-                                                              Container(
-                                                                  constraints:
-                                                                      BoxConstraints(
-                                                                          minWidth:
-                                                                              600),
-                                                                  color: Color
-                                                                      .fromRGBO(
-                                                                          205,
-                                                                          205,
-                                                                          205,
-                                                                          1),
-                                                                  child:
-                                                                      DataTable(
-                                                                    dataRowHeight:
-                                                                        60,
-                                                                    dataRowColor:
-                                                                        MaterialStateColor.resolveWith((states) =>
-                                                                            Colors.white),
-                                                                    headingRowHeight:
-                                                                        0,
-                                                                    columns: <
-                                                                        DataColumn>[
-                                                                      DataColumn(
-                                                                        label:
-                                                                            Text(
-                                                                          '',
-                                                                        ),
-                                                                      ),
-                                                                      DataColumn(
-                                                                        label:
-                                                                            Text(
-                                                                          '',
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                    rows: <
-                                                                        DataRow>[
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).role,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.role_name}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).number,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.badge_number}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).degree_course,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.degree_name} (" + "${user.data.degree_athenaeum})",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).type,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.degree_type_note} (" + "${user.data.degree_type_name})",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).headquarters,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.degree_location}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                      DataRow(
-                                                                        cells: <
-                                                                            DataCell>[
-                                                                          DataCell(Text(
-                                                                              AppLocalizations.of(context).curriculum,
-                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                          DataCell(Text(
-                                                                              "${user.data.degree_path_name}",
-                                                                              style: TextStyle(fontSize: 15))),
-                                                                        ],
-                                                                      ),
-                                                                    ],
-                                                                  )),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(
+                                                                                              AppLocalizations.of(context).nationality,
+                                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15),
+                                                                                            )),
+                                                                                            DataCell(Text("${user.data.nationality}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(AppLocalizations.of(context).date_of_birth, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
+                                                                                            DataCell(Text("${user.data.birth_date}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(AppLocalizations.of(context).birth_place, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
+                                                                                            DataCell(Text("${user.data.birth_city}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(AppLocalizations.of(context).residence_city, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
+                                                                                            DataCell(Text("${user.data.residence_city}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ],
+                                                                                    )),
+                                                                                SizedBox(
+                                                                                  height: 20,
+                                                                                ),
+                                                                                Container(
+                                                                                    constraints: BoxConstraints(minWidth: 600),
+                                                                                    color: Color.fromRGBO(205, 205, 205, 1),
+                                                                                    child: DataTable(
+                                                                                      dataRowHeight: 60,
+                                                                                      dataRowColor: MaterialStateColor.resolveWith((states) => Colors.white),
+                                                                                      headingRowHeight: 0,
+                                                                                      columns: <DataColumn>[
+                                                                                        DataColumn(
+                                                                                          label: Text(
+                                                                                            '',
+                                                                                          ),
+                                                                                        ),
+                                                                                        DataColumn(
+                                                                                          label: Text(
+                                                                                            '',
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                      rows: <DataRow>[
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(AppLocalizations.of(context).role, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                            DataCell(Text("${user.data.role_name}", style: TextStyle(fontSize: 15))),
+                                                                                          ],
+                                                                                        ),
+                                                                                        if (snapshot.data == "Student")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).number, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(Text("${user.data.badge_number}", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (snapshot.data == "Student")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).degree_course, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(Text("${user.data.degree_name} (" + "${user.data.degree_athenaeum})", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (snapshot.data == "Student")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).type, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(Text("${user.data.degree_type_note} (" + "${user.data.degree_type_name})", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (snapshot.data == "Student")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).headquarters, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(Text("${user.data.degree_location}", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (snapshot.data == "Student")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).curriculum, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(Text("${user.data.degree_path_name}", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                      ],
+                                                                                    )),
+                                                                              ]);
+                                                                        }
+                                                                    }
+                                                                  })
                                                             ];
                                                           } else if (user
                                                               .hasError) {
