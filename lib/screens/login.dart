@@ -73,6 +73,11 @@ class _LoginState extends State<Login> {
           if (message == 'Login Matched') {
             await UserSecureStorage.setEmail(emailController.text);
             await UserSecureStorage.setPassword(passwordController.text);
+
+            // get user role
+            //dynamic role = await getRoleFromWS(emailController.text);
+            //await UserSecureStorage.setRole(role.role_name);
+
             // Hiding the CircularProgressIndicator.
             //print(emailController.text);
             //print(passwordController.text);

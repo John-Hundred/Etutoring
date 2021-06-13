@@ -14,17 +14,17 @@ if (mysqli_connect_errno($connect)){
 }
 
 if(isset($_GET['id'])) {
-    $sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
-left join role on tutor_attribute.role_id = role.role_id
-where id = " . $_GET['id'];
+    $sql = "SELECT * FROM user join user_attribute on user.id = user_attribute.user_id 
+left join role on user_attribute.role_id = role.role_id
+where role.role_id = 2 AND id = " . $_GET['id'];
 } else {
 			if(isset($_GET['email'])) {
-				$sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
-left join role on tutor_attribute.role_id = role.role_id
-		where email = '" . $_GET['email'] ."'";
+				$sql = "SELECT * FROM user join user_attribute on user.id = user_attribute.user_id 
+left join role on user_attribute.role_id = role.role_id
+		where email = '" . $_GET['email'] ."' AND role.role_id = 2";
 	} else {
-			$sql = "SELECT * FROM user join tutor_attribute on user.id = tutor_attribute.user_id 
-left join role on tutor_attribute.role_id = role.role_id";
+			$sql = "SELECT * FROM user join user_attribute on user.id = user_attribute.user_id 
+left join role on user_attribute.role_id = role.role_id where role.role_id = 2";
 }
 }
 $result = $connect->query($sql);
@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
 			$result_avg = $connect->query($sql);
 			if($result_avg) {
 				$avg = $result_avg->fetch_assoc()['avg'];
-				if($avg) $row['avg_reviews'] = $avg;
+				if($avg) $row['avg_reviews'] = doubleval($avg);
 				else $row['avg_reviews'] = -1;
 			}
 			

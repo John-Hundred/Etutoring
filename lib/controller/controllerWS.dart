@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:e_tutoring/config/config.dart';
-import 'package:e_tutoring/model/RoleModel.dart';
+import 'package:e_tutoring/model/roleModel.dart';
 import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/model/curriculumModel.dart';
 import 'package:e_tutoring/model/degreeModel.dart';
@@ -252,6 +252,30 @@ Future<List<ReviewModel>> getReviewFromWS(String userTutorId) async {
       }
     }
     return reviewList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
+Future<RoleModel> getRoleFromWS(String email) async {
+  try {
+    var queryParameters = {
+      'email': email,
+    };
+    // print(queryParameters);
+    var response = await http.get(
+        Uri.https(
+            authority, unencodedPath + "get_user_role.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    var course;
+    if (response.statusCode == 200) {
+      // print(response.body);
+      var courseJsonData = json.decode(response.body);
+      course = RoleModel.fromJson(courseJsonData);
+    }
+    return course;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;

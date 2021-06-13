@@ -21,7 +21,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
   bool visible = false;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
   }
 
@@ -76,6 +76,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
                       widget.currentPage == "Tutoring Course" ? true : false),*/
+
               DrawerTile(
                   icon: Icons.menu_book_rounded,
                   onTap: () {
@@ -221,4 +222,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
       ]),
     ));
   }
+}
+
+getRole() async {
+  UserSecureStorage.getRole().then((role) {
+    return role;
+  });
 }
