@@ -40,7 +40,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Widget build(BuildContext context) {
-    this.init();
+    //this.init();
 
     return new WillPopScope(
         onWillPop: () async {
