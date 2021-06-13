@@ -44,7 +44,7 @@ class _ReviewState extends State<Review> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromRGBO(205, 205, 205, 1),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).reviews),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
