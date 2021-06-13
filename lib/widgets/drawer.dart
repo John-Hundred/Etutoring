@@ -12,6 +12,7 @@ import '../main.dart';
 class ArgonDrawer extends StatefulWidget {
   final String currentPage;
   const ArgonDrawer(this.currentPage);
+
   @override
   _ArgonDrawerState createState() => _ArgonDrawerState();
 }
@@ -19,11 +20,14 @@ class ArgonDrawer extends StatefulWidget {
 class _ArgonDrawerState extends State<ArgonDrawer> {
   // For CircularProgressIndicator.
   bool visible = false;
-  String role = "";
 
   @override
   initState() {
     super.initState();
+  }
+
+  Future<String> setRole() {
+    return UserSecureStorage.getRole();
   }
 
   Future wait() async {
@@ -57,17 +61,33 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
           child: ListView(
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
-              // ALL USERS
-              DrawerTile(
-                  icon: Icons.person,
-                  onTap: () {
-                    if (widget.currentPage != "profile")
-                      Navigator.pushReplacementNamed(context, '/profile');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).profile,
-                  isSelected: widget.currentPage == "profile" ? true : false),
-              /*DrawerTile(
+              new FutureBuilder<String>(
+                future: setRole(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                      return new Text('Press button to start');
+                    case ConnectionState.waiting:
+                      return new Text('Awaiting result...');
+                    default:
+                      if (snapshot.hasError)
+                        return new Text('Error: ${snapshot.error}');
+                      else {
+                        return Column(children: [
+                          DrawerTile(
+                              icon: Icons.person,
+                              onTap: () {
+                                if (widget.currentPage != "profile")
+                                  Navigator.pushReplacementNamed(
+                                      context, '/profile');
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).profile,
+                              isSelected: widget.currentPage == "profile"
+                                  ? true
+                                  : false),
+                          /*DrawerTile(
                   icon: Icons.school,
                   onTap: () {
                     if (widget.currentPage != "Tutoring Course")
@@ -78,26 +98,33 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).tutoring_course,
                   isSelected:
                       widget.currentPage == "Tutoring Course" ? true : false),*/
-              // ONLY STUDENT USERS
-              DrawerTile(
-                  icon: Icons.menu_book_rounded,
-                  onTap: () {
-                    if (widget.currentPage != "course")
-                      Navigator.pushReplacementNamed(context, '/course');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).courses,
-                  isSelected: widget.currentPage == "course" ? true : false),
-              DrawerTile(
-                  icon: Icons.search,
-                  onTap: () {
-                    if (widget.currentPage != "tutor")
-                      Navigator.pushReplacementNamed(context, '/tutor');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).tutor,
-                  isSelected: widget.currentPage == "tutor" ? true : false),
-              /* DrawerTile(
+                          // ONLY STUDENT
+                          snapshot.data == "Student"
+                              ? DrawerTile(
+                                  icon: Icons.menu_book_rounded,
+                                  onTap: () {
+                                    if (widget.currentPage != "course")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/course');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title: AppLocalizations.of(context).courses,
+                                  isSelected: widget.currentPage == "course"
+                                      ? true
+                                      : false)
+                              : Container(),
+                          DrawerTile(
+                              icon: Icons.search,
+                              onTap: () {
+                                if (widget.currentPage != "tutor")
+                                  Navigator.pushReplacementNamed(
+                                      context, '/tutor');
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).tutor,
+                              isSelected:
+                                  widget.currentPage == "tutor" ? true : false),
+                          /* DrawerTile(
                   icon: Icons.star,
                   onTap: () {
                     if (widget.currentPage != "favorite-tutor")
@@ -108,54 +135,72 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   title: AppLocalizations.of(context).favorite_tutor,
                   isSelected:
                       widget.currentPage == "favorite-tutor" ? true : false),*/
-              DrawerTile(
-                  icon: Icons.chat,
-                  onTap: () {
-                    if (widget.currentPage != "chat")
-                      Navigator.pushReplacementNamed(context, '/chat');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).chat,
-                  isSelected: widget.currentPage == "chat" ? true : false),
-              DrawerTile(
-                  icon: Icons.calendar_today,
-                  onTap: () {
-                    if (widget.currentPage != "calendar")
-                      Navigator.pushReplacementNamed(context, '/calendar');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).calendar,
-                  isSelected: widget.currentPage == "calendar" ? true : false),
-              DrawerTile(
-                  icon: Icons.settings,
-                  onTap: () {
-                    if (widget.currentPage != "settings")
-                      Navigator.pushReplacementNamed(context, '/settings');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).settings,
-                  isSelected: widget.currentPage == "settings" ? true : false),
-              DrawerTile(
-                  icon: Icons.logout,
-                  onTap: () async {
-                    setState(() {
-                      visible = true;
-                    });
-                    await Future.delayed(const Duration(seconds: 1), () {});
+                          DrawerTile(
+                              icon: Icons.chat,
+                              onTap: () {
+                                if (widget.currentPage != "chat")
+                                  Navigator.pushReplacementNamed(
+                                      context, '/chat');
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).chat,
+                              isSelected:
+                                  widget.currentPage == "chat" ? true : false),
+                          DrawerTile(
+                              icon: Icons.calendar_today,
+                              onTap: () {
+                                if (widget.currentPage != "calendar")
+                                  Navigator.pushReplacementNamed(
+                                      context, '/calendar');
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).calendar,
+                              isSelected: widget.currentPage == "calendar"
+                                  ? true
+                                  : false),
+                          DrawerTile(
+                              icon: Icons.settings,
+                              onTap: () {
+                                if (widget.currentPage != "settings")
+                                  Navigator.pushReplacementNamed(
+                                      context, '/settings');
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).settings,
+                              isSelected: widget.currentPage == "settings"
+                                  ? true
+                                  : false),
+                          DrawerTile(
+                              icon: Icons.logout,
+                              onTap: () async {
+                                setState(() {
+                                  visible = true;
+                                });
+                                await Future.delayed(
+                                    const Duration(seconds: 1), () {});
 
-                    // Delete email from secure storage
-                    UserSecureStorage.delete('email');
-                    // Delete password from secure storage
-                    UserSecureStorage.delete('password');
-                    // Delete role from secure storage
-                    UserSecureStorage.delete('role');
+                                // Delete email from secure storage
+                                UserSecureStorage.delete('email');
+                                // Delete password from secure storage
+                                UserSecureStorage.delete('password');
+                                // Delete role from secure storage
+                                UserSecureStorage.delete('role');
 
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyApp()));
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).logout,
-                  isSelected: widget.currentPage == "Logout" ? true : false),
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyApp()));
+                              },
+                              iconColor: ArgonColors.black,
+                              title: AppLocalizations.of(context).logout,
+                              isSelected: widget.currentPage == "Logout"
+                                  ? true
+                                  : false),
+                        ]);
+                      }
+                  }
+                },
+              ),
               FutureBuilder(
                   future: wait(),
                   builder: (context, snapshot) {
