@@ -24,13 +24,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
   @override
   initState() {
     super.initState();
-    //setRole();
   }
-
-  /*setRole() async {
-    await UserSecureStorage.getRole().then((value) => this.role = value);
-    // print(this.role);
-  }*/
 
   Future wait() async {
     await new Future.delayed(const Duration(seconds: 5), () {});
@@ -154,7 +148,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     // Delete password from secure storage
                     UserSecureStorage.delete('password');
                     // Delete role from secure storage
-                    // UserSecureStorage.delete('role');
+                    UserSecureStorage.delete('role');
 
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MyApp()));
@@ -232,10 +226,4 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
       ]),
     ));
   }
-}
-
-getRole() async {
-  UserSecureStorage.getRole().then((role) {
-    return role;
-  });
 }
