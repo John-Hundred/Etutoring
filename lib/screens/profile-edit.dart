@@ -67,9 +67,16 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                   new TextEditingController(
                                       text: user.data.residence_city);
 
+                              var controllerPhoneNumber =
+                                  new TextEditingController(
+                                      text: user.data.phone_number);
+
+                              var controllerDescription =
+                                  new TextEditingController(
+                                      text: user.data.description);
+
                               children = <Widget>[
                                 Container(
-                                    // padding: EdgeInsets.all(10.0),
                                     child: TextField(
                                   enabled: false,
                                   autocorrect: true,
@@ -251,8 +258,57 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                       controller: controllerResidence,
                                       autocorrect: true,
                                       decoration: InputDecoration(
-                                        // hintText: 'Enter Residence Here...',
                                         prefixIcon: Icon(Icons.place),
+                                        hintStyle:
+                                            TextStyle(color: Colors.black),
+                                        filled: true,
+                                        fillColor: Colors.white70,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0)),
+                                          borderSide: BorderSide(
+                                              color: Colors.grey, width: 2),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0)),
+                                          borderSide: BorderSide(
+                                              color: Colors.grey, width: 2),
+                                        ),
+                                      ),
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: TextField(
+                                      controller: controllerPhoneNumber,
+                                      autocorrect: true,
+                                      decoration: InputDecoration(
+                                        prefixIcon: Icon(Icons.smartphone),
+                                        hintStyle:
+                                            TextStyle(color: Colors.black),
+                                        filled: true,
+                                        fillColor: Colors.white70,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0)),
+                                          borderSide: BorderSide(
+                                              color: Colors.grey, width: 2),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0)),
+                                          borderSide: BorderSide(
+                                              color: Colors.grey, width: 2),
+                                        ),
+                                      ),
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: TextField(
+                                      controller: controllerDescription,
+                                      autocorrect: true,
+                                      decoration: InputDecoration(
+                                        prefixIcon: Icon(Icons.description),
                                         hintStyle:
                                             TextStyle(color: Colors.black),
                                         filled: true,

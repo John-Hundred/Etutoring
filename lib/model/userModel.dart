@@ -34,6 +34,8 @@ class UserModel {
   // ignore: non_constant_identifier_names
   String degree_type_note;
 
+  String description;
+
   UserModel(
       this.id,
       this.firstname,
@@ -53,7 +55,8 @@ class UserModel {
       this.nationality,
       this.residence_city,
       this.degree_type_name,
-      this.degree_type_note);
+      this.degree_type_note,
+      this.description);
 
   UserModel.fromJson(dynamic json) {
     id = json['id'] ?? '';
@@ -75,6 +78,7 @@ class UserModel {
     residence_city = json['residence_city'] ?? '-';
     degree_type_name = json['degree_type_name'] ?? '-';
     degree_type_note = json['degree_type_note'] ?? '-';
+    description = json['description'] ?? '-';
   }
 
   toString() {

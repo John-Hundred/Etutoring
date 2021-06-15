@@ -8,7 +8,6 @@ import 'package:e_tutoring/screens/profile-edit.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -89,7 +88,7 @@ class _ProfileState extends State<Profile> {
                       title: Text(AppLocalizations.of(context).profile),
                       backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                       actions: <Widget>[
-                        LanguagePickerWidget(),
+                        // LanguagePickerWidget(),
                         IconButton(
                             icon: Icon(Icons.edit),
                             onPressed: () {
@@ -241,22 +240,15 @@ class _ProfileState extends State<Profile> {
                                                                                             ])),
                                                                                           ],
                                                                                         ),
-                                                                                        /*DataRow(
-                                                                  cells: <
-                                                                      DataCell>[
-                                                                    DataCell(
-                                                                        Text(
-                                                                      'Numero di telefono',
-                                                                      style: TextStyle(
-                                                                          color: Colors
-                                                                              .redAccent,
-                                                                          fontWeight:
-                                                                              FontWeight.bold),
-                                                                    )),
-                                                                    DataCell(Text(
-                                                                        "${user.data.phone_number}")),
-                                                                  ],
-                                                                ),*/
+                                                                                        DataRow(
+                                                                                          cells: <DataCell>[
+                                                                                            DataCell(Text(
+                                                                                              'Numero di telefono',
+                                                                                              style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
+                                                                                            )),
+                                                                                            DataCell(Text("${user.data.phone_number}")),
+                                                                                          ],
+                                                                                        ),
                                                                                         DataRow(
                                                                                           cells: <DataCell>[
                                                                                             DataCell(Text(
