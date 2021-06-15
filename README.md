@@ -13,12 +13,8 @@
 ### CONFIG: file lib\config\config.dart
 Define authority and unecodedPath for comunicate with backend php mysql API
 e.g. 
-- // SERVER IP
-- const String authority = '192.168.56.1';
-- // SERVER LOGIN API URL
-- const String unencodedPath = 'e-tutoring-web/ws/ws/';
-
-### Remember gitignore lib/config/config.dart because it contains configuration parameters that vary from pc to pc.
+const String authority = 'www.e-tutoring-app.it';
+const String unencodedPath = 'ws/';
 
 #TEST
 Run by terminal: flutter test test/counter_test.dart
