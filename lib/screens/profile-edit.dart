@@ -35,7 +35,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                   resizeToAvoidBottomInset: false,
                   body: Form(
                       key: formKey,
-                      child: (ListView(padding: EdgeInsets.all(8), children: [
+                      child: (ListView(children: [
                         Container(
                             width: 320,
                             padding: EdgeInsets.all(10.0),
@@ -45,6 +45,32 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                               decoration: InputDecoration(
                                 hintText: 'luca.marignati@edu.unito.it',
                                 prefixIcon: Icon(Icons.email),
+                                hintStyle: TextStyle(color: Colors.black),
+                                filled: true,
+                                fillColor: Colors.white70,
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.grey, width: 2),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.grey, width: 2),
+                                ),
+                              ),
+                            )),
+                        Container(
+                            // width: 320,
+                            padding: EdgeInsets.all(10.0),
+                            child: TextField(
+                              enabled: false,
+                              autocorrect: true,
+                              decoration: InputDecoration(
+                                hintText: 'Student',
+                                prefixIcon: Icon(Icons.work),
                                 hintStyle: TextStyle(color: Colors.black),
                                 filled: true,
                                 fillColor: Colors.white70,
