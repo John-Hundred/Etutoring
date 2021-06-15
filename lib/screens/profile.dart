@@ -176,8 +176,7 @@ class _ProfileState extends State<Profile> {
                                                                           return new Text(
                                                                               'Error: ${snapshot.error}');
                                                                         else {
-                                                                          print(
-                                                                              snapshot);
+                                                                          // print(snapshot);
                                                                           return Column(
                                                                               children: [
                                                                                 Container(
