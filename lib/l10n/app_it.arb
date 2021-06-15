@@ -55,5 +55,6 @@
     "reviews" : "Recensioni",
     "conctact_me" : "Contatta",
     "time_slot" : "Disponibilità",
-    "conversations" : "Chat"
+    "conversations" : "Chat",
+    "edit_profile" : "Modifica profilo"
 }

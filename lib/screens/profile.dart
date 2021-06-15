@@ -4,6 +4,7 @@ import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/change-password.dart';
+import 'package:e_tutoring/screens/profile-edit.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
@@ -92,7 +93,10 @@ class _ProfileState extends State<Profile> {
                         IconButton(
                             icon: Icon(Icons.edit),
                             onPressed: () {
-                              print('edit');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfileEdit()));
                             }),
                         /*PopupMenuButton(
                             onSelected: (result) {
