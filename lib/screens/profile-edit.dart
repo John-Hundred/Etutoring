@@ -299,18 +299,18 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                               ];
                             } else {
                               children = const <Widget>[
-                                SizedBox(
+                                /*SizedBox(
                                   child: CircularProgressIndicator(
                                       backgroundColor: ArgonColors.redUnito),
                                   width: 60,
                                   height: 60,
-                                ),
-                                Padding(
+                                ),*/
+                                /*Padding(
                                   padding: EdgeInsets.only(top: 15),
                                   child: Text('Awaiting result...',
                                       style: TextStyle(
                                           color: ArgonColors.redUnito)),
-                                )
+                                )*/
                               ];
                             }
                             return Center(
