@@ -28,18 +28,16 @@ class _ProfileStateEdit extends State<ProfileEdit> {
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: [LanguagePickerWidget()],
         ),
-        extendBodyBehindAppBar: true,
+        resizeToAvoidBottomInset: false,
         body: Stack(children: [
-          Container(
-              decoration:
-                  BoxDecoration(color: Color.fromRGBO(205, 205, 205, 1))),
           SafeArea(
               child: Scaffold(
+                  resizeToAvoidBottomInset: false,
                   body: Form(
                       key: formKey,
                       child: (ListView(padding: EdgeInsets.all(8), children: [
                         Container(
-                            width: 320,
+                            // width: 320,
                             padding: EdgeInsets.all(10.0),
                             child: TextField(
                               autocorrect: true,
@@ -188,7 +186,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                 ),
                               ),
                             )),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 20),
                         buildButton(),
                         Visibility(
                           visible: visible,

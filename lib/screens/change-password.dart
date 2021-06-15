@@ -134,6 +134,7 @@ class _ChangepasswordState extends State<Changepassword> {
   Widget build(BuildContext context) {
     this.init();
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).change_password),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
@@ -147,6 +148,7 @@ class _ChangepasswordState extends State<Changepassword> {
                     BoxDecoration(color: Color.fromRGBO(205, 205, 205, 1))),
             SafeArea(
               child: Scaffold(
+                resizeToAvoidBottomInset: false,
                 body: Form(
                   key: formKey,
                   child: ListView(

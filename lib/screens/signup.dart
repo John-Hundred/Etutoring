@@ -178,6 +178,7 @@ class _SignupState extends State<Signup> {
                     BoxDecoration(color: Color.fromRGBO(205, 205, 205, 1))),
             SafeArea(
               child: Scaffold(
+                resizeToAvoidBottomInset: false,
                 body: Form(
                   key: formKey,
                   child: ListView(
