@@ -1,10 +1,16 @@
+import 'dart:convert';
+
+import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/userModel.dart';
+import 'package:e_tutoring/screens/profile.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
 
 class ProfileEdit extends StatefulWidget {
   @override
@@ -12,6 +18,15 @@ class ProfileEdit extends StatefulWidget {
 }
 
 class _ProfileStateEdit extends State<ProfileEdit> {
+  var controllerFirstname = new TextEditingController();
+  var controllerLastname = new TextEditingController();
+  var controllerNationality = new TextEditingController();
+  var controllerBirthDate = new TextEditingController();
+  var controllerBirthCity = new TextEditingController();
+  var controllerResidence = new TextEditingController();
+  var controllerPhoneNumber = new TextEditingController();
+  var controllerDescription = new TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   // For CircularProgressIndicator.
@@ -20,6 +35,91 @@ class _ProfileStateEdit extends State<ProfileEdit> {
   @override
   void initState() {
     super.initState();
+  }
+
+  // CONTROLLER
+  Future userEdit() async {
+    try {
+      setState(() {
+        // Showing CircularProgressIndicator.
+        visible = true;
+        this.controllerFirstname.text = controllerFirstname.text;
+        this.controllerLastname.text = controllerLastname.text;
+        this.controllerDescription.text = controllerDescription.text;
+        this.controllerBirthDate.text = controllerBirthDate.text;
+        this.controllerBirthCity.text = controllerBirthCity.text;
+        this.controllerResidence.text = controllerResidence.text;
+        this.controllerNationality.text = controllerNationality.text;
+        this.controllerPhoneNumber.value = controllerPhoneNumber.value;
+      });
+
+      // Getting value from Controller
+      String email = await UserSecureStorage.getEmail();
+
+      var data = {
+        'email': email,
+        'firstname': controllerFirstname.text,
+        'lastname': controllerLastname.text,
+        'description': controllerDescription.text,
+        'birth_date': controllerBirthDate.text,
+        'birth_city': controllerBirthCity.text,
+        'residence_city': controllerResidence.text,
+        'nationality': controllerNationality.text,
+        'phone_number': controllerPhoneNumber.text,
+      };
+
+      // print(data);
+
+      var response = await http
+          .post(
+            Uri.https(authority, unencodedPath + 'user_edit.php'),
+            headers: <String, String>{'authorization': basicAuth},
+            body: json.encode(data),
+          )
+          .timeout(const Duration(seconds: 8));
+
+      if (response.statusCode == 200) {
+        print(response.body);
+        var message = jsonDecode(response.body);
+        setState(() {
+          visible = false;
+          /*this.controllerFirstname.text = controllerFirstname.text;
+          this.controllerLastname.text = controllerLastname.text;
+          this.controllerDescription.text = controllerDescription.text;
+          this.controllerBirthDate.text = controllerBirthDate.text;
+          this.controllerBirthCity.text = controllerBirthCity.text;
+          this.controllerResidence.text = controllerResidence.text;
+          this.controllerNationality.text = controllerNationality.text;
+          this.controllerPhoneNumber.value = controllerPhoneNumber.value;*/
+        });
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: new Text(message),
+              actions: <Widget>[
+                TextButton(
+                  child: new Text("OK"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Profile()));
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } on Exception catch ($e) {
+      print('error caught: ' + $e.toString());
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+      setState(() {
+        visible = false;
+      });
+    }
   }
 
   @override
@@ -43,37 +143,28 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                               AsyncSnapshot<UserModel> user) {
                             List<Widget> children;
                             if (user.hasData) {
-                              var controllerFirstname =
-                                  new TextEditingController(
-                                      text: user.data.firstname);
+                              this.controllerFirstname.text =
+                                  user.data.firstname;
 
-                              var controllerLastname =
-                                  new TextEditingController(
-                                      text: user.data.lastname);
+                              this.controllerLastname.text = user.data.lastname;
 
-                              var controllerNationality =
-                                  new TextEditingController(
-                                      text: user.data.nationality);
+                              this.controllerNationality.text =
+                                  user.data.nationality;
 
-                              var controllerBirthDate =
-                                  new TextEditingController(
-                                      text: user.data.birth_date);
+                              this.controllerBirthDate.text =
+                                  user.data.birth_date;
 
-                              var controllerBirthCity =
-                                  new TextEditingController(
-                                      text: user.data.birth_city);
+                              this.controllerBirthCity.text =
+                                  user.data.birth_city;
 
-                              var controllerResidence =
-                                  new TextEditingController(
-                                      text: user.data.residence_city);
+                              this.controllerResidence.text =
+                                  user.data.residence_city;
 
-                              var controllerPhoneNumber =
-                                  new TextEditingController(
-                                      text: user.data.phone_number);
+                              this.controllerPhoneNumber.text =
+                                  user.data.phone_number;
 
-                              var controllerDescription =
-                                  new TextEditingController(
-                                      text: user.data.description);
+                              this.controllerDescription.text =
+                                  user.data.description;
 
                               children = <Widget>[
                                 Container(
@@ -384,6 +475,8 @@ class _ProfileStateEdit extends State<ProfileEdit> {
       text: AppLocalizations.of(context).save,
       color: ArgonColors.redUnito,
       onClicked: () {
-        if (formKey.currentState.validate()) {}
+        if (formKey.currentState.validate()) {
+          userEdit();
+        }
       });
 }

@@ -31,15 +31,13 @@ try {
 	$nationality = $obj['nationality'];
 	$phone_number = $obj['phone_number'];
 	$description = $obj['description'];
-	
 
-	$sql = "UPDATE SET user_attribute SET firstname =$firstname, lastname = $lastname, birth_date=$birth_date,
-	birth_city =$birth_city, residence_city = $residence_city, 
-	nationality = $nationality, phone_number = $phone_number, description = $description') 
-	WHERE email = '$email'";
+	$sql = "UPDATE user_attribute JOIN user ON user_attribute.user_id = user.id SET firstname = '$firstname', lastname = '$lastname', birth_date='$birth_date',
+	birth_city ='$birth_city', residence_city = '$residence_city', 
+	nationality = '$nationality', phone_number = '$phone_number', description = '$description'  WHERE email = '$email'";
 	
 	if($connect->query($sql)){
-		$SuccessMSG = json_encode("Password updated successfully");
+		$SuccessMSG = json_encode("User updated successfully");
 		echo $SuccessMSG ; 
 	} else {
 		$InvalidMSG = "Error updating record";
