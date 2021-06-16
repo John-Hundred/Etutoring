@@ -235,5 +235,9 @@
   "edit_profile" : "Edit profile",
   "@edit_profile": {
     "description": "Edit profile"
+  },
+  "result_not_found" : "The search did not obtain results",
+  "@result_not_found": {
+    "description": "The search did not obtain results"
   }
 }

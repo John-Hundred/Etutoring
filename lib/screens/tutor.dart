@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:e_tutoring/widgets/star_widget.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Tutor extends StatefulWidget {
   final String courseName;
   Tutor({Key key, this.courseName}) : super(key: key);
@@ -158,7 +160,20 @@ class _TutorState extends State<Tutor> {
         color: Colors.white,
         child: ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
-          children: _IsSearching ? _buildSearchList() : _buildList(),
+          children: _IsSearching
+              ? (_buildSearchList().length == 0
+                  ? [
+                      const SizedBox(height: 30),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.image_search),
+                            Text(AppLocalizations.of(context).result_not_found,
+                                style: TextStyle(fontSize: 18)),
+                          ])
+                    ]
+                  : _buildSearchList())
+              : _buildList(),
         ),
       ),
     );

@@ -56,5 +56,6 @@
     "conctact_me" : "Contatta",
     "time_slot" : "Disponibilità",
     "conversations" : "Chat",
-    "edit_profile" : "Modifica profilo"
+    "edit_profile" : "Modifica profilo",
+    "result_not_found" : "La ricerca non ha dato risultati"
 }

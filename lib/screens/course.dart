@@ -5,6 +5,8 @@ import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Course extends StatefulWidget {
   @override
   CourseState createState() => new CourseState();
@@ -152,7 +154,20 @@ class CourseState extends State<Course> {
         color: Colors.white,
         child: ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
-          children: _IsSearching ? _buildSearchList() : _buildList(),
+          children: _IsSearching
+              ? (_buildSearchList().length == 0
+                  ? [
+                      const SizedBox(height: 30),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.image_search),
+                            Text(AppLocalizations.of(context).result_not_found,
+                                style: TextStyle(fontSize: 18)),
+                          ])
+                    ]
+                  : _buildSearchList())
+              : _buildList(),
         ),
       ),
     );
