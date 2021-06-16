@@ -32,10 +32,6 @@ class _ProfileState extends State<Profile> {
     super.initState();
   }
 
-  Future<String> setRole() {
-    return UserSecureStorage.getRole();
-  }
-
   Future init() async {
     final email = await UserSecureStorage.getEmail() ?? '';
     final password = await UserSecureStorage.getPassword() ?? '';
@@ -152,8 +148,8 @@ class _ProfileState extends State<Profile> {
                                                             children = <Widget>[
                                                               new FutureBuilder<
                                                                       String>(
-                                                                  future:
-                                                                      setRole(),
+                                                                  future: UserSecureStorage
+                                                                      .getRole(),
                                                                   builder: (BuildContext
                                                                           context,
                                                                       AsyncSnapshot<
