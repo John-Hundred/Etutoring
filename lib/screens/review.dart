@@ -46,7 +46,11 @@ class _ReviewState extends State<Review> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).reviews),
+        title: Text(AppLocalizations.of(context).reviews +
+            " " +
+            tutorData.firstname +
+            " " +
+            tutorData.lastname),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[
           // LanguagePickerWidget(),
