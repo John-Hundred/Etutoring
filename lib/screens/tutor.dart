@@ -168,7 +168,9 @@ class _TutorState extends State<Tutor> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(Icons.image_search),
-                            Text(AppLocalizations.of(context).result_not_found,
+                            Text(
+                                AppLocalizations.of(context)
+                                    .result_tutor_not_found,
                                 style: TextStyle(fontSize: 18)),
                           ])
                     ]

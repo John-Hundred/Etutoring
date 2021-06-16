@@ -162,7 +162,9 @@ class CourseState extends State<Course> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(Icons.image_search),
-                            Text(AppLocalizations.of(context).result_not_found,
+                            Text(
+                                AppLocalizations.of(context)
+                                    .result_course_not_found,
                                 style: TextStyle(fontSize: 18)),
                           ])
                     ]

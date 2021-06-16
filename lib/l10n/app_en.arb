@@ -239,5 +239,13 @@
   "result_not_found" : "The search did not obtain results",
   "@result_not_found": {
     "description": "The search did not obtain results"
+  },
+  "result_tutor_not_found" : "No tutors available",
+  "@result_tutor_not_found": {
+    "description": "No tutors available"
+  },
+  "result_course_not_found" : "Courses not found",
+  "@result_course_not_found": {
+    "description": "Courses not found"
   }
 }

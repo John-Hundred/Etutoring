@@ -57,5 +57,7 @@
     "time_slot" : "Disponibilità",
     "conversations" : "Chat",
     "edit_profile" : "Modifica profilo",
-    "result_not_found" : "La ricerca non ha dato risultati"
+    "result_not_found" : "La ricerca non ha dato risultati",
+    "result_tutor_not_found" : "Tutor non disponibili",
+    "result_course_not_found" : "Corsi non trovati"
 }
