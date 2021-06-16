@@ -1,8 +1,11 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/courseModel.dart';
+import 'package:e_tutoring/screens/tutor.dart';
 import 'package:flutter/material.dart';
 import "string_extension.dart";
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
 class CourseDetail extends StatefulWidget {
@@ -176,54 +179,43 @@ class CourseDetailState extends State<CourseDetail> {
                                                   ],
                                                 )),
                                             SizedBox(
-                                              height: 20,
+                                              height: 50,
                                             ),
-                                            /*Container(
-                                                color: Color.fromRGBO(
-                                                    205, 205, 205, 1),
-                                                child: DataTable(
-                                                  dataRowHeight: 60,
-                                                  dataRowColor:
-                                                      MaterialStateColor
-                                                          .resolveWith(
-                                                              (states) =>
-                                                                  Colors.white),
-                                                  headingRowHeight: 0,
-                                                  columns: <DataColumn>[
-                                                    DataColumn(
-                                                      label: Text(
-                                                        '',
-                                                      ),
-                                                    ),
-                                                    DataColumn(
-                                                      label: Text(
-                                                        '',
-                                                      ),
-                                                    ),
-                                                  ],
-                                                  rows: <DataRow>[
-                                                    /*DataRow(
-                                                          cells: <DataCell>[
-                                                            DataCell(Text(
-                                                                'Ruolo',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .redAccent,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15))),
-                                                            DataCell(Text(
-                                                                "${user.data.role_name}",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        15))),
-                                                          ],
-                                                        ),
-                                                        */
-                                                  ],
-                                                )),*/
+                                            ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                //minimumSize: Size.fromHeight(52),
+                                                primary: ArgonColors.redUnito,
+                                                elevation: 5,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(25),
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Tutor()));
+                                              },
+                                              child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 16.0,
+                                                      right: 16.0,
+                                                      top: 12,
+                                                      bottom: 12),
+                                                  child: Text(
+                                                      AppLocalizations
+                                                              .of(context)
+                                                          .tutor,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 16.0))),
+                                            ),
+                                            SizedBox(
+                                              height: 50,
+                                            ),
                                           ];
                                         } else if (course.hasError) {
                                           children = <Widget>[
