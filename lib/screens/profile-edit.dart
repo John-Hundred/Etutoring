@@ -29,6 +29,8 @@ class _ProfileStateEdit extends State<ProfileEdit> {
 
   final formKey = GlobalKey<FormState>();
 
+  DateTime selectedDate = DateTime.now();
+
   // For CircularProgressIndicator.
   bool visible = false;
 
@@ -284,9 +286,34 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                         ),
                                       ),
                                     )),
+                                /*Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Text(
+                                      "${selectedDate.toLocal()}".split(' ')[0],
+                                      style: TextStyle(
+                                          fontSize: 55,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 20.0,
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () =>
+                                          _selectDate(context), // Refer step 3
+                                      child: Text(
+                                        'Select date',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                ),*/
                                 Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: TextField(
+                                      readOnly: true,
                                       controller: controllerBirthDate,
                                       autocorrect: true,
                                       decoration: InputDecoration(
@@ -309,6 +336,9 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                               color: Colors.grey, width: 2),
                                         ),
                                       ),
+                                      onTap: () {
+                                        _selectDate(context);
+                                      },
                                     )),
                                 Container(
                                     padding: EdgeInsets.all(10.0),
@@ -460,6 +490,19 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                             );
                           })))))
         ]));
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate, // Refer step 1
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
   }
 
   Widget buildButton() => ButtonWidget(
