@@ -161,41 +161,43 @@ class _LoginState extends State<Login> {
             actions: [LanguagePickerWidget()],
           ),
           backgroundColor: Colors.white,
-          body: Form(
-            key: formKey,
-            child: ListView(
-              padding: EdgeInsets.all(16),
-              children: [
-                const SizedBox(height: 10),
-                Image.asset('assets/img/logo_size_2.jpg',
-                    height: 100, width: 100),
-                TitleWidget(
-                  icon: Icons.login,
-                  text: AppLocalizations.of(context).welcome,
-                  color: ArgonColors.redUnito,
-                  fontSize: 36,
+          body: Scaffold(
+              resizeToAvoidBottomInset: false,
+              body: Form(
+                key: formKey,
+                child: ListView(
+                  padding: EdgeInsets.all(16),
+                  children: [
+                    const SizedBox(height: 10),
+                    Image.asset('assets/img/logo_size_2.jpg',
+                        height: 100, width: 100),
+                    TitleWidget(
+                      icon: Icons.login,
+                      text: AppLocalizations.of(context).welcome,
+                      color: ArgonColors.redUnito,
+                      fontSize: 36,
+                    ),
+                    const SizedBox(height: 32),
+                    buildEmail(),
+                    const SizedBox(height: 12),
+                    buildPassword(),
+                    const SizedBox(height: 50),
+                    buildLoginButton(),
+                    const SizedBox(height: 50),
+                    builRegisteredButton(),
+                    const SizedBox(height: 20),
+                    Visibility(
+                      visible: visible,
+                      child: Center(
+                          child: Container(
+                              margin: EdgeInsets.only(bottom: 30),
+                              child: CircularProgressIndicator(
+                                backgroundColor: ArgonColors.redUnito,
+                              ))),
+                    )
+                  ],
                 ),
-                const SizedBox(height: 32),
-                buildEmail(),
-                const SizedBox(height: 12),
-                buildPassword(),
-                const SizedBox(height: 50),
-                buildLoginButton(),
-                const SizedBox(height: 50),
-                builRegisteredButton(),
-                const SizedBox(height: 20),
-                Visibility(
-                  visible: visible,
-                  child: Center(
-                      child: Container(
-                          margin: EdgeInsets.only(bottom: 30),
-                          child: CircularProgressIndicator(
-                            backgroundColor: ArgonColors.redUnito,
-                          ))),
-                )
-              ],
-            ),
-          ),
+              )),
         ));
   }
 

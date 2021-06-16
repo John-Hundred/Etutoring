@@ -26,10 +26,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
     super.initState();
   }
 
-  Future<String> setRole() {
-    return UserSecureStorage.getRole();
-  }
-
   Future wait() async {
     await new Future.delayed(const Duration(seconds: 5), () {});
   }
@@ -62,7 +58,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
             padding: EdgeInsets.only(top: 24, left: 16, right: 16),
             children: [
               new FutureBuilder<String>(
-                future: setRole(),
+                future: UserSecureStorage.getRole(),
                 builder:
                     (BuildContext context, AsyncSnapshot<String> snapshot) {
                   switch (snapshot.connectionState) {
