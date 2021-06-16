@@ -115,17 +115,21 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       ? true
                                       : false)
                               : Container(),
-                          DrawerTile(
-                              icon: Icons.search,
-                              onTap: () {
-                                if (widget.currentPage != "tutor")
-                                  Navigator.pushReplacementNamed(
-                                      context, '/tutor');
-                              },
-                              iconColor: ArgonColors.black,
-                              title: AppLocalizations.of(context).tutor,
-                              isSelected:
-                                  widget.currentPage == "tutor" ? true : false),
+                          // ACL: ROLE = Student ONLY STUDENT VIEW
+                          snapshot.data == "Student"
+                              ? DrawerTile(
+                                  icon: Icons.search,
+                                  onTap: () {
+                                    if (widget.currentPage != "tutor")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/tutor');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title: AppLocalizations.of(context).tutor,
+                                  isSelected: widget.currentPage == "tutor"
+                                      ? true
+                                      : false)
+                              : Container(),
                           /* DrawerTile(
                   icon: Icons.star,
                   onTap: () {
