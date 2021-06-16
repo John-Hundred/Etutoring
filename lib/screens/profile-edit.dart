@@ -5,7 +5,6 @@ import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/screens/profile.dart';
-import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,14 +17,15 @@ class ProfileEdit extends StatefulWidget {
 }
 
 class _ProfileStateEdit extends State<ProfileEdit> {
-  var controllerFirstname = new TextEditingController();
-  var controllerLastname = new TextEditingController();
-  var controllerNationality = new TextEditingController();
-  var controllerBirthDate = new TextEditingController();
-  var controllerBirthCity = new TextEditingController();
-  var controllerResidence = new TextEditingController();
-  var controllerPhoneNumber = new TextEditingController();
-  var controllerDescription = new TextEditingController();
+  final controllerEmail = new TextEditingController();
+  final controllerFirstname = new TextEditingController();
+  final controllerLastname = new TextEditingController();
+  final controllerNationality = new TextEditingController();
+  final controllerBirthDate = new TextEditingController();
+  final controllerBirthCity = new TextEditingController();
+  final controllerResidence = new TextEditingController();
+  final controllerPhoneNumber = new TextEditingController();
+  final controllerDescription = new TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -40,6 +40,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
   // CONTROLLER
   Future userEdit() async {
     try {
+      // print(controllerLastname.text);
       setState(() {
         // Showing CircularProgressIndicator.
         visible = true;
@@ -53,11 +54,8 @@ class _ProfileStateEdit extends State<ProfileEdit> {
         this.controllerPhoneNumber.value = controllerPhoneNumber.value;
       });
 
-      // Getting value from Controller
-      String email = await UserSecureStorage.getEmail();
-
       var data = {
-        'email': email,
+        'email': controllerEmail.text.trim(),
         'firstname': controllerFirstname.text,
         'lastname': controllerLastname.text,
         'description': controllerDescription.text,
@@ -79,18 +77,10 @@ class _ProfileStateEdit extends State<ProfileEdit> {
           .timeout(const Duration(seconds: 8));
 
       if (response.statusCode == 200) {
-        print(response.body);
+        // print(response.body);
         var message = jsonDecode(response.body);
         setState(() {
           visible = false;
-          /*this.controllerFirstname.text = controllerFirstname.text;
-          this.controllerLastname.text = controllerLastname.text;
-          this.controllerDescription.text = controllerDescription.text;
-          this.controllerBirthDate.text = controllerBirthDate.text;
-          this.controllerBirthCity.text = controllerBirthCity.text;
-          this.controllerResidence.text = controllerResidence.text;
-          this.controllerNationality.text = controllerNationality.text;
-          this.controllerPhoneNumber.value = controllerPhoneNumber.value;*/
         });
         showDialog(
           context: context,
@@ -143,36 +133,31 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                               AsyncSnapshot<UserModel> user) {
                             List<Widget> children;
                             if (user.hasData) {
+                              this.controllerEmail.text = user.data.email;
                               this.controllerFirstname.text =
                                   user.data.firstname;
-
                               this.controllerLastname.text = user.data.lastname;
-
                               this.controllerNationality.text =
                                   user.data.nationality;
-
                               this.controllerBirthDate.text =
                                   user.data.birth_date;
-
                               this.controllerBirthCity.text =
                                   user.data.birth_city;
-
                               this.controllerResidence.text =
                                   user.data.residence_city;
-
                               this.controllerPhoneNumber.text =
                                   user.data.phone_number;
-
                               this.controllerDescription.text =
                                   user.data.description;
 
                               children = <Widget>[
                                 Container(
                                     child: TextField(
+                                  controller: controllerEmail,
                                   enabled: false,
                                   autocorrect: true,
                                   decoration: InputDecoration(
-                                    hintText: user.data.email,
+                                    // hintText: user.data.email,
                                     prefixIcon: Icon(Icons.email),
                                     hintStyle: TextStyle(color: Colors.black),
                                     filled: true,
