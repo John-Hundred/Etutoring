@@ -59,16 +59,15 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
             children: [
               new FutureBuilder<String>(
                 future: UserSecureStorage.getRole(),
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  switch (snapshot.connectionState) {
+                builder: (BuildContext context, AsyncSnapshot<String> role) {
+                  switch (role.connectionState) {
                     case ConnectionState.none:
                       return new Text('Press button to start');
                     case ConnectionState.waiting:
                       return new Text('Awaiting result...');
                     default:
-                      if (snapshot.hasError)
-                        return new Text('Error: ${snapshot.error}');
+                      if (role.hasError)
+                        return new Text('Error: ${role.error}');
                       else {
                         return Column(children: [
                           // ACL: ROLE = ALL
@@ -97,7 +96,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       widget.currentPage == "Tutoring Course" ? true : false),*/
 
                           // ACL: ROLE = Student ONLY STUDENT VIEW
-                          snapshot.data == "Student"
+                          role.data == "Student"
                               ? DrawerTile(
                                   icon: Icons.menu_book_rounded,
                                   onTap: () {
@@ -112,7 +111,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       : false)
                               : Container(),
                           // ACL: ROLE = Student ONLY STUDENT VIEW
-                          snapshot.data == "Student"
+                          role.data == "Student"
                               ? DrawerTile(
                                   icon: Icons.search,
                                   onTap: () {

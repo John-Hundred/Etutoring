@@ -30,7 +30,7 @@ dependencies:
   scrollable_positioned_list: ^0.1.7
   http: ^0.13.3
 
-   # store & load data securely
+  # store & load data securely
   flutter_secure_storage: ^4.2.0
   
   intl: ^0.17.0
