@@ -7,7 +7,6 @@ import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/screens/profile.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
@@ -128,7 +127,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).edit_profile),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: [LanguagePickerWidget()],
+          // actions: [LanguagePickerWidget()],
         ),
         resizeToAvoidBottomInset: false,
         body: Stack(children: [
