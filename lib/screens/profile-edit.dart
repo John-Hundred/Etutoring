@@ -418,6 +418,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                 Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: TextField(
+                                      maxLines: 8,
                                       controller: controllerDescription,
                                       autocorrect: true,
                                       decoration: InputDecoration(
