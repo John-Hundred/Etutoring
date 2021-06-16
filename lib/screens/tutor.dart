@@ -7,17 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:e_tutoring/widgets/star_widget.dart';
 
 class Tutor extends StatefulWidget {
+  final String courseName;
+  Tutor({Key key, this.courseName}) : super(key: key);
+
   @override
   _TutorState createState() => _TutorState();
 }
 
 class _TutorState extends State<Tutor> {
-  List<TutorModel> tutorList;
+  List<TutorModel> tutorList = [];
 
   @override
   void initState() {
     super.initState();
     _IsSearching = false;
+    if (widget.courseName != null) {
+      _IsSearching = true;
+      _searchText = widget.courseName;
+      searchController.text = _searchText;
+    }
     getTutorSearchFromWS().then((value) => {
           setState(() {
             tutorList = value;

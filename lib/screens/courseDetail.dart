@@ -196,7 +196,11 @@ class CourseDetailState extends State<CourseDetail> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            Tutor()));
+                                                            Tutor(
+                                                              courseName: course
+                                                                  .data
+                                                                  .course_name,
+                                                            )));
                                               },
                                               child: Padding(
                                                   padding: EdgeInsets.only(
