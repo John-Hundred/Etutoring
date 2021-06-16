@@ -220,8 +220,7 @@ class ChildItem extends StatelessWidget {
                   border: new Border(
                       right: new BorderSide(width: 1.0, color: Colors.black))),
               child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"))),
+                  backgroundImage: new AssetImage("assets/img/image.jpg"))),
           trailing: Icon(Icons.star),
           onTap: () {
             // print(this.course.toString());

@@ -77,8 +77,7 @@ class _TutorDetailState extends State<TutorDetail> {
                           ),
                           image: new DecorationImage(
                               //fit: BoxFit.fill,
-                              image: new NetworkImage(
-                                  "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg")),
+                              image: new AssetImage('assets/img/image.jpg')),
                           shape: BoxShape.circle,
                         ),
                       ),
