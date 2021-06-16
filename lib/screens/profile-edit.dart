@@ -40,18 +40,9 @@ class _ProfileStateEdit extends State<ProfileEdit> {
   // CONTROLLER
   Future userEdit() async {
     try {
-      // print(controllerLastname.text);
       setState(() {
         // Showing CircularProgressIndicator.
         visible = true;
-        this.controllerFirstname.text = controllerFirstname.text;
-        this.controllerLastname.text = controllerLastname.text;
-        this.controllerDescription.text = controllerDescription.text;
-        this.controllerBirthDate.text = controllerBirthDate.text;
-        this.controllerBirthCity.text = controllerBirthCity.text;
-        this.controllerResidence.text = controllerResidence.text;
-        this.controllerNationality.text = controllerNationality.text;
-        this.controllerPhoneNumber.value = controllerPhoneNumber.value;
       });
 
       var data = {
@@ -113,6 +104,22 @@ class _ProfileStateEdit extends State<ProfileEdit> {
   }
 
   @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    controllerEmail.dispose();
+    controllerFirstname.dispose();
+    controllerLastname.dispose();
+    controllerNationality.dispose();
+    controllerBirthDate.dispose();
+    controllerBirthCity.dispose();
+    controllerResidence.dispose();
+    controllerPhoneNumber.dispose();
+    controllerDescription.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -124,7 +131,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
         body: Stack(children: [
           SafeArea(
               child: Scaffold(
-                  resizeToAvoidBottomInset: false,
+                  resizeToAvoidBottomInset: true,
                   body: Form(
                       key: formKey,
                       child: (FutureBuilder<UserModel>(
