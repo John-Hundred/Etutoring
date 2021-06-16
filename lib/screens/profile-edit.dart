@@ -5,6 +5,7 @@ import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/screens/profile.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -158,302 +159,410 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                   user.data.phone_number;
                               this.controllerDescription.text =
                                   user.data.description;
-
                               children = <Widget>[
-                                Container(
-                                    child: TextField(
-                                  controller: controllerEmail,
-                                  enabled: false,
-                                  autocorrect: true,
-                                  decoration: InputDecoration(
-                                    // hintText: user.data.email,
-                                    prefixIcon: Icon(Icons.email),
-                                    hintStyle: TextStyle(color: Colors.black),
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(12.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey, width: 2),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey, width: 2),
-                                    ),
-                                  ),
-                                )),
-                                Container(
-                                    // padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                  enabled: false,
-                                  autocorrect: true,
-                                  decoration: InputDecoration(
-                                    hintText: user.data.role_name,
-                                    prefixIcon: Icon(Icons.work),
-                                    hintStyle: TextStyle(color: Colors.black),
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(12.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey, width: 2),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey, width: 2),
-                                    ),
-                                  ),
-                                )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerFirstname,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        //hintText: user.data.firstname ?? 'Enter Surname Here...',
-                                        prefixIcon: Icon(Icons.person),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerLastname,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.person),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerNationality,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.flag),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                /*Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Text(
-                                      "${selectedDate.toLocal()}".split(' ')[0],
-                                      style: TextStyle(
-                                          fontSize: 55,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 20.0,
-                                    ),
-                                    ElevatedButton(
-                                      onPressed: () =>
-                                          _selectDate(context), // Refer step 3
-                                      child: Text(
-                                        'Select date',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ],
-                                ),*/
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      readOnly: true,
-                                      controller: controllerBirthDate,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        // hintText: 'Enter Residence Here...',
-                                        prefixIcon: Icon(Icons.calendar_today),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                      onTap: () {
-                                        _selectDate(context);
-                                      },
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerBirthCity,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.place),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerResidence,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.place),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      controller: controllerPhoneNumber,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.smartphone),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                Container(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: TextField(
-                                      maxLines: 8,
-                                      controller: controllerDescription,
-                                      autocorrect: true,
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.description),
-                                        hintStyle:
-                                            TextStyle(color: Colors.black),
-                                        filled: true,
-                                        fillColor: Colors.white70,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(12.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          borderSide: BorderSide(
-                                              color: Colors.grey, width: 2),
-                                        ),
-                                      ),
-                                    )),
-                                const SizedBox(height: 20),
-                                buildButton(),
-                                const SizedBox(height: 20),
-                                Visibility(
-                                  visible: visible,
-                                  child: Center(
-                                      child: Container(
-                                          margin: EdgeInsets.only(bottom: 30),
-                                          child: CircularProgressIndicator(
-                                            backgroundColor:
-                                                ArgonColors.redUnito,
-                                          ))),
-                                ),
+                                new FutureBuilder<String>(
+                                    future: UserSecureStorage.getRole(),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot<String> roleSnapshot) {
+                                      switch (roleSnapshot.connectionState) {
+                                        case ConnectionState.none:
+                                          return new Text(
+                                              'Press button to start');
+                                        case ConnectionState.waiting:
+                                          return new Text('Awaiting result...');
+                                        default:
+                                          if (roleSnapshot.hasError)
+                                            return new Text(
+                                                'Error: ${roleSnapshot.error}');
+                                          else {
+                                            // print(roleSnapshot.data);
+                                            return Column(children: [
+                                              Container(
+                                                  child: TextField(
+                                                controller: controllerEmail,
+                                                enabled: false,
+                                                autocorrect: true,
+                                                decoration: InputDecoration(
+                                                  // hintText: user.data.email,
+                                                  prefixIcon: Icon(Icons.email),
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  filled: true,
+                                                  fillColor: Colors.white70,
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                12.0)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey,
+                                                        width: 2),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10.0)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey,
+                                                        width: 2),
+                                                  ),
+                                                ),
+                                              )),
+                                              Container(
+                                                  // padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                enabled: false,
+                                                autocorrect: true,
+                                                decoration: InputDecoration(
+                                                  hintText: user.data.role_name,
+                                                  prefixIcon: Icon(Icons.work),
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  filled: true,
+                                                  fillColor: Colors.white70,
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                12.0)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey,
+                                                        width: 2),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10.0)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey,
+                                                        width: 2),
+                                                  ),
+                                                ),
+                                              )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerFirstname,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      //hintText: user.data.firstname ?? 'Enter Surname Here...',
+                                                      prefixIcon:
+                                                          Icon(Icons.person),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerLastname,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      prefixIcon:
+                                                          Icon(Icons.person),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerNationality,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      prefixIcon:
+                                                          Icon(Icons.flag),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    readOnly: true,
+                                                    controller:
+                                                        controllerBirthDate,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      // hintText: 'Enter Residence Here...',
+                                                      prefixIcon: Icon(
+                                                          Icons.calendar_today),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                    onTap: () {
+                                                      _selectDate(context);
+                                                    },
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerBirthCity,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      prefixIcon:
+                                                          Icon(Icons.place),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerResidence,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      prefixIcon:
+                                                          Icon(Icons.place),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              Container(
+                                                  padding: EdgeInsets.all(10.0),
+                                                  child: TextField(
+                                                    controller:
+                                                        controllerPhoneNumber,
+                                                    autocorrect: true,
+                                                    decoration: InputDecoration(
+                                                      prefixIcon: Icon(
+                                                          Icons.smartphone),
+                                                      hintStyle: TextStyle(
+                                                          color: Colors.black),
+                                                      filled: true,
+                                                      fillColor: Colors.white70,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    12.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 2),
+                                                      ),
+                                                    ),
+                                                  )),
+                                              if (roleSnapshot.data == "Tutor")
+                                                Container(
+                                                    padding:
+                                                        EdgeInsets.all(10.0),
+                                                    child: TextField(
+                                                      maxLines: 8,
+                                                      controller:
+                                                          controllerDescription,
+                                                      autocorrect: true,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        prefixIcon: Icon(
+                                                            Icons.description),
+                                                        hintStyle: TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                        filled: true,
+                                                        fillColor:
+                                                            Colors.white70,
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          12.0)),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .grey,
+                                                                  width: 2),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          10.0)),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .grey,
+                                                                  width: 2),
+                                                        ),
+                                                      ),
+                                                    )),
+                                              const SizedBox(height: 20),
+                                              buildButton(),
+                                              const SizedBox(height: 20),
+                                              Visibility(
+                                                visible: visible,
+                                                child: Center(
+                                                    child: Container(
+                                                        margin: EdgeInsets.only(
+                                                            bottom: 30),
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          backgroundColor:
+                                                              ArgonColors
+                                                                  .redUnito,
+                                                        ))),
+                                              ),
+                                            ]);
+                                          }
+                                      }
+                                    }),
                               ];
                             } else if (user.hasError) {
                               children = <Widget>[
