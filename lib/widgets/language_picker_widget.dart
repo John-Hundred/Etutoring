@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:e_tutoring/l10n/l10n.dart';
@@ -7,8 +9,8 @@ class LanguageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = Localizations.localeOf(context);
-    final flag = L10n.getFlag(locale.languageCode);
 
+    final flag = L10n.getFlag(locale.languageCode);
     return Center(
       child: CircleAvatar(
         backgroundColor: Colors.white,
@@ -26,12 +28,17 @@ class LanguagePickerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<LocaleProvider>(context);
+    // print(provider.locale);
     /*if (provider.locale == null) {
       UserSecureStorage.setLanguage('en');
       print(UserSecureStorage.getLanguage());
     }*/
     // print(provider.locale);
-    final locale = provider.locale ?? Locale('en');
+    // print(Platform.localeName.toString().substring(0, 2));
+    final locale = provider.locale ??
+        (Platform.localeName.toString().substring(0, 2) == "it"
+            ? Locale("it")
+            : Locale('en'));
     return DropdownButtonHideUnderline(
       child: DropdownButton(
         value: locale,

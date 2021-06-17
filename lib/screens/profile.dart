@@ -50,7 +50,10 @@ class _ProfileState extends State<Profile> {
         child: ChangeNotifierProvider(
             create: (context) => LocaleProvider(),
             builder: (context, child) {
+              // Locale myLocale = Localizations.localeOf(context);
+              // print(myLocale);
               final provider = Provider.of<LocaleProvider>(context);
+              // print(provider.locale);
 
               return MaterialApp(
                   debugShowCheckedModeBanner: false,

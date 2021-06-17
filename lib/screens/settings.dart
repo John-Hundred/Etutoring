@@ -120,7 +120,7 @@ class _SettingsState extends State<Settings> {
                           DataRow(
                             cells: <DataCell>[
                               DataCell(Text(
-                                AppLocalizations.of(context).change_language,
+                                AppLocalizations.of(context).language,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 15),
                               )),
