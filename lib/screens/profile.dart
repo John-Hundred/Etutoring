@@ -157,8 +157,8 @@ class _ProfileState extends State<Profile> {
                                                                           context,
                                                                       AsyncSnapshot<
                                                                               String>
-                                                                          snapshot) {
-                                                                    switch (snapshot
+                                                                          role) {
+                                                                    switch (role
                                                                         .connectionState) {
                                                                       case ConnectionState
                                                                           .none:
@@ -169,12 +169,12 @@ class _ProfileState extends State<Profile> {
                                                                         return new Text(
                                                                             'Awaiting result...');
                                                                       default:
-                                                                        if (snapshot
+                                                                        if (role
                                                                             .hasError)
                                                                           return new Text(
-                                                                              'Error: ${snapshot.error}');
+                                                                              'Error: ${role.error}');
                                                                         else {
-                                                                          // print(snapshot);
+                                                                          //print(role);                                                                              role);
                                                                           return Column(
                                                                               children: [
                                                                                 Container(
@@ -306,39 +306,75 @@ class _ProfileState extends State<Profile> {
                                                                                             DataCell(Text("${user.data.role_name}", style: TextStyle(fontSize: 15))),
                                                                                           ],
                                                                                         ),
-                                                                                        if (snapshot.data == "Student")
+                                                                                        if (role.data == "Student")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).number, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                                               DataCell(Text("${user.data.badge_number}", style: TextStyle(fontSize: 15))),
                                                                                             ],
                                                                                           ),
-                                                                                        if (snapshot.data == "Student")
+                                                                                        if (role.data == "Student")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).degree_course, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                                               DataCell(Text("${user.data.degree_name} (" + "${user.data.degree_athenaeum})", style: TextStyle(fontSize: 15))),
                                                                                             ],
                                                                                           ),
-                                                                                        if (snapshot.data == "Student")
+                                                                                        if (role.data == "Student")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).type, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                                               DataCell(Text("${user.data.degree_type_note} (" + "${user.data.degree_type_name})", style: TextStyle(fontSize: 15))),
                                                                                             ],
                                                                                           ),
-                                                                                        if (snapshot.data == "Student")
+                                                                                        if (role.data == "Student")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).headquarters, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                                               DataCell(Text("${user.data.degree_location}", style: TextStyle(fontSize: 15))),
                                                                                             ],
                                                                                           ),
-                                                                                        if (snapshot.data == "Student")
+                                                                                        if (role.data == "Student")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).curriculum, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
                                                                                               DataCell(Text("${user.data.degree_path_name}", style: TextStyle(fontSize: 15))),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (role.data == "Tutor")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).courses, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(
+                                                                                                Container(
+                                                                                                  width: 400,
+                                                                                                  child: ListView.builder(
+                                                                                                    shrinkWrap: true,
+                                                                                                    itemCount: user.data.courses.length,
+                                                                                                    itemBuilder: (BuildContext context, int index) {
+                                                                                                      return Text(user.data.courses[index]['course_name'].toString());
+                                                                                                    },
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (role.data == "Tutor")
+                                                                                          DataRow(
+                                                                                            cells: <DataCell>[
+                                                                                              DataCell(Text(AppLocalizations.of(context).time_slot, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
+                                                                                              DataCell(
+                                                                                                Container(
+                                                                                                  width: 600,
+                                                                                                  child: ListView.builder(
+                                                                                                    shrinkWrap: true,
+                                                                                                    itemCount: user.data.time_slot.length,
+                                                                                                    itemBuilder: (BuildContext context, int index) {
+                                                                                                      return Text(user.data.time_slot[index]['day'].toString() + " | " + user.data.time_slot[index]['hour_from'].toString() + ' - ' + user.data.time_slot[index]['hour_to'].toString());
+                                                                                                    },
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
                                                                                             ],
                                                                                           ),
                                                                                       ],

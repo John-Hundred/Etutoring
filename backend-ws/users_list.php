@@ -45,6 +45,7 @@ if ($result->num_rows > 0) {
 	  $role_id = $row['role_id'];
 	  // print($role_id);
 	  if($role_id == 2) {
+		  
 		  $sql = "SELECT * FROM tutor_time_slot where user_id = '" . $row['id'] ."'";
 			$result_tutor_time_slot = $connect->query($sql);
 			$row['time_slot'] = [];
@@ -76,7 +77,7 @@ if ($result->num_rows > 0) {
 				else $row['avg_reviews'] = -1;
 			}
 			
-			$emparray[] = $row;
+			$emparray = $row;
 	  }
   }
   // output data of each row

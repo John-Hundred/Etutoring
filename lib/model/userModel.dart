@@ -36,6 +36,15 @@ class UserModel {
 
   String description;
 
+  // ignore: non_constant_identifier_names
+  dynamic time_slot;
+
+  dynamic courses;
+
+  dynamic reviews;
+  // ignore: non_constant_identifier_names
+  dynamic avg_reviews;
+
   UserModel(
       this.id,
       this.firstname,
@@ -56,9 +65,14 @@ class UserModel {
       this.residence_city,
       this.degree_type_name,
       this.degree_type_note,
-      this.description);
+      this.description,
+      this.time_slot,
+      this.courses,
+      this.reviews,
+      this.avg_reviews);
 
   UserModel.fromJson(dynamic json) {
+    // print(json);
     id = json['id'] ?? '';
     firstname = json['firstname'] ?? '-';
     lastname = json['lastname'] ?? '-';
@@ -79,6 +93,10 @@ class UserModel {
     degree_type_name = json['degree_type_name'] ?? '-';
     degree_type_note = json['degree_type_note'] ?? '-';
     description = json['description'] ?? '-';
+    time_slot = json['time_slot'] ?? '-';
+    courses = json['courses'] ?? '-';
+    reviews = json['reviews'] ?? '-';
+    avg_reviews = json['avg_reviews'] ?? '-';
   }
 
   toString() {
@@ -99,6 +117,8 @@ class UserModel {
         "\nbirth city = " +
         this.birth_city +
         "\nrole_name = " +
-        this.role_name;
+        this.role_name +
+        "\ncourses = " +
+        this.courses;
   }
 }
