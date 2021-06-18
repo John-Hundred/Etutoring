@@ -49,7 +49,7 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                     (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
                   List<Widget> children;
                   if (tutor.hasData) {
-                    print(tutor.data.courses);
+                    // print(tutor.data.courses);
                     return ListView.builder(
                       itemCount: tutor.data.courses.length,
                       itemBuilder: (context, index) {
