@@ -11,13 +11,13 @@ import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
-Future<UserModel> getUserInfoFromWS() async {
+Future<UserModel> getUserInfoFromWS(http.Client client) async {
   try {
     var queryParameters = {
       'email': await UserSecureStorage.getEmail(),
     };
     // print(queryParameters);
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "users_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
 
@@ -35,7 +35,7 @@ Future<UserModel> getUserInfoFromWS() async {
   }
 }
 
-Future<List<CourseModel>> getUserCourseSearchFromWS(
+Future<List<CourseModel>> getUserCourseSearchFromWS(http.Client client,
     {String searchString = ''}) async {
   List<CourseModel> courseList = [];
 
@@ -52,7 +52,7 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
     }
     // print(queryParameters);
 
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(
             authority, unencodedPath + "course_search.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
@@ -73,11 +73,11 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
   }
 }
 
-Future<List<CourseModel>> getAllCourseFromWS() async {
+Future<List<CourseModel>> getAllCourseFromWS(http.Client client) async {
   List<CourseModel> courseList = [];
 
   try {
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "course_list.php"),
         headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
@@ -95,6 +95,7 @@ Future<List<CourseModel>> getAllCourseFromWS() async {
 }
 
 Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
+    http.Client client,
     {String searchString = ''}) async {
   List<CourseModel> courseList = [];
 
@@ -111,7 +112,7 @@ Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
     }
     // print(queryParameters);
 
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "course_search_private_lesson.php",
             queryParameters),
         headers: <String, String>{'authorization': basicAuth});
@@ -131,11 +132,11 @@ Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
   }
 }
 
-Future<List<DegreeModel>> getDegreeListFromWS() async {
+Future<List<DegreeModel>> getDegreeListFromWS(http.Client client) async {
   List<DegreeModel> degreeList = [];
 
   try {
-    var response = await http.get(
+    var response = await client.get(
       Uri.https(authority, unencodedPath + "degree_list.php"),
       headers: <String, String>{'authorization': basicAuth},
     );
@@ -154,7 +155,7 @@ Future<List<DegreeModel>> getDegreeListFromWS() async {
 }
 
 Future<List<CurriculumModel>> getCurriculumListFromWS(
-    String degreeName, String degreeTypeName) async {
+    http.Client client, String degreeName, String degreeTypeName) async {
   List<CurriculumModel> curriculumList = [];
 
   //https://www.e-tutoring-app.it/ws/curriculum_path_by_degree.php?degree_name=informatica&degree_type_note=LaureaTriennale
@@ -163,7 +164,7 @@ Future<List<CurriculumModel>> getCurriculumListFromWS(
     'degree_type_note': degreeTypeName
   };
   try {
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "curriculum_path_by_degree.php",
             queryParameters),
         headers: <String, String>{'authorization': basicAuth});
@@ -181,11 +182,11 @@ Future<List<CurriculumModel>> getCurriculumListFromWS(
   }
 }
 
-Future<List<RoleModel>> getRoleListFromWS() async {
+Future<List<RoleModel>> getRoleListFromWS(http.Client client) async {
   List<RoleModel> roleList = [];
 
   try {
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "role_list.php"),
         headers: <String, String>{'authorization': basicAuth});
     if (response.statusCode == 200) {
@@ -202,13 +203,14 @@ Future<List<RoleModel>> getRoleListFromWS() async {
   }
 }
 
-Future<CourseModel> getCourseDetailFromWS(String courseId) async {
+Future<CourseModel> getCourseDetailFromWS(
+    http.Client client, String courseId) async {
   try {
     var queryParameters = {
       'course_id': courseId,
     };
     // print(queryParameters);
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(
             authority, unencodedPath + "course_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
@@ -227,10 +229,10 @@ Future<CourseModel> getCourseDetailFromWS(String courseId) async {
   }
 }
 
-Future<List<TutorModel>> getTutorSearchFromWS() async {
+Future<List<TutorModel>> getTutorSearchFromWS(http.Client client) async {
   List<TutorModel> tutorList = [];
   try {
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "tutor_list.php"),
         headers: <String, String>{'authorization': basicAuth});
 
@@ -252,13 +254,13 @@ Future<List<TutorModel>> getTutorSearchFromWS() async {
   }
 }
 
-Future<TutorModel> getTutorDetailFromWS() async {
+Future<TutorModel> getTutorDetailFromWS(http.Client client) async {
   try {
     var queryParameters = {
       'email': await UserSecureStorage.getEmail(),
     };
     var tutorItem;
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(authority, unencodedPath + "tutor_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
 
@@ -273,14 +275,15 @@ Future<TutorModel> getTutorDetailFromWS() async {
   }
 }
 
-Future<List<ReviewModel>> getReviewFromWS(String userTutorId) async {
+Future<List<ReviewModel>> getReviewFromWS(
+    http.Client client, String userTutorId) async {
   List<ReviewModel> reviewList = [];
   try {
     var queryParameters = {
       'user_tutor_id': userTutorId,
     };
     // print(queryParameters);
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(
             authority, unencodedPath + "reviews_list.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});
@@ -300,13 +303,13 @@ Future<List<ReviewModel>> getReviewFromWS(String userTutorId) async {
   }
 }
 
-Future<RoleModel> getRoleFromWS(String email) async {
+Future<RoleModel> getRoleFromWS(http.Client client, String email) async {
   try {
     var queryParameters = {
       'email': email,
     };
     // print(queryParameters);
-    var response = await http.get(
+    var response = await client.get(
         Uri.https(
             authority, unencodedPath + "get_user_role.php", queryParameters),
         headers: <String, String>{'authorization': basicAuth});

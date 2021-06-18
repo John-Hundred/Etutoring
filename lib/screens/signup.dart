@@ -348,7 +348,7 @@ class _SignupState extends State<Signup> {
           ),
           const SizedBox(height: 8),
           FutureBuilder(
-            future: getDegreeListFromWS(),
+            future: getDegreeListFromWS(http.Client()),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               return snapshot.hasData
                   ? Center(
@@ -422,7 +422,7 @@ class _SignupState extends State<Signup> {
           ),
           const SizedBox(height: 8),
           FutureBuilder(
-            future: getCurriculumListFromWS(
+            future: getCurriculumListFromWS(http.Client(),
                 this.degreeNameSelected, this.degreeTypeNoteSelected),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               return snapshot.hasData
@@ -493,7 +493,7 @@ class _SignupState extends State<Signup> {
           ),
           const SizedBox(height: 8),
           FutureBuilder(
-            future: getRoleListFromWS(),
+            future: getRoleListFromWS(http.Client()),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               return snapshot.hasData
                   ? Center(

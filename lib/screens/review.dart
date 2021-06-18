@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:e_tutoring/widgets/star_one_widget.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: must_be_immutable
 class Review extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ReviewState extends State<Review> {
   @override
   void initState() {
     super.initState();
-    getReviewFromWS(tutorData.id).then((value) => {
+    getReviewFromWS(http.Client(), tutorData.id).then((value) => {
           setState(() {
             reviewList = value;
           })

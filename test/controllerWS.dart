@@ -30,7 +30,7 @@ void main() {
           '[{"course_id": "3","course_name": "Agenti Intelligenti","course_cfu": "6","enrollment_year": "2021/2022","study_year": "1"}]',
           200));
 
-      expect(await getAllCourseFromWS(), isA<List<CourseModel>>());
+      expect(await getAllCourseFromWS(client), isA<List<CourseModel>>());
     });
 
     test('test toString() of first element of List CourseModel', () async {
@@ -43,7 +43,7 @@ void main() {
           '[{"degree_id": "5","degree_name": "Fisica","degree_cfu": "180","degree_description": "","degree_type_id": "1","degree_location": "Torino","degree_athenaeum": "Unito","degree_type_name": "LT","degree_type_note": "Laurea Triennale"},]',
           200));
 
-      List<CourseModel> courseList = await getAllCourseFromWS();
+      List<CourseModel> courseList = await getAllCourseFromWS(client);
       expect(courseList[0].toString(), "3, Agenti Intelligenti");
 
       expect(courseList[0].course_id, "3");
@@ -64,7 +64,7 @@ void main() {
           '[{ "course_id": "1", "course_name": "Analisi Matematica", "course_cfu": "9", "enrollment_year": "2021/2022", "study_year": "1", "teaching_type": "Base", "dac": "MFN0570", "department": "Informatica", "curriculum": "Percorso generico", "ssd": "ANALISI MATEMATICA (MAT/05)", "delivery_mode": "Convenzionale", "language": "Italiano", "didactic_period": "Secondo Semestre", "component_type": "Attivit formativa monodisciplinare" }]',
           200));
 
-      expect(await getCourseDetailFromWS("1"), isA<CourseModel>());
+      expect(await getCourseDetailFromWS(client, "1"), isA<CourseModel>());
     });
 
     test('returns a CourseModel if the http call completes successfully',
@@ -78,7 +78,7 @@ void main() {
           '[{ "course_id": "1", "course_name": "Analisi Matematica", "course_cfu": "9", "enrollment_year": "2021/2022", "study_year": "1", "teaching_type": "Base", "dac": "MFN0570", "department": "Informatica", "curriculum": "Percorso generico", "ssd": "ANALISI MATEMATICA (MAT/05)", "delivery_mode": "Convenzionale", "language": "Italiano", "didactic_period": "Secondo Semestre", "component_type": "Attivit formativa monodisciplinare" }]',
           200));
 
-      CourseModel course = await getCourseDetailFromWS("1");
+      CourseModel course = await getCourseDetailFromWS(client, "1");
       expect(course.course_id, "1");
       expect(course.course_name, "Analisi Matematica");
       expect(course.course_cfu, "9");
@@ -98,7 +98,7 @@ void main() {
           '[{"degree_id": "5","degree_name": "Fisica","degree_cfu": "180","degree_description": "","degree_type_id": "1","degree_location": "Torino","degree_athenaeum": "Unito","degree_type_name": "LT","degree_type_note": "Laurea Triennale"},]',
           200));
 
-      expect(await getDegreeListFromWS(), isA<List<DegreeModel>>());
+      expect(await getDegreeListFromWS(client), isA<List<DegreeModel>>());
     });
 
     test('test toString() of first element of List DegreeModel', () async {
@@ -111,7 +111,7 @@ void main() {
           '[{"degree_id": "5","degree_name": "Fisica","degree_cfu": "180","degree_description": "","degree_type_id": "1","degree_location": "Torino","degree_athenaeum": "Unito","degree_type_name": "LT","degree_type_note": "Laurea Triennale"},]',
           200));
 
-      List<DegreeModel> degreeList = await getDegreeListFromWS();
+      List<DegreeModel> degreeList = await getDegreeListFromWS(client);
       expect(degreeList[0].toString(), "degree_id = 5, degree_name = Fisica");
       expect(degreeList[0].degree_id, "5");
       expect(degreeList[0].degree_name, "Fisica");

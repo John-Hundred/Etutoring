@@ -5,7 +5,7 @@ import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyTutorCourse extends StatefulWidget {
@@ -44,7 +44,7 @@ class MyTutorCourseState extends State<MyTutorCourse> {
             width: double.maxFinite,
             color: Colors.white,
             child: FutureBuilder<TutorModel>(
-                future: getTutorDetailFromWS(),
+                future: getTutorDetailFromWS(http.Client()),
                 builder:
                     (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
                   List<Widget> children;

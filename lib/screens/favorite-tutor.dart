@@ -3,7 +3,7 @@ import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/tutorDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:e_tutoring/widgets/star_widget.dart';
 
 class FavoriteTutor extends StatefulWidget {
@@ -18,7 +18,7 @@ class _FavoriteTutorState extends State<FavoriteTutor> {
   void initState() {
     super.initState();
     _IsSearching = false;
-    getTutorSearchFromWS().then((value) => {
+    getTutorSearchFromWS(http.Client()).then((value) => {
           setState(() {
             tutorList = value;
             // print(tutorList);

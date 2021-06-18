@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:e_tutoring/widgets/star_widget.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
 
 class Tutor extends StatefulWidget {
   final String courseName;
@@ -28,7 +29,7 @@ class _TutorState extends State<Tutor> {
       _searchText = widget.courseName;
       searchController.text = _searchText;
     }
-    getTutorSearchFromWS().then((value) => {
+    getTutorSearchFromWS(http.Client()).then((value) => {
           setState(() {
             tutorList = value;
             // print(tutorList);

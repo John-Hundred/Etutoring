@@ -12,7 +12,6 @@ import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:move_to_background/move_to_background.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Login extends StatefulWidget {
@@ -76,7 +75,8 @@ class _LoginState extends State<Login> {
             await UserSecureStorage.setPassword(passwordController.text);
 
             // get user role
-            dynamic role = await getRoleFromWS(emailController.text);
+            dynamic role =
+                await getRoleFromWS(http.Client(), emailController.text);
             await UserSecureStorage.setRole(role.role_name);
 
             // UserSecureStorage.getRole().then((value) => print(value));

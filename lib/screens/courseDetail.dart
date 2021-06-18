@@ -4,7 +4,7 @@ import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/screens/tutor.dart';
 import 'package:flutter/material.dart';
 import "string_extension.dart";
-
+import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
@@ -54,6 +54,7 @@ class CourseDetailState extends State<CourseDetail> {
                                   children: [
                                     FutureBuilder<CourseModel>(
                                       future: getCourseDetailFromWS(
+                                          http.Client(),
                                           this.courseData.course_id),
                                       builder: (BuildContext context,
                                           AsyncSnapshot<CourseModel> course) {

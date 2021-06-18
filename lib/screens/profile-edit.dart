@@ -137,7 +137,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                   body: Form(
                       key: formKey,
                       child: (FutureBuilder<UserModel>(
-                          future: getUserInfoFromWS(),
+                          future: getUserInfoFromWS(http.Client()),
                           builder: (BuildContext context,
                               AsyncSnapshot<UserModel> user) {
                             List<Widget> children;

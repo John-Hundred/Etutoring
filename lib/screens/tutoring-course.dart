@@ -5,6 +5,7 @@ import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'courseDetail.dart';
+import 'package:http/http.dart' as http;
 
 class TutoringCourse extends StatefulWidget {
   @override
@@ -50,7 +51,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   void initState() {
     super.initState();
     _IsSearching = false;
-    getUserCourseSearchPrivateLessonFromWS().then((value) => {
+    getUserCourseSearchPrivateLessonFromWS(http.Client()).then((value) => {
           setState(() {
             courseList = value;
             // print(courseList);

@@ -14,6 +14,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:move_to_background/move_to_background.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class Profile extends StatefulWidget {
   @override
@@ -131,7 +132,8 @@ class _ProfileState extends State<Profile> {
                                                     children: [
                                                       FutureBuilder<UserModel>(
                                                         future:
-                                                            getUserInfoFromWS(),
+                                                            getUserInfoFromWS(
+                                                                http.Client()),
                                                         builder: (BuildContext
                                                                 context,
                                                             AsyncSnapshot<

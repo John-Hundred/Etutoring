@@ -4,7 +4,7 @@ import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Course extends StatefulWidget {
@@ -50,7 +50,7 @@ class CourseState extends State<Course> {
   void initState() {
     super.initState();
     _IsSearching = false;
-    getUserCourseSearchFromWS().then((value) => {
+    getUserCourseSearchFromWS(http.Client()).then((value) => {
           setState(() {
             // print(value);
             courseList = value;
