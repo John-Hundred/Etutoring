@@ -45,5 +45,19 @@ void main() {
 
       expect(await getDegreeListFromWS(), isA<List<DegreeModel>>());
     });
+
+    test('test toString() of first element of List DegreeModel', () async {
+      final client = MockClient();
+
+      when(client.get(Uri.https(authority, unencodedPath + "course_list.php"),
+          headers: <String, String>{
+            'authorization': basicAuth
+          })).thenAnswer((_) async => http.Response(
+          '[{"degree_id": "5","degree_name": "Fisica","degree_cfu": "180","degree_description": "","degree_type_id": "1","degree_location": "Torino","degree_athenaeum": "Unito","degree_type_name": "LT","degree_type_note": "Laurea Triennale"},]',
+          200));
+
+      List<DegreeModel> degreeList = await getDegreeListFromWS();
+      expect(degreeList[0].toString(), "degree_id = 5, degree_name = Fisica");
+    });
   });
 }
