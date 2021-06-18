@@ -52,6 +52,39 @@ void main() {
     });
   });
 
+  group('getCourseDetailFromWS', () {
+    test('returns a CourseModel if the http call completes successfully',
+        () async {
+      final client = MockClient();
+
+      when(client.get(Uri.https(authority, unencodedPath + "course_list.php"),
+          headers: <String, String>{
+            'authorization': basicAuth
+          })).thenAnswer((_) async => http.Response(
+          '[{ "course_id": "1", "course_name": "Analisi Matematica", "course_cfu": "9", "enrollment_year": "2021/2022", "study_year": "1", "teaching_type": "Base", "dac": "MFN0570", "department": "Informatica", "curriculum": "Percorso generico", "ssd": "ANALISI MATEMATICA (MAT/05)", "delivery_mode": "Convenzionale", "language": "Italiano", "didactic_period": "Secondo Semestre", "component_type": "Attivit formativa monodisciplinare" }]',
+          200));
+
+      expect(await getCourseDetailFromWS("1"), isA<CourseModel>());
+    });
+
+    test('returns a CourseModel if the http call completes successfully',
+        () async {
+      final client = MockClient();
+
+      when(client.get(Uri.https(authority, unencodedPath + "course_list.php"),
+          headers: <String, String>{
+            'authorization': basicAuth
+          })).thenAnswer((_) async => http.Response(
+          '[{ "course_id": "1", "course_name": "Analisi Matematica", "course_cfu": "9", "enrollment_year": "2021/2022", "study_year": "1", "teaching_type": "Base", "dac": "MFN0570", "department": "Informatica", "curriculum": "Percorso generico", "ssd": "ANALISI MATEMATICA (MAT/05)", "delivery_mode": "Convenzionale", "language": "Italiano", "didactic_period": "Secondo Semestre", "component_type": "Attivit formativa monodisciplinare" }]',
+          200));
+
+      CourseModel course = await getCourseDetailFromWS("1");
+      expect(course.course_id, "1");
+      expect(course.course_name, "Analisi Matematica");
+      expect(course.course_cfu, "9");
+    });
+  });
+
   group('getDegreeListFromWS', () {
     test(
         'returns a List of DegreeModel if the http call completes successfully',
@@ -80,9 +113,7 @@ void main() {
 
       List<DegreeModel> degreeList = await getDegreeListFromWS();
       expect(degreeList[0].toString(), "degree_id = 5, degree_name = Fisica");
-
       expect(degreeList[0].degree_id, "5");
-
       expect(degreeList[0].degree_name, "Fisica");
     });
   });
