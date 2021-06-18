@@ -1,7 +1,6 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/courseModel.dart';
-import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -207,20 +206,17 @@ class ChildItem extends StatelessWidget {
                   color: ArgonColors.redUnito,
                 )),
           ]),
+          trailing: Icon(
+            Icons.add,
+            color: Colors.green,
+          ),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
                   border: new Border(
                       right: new BorderSide(width: 1.0, color: Colors.black))),
               child: Icon(Icons.school)),
-          onTap: () {
-            // print(this.course.toString());
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CourseDetail(this.course)),
-            );
-          },
+          onTap: () {},
         ));
   }
 }

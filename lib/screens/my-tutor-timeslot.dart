@@ -72,10 +72,6 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
                                       tutor.data.time_slot[index]['hour_to'],
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15)),
-                              /*trailing: Icon(
-                            Icons.school,
-                            color: Colors.green,
-                          ),*/
                             ));
                       },
                     );
