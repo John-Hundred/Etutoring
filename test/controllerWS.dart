@@ -7,6 +7,10 @@ import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+/*
+ * for exec test in terminal
+ * flutter test test/controllerWS.dart
+ */
 class MockClient extends Mock implements http.Client {}
 
 // Generate a MockClient using the Mockito package.
