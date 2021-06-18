@@ -25,7 +25,7 @@ try{
 		  echo "0 results";
 		}
 	}else {
-		$sql = "SELECT DISTINCT * FROM course";
+		$sql = "SELECT DISTINCT * FROM course ORDER BY course_name";
 		$result = $connect->query($sql);
 		$emparray = array();
 		if ($result->num_rows > 0) {

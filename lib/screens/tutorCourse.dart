@@ -1,54 +1,36 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/model/tutorModel.dart';
-import 'package:e_tutoring/screens/tutorDetail.dart';
+import 'package:e_tutoring/model/courseModel.dart';
+import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'package:e_tutoring/widgets/star_widget.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Tutor extends StatefulWidget {
-  final String courseName;
-  Tutor({Key key, this.courseName}) : super(key: key);
-
+class TutorCourse extends StatefulWidget {
   @override
-  _TutorState createState() => _TutorState();
+  TutorCourseState createState() => new TutorCourseState();
 }
 
-class _TutorState extends State<Tutor> {
-  List<TutorModel> tutorList = [];
+class TutorCourseState extends State<TutorCourse> {
+  List<CourseModel> courseList;
 
-  @override
-  void initState() {
-    super.initState();
-    _IsSearching = false;
-    if (widget.courseName != null) {
-      _IsSearching = true;
-      _searchText = widget.courseName;
-      searchController.text = _searchText;
-    }
-    getTutorSearchFromWS().then((value) => {
-          setState(() {
-            tutorList = value;
-            // print(tutorList);
-          })
-        });
-  }
+  String searchString = "";
 
   final searchController = TextEditingController();
   // ignore: non_constant_identifier_names
   bool _IsSearching;
   String _searchText = "";
   Widget appBarTitle = new Text(
-    "Tutor",
+    "Add Course",
     style: new TextStyle(color: Colors.white),
   );
   Icon actionIcon = new Icon(
     Icons.search,
     color: Colors.white,
   );
-  _TutorState() {
+
+  TutorCourseState() {
     searchController.addListener(() {
       if (searchController.text.isEmpty) {
         setState(() {
@@ -64,30 +46,42 @@ class _TutorState extends State<Tutor> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _IsSearching = false;
+    getAllCourseFromWS().then((value) => {
+          setState(() {
+            // print(value);
+            courseList = value;
+            // print(courseList);
+          })
+        });
+  }
+
   List<ChildItem> _buildList() {
-    if (tutorList != null) {
-      return tutorList.map((tutor) => new ChildItem(tutor)).toList();
+    if (courseList != null) {
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else
       return [];
   }
 
   List<ChildItem> _buildSearchList() {
     if (_searchText.isEmpty) {
-      return tutorList.map((tutor) => new ChildItem(tutor)).toList();
+      return courseList.map((course) => new ChildItem(course)).toList();
     } else {
-      List<TutorModel> _searchList = [];
-      for (int i = 0; i < tutorList.length; i++) {
-        TutorModel tutor = tutorList.elementAt(i);
-        // print(tutor);
-        if (tutor
+      List<CourseModel> _searchList = [];
+      for (int i = 0; i < courseList.length; i++) {
+        CourseModel course = courseList.elementAt(i);
+        if (course
             .toString()
             .toLowerCase()
             .contains(_searchText.toLowerCase())) {
-          _searchList.add(tutor);
+          _searchList.add(course);
         }
       }
       // print(_searchList);
-      return _searchList.map((tutor) => new ChildItem(tutor)).toList();
+      return _searchList.map((course) => new ChildItem(course)).toList();
     }
   }
 
@@ -104,7 +98,7 @@ class _TutorState extends State<Tutor> {
         color: Colors.white,
       );
       this.appBarTitle = new Text(
-        "Tutor",
+        "Course",
         style: new TextStyle(color: Colors.white),
       );
       _IsSearching = false;
@@ -152,7 +146,7 @@ class _TutorState extends State<Tutor> {
     return new Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: buildBar(context),
-      drawer: ArgonDrawer("tutor"),
+      drawer: ArgonDrawer("tutor-course"),
       body: Container(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         // height: 220,
@@ -170,7 +164,7 @@ class _TutorState extends State<Tutor> {
                             Icon(Icons.image_search),
                             Text(
                                 AppLocalizations.of(context)
-                                    .result_tutor_not_found,
+                                    .result_course_not_found,
                                 style: TextStyle(fontSize: 18)),
                           ])
                     ]
@@ -183,8 +177,8 @@ class _TutorState extends State<Tutor> {
 }
 
 class ChildItem extends StatelessWidget {
-  final dynamic tutor;
-  ChildItem(this.tutor);
+  final dynamic course;
+  ChildItem(this.course);
   @override
   Widget build(BuildContext context) {
     // return new ListTile(title: new Text(this.name));
@@ -194,56 +188,37 @@ class ChildItem extends StatelessWidget {
           title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(this.tutor.firstname + " " + this.tutor.lastname,
-                    style: new TextStyle(fontSize: 20.0)),
+                Text(this.course.course_name.toUpperCase(),
+                    style: new TextStyle(
+                        fontSize: 18.0, fontWeight: FontWeight.bold)),
                 Row(children: [
-                  Icon(Icons.email),
+                  Icon(Icons.home),
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(left: 5.0),
-                      child: Text(this.tutor.email,
-                          style: TextStyle(fontSize: 13)),
+                      child: Text(this.course.department),
                     ),
                   ),
                 ]),
-                Row(children: [
-                  Icon(Icons.location_on),
-                  Expanded(
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 5.0),
-                          child: Text(this.tutor.residence_city))),
-                ]),
-                Row(
-                    //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      StarWidget(tutorData: this.tutor, pre: false, post: true)
-                    ]),
               ]),
-          subtitle: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: this.tutor.courses.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Text(
-                          this.tutor.courses[index]['course_name'].toString(),
-                          style: TextStyle(color: Colors.black));
-                    })
-              ]),
+          subtitle: Row(children: <Widget>[
+            Text('CFU: ' + this.course.course_cfu.toUpperCase(),
+                style: TextStyle(
+                  color: ArgonColors.redUnito,
+                )),
+          ]),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
                   border: new Border(
                       right: new BorderSide(width: 1.0, color: Colors.black))),
-              child: CircleAvatar(
-                  backgroundImage: new AssetImage("assets/img/image.jpg"))),
-          // trailing: Icon(Icons.star),
+              child: Icon(Icons.school)),
           onTap: () {
             // print(this.course.toString());
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TutorDetail(this.tutor)),
+              MaterialPageRoute(
+                  builder: (context) => CourseDetail(this.course)),
             );
           },
         ));

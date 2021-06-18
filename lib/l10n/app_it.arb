@@ -59,5 +59,8 @@
     "edit_profile" : "Modifica profilo",
     "result_not_found" : "La ricerca non ha dato risultati",
     "result_tutor_not_found" : "Tutor non disponibili",
-    "result_course_not_found" : "Corsi non trovati"
+    "result_course_not_found" : "Corsi non trovati",
+    "add_courses" : "aggiungi corso",
+    "my_courses" : "I miei corsi",
+    "my_timeslot" : "Le mie disponibilità"
 }

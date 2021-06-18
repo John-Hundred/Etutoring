@@ -110,6 +110,55 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       ? true
                                       : false)
                               : Container(),
+                          role.data == "Tutor"
+                              ? DrawerTile(
+                                  icon: Icons.my_library_books,
+                                  onTap: () {
+                                    if (widget.currentPage != "my-tutor-course")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/my-tutor-course');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title:
+                                      AppLocalizations.of(context).my_courses,
+                                  isSelected:
+                                      widget.currentPage == "my-tutor-course"
+                                          ? true
+                                          : false)
+                              : Container(),
+                          role.data == "Tutor"
+                              ? DrawerTile(
+                                  icon: Icons.timelapse,
+                                  onTap: () {
+                                    if (widget.currentPage !=
+                                        "my-tutor-timeslot")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/my-tutor-timeslot');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title:
+                                      AppLocalizations.of(context).my_timeslot,
+                                  isSelected:
+                                      widget.currentPage == "my-tutor-timeslot"
+                                          ? true
+                                          : false)
+                              : Container(),
+                          role.data == "Tutor"
+                              ? DrawerTile(
+                                  icon: Icons.add,
+                                  onTap: () {
+                                    if (widget.currentPage != "tutor-course")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/tutor-course');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title:
+                                      AppLocalizations.of(context).add_courses,
+                                  isSelected:
+                                      widget.currentPage == "tutor-course"
+                                          ? true
+                                          : false)
+                              : Container(),
                           // ACL: ROLE = Student ONLY STUDENT VIEW
                           role.data == "Student"
                               ? DrawerTile(

@@ -247,5 +247,17 @@
   "result_course_not_found" : "Courses not found",
   "@result_course_not_found": {
     "description": "Courses not found"
+  },
+  "add_courses" : "Add course",
+  "@add_courses": {
+    "description": "Add course"
+  },
+  "my_courses" : "My course",
+  "@my_courses": {
+    "description": "My course"
+  },
+  "my_timeslot" : "My availability",
+  "@my_timeslot": {
+    "description": "My availability"
   }
 }

@@ -72,6 +72,12 @@ class _ProfileState extends State<Profile> {
                     "/favorite-tutor": (BuildContext context) =>
                         new RouterDispatcher(),
                     "/chat": (BuildContext context) => new RouterDispatcher(),
+                    "/tutor-course": (BuildContext context) =>
+                        new RouterDispatcher(),
+                    "/my-tutor-course": (BuildContext context) =>
+                        new RouterDispatcher(),
+                    "/my-tutor-timeslot": (BuildContext context) =>
+                        new RouterDispatcher(),
                   },
                   locale: provider.locale,
                   supportedLocales: L10n.all,
@@ -96,20 +102,6 @@ class _ProfileState extends State<Profile> {
                                   MaterialPageRoute(
                                       builder: (context) => ProfileEdit()));
                             }),
-                        /*PopupMenuButton(
-                            onSelected: (result) {
-                              if (result == 0) {
-                                print(0);
-                              }
-                            },
-                            icon: Icon(Icons.more_vert, color: Colors.white),
-                            itemBuilder: (context) => [
-                                  PopupMenuItem(
-                                    child: Text(AppLocalizations.of(context)
-                                        .complete_your_profile),
-                                    value: 0,
-                                  ),
-                                ]),*/
                       ],
                     ),
 

@@ -73,6 +73,27 @@ Future<List<CourseModel>> getUserCourseSearchFromWS(
   }
 }
 
+Future<List<CourseModel>> getAllCourseFromWS() async {
+  List<CourseModel> courseList = [];
+
+  try {
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "course_list.php"),
+        headers: <String, String>{'authorization': basicAuth});
+    if (response.statusCode == 200) {
+      var courseJsonData = json.decode(response.body);
+      for (var courseItem in courseJsonData) {
+        var course = CourseModel.fromJson(courseItem);
+        courseList.add(course);
+      }
+    }
+    return courseList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return [];
+  }
+}
+
 Future<List<CourseModel>> getUserCourseSearchPrivateLessonFromWS(
     {String searchString = ''}) async {
   List<CourseModel> courseList = [];
@@ -225,6 +246,27 @@ Future<List<TutorModel>> getTutorSearchFromWS() async {
       // print(tutorList);
     }
     return tutorList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
+Future<TutorModel> getTutorDetailFromWS() async {
+  try {
+    var queryParameters = {
+      'email': await UserSecureStorage.getEmail(),
+    };
+    var tutorItem;
+    var response = await http.get(
+        Uri.https(authority, unencodedPath + "tutor_list.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    if (response.statusCode == 200) {
+      var tutorJsonData = json.decode(response.body);
+      tutorItem = TutorModel.fromJson(tutorJsonData);
+    }
+    return tutorItem;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;
