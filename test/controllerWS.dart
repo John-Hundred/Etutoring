@@ -41,6 +41,10 @@ void main() {
 
       List<CourseModel> courseList = await getAllCourseFromWS();
       expect(courseList[0].toString(), "3, Agenti Intelligenti");
+
+      expect(courseList[0].course_id, "3");
+
+      expect(courseList[0].course_name, "Agenti Intelligenti");
     });
   });
 
@@ -72,6 +76,10 @@ void main() {
 
       List<DegreeModel> degreeList = await getDegreeListFromWS();
       expect(degreeList[0].toString(), "degree_id = 5, degree_name = Fisica");
+
+      expect(degreeList[0].degree_id, "5");
+
+      expect(degreeList[0].degree_name, "Fisica");
     });
   });
 }
