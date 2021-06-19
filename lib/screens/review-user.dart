@@ -28,7 +28,6 @@ class MyReviewUserState extends State<MyReviewUser> {
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: <Widget>[
             IconButton(icon: Icon(Icons.add), onPressed: () {}),
-            IconButton(icon: Icon(Icons.delete), onPressed: () {}),
           ],
         ),
         drawer: ArgonDrawer("my-review-user"),
