@@ -5,7 +5,6 @@ import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourse.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
-import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -78,9 +77,10 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                     child: new Text("OK"),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RouterDispatcher()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RouterDispatcher()),
+                      );
                     },
                   ),
                 ],
@@ -134,8 +134,7 @@ class MyTutorCourseState extends State<MyTutorCourse> {
             IconButton(
                 icon: Icon(Icons.add),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => TutorCourse()));
+                  Navigator.pushNamed(context, "/tutor-course");
                 }),
             IconButton(
                 icon: Icon(Icons.delete),

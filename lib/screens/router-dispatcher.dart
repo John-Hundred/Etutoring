@@ -17,6 +17,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class RouterDispatcher extends StatefulWidget {
   @override
   _RouterDispatcherState createState() => _RouterDispatcherState();
@@ -32,6 +33,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
 
   Widget build(BuildContext context) {
     Navigator.popUntil(context, (route) {
+      print(route.settings);
       switch (route.settings.name) {
         case '/profile':
           _body = Profile();
