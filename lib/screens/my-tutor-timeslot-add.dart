@@ -1,7 +1,13 @@
+import 'dart:convert';
+
+import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
 
 class MyTutorTimeslotAdd extends StatefulWidget {
   @override
@@ -18,22 +24,96 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
     super.initState();
   }
 
+// CONTROLLER
+  Future addTimeslot(day, houFrom, hourTo) async {
+    try {
+      String email = await UserSecureStorage.getEmail();
+
+      var data = {
+        'email': email,
+        'day': day,
+        'hour_from': houFrom,
+        'hour_to': hourTo
+      };
+
+      var response = await http
+          .post(Uri.https(authority, unencodedPath + 'add_tutor_time_slot.php'),
+              headers: <String, String>{'authorization': basicAuth},
+              body: json.encode(data))
+          .timeout(const Duration(seconds: 8));
+      if (response.statusCode == 200) {
+        var message = jsonDecode(response.body);
+        print(response.body);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: new Text(message),
+              actions: <Widget>[
+                TextButton(
+                  child: new Text(
+                    "OK",
+                    style: TextStyle(color: ArgonColors.redUnito),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RouterDispatcher()));
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: new Text("Error adding availability"),
+              actions: <Widget>[
+                TextButton(
+                  child: new Text(
+                    "OK",
+                    style: TextStyle(color: ArgonColors.redUnito),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error adding courses. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+    }
+  }
+
   Future<void> _selectTimeFrom(BuildContext context) async {
     final TimeOfDay newTime = await showTimePicker(
         context: context,
         initialTime: _timeFrom,
         //initialEntryMode: TimePickerEntryMode.input,
         builder: (BuildContext context, Widget child) {
-          return Theme(
-            data: ThemeData.light().copyWith(
-              colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.red,
-                primaryColorDark: Colors.red,
-                accentColor: Colors.red,
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+            child: Theme(
+              data: ThemeData.light().copyWith(
+                colorScheme: ColorScheme.fromSwatch(
+                  primarySwatch: Colors.red,
+                  primaryColorDark: Colors.red,
+                  accentColor: Colors.red,
+                ),
+                dialogBackgroundColor: Colors.white,
               ),
-              dialogBackgroundColor: Colors.white,
+              child: child,
             ),
-            child: child,
           );
         });
     if (newTime != null) {
@@ -49,16 +129,19 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
         initialTime: _timeTo,
         //initialEntryMode: TimePickerEntryMode.input,
         builder: (BuildContext context, Widget child) {
-          return Theme(
-            data: ThemeData.light().copyWith(
-              colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.red,
-                primaryColorDark: Colors.red,
-                accentColor: Colors.red,
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+            child: Theme(
+              data: ThemeData.light().copyWith(
+                colorScheme: ColorScheme.fromSwatch(
+                  primarySwatch: Colors.red,
+                  primaryColorDark: Colors.red,
+                  accentColor: Colors.red,
+                ),
+                dialogBackgroundColor: Colors.white,
               ),
-              dialogBackgroundColor: Colors.white,
+              child: child,
             ),
-            child: child,
           );
         });
     if (newTime != null) {
@@ -138,7 +221,10 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
             '${_timeTo.format(context)}',
           ),
           ElevatedButton(
-              onPressed: () => {},
+              onPressed: () => {
+                    addTimeslot(formatDate(currentDate).toString(),
+                        _timeFrom.format(context), _timeTo.format(context))
+                  },
               child: Text(AppLocalizations.of(context).add_time_slot),
               style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
         ],

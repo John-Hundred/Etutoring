@@ -52,7 +52,7 @@ class TutorCourseState extends State<TutorCourse> {
     });
   }
 
-// CONTROLLER
+  // CONTROLLER
   Future addCourses(List<CourseModel> courseListSelected) async {
     try {
       int totalCoursesSelected = courseListSelected.length;
