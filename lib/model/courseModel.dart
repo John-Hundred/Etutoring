@@ -25,6 +25,8 @@ class CourseModel {
   // ignore: non_constant_identifier_names
   String private_lesson_id;
 
+  bool selected = false;
+
   CourseModel(
       this.course_id,
       this.course_name,

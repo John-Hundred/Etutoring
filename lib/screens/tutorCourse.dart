@@ -14,6 +14,7 @@ class TutorCourse extends StatefulWidget {
 
 class TutorCourseState extends State<TutorCourse> {
   List<CourseModel> courseList;
+  List<CourseModel> courseListSelected = [];
 
   String searchString = "";
 
@@ -61,14 +62,18 @@ class TutorCourseState extends State<TutorCourse> {
 
   List<ChildItem> _buildList() {
     if (courseList != null) {
-      return courseList.map((course) => new ChildItem(course)).toList();
+      return courseList
+          .map((course) => new ChildItem(course, courseListSelected))
+          .toList();
     } else
       return [];
   }
 
   List<ChildItem> _buildSearchList() {
     if (_searchText.isEmpty) {
-      return courseList.map((course) => new ChildItem(course)).toList();
+      return courseList
+          .map((course) => new ChildItem(course, courseListSelected))
+          .toList();
     } else {
       List<CourseModel> _searchList = [];
       for (int i = 0; i < courseList.length; i++) {
@@ -81,7 +86,9 @@ class TutorCourseState extends State<TutorCourse> {
         }
       }
       // print(_searchList);
-      return _searchList.map((course) => new ChildItem(course)).toList();
+      return _searchList
+          .map((course) => new ChildItem(course, courseListSelected))
+          .toList();
     }
   }
 
@@ -138,6 +145,11 @@ class TutorCourseState extends State<TutorCourse> {
               });
             },
           ),
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                print(this.courseListSelected);
+              }),
         ]);
   }
 
@@ -176,15 +188,40 @@ class TutorCourseState extends State<TutorCourse> {
   }
 }
 
-class ChildItem extends StatelessWidget {
+// ignore: must_be_immutable
+class ChildItem extends StatefulWidget {
+  dynamic course;
+  List<CourseModel> courseListSelected = [];
+
+  ChildItem(course, courseListSelected) {
+    this.course = course;
+    this.courseListSelected = courseListSelected;
+  }
+
+  @override
+  ChildItemState createState() =>
+      new ChildItemState(this.course, this.courseListSelected);
+}
+
+class ChildItemState extends State<ChildItem> {
   final dynamic course;
-  ChildItem(this.course);
+  List<CourseModel> courseListSelected = [];
+  ChildItemState(this.course, this.courseListSelected);
   @override
   Widget build(BuildContext context) {
-    // return new ListTile(title: new Text(this.name));
     return new Card(
         elevation: 5,
         child: ListTile(
+          onTap: () {
+            setState(() {
+              this.course.selected = !this.course.selected;
+            });
+            if (this.course.selected) {
+              this.courseListSelected.add(this.course);
+            } else {
+              this.courseListSelected.remove(this.course);
+            }
+          },
           title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -207,17 +244,15 @@ class ChildItem extends StatelessWidget {
                   color: ArgonColors.redUnito,
                 )),
           ]),
-          trailing: Icon(
-            Icons.add,
-            color: Colors.green,
-          ),
+          trailing: (this.course.selected)
+              ? Icon(Icons.check_box)
+              : Icon(Icons.check_box_outline_blank),
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
               decoration: new BoxDecoration(
                   border: new Border(
                       right: new BorderSide(width: 1.0, color: Colors.black))),
               child: Icon(Icons.school)),
-          onTap: () {},
         ));
   }
 }

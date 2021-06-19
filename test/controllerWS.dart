@@ -1,7 +1,6 @@
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/courseModel.dart';
-import 'package:e_tutoring/model/degreeModel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';

@@ -35,6 +35,15 @@ class _LoginState extends State<Login> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
 // Toggles the password show status
   void _toggle() {
     setState(() {

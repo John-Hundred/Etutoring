@@ -40,7 +40,6 @@ class MyTutorCourseState extends State<MyTutorCourse> {
         drawer: ArgonDrawer("my-tutor-course"),
         body: Container(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            // height: 220,
             width: double.maxFinite,
             color: Colors.white,
             child: FutureBuilder<TutorModel>(
@@ -49,7 +48,6 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                     (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
                   List<Widget> children;
                   if (tutor.hasData) {
-                    // print(tutor.data.courses);
                     return ListView.builder(
                       itemCount: tutor.data.courses.length,
                       itemBuilder: (context, index) {

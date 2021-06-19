@@ -52,9 +52,7 @@ class CourseState extends State<Course> {
     _IsSearching = false;
     getUserCourseSearchFromWS(http.Client()).then((value) => {
           setState(() {
-            // print(value);
             courseList = value;
-            // print(courseList);
           })
         });
   }
