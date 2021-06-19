@@ -335,7 +335,7 @@ class _ProfileState extends State<Profile> {
                                                                                               DataCell(Text("${user.data.degree_path_name}", style: TextStyle(fontSize: 15))),
                                                                                             ],
                                                                                           ),
-                                                                                        if (role.data == "Tutor")
+                                                                                        /*if (role.data == "Tutor")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).courses, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
@@ -352,8 +352,8 @@ class _ProfileState extends State<Profile> {
                                                                                                 ),
                                                                                               ),
                                                                                             ],
-                                                                                          ),
-                                                                                        if (role.data == "Tutor")
+                                                                                          ),*/
+                                                                                        /*if (role.data == "Tutor")
                                                                                           DataRow(
                                                                                             cells: <DataCell>[
                                                                                               DataCell(Text(AppLocalizations.of(context).time_slot, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
@@ -370,7 +370,7 @@ class _ProfileState extends State<Profile> {
                                                                                                 ),
                                                                                               ),
                                                                                             ],
-                                                                                          ),
+                                                                                          ),*/
                                                                                       ],
                                                                                     )),
                                                                               ]);

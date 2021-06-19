@@ -1,7 +1,6 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
-import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +34,7 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => TutorCourse()));
                 }),
+            IconButton(icon: Icon(Icons.remove), onPressed: () {}),
           ],
         ),
         drawer: ArgonDrawer("my-tutor-course"),
@@ -54,6 +54,7 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                         return Card(
                             elevation: 5,
                             child: ListTile(
+                              onTap: () {},
                               leading: Container(
                                   padding: EdgeInsets.only(right: 12.0),
                                   decoration: new BoxDecoration(
@@ -75,10 +76,6 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                                   '${tutor.data.courses[index]['department']}',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15)),
-                              /*trailing: Icon(
-                            Icons.school,
-                            color: Colors.green,
-                          ),*/
                             ));
                       },
                     );
@@ -117,59 +114,5 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                     ),
                   );
                 })));
-  }
-}
-
-class ChildItem extends StatelessWidget {
-  final dynamic course;
-  ChildItem(this.course);
-  @override
-  Widget build(BuildContext context) {
-    // return new ListTile(title: new Text(this.name));
-    return new Card(
-        elevation: 5,
-        child: ListTile(
-          title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(this.course.course_name.toUpperCase(),
-                    style: new TextStyle(fontSize: 18.0)),
-                Row(children: [
-                  Icon(Icons.event_available),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 5.0),
-                      child: Text(this.course.enrollment_year),
-                    ),
-                  ),
-                ]),
-              ]),
-          subtitle: Row(children: <Widget>[
-            Text('CFU: ' + this.course.course_cfu.toUpperCase(),
-                style: TextStyle(
-                  color: ArgonColors.redUnito,
-                )),
-          ]),
-          leading: Container(
-              padding: EdgeInsets.only(right: 12.0),
-              decoration: new BoxDecoration(
-                  border: new Border(
-                      right: new BorderSide(width: 1.0, color: Colors.black))),
-              child: Icon(Icons.school)),
-          trailing: this.course.private_lesson_id != '-'
-              ? Icon(
-                  Icons.calendar_today,
-                  color: Colors.green,
-                )
-              : Icon(Icons.not_interested, color: Colors.red),
-          onTap: () {
-            // print(this.course.toString());
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CourseDetail(this.course)),
-            );
-          },
-        ));
   }
 }
