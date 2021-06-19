@@ -26,9 +26,6 @@ class MyReviewUserState extends State<MyReviewUser> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).my_reviews),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.add), onPressed: () {}),
-        ],
       ),
       drawer: ArgonDrawer("my-review-user"),
       body: Container(

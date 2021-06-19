@@ -19,10 +19,22 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
 
   Future<void> _selectTimeFrom(BuildContext context) async {
     final TimeOfDay newTime = await showTimePicker(
-      context: context,
-      initialTime: _timeFrom,
-      //initialEntryMode: TimePickerEntryMode.input,
-    );
+        context: context,
+        initialTime: _timeFrom,
+        //initialEntryMode: TimePickerEntryMode.input,
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.red,
+                primaryColorDark: Colors.red,
+                accentColor: Colors.red,
+              ),
+              dialogBackgroundColor: Colors.white,
+            ),
+            child: child,
+          );
+        });
     if (newTime != null) {
       setState(() {
         _timeFrom = newTime;
@@ -32,10 +44,22 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
 
   Future<void> _selectTimeTo(BuildContext context) async {
     final TimeOfDay newTime = await showTimePicker(
-      context: context,
-      initialTime: _timeTo,
-      //initialEntryMode: TimePickerEntryMode.input,
-    );
+        context: context,
+        initialTime: _timeTo,
+        //initialEntryMode: TimePickerEntryMode.input,
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.red,
+                primaryColorDark: Colors.red,
+                accentColor: Colors.red,
+              ),
+              dialogBackgroundColor: Colors.white,
+            ),
+            child: child,
+          );
+        });
     if (newTime != null) {
       setState(() {
         _timeTo = newTime;
@@ -82,22 +106,25 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
         children: <Widget>[
           ElevatedButton(
             onPressed: () => _selectDate(context),
-            child: Text('Select date'),
-            style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
+            child: Text('Select date',
+                style: TextStyle(color: ArgonColors.redUnito)),
+            style: ElevatedButton.styleFrom(primary: Colors.white70),
           ),
           Text(currentDate.toString()),
           ElevatedButton(
               onPressed: () => _selectTimeFrom(context),
-              child: Text('Select from hour'),
-              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
+              child: Text('Select from hour',
+                  style: TextStyle(color: ArgonColors.redUnito)),
+              style: ElevatedButton.styleFrom(primary: Colors.white70)),
           SizedBox(height: 8),
           Text(
             'Selected time: ${_timeFrom.format(context)}',
           ),
           ElevatedButton(
               onPressed: () => _selectTimeTo(context),
-              child: Text('Select to hour'),
-              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
+              child: Text('Select to hour',
+                  style: TextStyle(color: ArgonColors.redUnito)),
+              style: ElevatedButton.styleFrom(primary: Colors.white70)),
           SizedBox(height: 8),
           Text(
             'Selected time: ${_timeTo.format(context)}',
