@@ -1,7 +1,12 @@
+import 'dart:convert';
+
+import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourse.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
+import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -30,6 +35,85 @@ class MyTutorCourseState extends State<MyTutorCourse> {
         });
   }
 
+  // CONTROLLER
+  Future deleteCourses(List<TutorCourseModel> courseListSelected) async {
+    try {
+      int totalCoursesSelected = courseListSelected.length;
+      String errorMsg = "";
+      String email = await UserSecureStorage.getEmail();
+      if (courseListSelected.isNotEmpty) {
+        for (var courseSelected in courseListSelected) {
+          var data = {'email': email, 'course_id': courseSelected.course_id};
+
+          var response = await http
+              .post(
+                  Uri.https(
+                      authority, unencodedPath + 'delete_tutor_course.php'),
+                  headers: <String, String>{'authorization': basicAuth},
+                  body: json.encode(data))
+              .timeout(const Duration(seconds: 8));
+          if (response.statusCode == 200) {
+            var message = jsonDecode(response.body);
+            if (message == 'Course successfully deleted') {
+              totalCoursesSelected = totalCoursesSelected - 1;
+            } else {
+              errorMsg +=
+                  "\nError deleting course: " + courseSelected.course_name;
+            }
+            // response not 200
+          } else {
+            errorMsg +=
+                "\nError deleting course: " + courseSelected.course_name;
+          }
+        }
+
+        if (totalCoursesSelected == 0) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text("Courses successfully deleted"),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text("OK"),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RouterDispatcher()));
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text(errorMsg),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error adding courses. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+    }
+  }
+
   List<ChildItem> _buildList() {
     if (courseList != null) {
       return courseList
@@ -54,9 +138,10 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                       MaterialPageRoute(builder: (context) => TutorCourse()));
                 }),
             IconButton(
-                icon: Icon(Icons.remove),
+                icon: Icon(Icons.delete),
                 onPressed: () {
-                  print(courseListSelected);
+                  // print(courseListSelected);
+                  deleteCourses(courseListSelected);
                 }),
           ],
         ),
