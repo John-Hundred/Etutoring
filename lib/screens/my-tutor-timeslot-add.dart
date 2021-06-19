@@ -1,3 +1,4 @@
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -46,6 +47,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
               ElevatedButton(
                 onPressed: () => _selectDate(context),
                 child: Text('Select date'),
+                style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
               ),
             ],
           ),
