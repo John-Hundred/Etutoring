@@ -15,6 +15,13 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
     super.initState();
   }
 
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(hour: 7, minute: 15),
+    );
+  }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime pickedDate = await showDatePicker(
         context: context,
@@ -60,6 +67,16 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
             ElevatedButton(
               onPressed: () => _selectDate(context),
               child: Text('Select date'),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
+            ),
+            ElevatedButton(
+              onPressed: () => _selectTime(context),
+              child: Text('From hour'),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
+            ),
+            ElevatedButton(
+              onPressed: () => _selectTime(context),
+              child: Text('To hour'),
               style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
             ),
           ],
