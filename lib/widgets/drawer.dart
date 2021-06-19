@@ -112,7 +112,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               : Container(),
                           role.data == "Tutor"
                               ? DrawerTile(
-                                  icon: Icons.my_library_books,
+                                  icon: Icons.school,
                                   onTap: () {
                                     if (widget.currentPage != "my-tutor-course")
                                       Navigator.pushReplacementNamed(
