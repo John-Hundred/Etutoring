@@ -3,6 +3,7 @@ import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/reviewModel.dart';
 import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
+import 'package:e_tutoring/widgets/star_one_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -48,27 +49,34 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                         return Card(
                             elevation: 5,
                             child: ListTile(
-                              leading: Container(
-                                  padding: EdgeInsets.only(right: 12.0),
-                                  decoration: new BoxDecoration(
-                                      border: new Border(
-                                          right: new BorderSide(
-                                              width: 1.0,
-                                              color: Colors.black))),
-                                  child: Icon(
-                                    Icons.rate_review,
-                                    color: Colors.green,
-                                  )),
-                              title: Text(reviewsSnapshot.data[index].firstname,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold)),
-                              subtitle: Text(
-                                  reviewsSnapshot.data[index].review_comment,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15)),
-                            ));
+                                leading: Container(
+                                    padding: EdgeInsets.only(right: 12.0),
+                                    decoration: new BoxDecoration(
+                                        border: new Border(
+                                            right: new BorderSide(
+                                                width: 1.0,
+                                                color: Colors.black))),
+                                    child: Icon(
+                                      Icons.rate_review,
+                                      color: Colors.green,
+                                    )),
+                                title: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        reviewsSnapshot.data[index].firstname,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(reviewsSnapshot
+                                          .data[index].review_comment)
+                                    ]),
+                                subtitle: StarOneWidget(
+                                    star: double.parse(reviewsSnapshot
+                                        .data[index].review_star),
+                                    pre: false,
+                                    post: false)));
                       },
                     );
                   } else if (reviewsSnapshot.hasError) {
