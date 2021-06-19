@@ -63,5 +63,6 @@
     "add_courses" : "aggiungi corso",
     "my_courses" : "I miei corsi",
     "my_timeslot" : "Le mie disponibilità",
-    "reviews_about_me" : "Recensioni su di me"
+    "reviews_about_me" : "Recensioni su di me",
+    "my_reviews" : "Le mie recensioni"
 }

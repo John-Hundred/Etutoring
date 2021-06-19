@@ -34,7 +34,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
 
   Widget build(BuildContext context) {
     Navigator.popUntil(context, (route) {
-      print(route.settings);
+      // print(route.settings);
       switch (route.settings.name) {
         case '/profile':
           _body = Profile();

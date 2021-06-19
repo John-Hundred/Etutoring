@@ -263,5 +263,9 @@
   "reviews_about_me" : "Reviews about me",
   "@reviews_about_me": {
     "description": "Reviews about me"
+  },
+  "my_reviews" : "My Reviews",
+  "@my_reviews": {
+    "description": "My Reviews"
   }
 }
