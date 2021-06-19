@@ -30,10 +30,9 @@ try{
 		} else {
 		  // echo "0 results";
 		}
-	}else {
-		$sql = "SELECT DISTINCT * FROM review 
-		left join user_attribute on user_attribute.user_id = user.id
-		left join user on review.user_id = user.id";
+	} 
+	else {
+		$sql = "SELECT DISTINCT * FROM review";
 		$result = $connect->query($sql);
 		$emparray = array();
 		if ($result->num_rows > 0) {

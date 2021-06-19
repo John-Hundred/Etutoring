@@ -45,7 +45,7 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                   List<Widget> children;
                   if (tutor.hasData) {
                     return ListView.builder(
-                      itemCount: tutor.data.time_slot.length,
+                      itemCount: tutor.data.reviews.length,
                       itemBuilder: (context, index) {
                         return Card(
                             elevation: 5,
@@ -58,19 +58,17 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                                               width: 1.0,
                                               color: Colors.black))),
                                   child: Icon(
-                                    Icons.timelapse,
+                                    Icons.rate_review,
                                     color: Colors.green,
                                   )),
                               title: Text(
-                                  '${tutor.data.time_slot[index]['day']}',
+                                  '${tutor.data.reviews[index]["review_comment"]}',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold)),
                               subtitle: Text(
-                                  tutor.data.time_slot[index]['hour_from'] +
-                                      ' - ' +
-                                      tutor.data.time_slot[index]['hour_to'],
+                                  tutor.data.reviews[index]['review_comment'],
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15)),
                             ));

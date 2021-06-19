@@ -247,7 +247,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "calendar"
                                   ? true
                                   : false),
-
                           Divider(
                             thickness: 3,
                             color: ArgonColors.redUnito,
