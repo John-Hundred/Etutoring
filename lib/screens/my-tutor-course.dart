@@ -1,4 +1,3 @@
-import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourse.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
@@ -16,7 +15,7 @@ class MyTutorCourse extends StatefulWidget {
 class MyTutorCourseState extends State<MyTutorCourse> {
   List<TutorCourseModel> courseListSelected = [];
   TutorModel tutor;
-  List<TutorCourseModel> courses = [];
+  List<TutorCourseModel> courseList = [];
   @override
   void initState() {
     super.initState();
@@ -24,11 +23,20 @@ class MyTutorCourseState extends State<MyTutorCourse> {
           setState(() {
             tutor = value;
             for (var course in value.courses) {
-              courses.add(TutorCourseModel.fromJson(course));
+              courseList.add(TutorCourseModel.fromJson(course));
             }
             // print(courses);
           })
         });
+  }
+
+  List<ChildItem> _buildList() {
+    if (courseList != null) {
+      return courseList
+          .map((course) => new ChildItem(course, courseListSelected))
+          .toList();
+    } else
+      return [];
   }
 
   @override
@@ -45,7 +53,11 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => TutorCourse()));
                 }),
-            IconButton(icon: Icon(Icons.remove), onPressed: () {}),
+            IconButton(
+                icon: Icon(Icons.remove),
+                onPressed: () {
+                  print(courseListSelected);
+                }),
           ],
         ),
         drawer: ArgonDrawer("my-tutor-course"),
@@ -53,81 +65,66 @@ class MyTutorCourseState extends State<MyTutorCourse> {
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             width: double.maxFinite,
             color: Colors.white,
-            child: FutureBuilder<TutorModel>(
-                future: getTutorDetailFromWS(http.Client()),
-                builder:
-                    (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
-                  List<Widget> children;
-                  if (tutor.hasData) {
-                    return ListView.builder(
-                      itemCount: tutor.data.courses.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                            elevation: 5,
-                            child: ListTile(
-                              /*onTap: () {
-                                print(TutorCourseModel.fromJson(
-                                        tutor.data.courses[index])
-                                    .selected);
-                              },*/
-                              leading: Container(
-                                  padding: EdgeInsets.only(right: 12.0),
-                                  decoration: new BoxDecoration(
-                                      border: new Border(
-                                          right: new BorderSide(
-                                              width: 1.0,
-                                              color: Colors.black))),
-                                  child: Icon(
-                                    Icons.school,
-                                    color: Colors.green,
-                                  )),
-                              title: Text(
-                                  '${tutor.data.courses[index]['course_name']}',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold)),
-                              subtitle: Text(
-                                  '${tutor.data.courses[index]['department']}',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15)),
-                            ));
-                      },
-                    );
-                  } else if (tutor.hasError) {
-                    children = <Widget>[
-                      const Icon(
-                        Icons.error_outline,
-                        color: Colors.red,
-                        size: 60,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: Text('Error: ${tutor.error}'),
-                      )
-                    ];
-                  } else {
-                    children = const <Widget>[
-                      SizedBox(
-                        child: CircularProgressIndicator(
-                            backgroundColor: ArgonColors.redUnito),
-                        width: 60,
-                        height: 60,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text('Awaiting result...',
-                            style: TextStyle(color: ArgonColors.redUnito)),
-                      )
-                    ];
-                  }
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: children,
-                    ),
-                  );
-                })));
+            child: ListView(
+              padding: new EdgeInsets.symmetric(vertical: 8.0),
+              children: _buildList(),
+            )));
+  }
+}
+
+// ignore: must_be_immutable
+class ChildItem extends StatefulWidget {
+  dynamic course;
+  List<TutorCourseModel> courseListSelected = [];
+
+  ChildItem(course, courseListSelected) {
+    this.course = course;
+    this.courseListSelected = courseListSelected;
+  }
+
+  @override
+  ChildItemState createState() =>
+      new ChildItemState(this.course, this.courseListSelected);
+}
+
+class ChildItemState extends State<ChildItem> {
+  final TutorCourseModel course;
+  List<TutorCourseModel> courseListSelected = [];
+  ChildItemState(this.course, this.courseListSelected);
+  @override
+  Widget build(BuildContext context) {
+    return new Card(
+        elevation: 5,
+        child: ListTile(
+          onTap: () {
+            setState(() {
+              course.selected = !this.course.selected;
+            });
+            if (course.selected) {
+              courseListSelected.add(this.course);
+            } else {
+              courseListSelected.remove(this.course);
+            }
+          },
+          leading: Container(
+              padding: EdgeInsets.only(right: 12.0),
+              decoration: new BoxDecoration(
+                  border: new Border(
+                      right: new BorderSide(width: 1.0, color: Colors.black))),
+              child: Icon(
+                Icons.school,
+                color: Colors.green,
+              )),
+          title: Text('${course.course_name}',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          subtitle: Text('${course.department}',
+              style: TextStyle(color: Colors.black, fontSize: 15)),
+          trailing: (course.selected)
+              ? Icon(Icons.check_box)
+              : Icon(Icons.check_box_outline_blank),
+        ));
   }
 }

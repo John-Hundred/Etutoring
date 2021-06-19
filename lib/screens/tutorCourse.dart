@@ -287,7 +287,7 @@ class ChildItem extends StatefulWidget {
 }
 
 class ChildItemState extends State<ChildItem> {
-  final dynamic course;
+  final CourseModel course;
   List<CourseModel> courseListSelected = [];
   ChildItemState(this.course, this.courseListSelected);
   @override
