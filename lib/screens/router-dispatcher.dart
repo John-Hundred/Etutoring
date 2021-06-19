@@ -3,6 +3,7 @@ import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/chat.dart';
 import 'package:e_tutoring/screens/favorite-tutor.dart';
 import 'package:e_tutoring/screens/my-tutor-course.dart';
+import 'package:e_tutoring/screens/my-tutor-reviews.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot.dart';
 import 'package:e_tutoring/screens/profile.dart';
 import 'package:e_tutoring/screens/calendar.dart';
@@ -68,6 +69,9 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/my-tutor-timeslot':
           _body = MyTutorTimeslot();
           break;
+        case '/my-tutor-reviews':
+          _body = MyTutorReviews();
+          break;
         default:
           _body = Profile();
           break;
@@ -93,6 +97,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/tutor-course": (BuildContext context) => this.widget,
             "/my-tutor-course": (BuildContext context) => this.widget,
             "/my-tutor-timeslot": (BuildContext context) => this.widget,
+            "/my-tutor-reviews": (BuildContext context) => this.widget,
           },
           title: 'Router Dispatcher',
           /*theme: ThemeData(

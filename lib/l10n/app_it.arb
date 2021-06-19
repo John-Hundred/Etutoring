@@ -62,5 +62,6 @@
     "result_course_not_found" : "Corsi non trovati",
     "add_courses" : "aggiungi corso",
     "my_courses" : "I miei corsi",
-    "my_timeslot" : "Le mie disponibilità"
+    "my_timeslot" : "Le mie disponibilità",
+    "reviews_about_me" : "Recensioni su di me"
 }

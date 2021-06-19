@@ -79,6 +79,8 @@ class _ProfileState extends State<Profile> {
                         new RouterDispatcher(),
                     "/my-tutor-timeslot": (BuildContext context) =>
                         new RouterDispatcher(),
+                    "/my-tutor-reviews": (BuildContext context) =>
+                        new RouterDispatcher(),
                   },
                   locale: provider.locale,
                   supportedLocales: L10n.all,

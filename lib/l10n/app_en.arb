@@ -259,5 +259,9 @@
   "my_timeslot" : "My availability",
   "@my_timeslot": {
     "description": "My availability"
+  },
+  "reviews_about_me" : "Reviews about me",
+  "@reviews_about_me": {
+    "description": "Reviews about me"
   }
 }

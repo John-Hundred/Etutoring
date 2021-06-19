@@ -111,6 +111,12 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       : false)
                               : Container(),
                           role.data == "Tutor"
+                              ? Divider(
+                                  thickness: 3,
+                                  color: ArgonColors.redUnito,
+                                )
+                              : Container(),
+                          role.data == "Tutor"
                               ? DrawerTile(
                                   icon: Icons.school,
                                   onTap: () {
@@ -125,6 +131,29 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       widget.currentPage == "my-tutor-course"
                                           ? true
                                           : false)
+                              : Container(),
+
+                          role.data == "Tutor"
+                              ? DrawerTile(
+                                  icon: Icons.add,
+                                  onTap: () {
+                                    if (widget.currentPage != "tutor-course")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/tutor-course');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title:
+                                      AppLocalizations.of(context).add_courses,
+                                  isSelected:
+                                      widget.currentPage == "tutor-course"
+                                          ? true
+                                          : false)
+                              : Container(),
+                          role.data == "Tutor"
+                              ? Divider(
+                                  thickness: 3,
+                                  color: ArgonColors.redUnito,
+                                )
                               : Container(),
                           role.data == "Tutor"
                               ? DrawerTile(
@@ -143,21 +172,29 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                           ? true
                                           : false)
                               : Container(),
+
                           role.data == "Tutor"
                               ? DrawerTile(
-                                  icon: Icons.add,
+                                  icon: Icons.star,
                                   onTap: () {
-                                    if (widget.currentPage != "tutor-course")
+                                    if (widget.currentPage !=
+                                        "my-tutor-reviews")
                                       Navigator.pushReplacementNamed(
-                                          context, '/tutor-course');
+                                          context, "/my-tutor-reviews");
                                   },
                                   iconColor: ArgonColors.black,
-                                  title:
-                                      AppLocalizations.of(context).add_courses,
+                                  title: AppLocalizations.of(context)
+                                      .reviews_about_me,
                                   isSelected:
-                                      widget.currentPage == "tutor-course"
+                                      widget.currentPage == "my-tutor-reviews"
                                           ? true
                                           : false)
+                              : Container(),
+                          role.data == "Tutor"
+                              ? Divider(
+                                  thickness: 3,
+                                  color: ArgonColors.redUnito,
+                                )
                               : Container(),
                           // ACL: ROLE = Student ONLY STUDENT VIEW
                           role.data == "Student"
@@ -210,6 +247,11 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "calendar"
                                   ? true
                                   : false),
+
+                          Divider(
+                            thickness: 3,
+                            color: ArgonColors.redUnito,
+                          ),
                           // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.settings,
@@ -223,6 +265,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "settings"
                                   ? true
                                   : false),
+
                           // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.logout,
