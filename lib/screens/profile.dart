@@ -97,17 +97,7 @@ class _ProfileState extends State<Profile> {
                     appBar: AppBar(
                       title: Text(AppLocalizations.of(context).profile),
                       backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-                      actions: <Widget>[
-                        // LanguagePickerWidget(),
-                        IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfileEdit()));
-                            }),
-                      ],
+                      actions: <Widget>[],
                     ),
 
                     // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
@@ -451,6 +441,16 @@ class _ProfileState extends State<Profile> {
                                 ])),
                       ]))
                     ]),
+                    floatingActionButton: new FloatingActionButton(
+                      backgroundColor: ArgonColors.redUnito,
+                      child: new Icon(Icons.edit),
+                      onPressed: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileEdit()))
+                      },
+                    ),
                   ));
             }));
   }
