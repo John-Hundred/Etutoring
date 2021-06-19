@@ -329,6 +329,32 @@ Future<List<ReviewModel>> getReviewTutorFromWS(http.Client client) async {
   }
 }
 
+Future<List<ReviewModel>> getReviewsUserFromWS(http.Client client) async {
+  List<ReviewModel> reviewList = [];
+  try {
+    var queryParameters = {
+      'email': await UserSecureStorage.getEmail(),
+    };
+    // print(queryParameters);
+    var response = await client.get(
+        Uri.https(
+            authority, unencodedPath + "reviews_user.php", queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    if (response.statusCode == 200) {
+      var reviewJsonData = json.decode(response.body);
+      for (var item in reviewJsonData) {
+        var reviewItem = ReviewModel.fromJson(item);
+        reviewList.add(reviewItem);
+      }
+    }
+    return reviewList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
 Future<RoleModel> getRoleFromWS(http.Client client, String email) async {
   try {
     var queryParameters = {

@@ -216,15 +216,17 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               ? DrawerTile(
                                   icon: Icons.rate_review,
                                   onTap: () {
-                                    if (widget.currentPage != "tutor")
+                                    if (widget.currentPage != "my-review-user")
                                       Navigator.pushReplacementNamed(
-                                          context, '/tutor');
+                                          context, '/my-review-user');
                                   },
                                   iconColor: ArgonColors.black,
-                                  title: AppLocalizations.of(context).reviews,
-                                  isSelected: widget.currentPage == "tutor"
-                                      ? true
-                                      : false)
+                                  title:
+                                      AppLocalizations.of(context).my_reviews,
+                                  isSelected:
+                                      widget.currentPage == "my-review-user"
+                                          ? true
+                                          : false)
                               : Container(),
 
                           role.data == "Student"

@@ -8,6 +8,7 @@ import 'package:e_tutoring/screens/my-tutor-timeslot.dart';
 import 'package:e_tutoring/screens/profile.dart';
 import 'package:e_tutoring/screens/calendar.dart';
 import 'package:e_tutoring/screens/course.dart';
+import 'package:e_tutoring/screens/review-user.dart';
 import 'package:e_tutoring/screens/settings.dart';
 import 'package:e_tutoring/screens/tutor.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
@@ -72,6 +73,9 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/my-tutor-reviews':
           _body = MyTutorReviews();
           break;
+        case '/my-review-user':
+          _body = MyReviewUser();
+          break;
         default:
           _body = Profile();
           break;
@@ -98,6 +102,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/my-tutor-course": (BuildContext context) => this.widget,
             "/my-tutor-timeslot": (BuildContext context) => this.widget,
             "/my-tutor-reviews": (BuildContext context) => this.widget,
+            "/my-review-user": (BuildContext context) => this.widget
           },
           title: 'Router Dispatcher',
           /*theme: ThemeData(
