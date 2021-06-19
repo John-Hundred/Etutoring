@@ -108,7 +108,8 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[],
       ),
-      body: Column(
+      body: Center(
+          child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ElevatedButton(
@@ -136,8 +137,12 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           Text(
             '${_timeTo.format(context)}',
           ),
+          ElevatedButton(
+              onPressed: () => {},
+              child: Text(AppLocalizations.of(context).add_time_slot),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
         ],
-      ),
+      )),
     );
   }
 }
