@@ -1,4 +1,3 @@
-import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -8,11 +7,23 @@ class MyTutorTimeslotAdd extends StatefulWidget {
 }
 
 class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
-  TutorModel tutor;
+  DateTime currentDate = DateTime.now();
 
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      setState(() {
+        currentDate = pickedDate;
+      });
   }
 
   @override
@@ -24,12 +35,20 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: <Widget>[],
         ),
-        body: Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          // height: 220,
-          width: double.maxFinite,
-          color: Colors.white,
-          child: Text('add'),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(currentDate.toString()),
+              SizedBox(
+                height: 20.0,
+              ),
+              ElevatedButton(
+                onPressed: () => _selectDate(context),
+                child: Text('Select date'),
+              ),
+            ],
+          ),
         ));
   }
 }
