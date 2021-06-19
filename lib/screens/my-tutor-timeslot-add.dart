@@ -77,34 +77,32 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[],
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () => _selectDate(context),
-              child: Text('Select date'),
-              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
-            ),
-            Text(currentDate.toString()),
-            ElevatedButton(
-                onPressed: () => _selectTimeFrom(context),
-                child: Text('Select from hour'),
-                style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
-            SizedBox(height: 8),
-            Text(
-              'Selected time: ${_timeFrom.format(context)}',
-            ),
-            ElevatedButton(
-                onPressed: () => _selectTimeTo(context),
-                child: Text('Select to hour'),
-                style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
-            SizedBox(height: 8),
-            Text(
-              'Selected time: ${_timeTo.format(context)}',
-            ),
-          ],
-        ),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: () => _selectDate(context),
+            child: Text('Select date'),
+            style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
+          ),
+          Text(currentDate.toString()),
+          ElevatedButton(
+              onPressed: () => _selectTimeFrom(context),
+              child: Text('Select from hour'),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
+          SizedBox(height: 8),
+          Text(
+            'Selected time: ${_timeFrom.format(context)}',
+          ),
+          ElevatedButton(
+              onPressed: () => _selectTimeTo(context),
+              child: Text('Select to hour'),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
+          SizedBox(height: 8),
+          Text(
+            'Selected time: ${_timeTo.format(context)}',
+          ),
+        ],
       ),
     );
   }
