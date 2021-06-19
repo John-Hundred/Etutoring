@@ -69,8 +69,11 @@ class TutorCourseState extends State<TutorCourse> {
                   body: json.encode(data))
               .timeout(const Duration(seconds: 8));
           if (response.statusCode == 200) {
+            // print(response.body);
             var message = jsonDecode(response.body);
             if (message == 'Add course successfully') {
+              totalCoursesSelected = totalCoursesSelected - 1;
+            } else if (message == 'Course already in your list') {
               totalCoursesSelected = totalCoursesSelected - 1;
             } else {
               errorMsg +=

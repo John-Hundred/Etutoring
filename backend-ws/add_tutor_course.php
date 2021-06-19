@@ -28,13 +28,24 @@ try {
 	$result = $connect->query($query_select_id_user);
 	$row = $result->fetch_assoc();
 	$user_id = $row['id'];
-		
-	$sql = "INSERT INTO tutor_course (user_id, course_id) VALUES ('$user_id', '$course_id')";
-	if($connect->query($sql)){
-		$SuccessMSG = json_encode("Add course successfully");
-		echo $SuccessMSG ; 
+	
+	$select = "SELECT * FROM tutor_course WHERE course_id = '$course_id' AND user_id = '$user_id'";
+	
+	// CHECK IF COURSE IS ALREADY TUTOR COURSE.
+	$check = mysqli_fetch_array(mysqli_query($connect, $select));
+	
+	if(empty($check)){		
+			$sql = "INSERT INTO tutor_course (user_id, course_id) VALUES ('$user_id', '$course_id')";
+			if($connect->query($sql)){
+				$SuccessMSG = json_encode("Add course successfully");
+				echo $SuccessMSG ; 
+			} else {
+				$InvalidMSG = "Error adding course";
+				$InvalidMSGJSon = json_encode($InvalidMSG, JSON_INVALID_UTF8_IGNORE);
+				echo $InvalidMSGJSon;
+			}
 	} else {
-		$InvalidMSG = "Error adding course";
+		$InvalidMSG = "Course already in your list";
 		$InvalidMSGJSon = json_encode($InvalidMSG, JSON_INVALID_UTF8_IGNORE);
 		echo $InvalidMSGJSon;
 	}
