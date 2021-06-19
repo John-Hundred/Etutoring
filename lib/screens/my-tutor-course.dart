@@ -75,7 +75,10 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                 title: new Text("Courses successfully deleted"),
                 actions: <Widget>[
                   TextButton(
-                    child: new Text("OK"),
+                    child: new Text(
+                      "OK",
+                      style: TextStyle(color: ArgonColors.redUnito),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,

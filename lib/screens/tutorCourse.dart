@@ -93,8 +93,12 @@ class TutorCourseState extends State<TutorCourse> {
                 title: new Text("Successfully added courses"),
                 actions: <Widget>[
                   TextButton(
-                    child: new Text("OK"),
+                    child: new Text(
+                      "OK",
+                      style: TextStyle(color: ArgonColors.redUnito),
+                    ),
                     onPressed: () {
+                      //Navigator.of(context).pop();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
