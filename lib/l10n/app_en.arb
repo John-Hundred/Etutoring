@@ -267,5 +267,9 @@
   "my_reviews" : "My Reviews",
   "@my_reviews": {
     "description": "My Reviews"
+  },
+  "add_time_slot" : "Add availability",
+  "@add_time_slot": {
+    "description": "Add availability"
   }
 }

@@ -2,6 +2,7 @@ import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/courseDetail.dart';
+import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -28,7 +29,14 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
           title: Text(AppLocalizations.of(context).my_timeslot),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.add), onPressed: () {}),
+            IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyTutorTimeslotAdd()));
+                }),
             IconButton(icon: Icon(Icons.delete), onPressed: () {}),
           ],
         ),
