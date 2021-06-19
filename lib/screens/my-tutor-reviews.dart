@@ -1,6 +1,6 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/model/tutorModel.dart';
+import 'package:e_tutoring/model/reviewModel.dart';
 import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,6 @@ class MyTutorReviews extends StatefulWidget {
 }
 
 class MyTutorReviewsState extends State<MyTutorReviews> {
-  TutorModel tutor;
-
   @override
   void initState() {
     super.initState();
@@ -38,14 +36,14 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
             // height: 220,
             width: double.maxFinite,
             color: Colors.white,
-            child: FutureBuilder<TutorModel>(
-                future: getTutorDetailFromWS(http.Client()),
-                builder:
-                    (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
+            child: FutureBuilder<List<ReviewModel>>(
+                future: getReviewTutorFromWS(http.Client()),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<ReviewModel>> reviewsSnapshot) {
                   List<Widget> children;
-                  if (tutor.hasData) {
+                  if (reviewsSnapshot.hasData) {
                     return ListView.builder(
-                      itemCount: tutor.data.reviews.length,
+                      itemCount: reviewsSnapshot.data.length,
                       itemBuilder: (context, index) {
                         return Card(
                             elevation: 5,
@@ -61,20 +59,19 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                                     Icons.rate_review,
                                     color: Colors.green,
                                   )),
-                              title: Text(
-                                  '${tutor.data.reviews[index]["review_comment"]}',
+                              title: Text(reviewsSnapshot.data[index].firstname,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold)),
                               subtitle: Text(
-                                  tutor.data.reviews[index]['review_comment'],
+                                  reviewsSnapshot.data[index].review_comment,
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15)),
                             ));
                       },
                     );
-                  } else if (tutor.hasError) {
+                  } else if (reviewsSnapshot.hasError) {
                     children = <Widget>[
                       const Icon(
                         Icons.error_outline,
@@ -83,7 +80,7 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 15),
-                        child: Text('Error: ${tutor.error}'),
+                        child: Text('Error: ${reviewsSnapshot.error}'),
                       )
                     ];
                   } else {
