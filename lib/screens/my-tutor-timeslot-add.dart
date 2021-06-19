@@ -20,7 +20,20 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        lastDate: DateTime(2050),
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.red,
+                primaryColorDark: Colors.red,
+                accentColor: Colors.red,
+              ),
+              dialogBackgroundColor: Colors.white,
+            ),
+            child: child,
+          );
+        });
     if (pickedDate != null && pickedDate != currentDate)
       setState(() {
         currentDate = pickedDate;
