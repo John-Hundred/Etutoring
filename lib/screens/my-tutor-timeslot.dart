@@ -59,7 +59,7 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
                                   Icons.timelapse,
                                   color: Colors.green,
                                 )),
-                            title: Text('${tutor.data.time_slot[index]['day']}',
+                            title: Text(tutor.data.time_slot[index]['day'],
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 18,
