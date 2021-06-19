@@ -30,27 +30,28 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context).add_time_slot),
-          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: <Widget>[],
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).add_time_slot),
+        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+        actions: <Widget>[],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(currentDate.toString()),
+            SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              onPressed: () => _selectDate(context),
+              child: Text('Select date'),
+              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
+            ),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(currentDate.toString()),
-              SizedBox(
-                height: 20.0,
-              ),
-              ElevatedButton(
-                onPressed: () => _selectDate(context),
-                child: Text('Select date'),
-                style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }

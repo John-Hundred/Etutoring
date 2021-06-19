@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourse.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
@@ -126,33 +127,34 @@ class MyTutorCourseState extends State<MyTutorCourse> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context).my_courses),
-          backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.add),
-                onPressed: () {
-                  Navigator.pushNamed(context, "/tutor-course");
-                }),
-            IconButton(
-                icon: Icon(Icons.delete),
-                onPressed: () {
-                  // print(courseListSelected);
-                  deleteCourses(courseListSelected);
-                }),
-          ],
-        ),
-        drawer: ArgonDrawer("my-tutor-course"),
-        body: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            width: double.maxFinite,
-            color: Colors.white,
-            child: ListView(
-              padding: new EdgeInsets.symmetric(vertical: 8.0),
-              children: _buildList(),
-            )));
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).my_courses),
+        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                // print(courseListSelected);
+                deleteCourses(courseListSelected);
+              }),
+        ],
+      ),
+      drawer: ArgonDrawer("my-tutor-course"),
+      body: Container(
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+          width: double.maxFinite,
+          color: Colors.white,
+          child: ListView(
+            padding: new EdgeInsets.symmetric(vertical: 8.0),
+            children: _buildList(),
+          )),
+      floatingActionButton: new FloatingActionButton(
+        backgroundColor: ArgonColors.redUnito,
+        child: new Icon(Icons.add),
+        onPressed: () => {Navigator.pushNamed(context, "/tutor-course")},
+      ),
+    );
   }
 }
 

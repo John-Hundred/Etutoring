@@ -230,12 +230,12 @@ class TutorCourseState extends State<TutorCourse> {
               });
             },
           ),
-          IconButton(
+          /*IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
                 // print(this.courseListSelected);
                 addCourses(this.courseListSelected);
-              }),
+              }),*/
         ]);
   }
 
@@ -269,6 +269,11 @@ class TutorCourseState extends State<TutorCourse> {
                   : _buildSearchList())
               : _buildList(),
         ),
+      ),
+      floatingActionButton: new FloatingActionButton(
+        backgroundColor: ArgonColors.redUnito,
+        child: new Icon(Icons.add),
+        onPressed: () => {addCourses(this.courseListSelected)},
       ),
     );
   }
