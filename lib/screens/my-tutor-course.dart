@@ -1,5 +1,6 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/tutorCourse.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
@@ -13,11 +14,21 @@ class MyTutorCourse extends StatefulWidget {
 }
 
 class MyTutorCourseState extends State<MyTutorCourse> {
+  List<TutorCourseModel> courseListSelected = [];
   TutorModel tutor;
-
+  List<TutorCourseModel> courses = [];
   @override
   void initState() {
     super.initState();
+    getTutorDetailFromWS(http.Client()).then((value) => {
+          setState(() {
+            tutor = value;
+            for (var course in value.courses) {
+              courses.add(TutorCourseModel.fromJson(course));
+            }
+            // print(courses);
+          })
+        });
   }
 
   @override
@@ -54,7 +65,11 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                         return Card(
                             elevation: 5,
                             child: ListTile(
-                              onTap: () {},
+                              /*onTap: () {
+                                print(TutorCourseModel.fromJson(
+                                        tutor.data.courses[index])
+                                    .selected);
+                              },*/
                               leading: Container(
                                   padding: EdgeInsets.only(right: 12.0),
                                   decoration: new BoxDecoration(
