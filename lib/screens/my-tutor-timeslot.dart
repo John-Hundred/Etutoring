@@ -220,14 +220,20 @@ class ChildItemState extends State<ChildItem> {
                   Icons.timelapse,
                   color: Colors.green,
                 )),
-            title: Text(
-                DateFormat('EEEE').format(DateTime.parse(timeslot.day)) +
-                    " | " +
-                    formatDate(DateTime.parse(timeslot.day)),
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
+            title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                      DateFormat('EEEE').format(DateTime.parse(timeslot.day)) +
+                          " | " +
+                          formatDate(DateTime.parse(timeslot.day)),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold)),
+                  Text(timeslot.course_name.toUpperCase(),
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                ]),
             subtitle: Text(timeslot.hour_from + ' - ' + timeslot.hour_to,
                 style: TextStyle(color: Colors.black, fontSize: 15)),
             trailing: (timeslot.reserved == "0")

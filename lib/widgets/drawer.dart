@@ -101,7 +101,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               : Container(),
                           role.data == "Student"
                               ? DrawerTile(
-                                  icon: Icons.help,
+                                  icon: Icons.calendar_today,
                                   onTap: () {
                                     if (widget.currentPage != "private-lesson")
                                       Navigator.pushReplacementNamed(
@@ -218,6 +218,12 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               : Container(),
 
                           role.data == "Student"
+                              ? Divider(
+                                  thickness: 3,
+                                  color: ArgonColors.redUnito,
+                                )
+                              : Container(),
+                          role.data == "Student"
                               ? DrawerTile(
                                   icon: Icons.rate_review,
                                   onTap: () {
@@ -234,23 +240,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                           : false)
                               : Container(),
 
-                          role.data == "Student"
-                              ? Divider(
-                                  thickness: 3,
-                                  color: ArgonColors.redUnito,
-                                )
-                              : Container(),
-                          /* DrawerTile(
-                  icon: Icons.star,
-                  onTap: () {
-                    if (widget.currentPage != "favorite-tutor")
-                      Navigator.pushReplacementNamed(
-                          context, '/favorite-tutor');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).favorite_tutor,
-                  isSelected:
-                      widget.currentPage == "favorite-tutor" ? true : false),*/
                           // ACL: ROLE = ALL
                           DrawerTile(
                               icon: Icons.chat,
