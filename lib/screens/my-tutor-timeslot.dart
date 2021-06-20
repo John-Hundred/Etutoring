@@ -14,8 +14,6 @@ class MyTutorTimeslot extends StatefulWidget {
 }
 
 class MyTutorTimeslotState extends State<MyTutorTimeslot> {
-  TutorModel tutor;
-
   @override
   void initState() {
     super.initState();
@@ -68,7 +66,7 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
                             title: Text(
                                 DateFormat('EEEE').format(DateTime.parse(
                                         tutor.data.time_slot[index]['day'])) +
-                                    " - " +
+                                    " | " +
                                     formatDate(DateTime.parse(
                                         tutor.data.time_slot[index]['day'])),
                                 style: TextStyle(
