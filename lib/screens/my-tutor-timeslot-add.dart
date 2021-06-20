@@ -177,9 +177,18 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
   }
 
   String formatDate(date) {
-    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
     String formatted = formatter.format(date);
     return formatted;
+  }
+
+  String formatTime(timeHour) {
+    timeHour = timeHour.replaceAll(' ', '');
+    DateFormat df;
+    DateTime dt;
+    df = DateFormat("h:mma");
+    dt = df.parse(timeHour);
+    return DateFormat('HH:mm').format(dt);
   }
 
   @override
@@ -209,7 +218,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
               style: ElevatedButton.styleFrom(primary: Colors.white70)),
           SizedBox(height: 8),
           Text(
-            '${_timeFrom.format(context)}',
+            formatTime(_timeFrom.format(context)),
           ),
           ElevatedButton(
               onPressed: () => _selectTimeTo(context),
@@ -218,12 +227,14 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
               style: ElevatedButton.styleFrom(primary: Colors.white70)),
           SizedBox(height: 8),
           Text(
-            '${_timeTo.format(context)}',
+            formatTime(_timeTo.format(context)),
           ),
           ElevatedButton(
               onPressed: () => {
-                    addTimeslot(formatDate(currentDate).toString(),
-                        _timeFrom.format(context), _timeTo.format(context))
+                    addTimeslot(
+                        formatDate(currentDate).toString(),
+                        formatTime(_timeFrom.format(context)),
+                        formatTime(_timeTo.format(context)))
                   },
               child: Text(AppLocalizations.of(context).add_time_slot),
               style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),

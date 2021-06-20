@@ -1,12 +1,12 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
-import 'package:e_tutoring/screens/courseDetail.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 
 class MyTutorTimeslot extends StatefulWidget {
   @override
@@ -19,6 +19,12 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
   @override
   void initState() {
     super.initState();
+  }
+
+  String formatDate(date) {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    String formatted = formatter.format(date);
+    return formatted;
   }
 
   @override
@@ -59,7 +65,12 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
                                   Icons.timelapse,
                                   color: Colors.green,
                                 )),
-                            title: Text(tutor.data.time_slot[index]['day'],
+                            title: Text(
+                                DateFormat('EEEE').format(DateTime.parse(
+                                        tutor.data.time_slot[index]['day'])) +
+                                    " - " +
+                                    formatDate(DateTime.parse(
+                                        tutor.data.time_slot[index]['day'])),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 18,
@@ -117,59 +128,5 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
         },
       ),
     );
-  }
-}
-
-class ChildItem extends StatelessWidget {
-  final dynamic course;
-  ChildItem(this.course);
-  @override
-  Widget build(BuildContext context) {
-    // return new ListTile(title: new Text(this.name));
-    return new Card(
-        elevation: 5,
-        child: ListTile(
-          title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(this.course.course_name.toUpperCase(),
-                    style: new TextStyle(fontSize: 18.0)),
-                Row(children: [
-                  Icon(Icons.event_available),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 5.0),
-                      child: Text(this.course.enrollment_year),
-                    ),
-                  ),
-                ]),
-              ]),
-          subtitle: Row(children: <Widget>[
-            Text('CFU: ' + this.course.course_cfu.toUpperCase(),
-                style: TextStyle(
-                  color: ArgonColors.redUnito,
-                )),
-          ]),
-          leading: Container(
-              padding: EdgeInsets.only(right: 12.0),
-              decoration: new BoxDecoration(
-                  border: new Border(
-                      right: new BorderSide(width: 1.0, color: Colors.black))),
-              child: Icon(Icons.school)),
-          trailing: this.course.private_lesson_id != '-'
-              ? Icon(
-                  Icons.calendar_today,
-                  color: Colors.green,
-                )
-              : Icon(Icons.not_interested, color: Colors.red),
-          onTap: () {
-            // print(this.course.toString());
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CourseDetail(this.course)),
-            );
-          },
-        ));
   }
 }
