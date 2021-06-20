@@ -33,7 +33,9 @@ $emparray = array();
 if ($result->num_rows > 0) {
   if($result->num_rows == 1) {
 	  $emparray = $row = $result->fetch_assoc();
-	  $sql = "SELECT * FROM tutor_time_slot where user_id = '" . $row['id'] ."'";
+	  $sql = "SELECT tutor_time_slot.*, course.course_name FROM tutor_time_slot
+			join course on tutor_time_slot.course_id = course.course_id
+			where user_id = '" . $row['id'] ."'";
 			$result_tutor_time_slot = $connect->query($sql);
 			$row['time_slot'] = [];
 			while($row_tutor_time_slot = $result_tutor_time_slot->fetch_assoc()) {
