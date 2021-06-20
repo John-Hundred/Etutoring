@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:e_tutoring/widgets/star_widget.dart';
+import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
 class TutorDetail extends StatefulWidget {
@@ -13,7 +14,6 @@ class TutorDetail extends StatefulWidget {
 
   TutorDetail(dynamic tutor) {
     this.tutorData = tutor;
-    // print(this.tutorData);
   }
 
   @override
@@ -29,6 +29,12 @@ class _TutorDetailState extends State<TutorDetail> {
   @override
   void initState() {
     super.initState();
+  }
+
+  String formatDate(date) {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    String formatted = formatter.format(date);
+    return formatted;
   }
 
   Widget build(BuildContext context) {
@@ -189,10 +195,10 @@ class _TutorDetailState extends State<TutorDetail> {
                               itemBuilder: (BuildContext context, int index) {
                                 return ListTile(
                                     leading: Icon(Icons.calendar_today),
-                                    title: Text(this
+                                    title: Text(formatDate(DateTime.parse(this
                                             .tutorData
                                             .time_slot[index]['day']
-                                            .toString() +
+                                            .toString())) +
                                         " | " +
                                         this
                                             .tutorData
