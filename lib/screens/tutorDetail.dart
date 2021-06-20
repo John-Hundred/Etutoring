@@ -1,6 +1,7 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/screens/chatDetail.dart';
 import 'package:e_tutoring/screens/review.dart';
+import 'package:e_tutoring/screens/user-tutor-time-slot.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -254,6 +255,16 @@ class _TutorDetailState extends State<TutorDetail> {
           ),
         ),
       ]),
+      floatingActionButton: new FloatingActionButton(
+        backgroundColor: ArgonColors.redUnito,
+        child: new Icon(Icons.calendar_today),
+        onPressed: () => {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserTutorTimeslot(this.tutorData)))
+        },
+      ),
     );
   }
 }

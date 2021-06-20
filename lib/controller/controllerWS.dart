@@ -254,11 +254,19 @@ Future<List<TutorModel>> getTutorSearchFromWS(http.Client client) async {
   }
 }
 
-Future<TutorModel> getTutorDetailFromWS(http.Client client) async {
+Future<TutorModel> getTutorDetailFromWS(http.Client client,
+    {String email}) async {
   try {
-    var queryParameters = {
-      'email': await UserSecureStorage.getEmail(),
-    };
+    var queryParameters;
+    if (email == null) {
+      queryParameters = {
+        'email': await UserSecureStorage.getEmail(),
+      };
+    } else {
+      queryParameters = {
+        'email': email,
+      };
+    }
     var tutorItem;
     var response = await client.get(
         Uri.https(authority, unencodedPath + "tutor_list.php", queryParameters),
