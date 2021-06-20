@@ -1,7 +1,6 @@
 import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/chat.dart';
-import 'package:e_tutoring/screens/favorite-tutor.dart';
 import 'package:e_tutoring/screens/my-tutor-course.dart';
 import 'package:e_tutoring/screens/my-tutor-reviews.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot.dart';
@@ -54,9 +53,6 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
           break;
         case '/tutor':
           _body = Tutor();
-          break;
-        case '/favorite-tutor':
-          _body = FavoriteTutor();
           break;
         case '/chat':
           _body = Chat();
