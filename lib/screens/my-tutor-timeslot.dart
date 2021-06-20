@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/model/TutorTimeslotModel.dart';
+import 'package:e_tutoring/model/tutorTimeslotModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
@@ -199,13 +199,15 @@ class ChildItemState extends State<ChildItem> {
         elevation: 5,
         child: ListTile(
             onTap: () {
-              setState(() {
-                timeslot.selected = !this.timeslot.selected;
-              });
-              if (timeslot.selected) {
-                timeslotListSelected.add(this.timeslot);
-              } else {
-                timeslotListSelected.remove(this.timeslot);
+              if (timeslot.reserved == "0") {
+                setState(() {
+                  timeslot.selected = !this.timeslot.selected;
+                });
+                if (timeslot.selected) {
+                  timeslotListSelected.add(this.timeslot);
+                } else {
+                  timeslotListSelected.remove(this.timeslot);
+                }
               }
             },
             leading: Container(
@@ -228,8 +230,13 @@ class ChildItemState extends State<ChildItem> {
                     fontWeight: FontWeight.bold)),
             subtitle: Text(timeslot.hour_from + ' - ' + timeslot.hour_to,
                 style: TextStyle(color: Colors.black, fontSize: 15)),
-            trailing: (timeslot.selected)
-                ? Icon(Icons.check_box)
-                : Icon(Icons.check_box_outline_blank)));
+            trailing: (timeslot.reserved == "0")
+                ? (timeslot.selected)
+                    ? Icon(Icons.check_box)
+                    : Icon(Icons.check_box_outline_blank)
+                : Icon(
+                    Icons.block,
+                    color: ArgonColors.redUnito,
+                  )));
   }
 }
