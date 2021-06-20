@@ -4,7 +4,6 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourseModel.dart';
-import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
@@ -18,7 +17,6 @@ class MyTutorCourse extends StatefulWidget {
 }
 
 class MyTutorCourseState extends State<MyTutorCourse> {
-  TutorModel tutor;
   List<TutorCourseModel> courseListSelected = [];
   List<TutorCourseModel> courseList = [];
   @override
@@ -26,7 +24,6 @@ class MyTutorCourseState extends State<MyTutorCourse> {
     super.initState();
     getTutorDetailFromWS(http.Client()).then((value) => {
           setState(() {
-            tutor = value;
             for (var course in value.courses) {
               courseList.add(TutorCourseModel.fromJson(course));
             }
