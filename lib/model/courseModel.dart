@@ -41,8 +41,7 @@ class CourseModel {
       this.delivery_mode,
       this.language,
       this.didactic_period,
-      this.component_type,
-      this.private_lesson_id);
+      this.component_type);
 
   CourseModel.fromJson(dynamic json) {
     course_id = json['course_id'] ?? '';
@@ -59,7 +58,6 @@ class CourseModel {
     language = json['language'] ?? '-';
     didactic_period = json['didactic_period'] ?? '-';
     component_type = json['component_type'] ?? '-';
-    private_lesson_id = json['private_lesson_id'] ?? '-';
   }
 
   toString() {

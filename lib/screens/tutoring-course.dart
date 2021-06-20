@@ -51,7 +51,7 @@ class TutoringCourseState extends State<TutoringCourse> {
   void initState() {
     super.initState();
     _IsSearching = false;
-    getUserCourseSearchPrivateLessonFromWS(http.Client()).then((value) => {
+    getUserCourseSearchFromWS(http.Client()).then((value) => {
           setState(() {
             courseList = value;
             // print(courseList);
@@ -197,12 +197,10 @@ class ChildItem extends StatelessWidget {
                   border: new Border(
                       right: new BorderSide(width: 1.0, color: Colors.black))),
               child: Icon(Icons.school)),
-          trailing: this.course.private_lesson_id != '-'
-              ? Icon(
-                  Icons.calendar_today,
-                  color: Colors.green,
-                )
-              : Icon(Icons.not_interested, color: Colors.red),
+          trailing: Icon(
+            Icons.calendar_today,
+            color: Colors.green,
+          ),
           onTap: () {
             // print(this.course.toString());
             Navigator.push(
