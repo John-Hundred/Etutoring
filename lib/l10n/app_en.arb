@@ -271,5 +271,9 @@
   "add_time_slot" : "Add availability",
   "@add_time_slot": {
     "description": "Add availability"
+  },
+  "result_tutor_not_found_time_slot" : "The tutor isn't available",
+  "@add_tiresult_tutor_not_found_time_slotme_slot": {
+    "description": "The tutor isn't available"
   }
 }

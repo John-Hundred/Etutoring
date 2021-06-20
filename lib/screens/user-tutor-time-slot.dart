@@ -63,7 +63,20 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
           color: Colors.white,
           child: ListView(
             padding: new EdgeInsets.symmetric(vertical: 8.0),
-            children: _buildList(),
+            children: (this.timeslotList.length == 0
+                ? [
+                    const SizedBox(height: 30),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.image_search),
+                          Text(
+                              AppLocalizations.of(context)
+                                  .result_tutor_not_found_time_slot,
+                              style: TextStyle(fontSize: 18)),
+                        ])
+                  ]
+                : _buildList()),
           )),
       floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,

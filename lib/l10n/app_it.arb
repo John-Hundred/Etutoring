@@ -65,5 +65,6 @@
     "my_timeslot" : "Le mie disponibilità",
     "reviews_about_me" : "Recensioni su di me",
     "my_reviews" : "Le mie recensioni",
-    "add_time_slot" : "Aggiungi disponibilità"
+    "add_time_slot" : "Aggiungi disponibilità",
+    "result_tutor_not_found_time_slot" : "Il tutor non è disponibile"
 }
