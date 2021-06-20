@@ -12,6 +12,7 @@ import 'package:e_tutoring/screens/settings.dart';
 import 'package:e_tutoring/screens/tutor.dart';
 import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/screens/tutoring-course.dart';
+import 'package:e_tutoring/screens/user-private-lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -72,6 +73,9 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/my-review-user':
           _body = MyReviewUser();
           break;
+        case '/private-lesson':
+          _body = UserPrivateLesson();
+          break;
         default:
           _body = Profile();
           break;
@@ -98,7 +102,8 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/my-tutor-course": (BuildContext context) => this.widget,
             "/my-tutor-timeslot": (BuildContext context) => this.widget,
             "/my-tutor-reviews": (BuildContext context) => this.widget,
-            "/my-review-user": (BuildContext context) => this.widget
+            "/my-review-user": (BuildContext context) => this.widget,
+            "/private-lesson": (BuildContext context) => this.widget
           },
           title: 'Router Dispatcher',
           /*theme: ThemeData(

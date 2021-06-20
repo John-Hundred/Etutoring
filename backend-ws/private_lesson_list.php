@@ -28,6 +28,13 @@ $emparray = array();
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+    $sql = "SELECT * FROM user 
+	where id = '" . $row['user_id'] ."'";
+	$result_tutor_time_slot = $connect->query($sql);
+	$row['tutor'] = [];
+	while($row_tutor_time_slot = $result_tutor_time_slot->fetch_assoc()) {
+		array_push($row['tutor'], $row_tutor_time_slot);
+	};
     $emparray[] = $row;
   }
 } else {

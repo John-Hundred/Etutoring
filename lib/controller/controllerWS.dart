@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:e_tutoring/config/config.dart';
+import 'package:e_tutoring/model/privatelessonModel.dart';
 import 'package:e_tutoring/model/roleModel.dart';
 import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/model/curriculumModel.dart';
@@ -343,6 +344,33 @@ Future<RoleModel> getRoleFromWS(http.Client client, String email) async {
       course = RoleModel.fromJson(courseJsonData);
     }
     return course;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
+Future<List<PrivatelessonModel>> getPrivateLessonFromWS(
+    http.Client client) async {
+  try {
+    List<PrivatelessonModel> lessonList = [];
+    var queryParameters = {
+      'email': await UserSecureStorage.getEmail(),
+    };
+    // print(queryParameters);
+    var response = await client.get(
+        Uri.https(authority, unencodedPath + "private_lesson_list.php",
+            queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    if (response.statusCode == 200) {
+      var lessonJsonData = json.decode(response.body);
+      for (var item in lessonJsonData) {
+        var lessonItem = PrivatelessonModel.fromJson(item);
+        lessonList.add(lessonItem);
+      }
+    }
+    return lessonList;
   } on Exception catch ($e) {
     print('error caught: ' + $e.toString());
     return null;

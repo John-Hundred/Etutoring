@@ -81,6 +81,8 @@ class _ProfileState extends State<Profile> {
                         new RouterDispatcher(),
                     "/my-review-user": (BuildContext context) =>
                         new RouterDispatcher(),
+                    "/private-lesson": (BuildContext context) =>
+                        new RouterDispatcher(),
                   },
                   locale: provider.locale,
                   supportedLocales: L10n.all,

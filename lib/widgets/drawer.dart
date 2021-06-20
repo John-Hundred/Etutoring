@@ -83,17 +83,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               isSelected: widget.currentPage == "profile"
                                   ? true
                                   : false),
-                          /*DrawerTile(
-                  icon: Icons.school,
-                  onTap: () {
-                    if (widget.currentPage != "Tutoring Course")
-                      Navigator.pushReplacementNamed(
-                          context, '/tutoring-course');
-                  },
-                  iconColor: ArgonColors.black,
-                  title: AppLocalizations.of(context).tutoring_course,
-                  isSelected:
-                      widget.currentPage == "Tutoring Course" ? true : false),*/
 
                           // ACL: ROLE = Student ONLY STUDENT VIEW
                           role.data == "Student"
@@ -109,6 +98,22 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                   isSelected: widget.currentPage == "course"
                                       ? true
                                       : false)
+                              : Container(),
+                          role.data == "Student"
+                              ? DrawerTile(
+                                  icon: Icons.help,
+                                  onTap: () {
+                                    if (widget.currentPage != "private-lesson")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/private-lesson');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title: AppLocalizations.of(context)
+                                      .private_lesson,
+                                  isSelected:
+                                      widget.currentPage == "private-lesson"
+                                          ? true
+                                          : false)
                               : Container(),
                           role.data == "Tutor"
                               ? Divider(
