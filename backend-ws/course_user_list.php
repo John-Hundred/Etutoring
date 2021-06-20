@@ -24,7 +24,7 @@ if($email){
 		AND user_attribute.degree_id = course_path_degree.degree_id
 	left join course on course_path_degree.course_id = course.course_id
 	where email = '" . $_GET['email'] ."' order by course.course_name ASC";
-	print_r($sql);
+	// print_r($sql);
 	$result = $connect->query($sql);
 	
 	$emparray = array();

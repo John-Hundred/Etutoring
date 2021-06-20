@@ -13,11 +13,14 @@ if (mysqli_connect_errno($connect)){
 	die("Unable to connect to MySQL Database: " . mysqli_connect_error());
 }
 
+$email = $_GET['email'];
+
 $sql = "SELECT * FROM private_lesson 
 join user on user.id=private_lesson.user_id
 join tutor_course on tutor_course.tutor_course_id=private_lesson.tutor_course_id
 join tutor_time_slot on tutor_time_slot.tutor_time_slot_id=private_lesson.tutor_time_slot_id
-join course on course.course_id=tutor_course.course_id";
+join course on course.course_id=tutor_course.course_id
+where user.email = '" . $_GET['email'] ."' order by course.course_name ASC";
 
 $result = $connect->query($sql);
 
