@@ -85,6 +85,8 @@ class TutorModel {
         ',' +
         this.residence_city +
         ',' +
-        this.courses.toString();
+        this.courses.toString() +
+        ',' +
+        this.time_slot.toString();
   }
 }

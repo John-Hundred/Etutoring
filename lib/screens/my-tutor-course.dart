@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/model/tutorCourse.dart';
+import 'package:e_tutoring/model/tutorCourseModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
@@ -18,8 +18,8 @@ class MyTutorCourse extends StatefulWidget {
 }
 
 class MyTutorCourseState extends State<MyTutorCourse> {
-  List<TutorCourseModel> courseListSelected = [];
   TutorModel tutor;
+  List<TutorCourseModel> courseListSelected = [];
   List<TutorCourseModel> courseList = [];
   @override
   void initState() {
@@ -30,7 +30,6 @@ class MyTutorCourseState extends State<MyTutorCourse> {
             for (var course in value.courses) {
               courseList.add(TutorCourseModel.fromJson(course));
             }
-            // print(courses);
           })
         });
   }

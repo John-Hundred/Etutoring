@@ -1,7 +1,13 @@
+import 'dart:convert';
+
+import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/TutorTimeslotModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
+import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -14,15 +20,114 @@ class MyTutorTimeslot extends StatefulWidget {
 }
 
 class MyTutorTimeslotState extends State<MyTutorTimeslot> {
+  TutorModel tutor;
+  List<TutorTimeslotModel> timeslotListSelected = [];
+  List<TutorTimeslotModel> timeslotList = [];
+
+  // CONTROLLER
+  Future deleteTimeslots(List<TutorTimeslotModel> courseListSelected) async {
+    try {
+      int totalCoursesSelected = courseListSelected.length;
+      String errorMsg = "";
+      String email = await UserSecureStorage.getEmail();
+      if (courseListSelected.isNotEmpty) {
+        for (var timeslotSelected in timeslotListSelected) {
+          var data = {
+            'email': email,
+            'time_slot_id': timeslotSelected.tutor_time_slot_id
+          };
+
+          var response = await http
+              .post(
+                  Uri.https(
+                      authority, unencodedPath + 'delete_tutor_time_slot.php'),
+                  headers: <String, String>{'authorization': basicAuth},
+                  body: json.encode(data))
+              .timeout(const Duration(seconds: 8));
+          if (response.statusCode == 200) {
+            var message = jsonDecode(response.body);
+            if (message == 'Time slot successfully deleted') {
+              totalCoursesSelected = totalCoursesSelected - 1;
+            } else {
+              errorMsg += "\nError deleting time slot: " + timeslotSelected.day;
+            }
+            // response not 200
+          } else {
+            errorMsg += "\nError deleting time slot: " + timeslotSelected.day;
+          }
+        }
+
+        if (totalCoursesSelected == 0) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text("Time slot successfully deleted"),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text(
+                      "OK",
+                      style: TextStyle(color: ArgonColors.redUnito),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RouterDispatcher()),
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text(errorMsg),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error adding courses. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    getTutorDetailFromWS(http.Client()).then((value) => {
+          setState(() {
+            tutor = value;
+            for (var timeslot in value.time_slot) {
+              timeslotList.add(TutorTimeslotModel.fromJson(timeslot));
+            }
+          })
+        });
   }
 
-  String formatDate(date) {
-    final DateFormat formatter = DateFormat('dd-MM-yyyy');
-    String formatted = formatter.format(date);
-    return formatted;
+  List<ChildItem> _buildList() {
+    if (timeslotList != null) {
+      return timeslotList
+          .map((timeslot) => new ChildItem(timeslot, timeslotListSelected))
+          .toList();
+    } else
+      return [];
   }
 
   @override
@@ -33,7 +138,11 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
         title: Text(AppLocalizations.of(context).my_timeslot),
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.delete), onPressed: () {}),
+          IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                deleteTimeslots(timeslotListSelected);
+              }),
         ],
       ),
       drawer: ArgonDrawer("my-tutor-timeslot"),
@@ -42,81 +151,10 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
           // height: 220,
           width: double.maxFinite,
           color: Colors.white,
-          child: FutureBuilder<TutorModel>(
-              future: getTutorDetailFromWS(http.Client()),
-              builder: (BuildContext context, AsyncSnapshot<TutorModel> tutor) {
-                List<Widget> children;
-                if (tutor.hasData) {
-                  return ListView.builder(
-                    itemCount: tutor.data.time_slot.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                          elevation: 5,
-                          child: ListTile(
-                            leading: Container(
-                                padding: EdgeInsets.only(right: 12.0),
-                                decoration: new BoxDecoration(
-                                    border: new Border(
-                                        right: new BorderSide(
-                                            width: 1.0, color: Colors.black))),
-                                child: Icon(
-                                  Icons.timelapse,
-                                  color: Colors.green,
-                                )),
-                            title: Text(
-                                DateFormat('EEEE').format(DateTime.parse(
-                                        tutor.data.time_slot[index]['day'])) +
-                                    " | " +
-                                    formatDate(DateTime.parse(
-                                        tutor.data.time_slot[index]['day'])),
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
-                            subtitle: Text(
-                                tutor.data.time_slot[index]['hour_from'] +
-                                    ' - ' +
-                                    tutor.data.time_slot[index]['hour_to'],
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 15)),
-                          ));
-                    },
-                  );
-                } else if (tutor.hasError) {
-                  children = <Widget>[
-                    const Icon(
-                      Icons.error_outline,
-                      color: Colors.red,
-                      size: 60,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: Text('Error: ${tutor.error}'),
-                    )
-                  ];
-                } else {
-                  children = const <Widget>[
-                    SizedBox(
-                      child: CircularProgressIndicator(
-                          backgroundColor: ArgonColors.redUnito),
-                      width: 60,
-                      height: 60,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Text('Awaiting result...',
-                          style: TextStyle(color: ArgonColors.redUnito)),
-                    )
-                  ];
-                }
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: children,
-                  ),
-                );
-              })),
+          child: ListView(
+            padding: new EdgeInsets.symmetric(vertical: 8.0),
+            children: _buildList(),
+          )),
       floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,
         child: new Icon(Icons.add),
@@ -126,5 +164,72 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
         },
       ),
     );
+  }
+}
+
+// ignore: must_be_immutable
+class ChildItem extends StatefulWidget {
+  dynamic course;
+  List<TutorTimeslotModel> courseListSelected = [];
+
+  ChildItem(course, courseListSelected) {
+    this.course = course;
+    this.courseListSelected = courseListSelected;
+  }
+
+  @override
+  ChildItemState createState() =>
+      new ChildItemState(this.course, this.courseListSelected);
+}
+
+class ChildItemState extends State<ChildItem> {
+  final TutorTimeslotModel timeslot;
+  List<TutorTimeslotModel> timeslotListSelected = [];
+  ChildItemState(this.timeslot, this.timeslotListSelected);
+
+  String formatDate(date) {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    String formatted = formatter.format(date);
+    return formatted;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Card(
+        elevation: 5,
+        child: ListTile(
+            onTap: () {
+              setState(() {
+                timeslot.selected = !this.timeslot.selected;
+              });
+              if (timeslot.selected) {
+                timeslotListSelected.add(this.timeslot);
+              } else {
+                timeslotListSelected.remove(this.timeslot);
+              }
+            },
+            leading: Container(
+                padding: EdgeInsets.only(right: 12.0),
+                decoration: new BoxDecoration(
+                    border: new Border(
+                        right:
+                            new BorderSide(width: 1.0, color: Colors.black))),
+                child: Icon(
+                  Icons.timelapse,
+                  color: Colors.green,
+                )),
+            title: Text(
+                DateFormat('EEEE').format(DateTime.parse(timeslot.day)) +
+                    " | " +
+                    formatDate(DateTime.parse(timeslot.day)),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold)),
+            subtitle: Text(timeslot.hour_from + ' - ' + timeslot.hour_to,
+                style: TextStyle(color: Colors.black, fontSize: 15)),
+            trailing: (timeslot.selected)
+                ? Icon(Icons.check_box)
+                : Icon(Icons.check_box_outline_blank)));
   }
 }
