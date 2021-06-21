@@ -188,7 +188,7 @@ class _TutorDetailState extends State<TutorDetail> {
                                         .toString()));
                               })
                         ]),
-                    Padding(
+                    /* Padding(
                         padding: const EdgeInsets.only(
                             left: 5.0, right: 15.0, top: 15.0),
                         child: Text(AppLocalizations.of(context).time_slot,
@@ -220,7 +220,7 @@ class _TutorDetailState extends State<TutorDetail> {
                                             .time_slot[index]['hour_to']
                                             .toString()));
                               })
-                        ]),
+                        ]),*/
                     Padding(
                         padding: const EdgeInsets.only(
                             left: 5.0, right: 15.0, top: 15.0),
