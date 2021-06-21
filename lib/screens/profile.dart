@@ -291,7 +291,7 @@ class _ProfileState extends State<Profile> {
                                                                                         DataRow(
                                                                                           cells: <DataCell>[
                                                                                             DataCell(Text(AppLocalizations.of(context).role, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 15))),
-                                                                                            DataCell(Text("${user.data.role_name}", style: TextStyle(fontSize: 15))),
+                                                                                            DataCell(Text(user.data.role_name, style: TextStyle(fontSize: 15))),
                                                                                           ],
                                                                                         ),
                                                                                         if (role.data == "Student")
