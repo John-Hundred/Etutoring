@@ -201,6 +201,12 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
     return formatted;
   }
 
+  String formatDateDayFirst(date) {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    String formatted = formatter.format(date);
+    return formatted;
+  }
+
   String formatTime(timeHour) {
     timeHour = timeHour.replaceAll(' ', '');
     DateFormat df;
@@ -223,70 +229,145 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          DataTable(
+              dataRowHeight: 50,
+              dataRowColor:
+                  MaterialStateColor.resolveWith((states) => Colors.white),
+              headingRowHeight: 0,
+              columns: <DataColumn>[
+                DataColumn(
+                  label: Text(
+                    '',
+                  ),
+                ),
+                DataColumn(
+                  label: Text(
+                    '',
+                  ),
+                ),
+              ],
+              rows: <DataRow>[
+                DataRow(
+                  cells: <DataCell>[
+                    DataCell(
+                      ElevatedButton(
+                        onPressed: () => {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                      AppLocalizations.of(context).my_courses),
+                                  content: Container(
+                                    height:
+                                        300.0, // Change as per your requirement
+                                    width:
+                                        300.0, // Change as per your requirement
+                                    child: ListView(
+                                      padding: new EdgeInsets.symmetric(
+                                          vertical: 8.0),
+                                      children: _buildList(),
+                                    ),
+                                  ),
+                                );
+                              }).then((courseValue) => {
+                                setState(() {
+                                  this.courseSelected = courseValue;
+                                }),
+                              }),
+                        },
+                        child: Text('Select course',
+                            style: TextStyle(color: ArgonColors.redUnito)),
+                        style: ElevatedButton.styleFrom(primary: Colors.white),
+                      ),
+                    ),
+                    DataCell(
+                      this.courseSelected != null
+                          ? Text(this.courseSelected.course_name)
+                          : Text("-"),
+                    ),
+                  ],
+                ),
+                DataRow(
+                  cells: <DataCell>[
+                    DataCell(
+                      ElevatedButton(
+                          onPressed: () => _selectDate(context),
+                          child: Text('Select date',
+                              style: TextStyle(color: ArgonColors.redUnito)),
+                          // style: ElevatedButton.styleFrom(primary: Colors.white),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      side: BorderSide(color: Colors.white))))),
+                    ),
+                    DataCell(
+                      Text(formatDateDayFirst(
+                              DateTime.parse(formatDate(currentDate)))
+                          .toString()),
+                    ),
+                  ],
+                ),
+                DataRow(
+                  cells: <DataCell>[
+                    DataCell(
+                      ElevatedButton(
+                          onPressed: () => _selectTimeFrom(context),
+                          child: Text('Select hour to init',
+                              style: TextStyle(color: ArgonColors.redUnito)),
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white)),
+                    ),
+                    DataCell(
+                      Text(
+                        formatTime(_timeFrom.format(context)),
+                      ),
+                    ),
+                  ],
+                ),
+                DataRow(
+                  cells: <DataCell>[
+                    DataCell(
+                      ElevatedButton(
+                          onPressed: () => _selectTimeTo(context),
+                          child: Text('Select hour to end',
+                              style: TextStyle(color: ArgonColors.redUnito)),
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white)),
+                    ),
+                    DataCell(
+                      Text(
+                        formatTime(_timeTo.format(context)),
+                      ),
+                    ),
+                  ],
+                ),
+              ]),
+          const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () => {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text(AppLocalizations.of(context).my_courses),
-                      content: Container(
-                        height: 300.0, // Change as per your requirement
-                        width: 300.0, // Change as per your requirement
-                        child: ListView(
-                          padding: new EdgeInsets.symmetric(vertical: 8.0),
-                          children: _buildList(),
-                        ),
-                      ),
-                    );
-                  }).then((courseValue) => {
-                    setState(() {
-                      this.courseSelected = courseValue;
-                    }),
-                  }),
+              addTimeslot(
+                  this.courseSelected != null
+                      ? this.courseSelected.course_id
+                      : 0,
+                  formatDate(currentDate).toString(),
+                  formatTime(_timeFrom.format(context)),
+                  formatTime(_timeTo.format(context)))
             },
-            child: Text('Select course',
-                style: TextStyle(color: ArgonColors.redUnito)),
-            style: ElevatedButton.styleFrom(primary: Colors.white70),
+            child: Text(AppLocalizations.of(context).add_time_slot,
+                style: TextStyle(fontSize: 20)),
+            style: ElevatedButton.styleFrom(
+              // minimumSize: Size.fromHeight(40),
+              primary: ArgonColors.redUnito,
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
+            ),
           ),
-          this.courseSelected != null
-              ? Text(this.courseSelected.course_name)
-              : Text("Select course"),
-          ElevatedButton(
-            onPressed: () => _selectDate(context),
-            child: Text('Select date',
-                style: TextStyle(color: ArgonColors.redUnito)),
-            style: ElevatedButton.styleFrom(primary: Colors.white70),
-          ),
-          Text(formatDate(currentDate).toString()),
-          ElevatedButton(
-              onPressed: () => _selectTimeFrom(context),
-              child: Text('Select from hour',
-                  style: TextStyle(color: ArgonColors.redUnito)),
-              style: ElevatedButton.styleFrom(primary: Colors.white70)),
-          SizedBox(height: 8),
-          Text(
-            formatTime(_timeFrom.format(context)),
-          ),
-          ElevatedButton(
-              onPressed: () => _selectTimeTo(context),
-              child: Text('Select to hour',
-                  style: TextStyle(color: ArgonColors.redUnito)),
-              style: ElevatedButton.styleFrom(primary: Colors.white70)),
-          SizedBox(height: 8),
-          Text(
-            formatTime(_timeTo.format(context)),
-          ),
-          ElevatedButton(
-              onPressed: () => {
-                    addTimeslot(
-                        this.courseSelected != null ? this.courseSelected.course_id : 0,
-                        formatDate(currentDate).toString(),
-                        formatTime(_timeFrom.format(context)),
-                        formatTime(_timeTo.format(context)))
-                  },
-              child: Text(AppLocalizations.of(context).add_time_slot),
-              style: ElevatedButton.styleFrom(primary: ArgonColors.redUnito)),
         ],
       )),
     );
