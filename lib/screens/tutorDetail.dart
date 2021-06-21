@@ -47,6 +47,15 @@ class _TutorDetailState extends State<TutorDetail> {
         actions: <Widget>[
           // LanguagePickerWidget(),
           IconButton(
+              icon: Icon(Icons.calendar_today),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => UserTutorTimeslot(tutorData)),
+                );
+              }),
+          IconButton(
               icon: Icon(Icons.chat),
               onPressed: () {
                 Navigator.push(
