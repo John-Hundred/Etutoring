@@ -257,7 +257,8 @@ class ChildItemState extends State<ChildItem> {
                 ]),
             subtitle: Text(timeslot.hour_from + ' - ' + timeslot.hour_to,
                 style: TextStyle(color: Colors.black, fontSize: 15)),
-            trailing: (timeslot.reserved == "0")
+            trailing: (timeslot.reserved == "0" &&
+                    DateTime.parse(timeslot.day).isAfter(DateTime.now()))
                 ? (timeslot.selected)
                     ? Icon(Icons.check_box)
                     : Icon(Icons.check_box_outline_blank)
