@@ -41,6 +41,10 @@ try {
 	if($connect->query($sql)){
 		$SuccessMSG = json_encode("Add lesson successfully");
 		echo $SuccessMSG ; 
+		
+		$sql_update = "UPDATE tutor_time_slot SET reserved=1 WHERE tutor_time_slot_id='$tutor_time_slot_id'";
+		$connect->query($sql_update );
+		
 	} else {
 		$InvalidMSG = "Error adding lesson";
 		$InvalidMSGJSon = json_encode($InvalidMSG, JSON_INVALID_UTF8_IGNORE);
