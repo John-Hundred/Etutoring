@@ -1,8 +1,14 @@
+import 'dart:convert';
+
+import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/model/tutorTimeslotModel.dart';
+import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: must_be_immutable
 class UserTutorTimeslot extends StatefulWidget {
@@ -20,10 +26,99 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
   dynamic tutorData;
   UserTutorTimeslotState(dynamic tutorData) {
     this.tutorData = tutorData;
-    // print(this.tutorData.time_slot);
   }
   List<TutorTimeslotModel> timeslotListSelected = [];
   List<TutorTimeslotModel> timeslotList = [];
+
+  // CONTROLLER
+  Future addLessons(
+      List<TutorTimeslotModel> timeslotListSelected, tutorId) async {
+    try {
+      int totalTimeslotSelected = timeslotListSelected.length;
+      String errorMsg = "";
+      String email = await UserSecureStorage.getEmail();
+      if (timeslotListSelected.isNotEmpty) {
+        for (var timeslotSelected in timeslotListSelected) {
+          var data = {
+            'email': email, // user email
+            'course_id': timeslotSelected.course_id,
+            'tutor_time_slot_id': timeslotSelected.tutor_time_slot_id,
+            'tutor_id': tutorId
+          };
+
+          var response = await http
+              .post(
+                  Uri.https(
+                      authority, unencodedPath + 'add_private_lesson.php'),
+                  headers: <String, String>{'authorization': basicAuth},
+                  body: json.encode(data))
+              .timeout(const Duration(seconds: 8));
+          if (response.statusCode == 200) {
+            // print(response.body);
+            var message = jsonDecode(response.body);
+            if (message == 'Add lesson successfully') {
+              totalTimeslotSelected = totalTimeslotSelected - 1;
+            } else {
+              errorMsg += "\nError adding time slot for : " +
+                  timeslotSelected.course_name;
+            }
+            // response not 200
+          } else {
+            errorMsg += "\nError adding time slot for : " +
+                timeslotSelected.course_name;
+          }
+        }
+
+        if (totalTimeslotSelected == 0) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text("Successfully added lesson"),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text(
+                      "OK",
+                      style: TextStyle(color: ArgonColors.redUnito),
+                    ),
+                    onPressed: () {
+                      //Navigator.of(context).pop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RouterDispatcher()));
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: new Text(errorMsg),
+                actions: <Widget>[
+                  TextButton(
+                    child: new Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      }
+    } on Exception {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error adding lesson. Verify Your Connection.'),
+        backgroundColor: Colors.redAccent,
+      ));
+    }
+  }
 
   @override
   void initState() {
@@ -32,14 +127,14 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
       for (var timeslot in this.tutorData.time_slot) {
         timeslotList.add(TutorTimeslotModel.fromJson(timeslot));
       }
-      // print(timeslotList);
     });
   }
 
   List<ChildItem> _buildList() {
     if (timeslotList != null) {
       return timeslotList
-          .map((timeslot) => new ChildItem(timeslot, timeslotListSelected))
+          .map((timeslot) =>
+              new ChildItem(tutorData, timeslot, timeslotListSelected))
           .toList();
     } else
       return [];
@@ -82,7 +177,7 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
       floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,
         child: new Icon(Icons.add),
-        onPressed: () => {},
+        onPressed: () => {addLessons(this.timeslotListSelected, tutorData.id)},
       ),
     );
   }
@@ -90,23 +185,26 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
 
 // ignore: must_be_immutable
 class ChildItem extends StatefulWidget {
+  dynamic tutorData;
   dynamic course;
   List<TutorTimeslotModel> courseListSelected = [];
 
-  ChildItem(course, courseListSelected) {
+  ChildItem(tutorData, course, courseListSelected) {
+    this.tutorData = tutorData;
     this.course = course;
     this.courseListSelected = courseListSelected;
   }
 
   @override
   ChildItemState createState() =>
-      new ChildItemState(this.course, this.courseListSelected);
+      new ChildItemState(this.tutorData, this.course, this.courseListSelected);
 }
 
 class ChildItemState extends State<ChildItem> {
+  dynamic tutorData;
   final TutorTimeslotModel timeslot;
   List<TutorTimeslotModel> timeslotListSelected = [];
-  ChildItemState(this.timeslot, this.timeslotListSelected);
+  ChildItemState(this.tutorData, this.timeslot, this.timeslotListSelected);
 
   String formatDate(date) {
     final DateFormat formatter = DateFormat('dd-MM-yyyy');
