@@ -21,6 +21,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
   TimeOfDay _timeFrom = TimeOfDay(hour: 16, minute: 00);
   TimeOfDay _timeTo = TimeOfDay(hour: 18, minute: 00);
   List<TutorCourseModel> courseList = [];
+  TutorCourseModel courseSelected;
 
   @override
   void initState() {
@@ -236,23 +237,16 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                           children: _buildList(),
                         ),
                       ),
-                      actions: <Widget>[
-                        TextButton(
-                          child: new Text(
-                            "OK",
-                            style: TextStyle(color: ArgonColors.redUnito),
-                          ),
-                          onPressed: () {},
-                        ),
-                      ],
                     );
-                  })
+                  }),
             },
             child: Text('Select course',
                 style: TextStyle(color: ArgonColors.redUnito)),
             style: ElevatedButton.styleFrom(primary: Colors.white70),
           ),
-          Text(formatDate(currentDate).toString()),
+          this.courseSelected != null
+              ? Text(this.courseSelected.course_name)
+              : Text("Select course"),
           ElevatedButton(
             onPressed: () => _selectDate(context),
             child: Text('Select date',
@@ -307,6 +301,7 @@ class ChildItem extends StatefulWidget {
 
 class ChildItemState extends State<ChildItem> {
   final TutorCourseModel course;
+
   ChildItemState(this.course);
   @override
   Widget build(BuildContext context) {
@@ -314,14 +309,10 @@ class ChildItemState extends State<ChildItem> {
         elevation: 5,
         child: ListTile(
           onTap: () {
+            Navigator.pop(context, true);
             setState(() {
-              course.selected = !this.course.selected;
+              print(course);
             });
-            /*if (course.selected) {
-              courseListSelected.add(this.course);
-            } else {
-              courseListSelected.remove(this.course);
-            }*/
           },
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
@@ -339,9 +330,6 @@ class ChildItemState extends State<ChildItem> {
                   fontWeight: FontWeight.bold)),
           subtitle: Text('${course.department}',
               style: TextStyle(color: Colors.black, fontSize: 15)),
-          trailing: (course.selected)
-              ? Icon(Icons.check_box)
-              : Icon(Icons.check_box_outline_blank),
         ));
   }
 }
