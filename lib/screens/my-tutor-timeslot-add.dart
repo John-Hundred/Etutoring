@@ -229,6 +229,12 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          Text('Enter the required data to add a new availability',
+              style: TextStyle(
+                  color: ArgonColors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          const SizedBox(height: 50),
           DataTable(
               dataRowHeight: 50,
               dataRowColor:
@@ -276,7 +282,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                                 }),
                               }),
                         },
-                        child: Text('Select course',
+                        child: Text('COURSE',
                             style: TextStyle(color: ArgonColors.redUnito)),
                         style: ElevatedButton.styleFrom(primary: Colors.white),
                       ),
@@ -293,7 +299,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                     DataCell(
                       ElevatedButton(
                           onPressed: () => _selectDate(context),
-                          child: Text('Select date',
+                          child: Text('DATE',
                               style: TextStyle(color: ArgonColors.redUnito)),
                           // style: ElevatedButton.styleFrom(primary: Colors.white),
                           style: ButtonStyle(
@@ -316,7 +322,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                     DataCell(
                       ElevatedButton(
                           onPressed: () => _selectTimeFrom(context),
-                          child: Text('Select hour to init',
+                          child: Text('INIT HOUR',
                               style: TextStyle(color: ArgonColors.redUnito)),
                           style:
                               ElevatedButton.styleFrom(primary: Colors.white)),
@@ -333,7 +339,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                     DataCell(
                       ElevatedButton(
                           onPressed: () => _selectTimeTo(context),
-                          child: Text('Select hour to end',
+                          child: Text('END HOUR',
                               style: TextStyle(color: ArgonColors.redUnito)),
                           style:
                               ElevatedButton.styleFrom(primary: Colors.white)),
