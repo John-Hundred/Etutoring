@@ -22,6 +22,7 @@ try {
 	$obj = json_decode($json,true);
 
 	$email = $obj['email'];
+	$course_id = $obj['course_id'];
 	$day = $obj['day'];
 	$hour_from = $obj['hour_from'];
 	$hour_to = $obj['hour_to'];
@@ -31,7 +32,7 @@ try {
 	$row = $result->fetch_assoc();
 	$user_id = $row['id'];
 		
-	$sql = "INSERT INTO tutor_time_slot (day, hour_from, hour_to, user_id) VALUES ('$day', '$hour_from', '$hour_to', $user_id)";
+	$sql = "INSERT INTO tutor_time_slot (course_id, day, hour_from, hour_to, user_id) VALUES ('$course_id', '$day', '$hour_from', '$hour_to', $user_id)";
 	if($connect->query($sql)){
 		$SuccessMSG = json_encode("Add availability successfully");
 		echo $SuccessMSG ; 

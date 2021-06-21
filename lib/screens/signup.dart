@@ -3,7 +3,6 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/screens/privacy-policy.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -168,7 +167,7 @@ class _SignupState extends State<Signup> {
         appBar: AppBar(
           title: const Text('Sign Up'),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: [LanguagePickerWidget()],
+          // actions: [LanguagePickerWidget()],
         ),
         extendBodyBehindAppBar: true,
         body: Stack(

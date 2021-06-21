@@ -4,7 +4,6 @@ import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/screens/signup.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:e_tutoring/widgets/title_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -168,7 +167,7 @@ class _LoginState extends State<Login> {
           appBar: AppBar(
             title: Text("E-Tutoring " + AppLocalizations.of(context).login),
             backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-            actions: [LanguagePickerWidget()],
+            // actions: [LanguagePickerWidget()],
           ),
           backgroundColor: Colors.white,
           body: Scaffold(

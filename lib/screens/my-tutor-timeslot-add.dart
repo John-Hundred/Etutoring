@@ -36,12 +36,13 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
   }
 
 // CONTROLLER
-  Future addTimeslot(day, houFrom, hourTo) async {
+  Future addTimeslot(courseId, day, houFrom, hourTo) async {
     try {
       String email = await UserSecureStorage.getEmail();
 
       var data = {
         'email': email,
+        'course_id': courseId,
         'day': day,
         'hour_from': houFrom,
         'hour_to': hourTo
@@ -238,6 +239,10 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                         ),
                       ),
                     );
+                  }).then((courseValue) => {
+                    setState(() {
+                      this.courseSelected = courseValue;
+                    }),
                   }),
             },
             child: Text('Select course',
@@ -275,6 +280,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           ElevatedButton(
               onPressed: () => {
                     addTimeslot(
+                        this.courseSelected != null ? this.courseSelected.course_id : 0,
                         formatDate(currentDate).toString(),
                         formatTime(_timeFrom.format(context)),
                         formatTime(_timeTo.format(context)))
@@ -309,10 +315,7 @@ class ChildItemState extends State<ChildItem> {
         elevation: 5,
         child: ListTile(
           onTap: () {
-            Navigator.pop(context, true);
-            setState(() {
-              print(course);
-            });
+            Navigator.pop(context, course);
           },
           leading: Container(
               padding: EdgeInsets.only(right: 12.0),
