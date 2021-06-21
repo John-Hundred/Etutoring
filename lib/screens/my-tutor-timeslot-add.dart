@@ -229,7 +229,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('Enter the required data to add a new availability',
+          Text('Add a new availability',
               style: TextStyle(
                   color: ArgonColors.black,
                   fontSize: 18,
@@ -329,7 +329,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                     ),
                     DataCell(
                       Text(
-                        formatTime(_timeFrom.format(context)),
+                        _timeFrom.format(context),
                       ),
                     ),
                   ],
@@ -346,7 +346,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                     ),
                     DataCell(
                       Text(
-                        formatTime(_timeTo.format(context)),
+                        _timeTo.format(context),
                       ),
                     ),
                   ],
