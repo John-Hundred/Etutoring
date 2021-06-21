@@ -62,6 +62,8 @@ class _ProfileState extends State<Profile> {
                     "/myapp": (BuildContext context) => new RouterDispatcher(),
                     "/profile": (BuildContext context) =>
                         new RouterDispatcher(),
+                    "/my-tutor-lesson": (BuildContext context) =>
+                        new RouterDispatcher(),
                     "/course": (BuildContext context) => new RouterDispatcher(),
                     "/tutoring-course": (BuildContext context) =>
                         new RouterDispatcher(),

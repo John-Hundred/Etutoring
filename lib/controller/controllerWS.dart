@@ -7,6 +7,7 @@ import 'package:e_tutoring/model/courseModel.dart';
 import 'package:e_tutoring/model/curriculumModel.dart';
 import 'package:e_tutoring/model/degreeModel.dart';
 import 'package:e_tutoring/model/reviewModel.dart';
+import 'package:e_tutoring/model/tutorLesson.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
@@ -369,6 +370,36 @@ Future<List<PrivatelessonModel>> getPrivateLessonFromWS(
         var lessonItem = PrivatelessonModel.fromJson(item);
         lessonList.add(lessonItem);
       }
+    }
+    return lessonList;
+  } on Exception catch ($e) {
+    print('error caught: ' + $e.toString());
+    return null;
+  }
+}
+
+Future<List<TutorLessonModel>> getTutorLessonFromWS(http.Client client) async {
+  List<TutorLessonModel> lessonList = [];
+  try {
+    var queryParameters = {
+      'email': await UserSecureStorage.getEmail(),
+    };
+
+    var response = await client.get(
+        Uri.https(authority, unencodedPath + "tutor_lesson_list.php",
+            queryParameters),
+        headers: <String, String>{'authorization': basicAuth});
+
+    if (response.statusCode == 200) {
+      // print(response.body);
+      var lessonJsonData = json.decode(response.body);
+      //  print(tutorJsonData);
+      for (var lesson in lessonJsonData) {
+        // print(item['id']);
+        var tutorItem = TutorLessonModel.fromJson(lesson);
+        lessonList.add(tutorItem);
+      }
+      // print(tutorList);
     }
     return lessonList;
   } on Exception catch ($e) {
