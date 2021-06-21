@@ -360,8 +360,8 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                       ? this.courseSelected.course_id
                       : 0,
                   formatDate(currentDate).toString(),
-                  formatTime(_timeFrom.format(context)),
-                  formatTime(_timeTo.format(context)))
+                  _timeFrom.format(context),
+                  _timeTo.format(context))
             },
             child: Text(AppLocalizations.of(context).add_time_slot,
                 style: TextStyle(fontSize: 20)),
