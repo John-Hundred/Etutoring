@@ -66,16 +66,17 @@ class UserPrivateLessonState extends State<UserPrivateLesson> {
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   Text(
-                                    lessonSnapshot
-                                            .data[index].tutor[0]['firstname']
-                                            .toString()
-                                            .toUpperCase() +
-                                        ' ' +
-                                        lessonSnapshot
-                                            .data[index].tutor[0]['lastname']
-                                            .toString()
-                                            .toUpperCase(),
-                                  ),
+                                      lessonSnapshot
+                                              .data[index].tutor[0]['firstname']
+                                              .toString()
+                                              .toUpperCase() +
+                                          ' ' +
+                                          lessonSnapshot
+                                              .data[index].tutor[0]['lastname']
+                                              .toString()
+                                              .toUpperCase(),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
                                   Text(DateFormat('EEEE').format(DateTime.parse(
                                           lessonSnapshot.data[index].day)) +
                                       " | " +

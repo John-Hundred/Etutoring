@@ -185,6 +185,7 @@ class _TutorState extends State<Tutor> {
 
 class ChildItem extends StatelessWidget {
   final dynamic tutor;
+
   ChildItem(this.tutor);
   @override
   Widget build(BuildContext context) {
@@ -241,7 +242,6 @@ class ChildItem extends StatelessWidget {
                   backgroundImage: new AssetImage("assets/img/image.jpg"))),
           // trailing: Icon(Icons.star),
           onTap: () {
-            // print(this.course.toString());
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => TutorDetail(this.tutor)),
