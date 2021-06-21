@@ -229,7 +229,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('Add a new availability',
+          Text(AppLocalizations.of(context).add_time_slot,
               style: TextStyle(
                   color: ArgonColors.black,
                   fontSize: 18,
