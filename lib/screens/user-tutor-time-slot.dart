@@ -144,7 +144,10 @@ class ChildItemState extends State<ChildItem> {
             title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(timeslot.course_name),
+                  Text(timeslot.course_name.toUpperCase(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: ArgonColors.black)),
                   Text(
                       DateFormat('EEEE').format(DateTime.parse(timeslot.day)) +
                           " | " +
