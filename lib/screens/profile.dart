@@ -195,8 +195,10 @@ class _ProfileState extends State<Profile> {
                                                                             'Press button to start');
                                                                       case ConnectionState
                                                                           .waiting:
+                                                                        /*return new Text(
+                                                                            'Awaiting result...');*/
                                                                         return new Text(
-                                                                            'Awaiting result...');
+                                                                            '');
                                                                       default:
                                                                         if (role
                                                                             .hasError)
