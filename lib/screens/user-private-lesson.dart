@@ -52,14 +52,17 @@ class UserPrivateLessonState extends State<UserPrivateLesson> {
                           elevation: 5,
                           child: ListTile(
                             onTap: () {
-                              // print(lessonSnapshot.data[index].tutor[0]['user_id']);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      UserReviewAdd(lessonSnapshot.data[index]),
-                                ),
-                              );
+                              if (DateTime.parse(lessonSnapshot.data[index].day)
+                                  .isBefore(DateTime.now())) {
+                                // print(lessonSnapshot.data[index].tutor[0]['user_id']);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => UserReviewAdd(
+                                        lessonSnapshot.data[index]),
+                                  ),
+                                );
+                              }
                             },
                             leading: Container(
                                 padding: EdgeInsets.only(right: 12.0),
@@ -68,6 +71,11 @@ class UserPrivateLessonState extends State<UserPrivateLesson> {
                                         right: new BorderSide(
                                             width: 1.0, color: Colors.black))),
                                 child: Icon(Icons.calendar_today)),
+                            trailing:
+                                DateTime.parse(lessonSnapshot.data[index].day)
+                                        .isBefore(DateTime.now())
+                                    ? Icon(Icons.rate_review)
+                                    : Icon(Icons.timelapse),
                             title: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
