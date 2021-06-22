@@ -83,8 +83,9 @@ class _CalendarTutorState extends State<CalendarTutor> {
     getTutorLessonFromWS(http.Client()).then((value) => {
           setState(() {
             lessonList = value;
+            // print(lessonList);
             Map<DateTime, List<Event>> eventList = {};
-
+            // print(eventList);
             for (var lesson in lessonList) {
               String time = lesson.day.substring(0, 10);
 
