@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
   String email;
   String password;
 
-  int counter = 0;
+  // int counter = 0;
 
   // For CircularProgressIndicator.
   bool visible = false;
@@ -105,7 +105,7 @@ class _ProfileState extends State<Profile> {
                         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
                         actions: <Widget>[
                           // Using Stack to show Notification Badge
-                          new Stack(children: <Widget>[
+                          /*new Stack(children: <Widget>[
                             new IconButton(
                                 icon: Icon(Icons.notifications),
                                 onPressed: () {
@@ -138,7 +138,7 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   )
                                 : new Container()
-                          ])
+                          ])*/
                         ]),
 
                     // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
