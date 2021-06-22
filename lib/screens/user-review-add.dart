@@ -137,7 +137,8 @@ class UserReviewAddState extends State<UserReviewAdd> {
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(),
-                            hintText: AppLocalizations.of(context).score,
+                            hintText:
+                                AppLocalizations.of(context).write_a_review,
                             prefixIcon: Icon(Icons.edit),
                             /*suffixIcon: GestureDetector(
                               onTap: () {},
@@ -185,5 +186,7 @@ class UserReviewAddState extends State<UserReviewAdd> {
       pressed: true,
       text: AppLocalizations.of(context).save,
       color: ArgonColors.redUnito,
-      onClicked: () async {});
+      onClicked: () {
+        if (formKey.currentState.validate()) {}
+      });
 }
