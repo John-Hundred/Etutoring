@@ -290,12 +290,6 @@ class _ProfileState extends State<Profile> {
                                                                                         ),
                                                                                         DataRow(
                                                                                           cells: <DataCell>[
-                                                                                            DataCell(Text(AppLocalizations.of(context).date_of_birth, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
-                                                                                            DataCell(Text("${user.data.birth_date}", style: TextStyle(fontSize: 15))),
-                                                                                          ],
-                                                                                        ),
-                                                                                        DataRow(
-                                                                                          cells: <DataCell>[
                                                                                             DataCell(Text(AppLocalizations.of(context).birth_place, style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))),
                                                                                             DataCell(Text("${user.data.birth_city}", style: TextStyle(fontSize: 15))),
                                                                                           ],

@@ -21,7 +21,6 @@ class _ProfileStateEdit extends State<ProfileEdit> {
   final controllerFirstname = new TextEditingController();
   final controllerLastname = new TextEditingController();
   final controllerNationality = new TextEditingController();
-  final controllerBirthDate = new TextEditingController();
   final controllerBirthCity = new TextEditingController();
   final controllerResidence = new TextEditingController();
   final controllerPhoneNumber = new TextEditingController();
@@ -52,14 +51,13 @@ class _ProfileStateEdit extends State<ProfileEdit> {
         'firstname': controllerFirstname.text,
         'lastname': controllerLastname.text,
         'description': controllerDescription.text,
-        'birth_date': controllerBirthDate.text,
         'birth_city': controllerBirthCity.text,
         'residence_city': controllerResidence.text,
         'nationality': controllerNationality.text,
         'phone_number': controllerPhoneNumber.text,
       };
 
-      // print(data);
+      print(data);
 
       var response = await http
           .post(
@@ -70,7 +68,7 @@ class _ProfileStateEdit extends State<ProfileEdit> {
           .timeout(const Duration(seconds: 8));
 
       if (response.statusCode == 200) {
-        // print(response.body);
+        print(response.body);
         var message = jsonDecode(response.body);
         setState(() {
           visible = false;
@@ -113,7 +111,6 @@ class _ProfileStateEdit extends State<ProfileEdit> {
     controllerFirstname.dispose();
     controllerLastname.dispose();
     controllerNationality.dispose();
-    controllerBirthDate.dispose();
     controllerBirthCity.dispose();
     controllerResidence.dispose();
     controllerPhoneNumber.dispose();
@@ -148,8 +145,6 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                               this.controllerLastname.text = user.data.lastname;
                               this.controllerNationality.text =
                                   user.data.nationality;
-                              this.controllerBirthDate.text =
-                                  user.data.birth_date;
                               this.controllerBirthCity.text =
                                   user.data.birth_city;
                               this.controllerResidence.text =
@@ -349,46 +344,6 @@ class _ProfileStateEdit extends State<ProfileEdit> {
                                                             width: 2),
                                                       ),
                                                     ),
-                                                  )),
-                                              Container(
-                                                  padding: EdgeInsets.all(10.0),
-                                                  child: TextField(
-                                                    readOnly: true,
-                                                    controller:
-                                                        controllerBirthDate,
-                                                    autocorrect: true,
-                                                    decoration: InputDecoration(
-                                                      // hintText: 'Enter Residence Here...',
-                                                      prefixIcon: Icon(
-                                                          Icons.calendar_today),
-                                                      hintStyle: TextStyle(
-                                                          color: Colors.black),
-                                                      filled: true,
-                                                      fillColor: Colors.white70,
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    12.0)),
-                                                        borderSide: BorderSide(
-                                                            color: Colors.grey,
-                                                            width: 2),
-                                                      ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    10.0)),
-                                                        borderSide: BorderSide(
-                                                            color: Colors.grey,
-                                                            width: 2),
-                                                      ),
-                                                    ),
-                                                    onTap: () {
-                                                      _selectDate(context);
-                                                    },
                                                   )),
                                               Container(
                                                   padding: EdgeInsets.all(10.0),

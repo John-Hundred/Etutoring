@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
+import 'package:e_tutoring/screens/review.dart';
 import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
@@ -24,6 +25,9 @@ class UserReviewAddState extends State<UserReviewAdd> {
 
   final formKey = GlobalKey<FormState>();
 
+  final commentReview = TextEditingController();
+  final starReview = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -31,20 +35,20 @@ class UserReviewAddState extends State<UserReviewAdd> {
   }
 
 // CONTROLLER
-  Future addTimeslot(courseId, day, houFrom, hourTo) async {
+  Future addReview() async {
     try {
       String email = await UserSecureStorage.getEmail();
 
       var data = {
         'email': email,
-        'course_id': courseId,
-        'day': day,
-        'hour_from': houFrom,
-        'hour_to': hourTo
+        'user_tutor_id': this.lessonData.tutor[0]["user_id"],
+        'review_star': this.starReview.text,
+        'review_comment': this.commentReview.text,
       };
+      //print(data);
 
       var response = await http
-          .post(Uri.https(authority, unencodedPath + 'add_tutor_time_slot.php'),
+          .post(Uri.https(authority, unencodedPath + 'add_user_review.php'),
               headers: <String, String>{'authorization': basicAuth},
               body: json.encode(data))
           .timeout(const Duration(seconds: 8));
@@ -96,7 +100,7 @@ class UserReviewAddState extends State<UserReviewAdd> {
       }
     } on Exception {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Error adding courses. Verify Your Connection.'),
+        content: Text('Error adding review. Verify Your Connection.'),
         backgroundColor: Colors.redAccent,
       ));
     }
@@ -129,6 +133,7 @@ class UserReviewAddState extends State<UserReviewAdd> {
                         Text(AppLocalizations.of(context).write_a_review,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 20),
                         TextFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -136,6 +141,7 @@ class UserReviewAddState extends State<UserReviewAdd> {
                             }
                             return null;
                           },
+                          controller: commentReview,
                           keyboardType: TextInputType.multiline,
                           minLines: 1,
                           maxLines: 5,
@@ -168,6 +174,7 @@ class UserReviewAddState extends State<UserReviewAdd> {
                             }
                             return null;
                           },
+                          controller: starReview,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -194,6 +201,8 @@ class UserReviewAddState extends State<UserReviewAdd> {
       text: AppLocalizations.of(context).save,
       color: ArgonColors.redUnito,
       onClicked: () {
-        if (formKey.currentState.validate()) {}
+        if (formKey.currentState.validate()) {
+          addReview();
+        }
       });
 }
