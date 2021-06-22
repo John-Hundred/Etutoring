@@ -22,6 +22,16 @@ class _ChangepasswordState extends State<Changepassword> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    super.dispose();
+    passwordController.dispose();
+    passwordOldController.dispose();
+    confirmPasswordController.dispose();
+  }
+
   String email;
   String password;
 
