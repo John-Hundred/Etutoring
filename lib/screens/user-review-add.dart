@@ -106,7 +106,11 @@ class UserReviewAddState extends State<UserReviewAdd> {
     return new Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).add_review),
+          title: Text(AppLocalizations.of(context).add_review +
+              " " +
+              this.lessonData.tutor[0]['firstname'] +
+              " " +
+              this.lessonData.tutor[0]['lastname']),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: <Widget>[],
         ),
@@ -119,9 +123,16 @@ class UserReviewAddState extends State<UserReviewAdd> {
                   resizeToAvoidBottomInset: false,
                   body: Form(
                       key: formKey,
-                      child: ListView(
-                          padding: EdgeInsets.all(8),
-                          children: [const SizedBox(height: 20)]))))
+                      child: ListView(padding: EdgeInsets.all(8), children: [
+                        const SizedBox(height: 20),
+                        Text('Write a review'),
+                        TextField(
+                          keyboardType: TextInputType.multiline,
+                          minLines: 1, //Normal textInputField will be displayed
+                          maxLines:
+                              5, // when user presses enter it will adapt to it
+                        ),
+                      ]))))
         ]));
   }
 }
