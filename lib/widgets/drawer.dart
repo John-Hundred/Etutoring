@@ -1,3 +1,4 @@
+import 'package:e_tutoring/screens/login.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -5,8 +6,6 @@ import 'package:e_tutoring/constants/Theme.dart';
 
 import 'package:e_tutoring/widgets/drawer-tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../main.dart';
 
 // ignore: must_be_immutable
 class ArgonDrawer extends StatefulWidget {
@@ -338,7 +337,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => MyApp()));
+                                        builder: (context) => Login()));
                               },
                               iconColor: ArgonColors.black,
                               title: AppLocalizations.of(context).logout,
@@ -369,54 +368,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
             ],
           ),
         ),
-        /* Expanded(
-          flex: 1,
-          child: Container(
-              padding: EdgeInsets.only(left: 8, right: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Divider(height: 4, thickness: 0, color: ArgonColors.muted),
-                  DrawerTile(
-                      icon: Icons.logout,
-                      onTap: () async {
-                        setState(() {
-                          visible = true;
-                        });
-                        await Future.delayed(const Duration(seconds: 1), () {});
-
-                        // Delete email from secure storage
-                        UserSecureStorage.delete('email');
-                        // Delete password from secure storage
-                        UserSecureStorage.delete('password');
-
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
-                      },
-                      iconColor: ArgonColors.black,
-                      title: AppLocalizations.of(context).logout,
-                      isSelected:
-                          widget.currentPage == "Logout" ? true : false),
-                  FutureBuilder(
-                      future: wait(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(snapshot.data);
-                        } else if (snapshot.hasError) {
-                          return Text("${snapshot.error}");
-                        }
-                        // By default, show a loading spinner
-                        return Visibility(
-                            visible: visible,
-                            child: Center(
-                                child: CircularProgressIndicator(
-                              backgroundColor: ArgonColors.redUnito,
-                            )));
-                      }),
-                ],
-              )),
-        ),*/
       ]),
     ));
   }
