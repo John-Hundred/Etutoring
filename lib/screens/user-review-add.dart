@@ -130,6 +130,12 @@ class UserReviewAddState extends State<UserReviewAdd> {
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold)),
                         TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a review text.';
+                            }
+                            return null;
+                          },
                           keyboardType: TextInputType.multiline,
                           minLines: 1,
                           maxLines: 5,
@@ -140,13 +146,6 @@ class UserReviewAddState extends State<UserReviewAdd> {
                             hintText:
                                 AppLocalizations.of(context).write_a_review,
                             prefixIcon: Icon(Icons.edit),
-                            /*suffixIcon: GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.edit,
-                                color: Colors.black,
-                              ),
-                            ),*/
                           ),
                         ),
                         const SizedBox(height: 40),
@@ -157,7 +156,15 @@ class UserReviewAddState extends State<UserReviewAdd> {
                         TextFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter a valid score.';
+                              return 'Please enter a score.';
+                            }
+                            final number = num.tryParse(value);
+
+                            if (number == null) {
+                              return 'Please enter a valid score (1-5).';
+                            }
+                            if (number < 1 || number > 5) {
+                              return 'Please enter a valid score (1-5).';
                             }
                             return null;
                           },
