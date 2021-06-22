@@ -1,13 +1,16 @@
 import 'dart:collection';
 
+import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/model/tutorLesson.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
 
-/// Example event class.
+/// Event class.
 class Event {
   final String title;
 
@@ -22,15 +25,15 @@ final kEvents = LinkedHashMap<DateTime, List<Event>>(
   hashCode: getHashCode,
 )..addAll(_kEventSource);
 
-final _kEventSource = Map.fromIterable(List.generate(2, (index) => index),
+var _kEventSource = Map.fromIterable(List.generate(2, (index) => index),
     key: (item) => DateTime.utc(2020, 10, item * 5),
-    value: (item) => List.generate(
-        item % 4 + 1, (index) => Event('Event $item | ${index + 1}')))
+    value: (item) =>
+        List.generate(1, (index) => Event('Event $item | ${index + 1}')))
   ..addAll({
-    DateTime.now(): [
+    /*DateTime.now(): [
       Event('Today\'s Event 1'),
       Event('Today\'s Event 2'),
-    ],
+    ],*/
   });
 
 int getHashCode(DateTime key) {
@@ -68,12 +71,45 @@ class _CalendarState extends State<Calendar> {
   DateTime _rangeStart;
   DateTime _rangeEnd;
 
+  List<TutorLessonModel> lessonList = [];
+
   @override
   void initState() {
     super.initState();
 
     _selectedDays.add(_focusedDay.value);
     _selectedEvents = ValueNotifier(_getEventsForDay(_focusedDay.value));
+
+    getTutorLessonFromWS(http.Client()).then((value) => {
+          setState(() {
+            lessonList = value;
+            Map<DateTime, List<Event>> eventList = {};
+
+            for (var lesson in lessonList) {
+              String time = lesson.day.substring(0, 10);
+
+              Event event = Event(lesson.course_name +
+                  "\n" +
+                  lesson.student[0]['firstname'].toString() +
+                  " " +
+                  lesson.student[0]['lastname'] +
+                  "\n" +
+                  lesson.hour_from +
+                  "-" +
+                  lesson.hour_to);
+              DateTime timeDate = DateTime.parse(time);
+              if (eventList.containsKey(timeDate)) {
+                eventList[timeDate].add(event);
+              } else {
+                eventList[timeDate] = [event];
+              }
+            }
+
+            print(eventList);
+
+            kEvents.addAll(eventList);
+          })
+        });
   }
 
   @override
@@ -183,17 +219,17 @@ class _CalendarState extends State<Calendar> {
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay.value,
-            headerVisible: false,
+            headerVisible: true,
             selectedDayPredicate: (day) => _selectedDays.contains(day),
             rangeStartDay: _rangeStart,
             rangeEndDay: _rangeEnd,
             calendarFormat: _calendarFormat,
             rangeSelectionMode: _rangeSelectionMode,
             eventLoader: _getEventsForDay,
-            holidayPredicate: (day) {
+            /*holidayPredicate: (day) {
               // Every 20th day of the month will be treated as a holiday
               return day.day == 20;
-            },
+            },*/
             onDaySelected: _onDaySelected,
             onRangeSelected: _onRangeSelected,
             onCalendarCreated: (controller) => _pageController = controller,
