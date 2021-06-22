@@ -257,7 +257,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               : Container(),
 
                           // ACL: ROLE = ALL
-                          DrawerTile(
+                          /*DrawerTile(
                               icon: Icons.chat,
                               onTap: () {
                                 if (widget.currentPage != "chat")
@@ -267,7 +267,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               iconColor: ArgonColors.black,
                               title: AppLocalizations.of(context).chat,
                               isSelected:
-                                  widget.currentPage == "chat" ? true : false),
+                                  widget.currentPage == "chat" ? true : false),*/
 
                           role.data == "Tutor"
                               ? DrawerTile(

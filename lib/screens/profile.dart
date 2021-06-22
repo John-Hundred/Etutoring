@@ -25,6 +25,8 @@ class _ProfileState extends State<Profile> {
   String email;
   String password;
 
+  int counter = 0;
+
   // For CircularProgressIndicator.
   bool visible = false;
 
@@ -99,10 +101,45 @@ class _ProfileState extends State<Profile> {
                   home: Scaffold(
                     backgroundColor: Color.fromRGBO(205, 205, 205, 1),
                     appBar: AppBar(
-                      title: Text(AppLocalizations.of(context).profile),
-                      backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-                      actions: <Widget>[],
-                    ),
+                        title: Text(AppLocalizations.of(context).profile),
+                        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+                        actions: <Widget>[
+                          // Using Stack to show Notification Badge
+                          new Stack(children: <Widget>[
+                            new IconButton(
+                                icon: Icon(Icons.notifications),
+                                onPressed: () {
+                                  setState(() {
+                                    counter = 0;
+                                  });
+                                }),
+                            counter != 0
+                                ? new Positioned(
+                                    right: 11,
+                                    top: 11,
+                                    child: new Container(
+                                      padding: EdgeInsets.all(2),
+                                      decoration: new BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      constraints: BoxConstraints(
+                                        minWidth: 14,
+                                        minHeight: 14,
+                                      ),
+                                      child: Text(
+                                        '$counter',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 8,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  )
+                                : new Container()
+                          ])
+                        ]),
 
                     // Nav Bar (title: 'Profilo', bgColor: Color.fromRGBO(213, 21, 36, 1)),
                     drawer: ArgonDrawer("profile"),

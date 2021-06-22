@@ -1,5 +1,4 @@
 import 'package:e_tutoring/constants/Theme.dart';
-import 'package:e_tutoring/screens/chatDetail.dart';
 import 'package:e_tutoring/screens/review.dart';
 import 'package:e_tutoring/screens/user-tutor-time-slot.dart';
 import 'package:flutter/material.dart';
@@ -55,14 +54,14 @@ class _TutorDetailState extends State<TutorDetail> {
                       builder: (context) => UserTutorTimeslot(tutorData)),
                 );
               }),
-          IconButton(
+          /*IconButton(
               icon: Icon(Icons.chat),
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ChatDetail()),
                 );
-              }),
+              }),*/
           IconButton(
               icon: Icon(Icons.rate_review),
               onPressed: () {
