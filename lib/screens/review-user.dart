@@ -111,11 +111,11 @@ class MyReviewUserState extends State<MyReviewUser> {
                   ),
                 );
               })),
-      floatingActionButton: new FloatingActionButton(
+      /*floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,
         child: new Icon(Icons.add),
         onPressed: () => {},
-      ),
+      ),*/
     );
   }
 }
