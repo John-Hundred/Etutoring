@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 // ignore: must_be_immutable
 class UserReviewAdd extends StatefulWidget {
   var lessonData;
+
   UserReviewAdd(this.lessonData);
   @override
   UserReviewAddState createState() => new UserReviewAddState(lessonData);
@@ -20,9 +21,12 @@ class UserReviewAddState extends State<UserReviewAdd> {
   var lessonData;
   UserReviewAddState(this.lessonData);
 
+  final formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
+    // print(this.lessonData);
   }
 
 // CONTROLLER
@@ -105,6 +109,19 @@ class UserReviewAddState extends State<UserReviewAdd> {
           title: Text(AppLocalizations.of(context).add_review),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
           actions: <Widget>[],
-        ));
+        ),
+        body: Stack(children: [
+          Container(
+              decoration:
+                  BoxDecoration(color: Color.fromRGBO(205, 205, 205, 1))),
+          SafeArea(
+              child: Scaffold(
+                  resizeToAvoidBottomInset: false,
+                  body: Form(
+                      key: formKey,
+                      child: ListView(
+                          padding: EdgeInsets.all(8),
+                          children: [const SizedBox(height: 20)]))))
+        ]));
   }
 }
