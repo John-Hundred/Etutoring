@@ -6,7 +6,7 @@ import 'package:e_tutoring/screens/my-tutor-lesson.dart';
 import 'package:e_tutoring/screens/my-tutor-reviews.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot.dart';
 import 'package:e_tutoring/screens/profile.dart';
-import 'package:e_tutoring/screens/calendar.dart';
+import 'package:e_tutoring/screens/calendar-tutor.dart';
 import 'package:e_tutoring/screens/course.dart';
 import 'package:e_tutoring/screens/review-user.dart';
 import 'package:e_tutoring/screens/settings.dart';
@@ -47,8 +47,8 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/tutoring-course':
           _body = TutoringCourse();
           break;
-        case '/calendar':
-          _body = Calendar();
+        case '/calendar-tutor':
+          _body = CalendarTutor();
           break;
         case '/settings':
           _body = Settings();
@@ -97,7 +97,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/profile": (BuildContext context) => this.widget,
             "/course": (BuildContext context) => this.widget,
             "/tutoring-course": (BuildContext context) => this.widget,
-            "/calendar": (BuildContext context) => this.widget,
+            "/calendar-tutor": (BuildContext context) => this.widget,
             "/settings": (BuildContext context) => this.widget,
             "/tutor": (BuildContext context) => this.widget,
             "/favorite-tutor": (BuildContext context) => this.widget,

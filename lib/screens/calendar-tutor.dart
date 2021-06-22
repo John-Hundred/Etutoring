@@ -53,12 +53,12 @@ final kNow = DateTime.now();
 final kFirstDay = DateTime(kNow.year, kNow.month - 3, kNow.day);
 final kLastDay = DateTime(kNow.year, kNow.month + 3, kNow.day);
 
-class Calendar extends StatefulWidget {
+class CalendarTutor extends StatefulWidget {
   @override
-  _CalendarState createState() => _CalendarState();
+  _CalendarTutorState createState() => _CalendarTutorState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _CalendarTutorState extends State<CalendarTutor> {
   PageController _pageController;
   ValueNotifier<List<Event>> _selectedEvents;
   final ValueNotifier<DateTime> _focusedDay = ValueNotifier(DateTime.now());
@@ -180,7 +180,7 @@ class _CalendarState extends State<Calendar> {
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         // actions: [LanguagePickerWidget()]
       ),
-      drawer: ArgonDrawer("calendar"),
+      drawer: ArgonDrawer("calendar-tutor"),
       body: Column(
         children: [
           ValueListenableBuilder<DateTime>(

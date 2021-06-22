@@ -268,19 +268,21 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                               title: AppLocalizations.of(context).chat,
                               isSelected:
                                   widget.currentPage == "chat" ? true : false),
-                          // ACL: ROLE = ALL
-                          DrawerTile(
-                              icon: Icons.calendar_today,
-                              onTap: () {
-                                if (widget.currentPage != "calendar")
-                                  Navigator.pushReplacementNamed(
-                                      context, '/calendar');
-                              },
-                              iconColor: ArgonColors.black,
-                              title: AppLocalizations.of(context).calendar,
-                              isSelected: widget.currentPage == "calendar"
-                                  ? true
-                                  : false),
+
+                          role.data == "Tutor"
+                              ? DrawerTile(
+                                  icon: Icons.calendar_today,
+                                  onTap: () {
+                                    if (widget.currentPage != "calendar-tutor")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/calendar-tutor');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title: AppLocalizations.of(context).calendar,
+                                  isSelected: widget.currentPage == "calendar"
+                                      ? true
+                                      : false)
+                              : Container(),
                           Divider(
                             thickness: 3,
                             color: ArgonColors.redUnito,
