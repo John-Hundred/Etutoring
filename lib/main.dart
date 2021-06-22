@@ -49,6 +49,7 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     UserSecureStorage.getEmail().then((value) => (setState(() {
+          // print(value);
           if (value != null)
             _body = Profile();
           else {
