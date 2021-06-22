@@ -287,5 +287,9 @@
   "write_a_review" : "Write a review",
   "@write_a_review": {
     "description": "Write a review"
+  },
+  "score" : "Score (1-5)",
+  "@score": {
+    "description": "Score (1-5)"
   }
 }

@@ -129,13 +129,53 @@ class UserReviewAddState extends State<UserReviewAdd> {
                         Text(AppLocalizations.of(context).write_a_review,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold)),
-                        TextField(
+                        TextFormField(
                           keyboardType: TextInputType.multiline,
-                          minLines: 1, //Normal textInputField will be displayed
-                          maxLines:
-                              5, // when user presses enter it will adapt to it
+                          minLines: 1,
+                          maxLines: 5,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                            hintText: AppLocalizations.of(context).score,
+                            prefixIcon: Icon(Icons.edit),
+                            /*suffixIcon: GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.black,
+                              ),
+                            ),*/
+                          ),
                         ),
+                        const SizedBox(height: 40),
+                        Text(AppLocalizations.of(context).score,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 20),
+                        TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a valid score.';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                            hintText: AppLocalizations.of(context).score,
+                            prefixIcon: Icon(Icons.score),
+                            /*suffixIcon: GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.score,
+                                color: Colors.black,
+                              ),
+                            ),*/
+                          ),
+                        ),
+                        const SizedBox(height: 50),
                         buildSaveButton()
                       ]))))
         ]));
