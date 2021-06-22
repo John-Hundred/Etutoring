@@ -1,5 +1,6 @@
 import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
+import 'package:e_tutoring/screens/calendar-student.dart';
 import 'package:e_tutoring/screens/chat.dart';
 import 'package:e_tutoring/screens/my-tutor-course.dart';
 import 'package:e_tutoring/screens/my-tutor-lesson.dart';
@@ -50,6 +51,9 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
         case '/calendar-tutor':
           _body = CalendarTutor();
           break;
+        case '/calendar-student':
+          _body = CalendarStudent();
+          break;
         case '/settings':
           _body = Settings();
           break;
@@ -98,6 +102,7 @@ class _RouterDispatcherState extends State<RouterDispatcher> {
             "/course": (BuildContext context) => this.widget,
             "/tutoring-course": (BuildContext context) => this.widget,
             "/calendar-tutor": (BuildContext context) => this.widget,
+            "/calendar-student": (BuildContext context) => this.widget,
             "/settings": (BuildContext context) => this.widget,
             "/tutor": (BuildContext context) => this.widget,
             "/favorite-tutor": (BuildContext context) => this.widget,

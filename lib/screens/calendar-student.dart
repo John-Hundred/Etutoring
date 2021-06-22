@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/model/tutorLesson.dart';
+import 'package:e_tutoring/model/privatelessonModel.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -53,12 +53,12 @@ final kNow = DateTime.now();
 final kFirstDay = DateTime(kNow.year, kNow.month - 3, kNow.day);
 final kLastDay = DateTime(kNow.year, kNow.month + 3, kNow.day);
 
-class CalendarTutor extends StatefulWidget {
+class CalendarStudent extends StatefulWidget {
   @override
-  _CalendarTutorState createState() => _CalendarTutorState();
+  _CalendarStudentState createState() => _CalendarStudentState();
 }
 
-class _CalendarTutorState extends State<CalendarTutor> {
+class _CalendarStudentState extends State<CalendarStudent> {
   PageController _pageController;
   ValueNotifier<List<Event>> _selectedEvents;
   final ValueNotifier<DateTime> _focusedDay = ValueNotifier(DateTime.now());
@@ -71,7 +71,7 @@ class _CalendarTutorState extends State<CalendarTutor> {
   DateTime _rangeStart;
   DateTime _rangeEnd;
 
-  List<TutorLessonModel> lessonList = [];
+  List<PrivatelessonModel> lessonList = [];
 
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _CalendarTutorState extends State<CalendarTutor> {
     _selectedDays.add(_focusedDay.value);
     _selectedEvents = ValueNotifier(_getEventsForDay(_focusedDay.value));
 
-    getTutorLessonFromWS(http.Client()).then((value) => {
+    getPrivateLessonFromWS(http.Client()).then((value) => {
           setState(() {
             lessonList = value;
             Map<DateTime, List<Event>> eventList = {};
@@ -90,9 +90,9 @@ class _CalendarTutorState extends State<CalendarTutor> {
 
               Event event = Event(lesson.course_name +
                   "\n" +
-                  lesson.student[0]['firstname'].toString() +
+                  lesson.tutor[0]['firstname'].toString() +
                   " " +
-                  lesson.student[0]['lastname'] +
+                  lesson.tutor[0]['lastname'] +
                   "\n" +
                   lesson.hour_from +
                   "-" +
@@ -180,7 +180,7 @@ class _CalendarTutorState extends State<CalendarTutor> {
         backgroundColor: Color.fromRGBO(213, 21, 36, 1),
         // actions: [LanguagePickerWidget()]
       ),
-      drawer: ArgonDrawer("calendar-tutor"),
+      drawer: ArgonDrawer("calendar-student"),
       body: Column(
         children: [
           ValueListenableBuilder<DateTime>(

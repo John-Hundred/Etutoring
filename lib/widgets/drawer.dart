@@ -283,6 +283,21 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                       ? true
                                       : false)
                               : Container(),
+                          role.data == "Student"
+                              ? DrawerTile(
+                                  icon: Icons.calendar_today,
+                                  onTap: () {
+                                    if (widget.currentPage !=
+                                        "calendar-student")
+                                      Navigator.pushReplacementNamed(
+                                          context, '/calendar-student');
+                                  },
+                                  iconColor: ArgonColors.black,
+                                  title: AppLocalizations.of(context).calendar,
+                                  isSelected: widget.currentPage == "calendar"
+                                      ? true
+                                      : false)
+                              : Container(),
                           Divider(
                             thickness: 3,
                             color: ArgonColors.redUnito,
