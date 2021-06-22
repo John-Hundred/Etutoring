@@ -279,9 +279,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                   },
                                   iconColor: ArgonColors.black,
                                   title: AppLocalizations.of(context).calendar,
-                                  isSelected: widget.currentPage == "calendar"
-                                      ? true
-                                      : false)
+                                  isSelected:
+                                      widget.currentPage == "calendar-tutor"
+                                          ? true
+                                          : false)
                               : Container(),
                           role.data == "Student"
                               ? DrawerTile(
@@ -294,9 +295,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                                   },
                                   iconColor: ArgonColors.black,
                                   title: AppLocalizations.of(context).calendar,
-                                  isSelected: widget.currentPage == "calendar"
-                                      ? true
-                                      : false)
+                                  isSelected:
+                                      widget.currentPage == "calendar-student"
+                                          ? true
+                                          : false)
                               : Container(),
                           Divider(
                             thickness: 3,
