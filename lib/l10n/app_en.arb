@@ -279,5 +279,9 @@
   "private_lesson" : "Tutoring lessons",
   "@private_lesson": {
     "description": "Tutoring lessons"
+  },
+  "add_review" : "Add review",
+  "@add_review": {
+    "description": "Add review"
   }
 }

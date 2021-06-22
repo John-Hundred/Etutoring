@@ -1,6 +1,7 @@
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/privatelessonModel.dart';
+import 'package:e_tutoring/screens/user-review-add.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -50,6 +51,16 @@ class UserPrivateLessonState extends State<UserPrivateLesson> {
                       return Card(
                           elevation: 5,
                           child: ListTile(
+                            onTap: () {
+                              // print(lessonSnapshot.data[index].tutor[0]['user_id']);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      UserReviewAdd(lessonSnapshot.data[index]),
+                                ),
+                              );
+                            },
                             leading: Container(
                                 padding: EdgeInsets.only(right: 12.0),
                                 decoration: new BoxDecoration(
@@ -125,11 +136,11 @@ class UserPrivateLessonState extends State<UserPrivateLesson> {
                   ),
                 );
               })),
-      floatingActionButton: new FloatingActionButton(
+      /*floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,
         child: new Icon(Icons.add),
         onPressed: () => {},
-      ),
+      ),*/
     );
   }
 }
