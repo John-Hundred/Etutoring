@@ -68,5 +68,6 @@
     "add_time_slot" : "Aggiungi disponibilità",
     "result_tutor_not_found_time_slot" : "Il tutor non è disponibile",
     "private_lesson" : "Le mie lezioni private",
-    "add_review" : "Aggiungi recensione"
+    "add_review" : "Aggiungi recensione",
+    "write_a_review" : "Scrivi una recensione"
 }

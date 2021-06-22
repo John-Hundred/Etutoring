@@ -283,5 +283,9 @@
   "add_review" : "Add review",
   "@add_review": {
     "description": "Add review"
+  },
+  "write_a_review" : "Write a review",
+  "@write_a_review": {
+    "description": "Write a review"
   }
 }

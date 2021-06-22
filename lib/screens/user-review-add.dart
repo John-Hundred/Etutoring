@@ -125,7 +125,8 @@ class UserReviewAddState extends State<UserReviewAdd> {
                       key: formKey,
                       child: ListView(padding: EdgeInsets.all(8), children: [
                         const SizedBox(height: 20),
-                        Text('Write a review'),
+                        Text(AppLocalizations.of(context).write_a_review,
+                            style: TextStyle(fontSize: 16)),
                         TextField(
                           keyboardType: TextInputType.multiline,
                           minLines: 1, //Normal textInputField will be displayed
