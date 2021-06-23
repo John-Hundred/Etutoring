@@ -3,16 +3,20 @@ import 'dart:convert';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/model/tutorTimeslotModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
+import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/screens/routeGenerator.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class MyTutorTimeslot extends StatefulWidget {
   @override
@@ -71,10 +75,9 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RouterDispatcher()),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyTutorTimeslot()));
                     },
                   ),
                 ],
@@ -132,38 +135,51 @@ class MyTutorTimeslotState extends State<MyTutorTimeslot> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context).my_timeslot),
-        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () {
-                deleteTimeslots(timeslotListSelected);
-              }),
+    final provider = Provider.of<LocaleProvider>(context);
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        locale: provider.locale,
+        supportedLocales: L10n.all,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
         ],
-      ),
-      drawer: ArgonDrawer("my-tutor-timeslot"),
-      body: Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          // height: 220,
-          width: double.maxFinite,
-          color: Colors.white,
-          child: ListView(
-            padding: new EdgeInsets.symmetric(vertical: 8.0),
-            children: _buildList(),
-          )),
-      floatingActionButton: new FloatingActionButton(
-        backgroundColor: ArgonColors.redUnito,
-        child: new Icon(Icons.add),
-        onPressed: () => {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MyTutorTimeslotAdd()))
-        },
-      ),
-    );
+        onGenerateRoute: RouteGenerator.generateRoute,
+        home: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            title: Text(
+                'My availability'), // Text(AppLocalizations.of(context).my_timeslot),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+            actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () {
+                    deleteTimeslots(timeslotListSelected);
+                  }),
+            ],
+          ),
+          drawer: ArgonDrawer("my-tutor-timeslot"),
+          body: Container(
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              // height: 220,
+              width: double.maxFinite,
+              color: Colors.white,
+              child: ListView(
+                padding: new EdgeInsets.symmetric(vertical: 8.0),
+                children: _buildList(),
+              )),
+          floatingActionButton: new FloatingActionButton(
+            backgroundColor: ArgonColors.redUnito,
+            child: new Icon(Icons.add),
+            onPressed: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MyTutorTimeslotAdd()))
+            },
+          ),
+        ));
   }
 }
 

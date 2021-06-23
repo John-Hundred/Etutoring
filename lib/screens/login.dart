@@ -1,7 +1,6 @@
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
 import 'package:e_tutoring/screens/signup.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
 import 'package:e_tutoring/widgets/title_widget.dart';
@@ -96,8 +95,7 @@ class _LoginState extends State<Login> {
               visible = false;
             });
 
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RouterDispatcher()));
+            Navigator.pushNamed(context, "/profile");
           } else {
             // UserSecureStorage.delete('email');
             //  UserSecureStorage.delete('password');

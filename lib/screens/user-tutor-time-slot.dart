@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/model/tutorTimeslotModel.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/screens/user-private-lesson.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -85,8 +85,8 @@ class UserTutorTimeslotState extends State<UserTutorTimeslot> {
                       //Navigator.of(context).pop();
                       Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => RouterDispatcher()));
+                          new MaterialPageRoute(
+                              builder: (context) => new UserPrivateLesson()));
                     },
                   ),
                 ],

@@ -4,7 +4,7 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/tutorCourseModel.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/screens/my-tutor-timeslot.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -70,8 +70,8 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => RouterDispatcher()));
+                        new MaterialPageRoute(
+                            builder: (context) => new MyTutorTimeslot()));
                   },
                 ),
               ],
@@ -263,7 +263,7 @@ class MyTutorTimeslotAddState extends State<MyTutorTimeslotAdd> {
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   title: Text(
-                                      AppLocalizations.of(context).my_courses),
+                                      "My courses"), // Text(AppLocalizations.of(context).my_courses),
                                   content: Container(
                                     height:
                                         300.0, // Change as per your requirement

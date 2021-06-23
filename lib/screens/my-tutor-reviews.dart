@@ -108,11 +108,11 @@ class MyTutorReviewsState extends State<MyTutorReviews> {
                   ),
                 );
               })),
-      floatingActionButton: new FloatingActionButton(
+      /*floatingActionButton: new FloatingActionButton(
         backgroundColor: ArgonColors.redUnito,
         child: new Icon(Icons.add),
         onPressed: () => {},
-      ),
+      ),*/
     );
   }
 }

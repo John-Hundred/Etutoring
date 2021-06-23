@@ -3,13 +3,18 @@ import 'dart:convert';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
+import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/model/tutorCourseModel.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/provider/locale_provider.dart';
+import 'package:e_tutoring/screens/routeGenerator.dart';
+import 'package:e_tutoring/screens/tutorCourse.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class MyTutorCourse extends StatefulWidget {
   @override
@@ -77,10 +82,9 @@ class MyTutorCourseState extends State<MyTutorCourse> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RouterDispatcher()),
-                      );
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MyTutorCourse()));
                     },
                   ),
                 ],
@@ -125,35 +129,55 @@ class MyTutorCourseState extends State<MyTutorCourse> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context).my_courses),
-        backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () {
-                // print(courseListSelected);
-                deleteCourses(courseListSelected);
-              }),
+    final provider = Provider.of<LocaleProvider>(context);
+    // print(provider.locale);
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        locale: provider.locale,
+        supportedLocales: L10n.all,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
         ],
-      ),
-      drawer: ArgonDrawer("my-tutor-course"),
-      body: Container(
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          width: double.maxFinite,
-          color: Colors.white,
-          child: ListView(
-            padding: new EdgeInsets.symmetric(vertical: 8.0),
-            children: _buildList(),
-          )),
-      floatingActionButton: new FloatingActionButton(
-        backgroundColor: ArgonColors.redUnito,
-        child: new Icon(Icons.add),
-        onPressed: () => {Navigator.pushNamed(context, "/tutor-course")},
-      ),
-    );
+        onGenerateRoute: RouteGenerator.generateRoute,
+        home: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            title: Text("My course"),
+            // title: Text(AppLocalizations.of(context).my_courses),
+            backgroundColor: Color.fromRGBO(213, 21, 36, 1),
+            actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () {
+                    // print(courseListSelected);
+                    deleteCourses(courseListSelected);
+                  }),
+            ],
+          ),
+          drawer: ArgonDrawer("my-tutor-course"),
+          body: Container(
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              width: double.maxFinite,
+              color: Colors.white,
+              child: ListView(
+                padding: new EdgeInsets.symmetric(vertical: 8.0),
+                children: _buildList(),
+              )),
+          floatingActionButton: new FloatingActionButton(
+            backgroundColor: ArgonColors.redUnito,
+            child: new Icon(Icons.add),
+            onPressed: () => {
+              // print('ciao')
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new TutorCourse()))
+            },
+          ),
+        ));
   }
 }
 

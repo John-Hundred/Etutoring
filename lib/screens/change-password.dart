@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/button_widget.dart';
-import 'package:e_tutoring/widgets/language_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -148,7 +147,7 @@ class _ChangepasswordState extends State<Changepassword> {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).change_password),
           backgroundColor: Color.fromRGBO(213, 21, 36, 1),
-          actions: [LanguagePickerWidget()],
+          // actions: [LanguagePickerWidget()],
         ),
         extendBodyBehindAppBar: true,
         body: Stack(

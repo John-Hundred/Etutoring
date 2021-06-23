@@ -70,5 +70,6 @@
     "private_lesson" : "Le mie lezioni private",
     "add_review" : "Aggiungi recensione",
     "write_a_review" : "Scrivi una recensione",
-    "score" : "Punteggio (1-5)"
+    "score" : "Punteggio (1-5)",
+    "phone_number" : "Numero di telefono"
 }

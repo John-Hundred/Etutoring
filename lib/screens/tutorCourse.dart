@@ -4,7 +4,7 @@ import 'package:e_tutoring/config/config.dart';
 import 'package:e_tutoring/constants/Theme.dart';
 import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/model/courseModel.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/screens/my-tutor-course.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -101,8 +101,8 @@ class TutorCourseState extends State<TutorCourse> {
                       //Navigator.of(context).pop();
                       Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => RouterDispatcher()));
+                          new MaterialPageRoute(
+                              builder: (context) => new MyTutorCourse()));
                     },
                   ),
                 ],

@@ -5,7 +5,7 @@ import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/change-password.dart';
 import 'package:e_tutoring/screens/profile-edit.dart';
-import 'package:e_tutoring/screens/router-dispatcher.dart';
+import 'package:e_tutoring/screens/routeGenerator.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,6 @@ class _ProfileState extends State<Profile> {
 
   Widget build(BuildContext context) {
     //this.init();
-
     return new WillPopScope(
         onWillPop: () async {
           MoveToBackground.moveTaskToBack();
@@ -60,36 +59,6 @@ class _ProfileState extends State<Profile> {
 
               return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  routes: <String, WidgetBuilder>{
-                    "/myapp": (BuildContext context) => new RouterDispatcher(),
-                    "/profile": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/my-tutor-lesson": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/course": (BuildContext context) => new RouterDispatcher(),
-                    "/tutoring-course": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/calendar-tutor": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/calendar-student": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/settings": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/tutor": (BuildContext context) => new RouterDispatcher(),
-                    "/chat": (BuildContext context) => new RouterDispatcher(),
-                    "/tutor-course": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/my-tutor-course": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/my-tutor-timeslot": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/my-tutor-reviews": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/my-review-user": (BuildContext context) =>
-                        new RouterDispatcher(),
-                    "/private-lesson": (BuildContext context) =>
-                        new RouterDispatcher(),
-                  },
                   locale: provider.locale,
                   supportedLocales: L10n.all,
                   localizationsDelegates: [
@@ -98,6 +67,7 @@ class _ProfileState extends State<Profile> {
                     GlobalCupertinoLocalizations.delegate,
                     GlobalWidgetsLocalizations.delegate,
                   ],
+                  onGenerateRoute: RouteGenerator.generateRoute,
                   home: Scaffold(
                     backgroundColor: Color.fromRGBO(205, 205, 205, 1),
                     appBar: AppBar(
@@ -273,7 +243,7 @@ class _ProfileState extends State<Profile> {
                                                                                         DataRow(
                                                                                           cells: <DataCell>[
                                                                                             DataCell(Text(
-                                                                                              'Numero di telefono',
+                                                                                              AppLocalizations.of(context).phone_number,
                                                                                               style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                                                                                             )),
                                                                                             DataCell(Text("${user.data.phone_number}")),

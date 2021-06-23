@@ -291,5 +291,9 @@
   "score" : "Score (1-5)",
   "@score": {
     "description": "Score (1-5)"
+  },
+  "phone_number" : "Phone number",
+  "@phone_number": {
+    "description": "Phone number"
   }
 }

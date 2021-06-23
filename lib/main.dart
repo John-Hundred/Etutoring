@@ -1,6 +1,7 @@
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/login.dart';
 import 'package:e_tutoring/screens/profile.dart';
+import 'package:e_tutoring/screens/routeGenerator.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,19 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => LocaleProvider(),
         builder: (context, child) {
-          final provider = Provider.of<LocaleProvider>(context);
-
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: title,
-            locale: provider.locale,
-            supportedLocales: L10n.all,
-            localizationsDelegates: [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
             home: MainPage(),
           );
         },
@@ -59,7 +50,20 @@ class _MainPageState extends State<MainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: _body,
-      );
+  Widget build(BuildContext context) {
+    final provider = Provider.of<LocaleProvider>(context);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: provider.locale,
+      supportedLocales: L10n.all,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      home: _body,
+      onGenerateRoute: RouteGenerator.generateRoute,
+    );
+  }
 }
