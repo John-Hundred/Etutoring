@@ -3,7 +3,7 @@ import 'package:e_tutoring/controller/controllerWS.dart';
 import 'package:e_tutoring/l10n/l10n.dart';
 import 'package:e_tutoring/model/privatelessonModel.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
-import 'package:e_tutoring/screens/routeGenerator.dart';
+import 'package:e_tutoring/utils/routeGenerator.dart';
 import 'package:e_tutoring/screens/user-review-add.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';

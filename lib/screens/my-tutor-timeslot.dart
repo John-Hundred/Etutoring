@@ -8,7 +8,7 @@ import 'package:e_tutoring/model/tutorTimeslotModel.dart';
 import 'package:e_tutoring/model/tutorModel.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/my-tutor-timeslot-add.dart';
-import 'package:e_tutoring/screens/routeGenerator.dart';
+import 'package:e_tutoring/utils/routeGenerator.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';

@@ -5,7 +5,7 @@ import 'package:e_tutoring/model/userModel.dart';
 import 'package:e_tutoring/provider/locale_provider.dart';
 import 'package:e_tutoring/screens/change-password.dart';
 import 'package:e_tutoring/screens/profile-edit.dart';
-import 'package:e_tutoring/screens/routeGenerator.dart';
+import 'package:e_tutoring/utils/routeGenerator.dart';
 import 'package:e_tutoring/utils/user_secure_storage.dart';
 import 'package:e_tutoring/widgets/drawer.dart';
 import 'package:flutter/material.dart';
